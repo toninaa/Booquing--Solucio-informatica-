@@ -18,8 +18,7 @@ void setup() {
   setColors();
   setFonts();
   setMedias();
-  initTextField();
-  initButtons(); 
+  setGUI(); 
   
 }
 

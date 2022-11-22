@@ -1,5 +1,10 @@
-
 // funcion para inicializar todos los componentes GUI
+void setGUI(){
+  initButtons();
+  initTextField(); 
+  
+}
+
 void initTextField() {
   Titulo = new TextField(410, 340, CampoX, CampoY);
   Autor = new TextField(430, 390, CampoX, CampoY);

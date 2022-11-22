@@ -25,7 +25,6 @@ void dibujaBiblioteca () {
   enableButtonsBiblioteca();
   dibujaMenu();
   dibujaEstante1 ();
-  imageMode(CENTER);
   dibujaEstante2 ();
   dibujaEstante3 ();
   dibujaEstante4 ();
@@ -75,6 +74,8 @@ void dibujaNuevoLibro () {
 
 void dibujaAñadirLibro () {
   pushStyle();
+  disableButtons();
+  enableButtonsMenu();
   dibujaMenu();
   esquinaIzquierda();
   text("Nuevo libro", 200, 250);
@@ -83,12 +84,14 @@ void dibujaAñadirLibro () {
   stroke(231, 227, 147);
   strokeWeight(2);
   rect (100, 300, 800, 400);
-  rect(950, 450, 400, 250);
+  rect(950, 450, 400, 250); 
   popStyle();
 }
 
 void dibujarEmpezarLeer () {
   pushStyle();
+  disableButtons();
+  enableButtonsMenu();
   dibujaMenu();
   esquinaIzquierda();
   popStyle();
