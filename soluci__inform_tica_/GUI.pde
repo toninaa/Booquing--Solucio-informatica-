@@ -3,6 +3,7 @@ void setGUI(){
   initButtons();
   initTextField(); 
   
+  
 }
 
 void initTextField() {
@@ -142,4 +143,10 @@ void displayButtonsPerfil (){
   Ver1.display3();
   Iniciar2.display3();
   Ver2.display3();
+}
+
+void displayTextField (){
+  Titulo.display(); 
+  Autor.display(); 
+  Editorial.display(); 
 }

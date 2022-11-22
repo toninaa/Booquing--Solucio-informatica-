@@ -1,5 +1,3 @@
-
-
 class DayButton {
   
   // Dimensions del botó

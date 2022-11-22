@@ -1,5 +1,3 @@
-
-
 // funciones de dibujo de las pantallas
 
 void dibujaPantallaInicio() {
@@ -69,6 +67,9 @@ void dibujaNuevoLibro () {
   rect(950, 450, 400, 250);
   popStyle();
   PagNuevoLibro();
+  textFont(getFontAt(2));
+  displayButtonsMenu(); 
+  displayTextField(); 
 }
 
 
@@ -84,8 +85,9 @@ void dibujaAñadirLibro () {
   stroke(231, 227, 147);
   strokeWeight(2);
   rect (100, 300, 800, 400);
-  rect(950, 450, 400, 250); 
+  rect(950, 450, 400, 250);
   popStyle();
+ 
 }
 
 void dibujarEmpezarLeer () {

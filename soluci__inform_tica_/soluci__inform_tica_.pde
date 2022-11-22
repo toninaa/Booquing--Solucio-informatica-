@@ -24,6 +24,8 @@ void setup() {
 
 
 void draw() {
+  
+  
 
 
   background(255);
@@ -72,6 +74,10 @@ void draw() {
     break;
     
   }
+  
+  //String infoPantalla= pantalla.ordinal()+")"+pantalla.name();
+  //fill(0); 
+  //text(infoPantalla, width/2, height/2); 
   
   
 }
