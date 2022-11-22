@@ -40,9 +40,6 @@ float menuHeight = 100;
 float estanteWidth  = 700, 
       estanteHeight = 170;
 
-// Dimensiones MESA
-float mesaWidth  = 600, 
-      mesaHeight = 450;
       
 // Dimensiones portadas de los libros 
 float libroWidth = 80; 
@@ -50,4 +47,4 @@ float libroHeight = 110;
 
 // campos de texto 
 int CampoX = 300; 
-int CampoY = 50; 
+int CampoY = 30; 

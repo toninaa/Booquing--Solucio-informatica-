@@ -3,6 +3,7 @@
 // funciones de dibujo de las pantallas
 
 
+
 void dibujaPantallaInicio() {
 
   pushStyle();
@@ -15,8 +16,6 @@ void dibujaPantallaInicio() {
   popStyle();
   pushStyle();
   textFont(getFontAt(2));
-  Biblio = new Button ("Biblioteca", width/3+225, height/2+100, bInX, bInY);
-  Perfil = new Button ("Perfil", width/3, height/2+100, bInX, bInY);
   Biblio.display1();
   Perfil.display1();
   popStyle();
@@ -57,15 +56,11 @@ void dibujaPerfil () {
   fill(133, 77, 39);
   textFont(getFontAt(2));
   text("Establecer Top's", width-500, 400);
-  Iniciar1 = new Button ("Iniciar", width-600, 450, LeidoX, LeidoY);
-  Ver1 = new Button ("Ver", width-350, 450, LeidoX, LeidoY);
   Iniciar1.display3();
   Ver1.display3();
   fill(133, 77, 39);
   textFont(getFontAt(2));
   text("Establecer retos", width-500, 650);
-  Iniciar2 = new Button ("Iniciar", width-600, 700, LeidoX, LeidoY);
-  Ver2 = new Button ("Ver", width-350, 700, LeidoX, LeidoY);
   Iniciar2.display3();
   Ver2.display3();
 }
@@ -78,12 +73,15 @@ void dibujaNuevoLibro () {
   textFont(getFontAt(2));
   dibujaMenu();
   text("Nuevo libro", 200, 250);
+  text("Valoración", 1060, 400);
   fill(255);
   stroke(231, 227, 147);
   strokeWeight(2);
   rect (100, 300, 800, 400);
+  rect(950, 450, 400, 250);
   popStyle();
   PagNuevoLibro();
+  
 }
 
 
@@ -91,6 +89,13 @@ void dibujaAñadirLibro () {
   pushStyle();
   dibujaMenu();
   esquinaIzquierda();
+  text("Nuevo libro", 200, 250);
+  text("Valoración", 1060, 400);
+  fill(255);
+  stroke(231, 227, 147);
+  strokeWeight(2);
+  rect (100, 300, 800, 400);
+  rect(950, 450, 400, 250);
   popStyle();
 }
 
@@ -101,24 +106,55 @@ void dibujarEmpezarLeer () {
   popStyle();
 }
 
-void establecerTops (){
+void establecerTops () {
   pushStyle();
   dibujaMenu();
   esquinaIzquierda();
   popStyle();
-  
 }
 
-void establecerRetos (){
+void establecerRetos () {
   pushStyle();
   dibujaMenu();
   esquinaIzquierda();
   popStyle();
-  
 }
 
-void dibujarRetos (){
+void dibujarRetos () {
 }
 
-void dibujarTops (){
+void dibujarTops () {
+}
+
+void verLibrosLeidos () {
+  pushStyle();
+  fill(115, 135, 123);
+  rect(0, 0, menuWidth, menuHeight);
+  fill(0);
+  textFont(getFontAt(2));
+  text("LEIDOS", 250, 60);
+  volverAtras(); 
+  popStyle();
+}
+
+void verLibrosPendientes () {
+  pushStyle();
+  fill(115, 135, 123);
+  rect(0, 0, menuWidth, menuHeight);
+  fill(0);
+  textFont(getFontAt(2));
+  text("PENDIENTES", 250, 60);
+  volverAtras(); 
+  popStyle();
+}
+
+void verMiLista () {
+  pushStyle();
+  fill(115, 135, 123);
+  rect(0, 0, menuWidth, menuHeight);
+  fill(0);
+  textFont(getFontAt(2));
+  text("MI LISTA", 250, 60);
+  volverAtras(); 
+  popStyle();
 }

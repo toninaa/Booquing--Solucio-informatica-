@@ -1,5 +1,5 @@
-// Botones
-Button Biblio, Biblio1, Perfil1, Perfil, Move1, Move2, Move3, Move4, Move5, Move6, Move7, Move8, Check, Leido, Pendientes, MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, Atras, Guardar, VerTodo;
+
+
 
 // Enumeracion de las pantallas de la app
 enum PANTALLA {
@@ -10,17 +10,21 @@ PANTALLA pantalla = PANTALLA.INICIO;
 
 //  campos de texto
 
-TextField Titulo, Autor, Editorial, Valoracion; 
+TextField Titulo, Autor, Editorial, Valoracion;
 
 
 void setup() {
   // Dimensiones de la App
   fullScreen();
   textAlign(CENTER);
-
+  
+  
   setColors();
   setFonts();
   setMedias();
+  initTextField();
+  initButtons(); 
+  
 }
 
 
@@ -62,6 +66,15 @@ void draw() {
     case TOPS:
     dibujarTops (); 
     break;
+    case LEIDOS:
+    verLibrosLeidos (); 
+    break;
+    case PENDIENTES:
+    verLibrosPendientes (); 
+    break;
+     case LISTA:
+    verMiLista (); 
+    break;
     
   }
   
@@ -81,9 +94,9 @@ void mousePressed() {
     pantalla = PANTALLA.NUEVO1;
   }else if (Empezar.mouseOverButton() && Empezar.enabled) {
     pantalla = PANTALLA.EMPEZAR;
-  }else if (MiLista.mouseOverButton() && MiLista.enabled) {
+  }else if (Quiero.mouseOverButton() && Quiero.enabled) {
     pantalla = PANTALLA.NUEVO2;
-  }else if (Pendientes.mouseOverButton() && Pendientes.enabled) {
+  }else if (Comprar.mouseOverButton() && Comprar.enabled) {
     pantalla = PANTALLA.NUEVO2;
   }else if (Iniciar1.mouseOverButton() && Iniciar1.enabled) {
     pantalla = PANTALLA.ESTTOPS;
@@ -93,5 +106,17 @@ void mousePressed() {
     pantalla = PANTALLA.TOPS;
   }else if (Ver2.mouseOverButton() && Ver2.enabled) {
     pantalla = PANTALLA.RETOS;
+  }else if (Atras.mouseOverButton() && Atras.enabled) {
+    pantalla = PANTALLA.PERFIL;
   }
+  Titulo.isPressed();
+  Autor.isPressed();
+  Editorial.isPressed();
+  
+}
+
+void keyPressed (){
+  Titulo.keyPressed(key,(int)keyCode);
+  Autor.keyPressed(key,(int)keyCode);
+  Editorial.keyPressed(key,(int)keyCode);
 }

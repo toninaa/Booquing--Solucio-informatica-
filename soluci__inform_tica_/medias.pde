@@ -1,9 +1,9 @@
-// Fitxer amb la informació dels Medias de l'App
+//  información de las Medias de la App
 
-// URL de la carpeta on hi ha les imatges
+// URL de la carpeta donde estan las imagenes 
 String URL_IMGS = "imgs/";
 
-// Array d'imatges (JPG, PNG, GIF)
+// Array de imatges (JPG, PNG, GIF)
 PImage[] imgs;
   
 // Estableix les imatges de l'App
