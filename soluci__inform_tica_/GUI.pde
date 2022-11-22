@@ -103,5 +103,38 @@ void enableButtonsPerfil() {
 }
 
 
-void displayButtons () {
+void displayButtonsIniciales () {
+  Biblio.display1();
+  Perfil.display1();
+  
+}
+
+void displayButtonsMenu(){
+  Biblio1.display1();
+  Perfil1.display1();
+  
+}
+
+void displayButtonsBiblioteca (){
+  Move1.display2();
+  Move2.display2();
+  Move3.display2();
+  Move4.display2();
+  Move5.display2();
+  Move6.display2();
+  Move7.display2();
+  Move8.display2();
+}
+
+void displayButtonsPerfil (){
+  Move9.display2();
+  Move10.display2();
+  Leido.display3();
+  Comprar.display3();
+  Quiero.display3();
+  Empezar.display3();
+  Iniciar1.display3();
+  Ver1.display3();
+  Iniciar2.display3();
+  Ver2.display3();
 }

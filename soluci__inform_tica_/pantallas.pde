@@ -6,66 +6,56 @@ void dibujaPantallaInicio() {
 
   pushStyle();
   imageMode(CENTER);
-  disableButtons(); 
+  disableButtons();
+  enableButtonsIniciales();
+  textFont(getFontAt(2));
+  displayButtonsIniciales();
   displayLogo(width/2, height/3, logoWidth, logoHeight);
-  fill(0);
   fill(231, 227, 147);
   textFont(getFontAt(0));
   text("BOOQUING", width/2-150, height/3+20);
-  popStyle();
-  pushStyle();
-  textFont(getFontAt(2));
-  Biblio.display1();
-  Perfil.display1();
   popStyle();
 }
 
 void dibujaBiblioteca () {
   pushStyle ();
   imageMode(CENTER);
-  displayImg(2, 350, height/3, estanteWidth, estanteHeight);
-  displayImg(2, width-320, height/2, estanteWidth, estanteHeight);
-  displayImg(2, 350, 2*height/3, estanteWidth, estanteHeight);
-  displayImg(2, width-320, 2*height/3+estanteHeight, estanteWidth, estanteHeight);
+  disableButtons();
+  enableButtonsMenu();
+  enableButtonsBiblioteca();
   dibujaMenu();
   dibujaEstante1 ();
+  imageMode(CENTER);
   dibujaEstante2 ();
   dibujaEstante3 ();
   dibujaEstante4 ();
   dibujaLogo();
-
-
+  textFont(getFontAt(2));
+  displayButtonsMenu();
+  displayButtonsBiblioteca();
   popStyle();
 }
 
 void dibujaPerfil () {
   pushStyle ();
-  fill(133, 77, 39);
+  disableButtons();
   textFont(getFontAt(2));
+  enableButtonsMenu();
+  enableButtonsPerfil();
   dibujaMenu();
-  text("Nuevo libro", 200, 200);
   nuevoLibro ();
-  popStyle();
-  pushStyle ();
-  imageMode(CENTER);
-  displayImg(2, 350, 2*height/3+100, estanteWidth, estanteHeight);
   dibujaEstante5 ();
-  popStyle();
   esquinaIzquierda();
-  fill(133, 77, 39);
-  textFont(getFontAt(2));
-  text("Establecer Top's", width-500, 400);
-  Iniciar1.display3();
-  Ver1.display3();
-  fill(133, 77, 39);
-  textFont(getFontAt(2));
-  text("Establecer retos", width-500, 650);
-  Iniciar2.display3();
-  Ver2.display3();
+  dibujaTextoPerfil();
+  displayButtonsMenu();
+  displayButtonsPerfil();
+  popStyle();
 }
 
 void dibujaNuevoLibro () {
   pushStyle();
+  disableButtons();
+  enableButtonsMenu();
   dibujaMenu();
   esquinaIzquierda();
   fill(133, 77, 39);
@@ -80,7 +70,6 @@ void dibujaNuevoLibro () {
   rect(950, 450, 400, 250);
   popStyle();
   PagNuevoLibro();
-  
 }
 
 
@@ -132,7 +121,7 @@ void verLibrosLeidos () {
   fill(0);
   textFont(getFontAt(2));
   text("LEIDOS", 250, 60);
-  volverAtras(); 
+  volverAtras();
   popStyle();
 }
 
@@ -143,7 +132,7 @@ void verLibrosPendientes () {
   fill(0);
   textFont(getFontAt(2));
   text("PENDIENTES", 250, 60);
-  volverAtras(); 
+  volverAtras();
   popStyle();
 }
 
@@ -154,6 +143,6 @@ void verMiLista () {
   fill(0);
   textFont(getFontAt(2));
   text("MI LISTA", 250, 60);
-  volverAtras(); 
+  volverAtras();
   popStyle();
 }

@@ -10,12 +10,12 @@ PImage[] imgs;
 void setMedias(){
     this.imgs = new PImage[7];
     this.imgs[0] = loadImage(URL_IMGS+"/logo1.png");
-    this.imgs[1] = loadImage(URL_IMGS+"/trofeo0.jpg");
-    this.imgs[2] = loadImage(URL_IMGS+"/estanteria1.png");
+    this.imgs[1] = loadImage(URL_IMGS+"/trofeo0.png");
+    this.imgs[2] = loadImage(URL_IMGS+"/estanteria.png");
     this.imgs[3] = loadImage(URL_IMGS+"/trofeo1.png");
     this.imgs[4] = loadImage(URL_IMGS+"/trofeo2.png");
-    this.imgs[5] = loadImage(URL_IMGS+"/libro1.jpg");
-    this.imgs[6] = loadImage(URL_IMGS+"/libro3.png");
+    this.imgs[5] = loadImage(URL_IMGS+"/libro1.png");
+    this.imgs[6] = loadImage(URL_IMGS+"/libro2.png");
       
 }
   
