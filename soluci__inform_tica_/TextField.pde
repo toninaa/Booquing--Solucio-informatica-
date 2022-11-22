@@ -24,9 +24,13 @@ class TextField {
       this.x = x; this.y = y; this.w = w; this.h = h;
    }
   
+  void setText(String t){
+    this.text = t;   
+  }
+  
   // Dibuja el Campo de Texto
   void display() {
-
+      pushStyle(); 
       if (selected) {
          fill(selectedColor);
       } else {
@@ -38,8 +42,11 @@ class TextField {
       rect(x, y, w, h, 5);
       
       fill(fgColor);
+      textFont(getFontAt(5)); 
       textSize(textSize);
+      textAlign(LEFT); 
       text(text, x + 5, y + textSize);
+      popStyle(); 
    }
    
    // Añade, quita el texto que se escribe
@@ -93,9 +100,11 @@ class TextField {
    void isPressed() {
       if (mouseOverTextField()) {
          selected = true;
+         this.text = ""; 
       } else {
          selected = false;
       }
    }
+  
    
 }

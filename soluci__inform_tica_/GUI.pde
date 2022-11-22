@@ -3,14 +3,23 @@ void setGUI(){
   initButtons();
   initTextField(); 
   
-  
+}
+// TextField 
+void initTextField() {
+  Titulo = new TextField(120, 330, CampoX, CampoY);
+  Autor = new TextField(120, 380, CampoX, CampoY);
+  Editorial = new TextField(120, 430, CampoX, CampoY);
+  Titulo.setText("título"); 
+  Autor.setText("autor"); 
+  Editorial.setText("editorial"); 
 }
 
-void initTextField() {
-  Titulo = new TextField(410, 340, CampoX, CampoY);
-  Autor = new TextField(430, 390, CampoX, CampoY);
-  Editorial = new TextField(470, 440, CampoX, CampoY);
+void displayTextField (){
+  Titulo.display(); 
+  Autor.display(); 
+  Editorial.display(); 
 }
+
 // botones
 
 Button [] buttons;
@@ -41,7 +50,7 @@ void initButtons () {
   buttons [19]= new Button ("Leido", 100, 250, LeidoX, LeidoY);
   buttons [20]= new Button ("Comprado", 300, 250, LeidoX, LeidoY);
   buttons [21]= new Button ("Quiero", 500, 250, LeidoX, LeidoY);
-  buttons [22]=  new Button ("Empezar a leer", 150, 350, 3*LeidoX, LeidoY);
+  buttons [22]= new Button ("Empezar a leer", 150, 350, 3*LeidoX, LeidoY);
 
 
   Atras = buttons [0];
@@ -70,7 +79,7 @@ void initButtons () {
 }
 // función para desactivar los botones en las distintas pantallas
 void disableButtons() {
-  for (int i = 0; i>buttons.length; i++ ) {
+  for (int i = 0; i<buttons.length; i++ ) {
     buttons[i].setEnabled(false);
   }
 }
@@ -143,10 +152,4 @@ void displayButtonsPerfil (){
   Ver1.display3();
   Iniciar2.display3();
   Ver2.display3();
-}
-
-void displayTextField (){
-  Titulo.display(); 
-  Autor.display(); 
-  Editorial.display(); 
 }

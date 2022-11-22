@@ -118,10 +118,6 @@ void PagNuevoLibro () {
   rectMode(CENTER);
   fill (0);
   textFont(getFontAt(4));
-  text ("Título:", 200, 350);
-  text ("Autor/a:", 210, 400);
-  text ("Editorial:", 230, 450);
-
   popStyle();
 }
 

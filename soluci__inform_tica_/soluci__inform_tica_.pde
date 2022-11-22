@@ -13,7 +13,7 @@ TextField Titulo, Autor, Editorial, Valoracion;
 void setup() {
   // Dimensiones de la App
   fullScreen();
-  textAlign(CENTER);
+  textAlign(CENTER); 
    
   setColors();
   setFonts();
