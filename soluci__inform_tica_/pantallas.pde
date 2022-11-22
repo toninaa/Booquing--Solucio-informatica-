@@ -2,12 +2,11 @@
 
 // funciones de dibujo de las pantallas
 
-
-
 void dibujaPantallaInicio() {
 
   pushStyle();
   imageMode(CENTER);
+  disableButtons(); 
   displayLogo(width/2, height/3, logoWidth, logoHeight);
   fill(0);
   fill(231, 227, 147);

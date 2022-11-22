@@ -127,7 +127,7 @@ void PagNuevoLibro (){
   }
   
  void volverAtras (){
-   pushStyle ();
+  pushStyle ();
   textFont(getFontAt(2));
   Atras.display1();
   popStyle(); 
