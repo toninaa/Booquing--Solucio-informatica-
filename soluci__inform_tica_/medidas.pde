@@ -48,3 +48,6 @@ float libroHeight = 110;
 // campos de texto 
 int CampoX = 300; 
 int CampoY = 30; 
+
+int ValoracionX = 450; 
+int ValoracionY = 270; 

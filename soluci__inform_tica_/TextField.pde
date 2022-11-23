@@ -9,7 +9,7 @@ class TextField {
   color bgColor = color(255);
   color fgColor = color(0, 0, 0);
   color selectedColor = color(231, 227, 147);
-  color borderColor = color(0);
+  color borderColor = color(231, 227, 147);
   int borderWeight = 1;
   
   // Texto del campo

@@ -8,10 +8,10 @@ void setFonts(){
     this.fuentes = new PFont[6];
     this.fuentes[0] = createFont("Bright DEMO.otf", midaTitol);
     this.fuentes[1] = createFont("Bright DEMO.otf",midaSubtitol );
-    this.fuentes[2] = createFont("F25_Bank_Printer.ttf", midaSubtitol);
-    this.fuentes[3] = createFont("F25_Bank_Printer.ttf", midaTitol);
-    this.fuentes[4] = createFont("F25_Bank_Printer.ttf", midaParagraf);
-    this.fuentes[5] = createFont("Roboto-Italic.ttf", midaParagraf);
+    this.fuentes[2] = createFont("Kiona-Regular.ttf", midaSubtitol);
+    this.fuentes[3] = createFont("Kiona-Regular.ttf", midaTitol);
+    this.fuentes[4] = createFont("Kiona-Regular.ttf", midaParagraf);
+    this.fuentes[5] = createFont("textoUsuario.ttf", midaParagraf);
     
 }
   

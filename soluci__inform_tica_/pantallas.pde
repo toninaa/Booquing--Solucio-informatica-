@@ -96,6 +96,11 @@ void dibujarEmpezarLeer () {
   enableButtonsMenu();
   dibujaMenu();
   esquinaIzquierda();
+  text("Empezar libro", 200, 250);
+  stroke(231, 227, 147);
+  strokeWeight(2);
+  rect (100, 300, 800, 400);
+  rect(950, 450, 400, 250);
   popStyle();
 }
 

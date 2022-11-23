@@ -12,6 +12,7 @@ void dibujaLogo () {
 void dibujaMenu () {
   pushStyle();
   fill(115, 135, 123);
+  noStroke(); 
   rect(0, 0, menuWidth, menuHeight);
   fill(0);
   textFont(getFontAt(2));

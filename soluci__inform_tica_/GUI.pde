@@ -9,15 +9,18 @@ void initTextField() {
   Titulo = new TextField(120, 330, CampoX, CampoY);
   Autor = new TextField(120, 380, CampoX, CampoY);
   Editorial = new TextField(120, 430, CampoX, CampoY);
+  Valoracion = new TextField(950, 450, ValoracionX, ValoracionY);
   Titulo.setText("título"); 
   Autor.setText("autor"); 
-  Editorial.setText("editorial"); 
+  Editorial.setText("editorial");
+  
 }
 
 void displayTextField (){
   Titulo.display(); 
   Autor.display(); 
-  Editorial.display(); 
+  Editorial.display();
+  Valoracion.display();
 }
 
 // botones
@@ -29,7 +32,7 @@ Button Biblio, Biblio1, Perfil1, Perfil, Move1, Move2, Move3, Move4, Move5, Move
 void initButtons () {
   buttons = new Button [23];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
-  buttons [1]= new Button ("Biblioteca", width/3+225, height/2+100, bInX, bInY);
+  buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
   buttons [3]= new Button ("Biblioteca", 20, 10, bInX, bInY);
   buttons [4]= new Button ("Perfil", 280, 10, bInX, bInY);

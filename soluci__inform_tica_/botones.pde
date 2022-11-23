@@ -27,7 +27,7 @@ class Button {
    fillColor3 = color(244, 201, 93);
    fillColorOver3 = color(231, 227, 147);
    fillColorDisabled = color(150);
-   strokeColor = color(0);
+   //strokeColor = color(0);
  }
  
  // Setters
@@ -48,7 +48,7 @@ class Button {
    else{
      fill(fillColor1);          // Color con el ratón afuera
    }
-   stroke(strokeColor); strokeWeight(1);        //Color y ancho del contorno
+   noStroke(); strokeWeight(1);        //Color y ancho del contorno
    rect(this.x, this.y, this.w, this.h, 10);    // Rectangulo del botón
    
    // Texto (color, alineación y medida)
@@ -68,7 +68,7 @@ class Button {
    else{
      fill(fillColor2);          // Color con el ratón afuera
    }
-   stroke(strokeColor); strokeWeight(1);        //Color y ancho del contorno
+   noStroke(); strokeWeight(1);        //Color y ancho del contorno
    rect(this.x, this.y, this.w, this.h, 10);    // Rectangulo del botón
    
    // Texto (color, alineación y medida)
@@ -88,7 +88,7 @@ class Button {
    else{
      fill(fillColor3);          // Color con el ratón afuera
    }
-   stroke(strokeColor); strokeWeight(1);        //Color y ancho del contorno
+   noStroke(); strokeWeight(1);        //Color y ancho del contorno
    rect(this.x, this.y, this.w, this.h, 10);    // Rectangulo del botón
    
    // Texto (color, alineación y medida)

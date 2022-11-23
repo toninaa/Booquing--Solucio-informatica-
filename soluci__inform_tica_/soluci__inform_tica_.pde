@@ -113,6 +113,7 @@ void mousePressed() {
   Titulo.isPressed();
   Autor.isPressed();
   Editorial.isPressed();
+  Valoracion.isPressed(); 
   
 }
 
@@ -120,4 +121,7 @@ void keyPressed (){
   Titulo.keyPressed(key,(int)keyCode);
   Autor.keyPressed(key,(int)keyCode);
   Editorial.keyPressed(key,(int)keyCode);
+  Valoracion.keyPressed(key,(int)keyCode);
+  
+  
 }
