@@ -7,7 +7,7 @@ PANTALLA pantalla = PANTALLA.INICIO;
 
 //  campos de texto
 
-TextField Titulo, Autor, Editorial, Valoracion;
+TextField Titulo, TituloTops, Autor, Editorial, Valoracion;
 
 
 void setup() {
@@ -72,6 +72,9 @@ void draw() {
      case LISTA:
     verMiLista (); 
     break;
+    case RETOSCON:
+     dibujarRetosConseguidos(); 
+    break;
     
   }
   
@@ -109,11 +112,15 @@ void mousePressed() {
     pantalla = PANTALLA.RETOS;
   }else if (Atras.mouseOverButton() && Atras.enabled) {
     pantalla = PANTALLA.PERFIL;
+  }else if (VerTodo.mouseOverButton() && VerTodo.enabled) {
+    pantalla = PANTALLA.RETOSCON;
   }
+  
   Titulo.isPressed();
   Autor.isPressed();
   Editorial.isPressed();
   Valoracion.isPressed(); 
+  TituloTops.isPressed();
   
 }
 
@@ -122,6 +129,7 @@ void keyPressed (){
   Autor.keyPressed(key,(int)keyCode);
   Editorial.keyPressed(key,(int)keyCode);
   Valoracion.keyPressed(key,(int)keyCode);
+  TituloTops.keyPressed(key,(int)keyCode);
   
   
 }

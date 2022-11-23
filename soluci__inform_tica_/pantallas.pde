@@ -40,10 +40,14 @@ void dibujaPerfil () {
   enableButtonsMenu();
   enableButtonsPerfil();
   dibujaMenu();
+  fill(221, 114, 48); 
+  noStroke(); 
+  rect(90,220, 570, 230); 
   nuevoLibro ();
   dibujaEstante5 ();
   esquinaIzquierda();
   dibujaTextoPerfil();
+  
   displayButtonsMenu();
   displayButtonsPerfil();
   popStyle();
@@ -77,15 +81,21 @@ void dibujaAñadirLibro () {
   pushStyle();
   disableButtons();
   enableButtonsMenu();
+  enableButtonsAñadir(); 
   dibujaMenu();
+  textFont(getFontAt(2)); 
   esquinaIzquierda();
-  text("Nuevo libro", 200, 250);
-  text("Valoración", 1060, 400);
+  fill(133, 77, 39);
+  text("Nuevo libro", 220, 250);
+  text("Portada", 1040, 320);
   fill(255);
   stroke(231, 227, 147);
   strokeWeight(2);
   rect (100, 300, 800, 400);
-  rect(950, 450, 400, 250);
+  rect(950, 350, 400, 250);
+  displayButtonsMenu();
+  displayTextField2();
+  displayButtonsAñadir(); 
   popStyle();
  
 }
@@ -94,34 +104,106 @@ void dibujarEmpezarLeer () {
   pushStyle();
   disableButtons();
   enableButtonsMenu();
+  enableButtonsAñadir();
+  enableButtonsNuevoLibro(); 
   dibujaMenu();
   esquinaIzquierda();
-  text("Empezar libro", 200, 250);
+  textFont(getFontAt(2));
+  fill(133, 77, 39);
+  text("Empezar libro", 230, 250);
+  text("Elegir destino", 1090, 320);
   stroke(231, 227, 147);
   strokeWeight(2);
+  fill(255); 
   rect (100, 300, 800, 400);
-  rect(950, 450, 400, 250);
+  rect(950, 350, 400, 250);
+  displayButtonsMenu();
+  displayTextField2();
+  displayButtonsNuevoLibro(); 
   popStyle();
 }
 
 void establecerTops () {
   pushStyle();
+  disableButtons();
+  enableButtonsMenu();
   dibujaMenu();
   esquinaIzquierda();
+  textFont(getFontAt(2));
+  fill(133, 77, 39);
+  text("Establecer Top's", 260, 290);
+   text("Previsualización", 1110, 350);
+  fill(255); 
+  stroke(231, 227, 147);
+  strokeWeight(2);
+  rect (100, 350, 800, 400);
+  rect(950, 400, 400, 250);
+  displayButtonsMenu();
+  displayTextFieldTops(); 
   popStyle();
 }
 
 void establecerRetos () {
   pushStyle();
+  disableButtons();
+  enableButtonsMenu();
   dibujaMenu();
   esquinaIzquierda();
+  textFont(getFontAt(2));
+  fill(133, 77, 39);
+  text("Establecer Retos", 260, 290);
+  fill(255);
+  stroke(231, 227, 147);
+  strokeWeight(2);
+  rect (100, 350, 1000, 400);
+  displayButtonsMenu();
   popStyle();
 }
 
 void dibujarRetos () {
+  pushStyle();
+  disableButtons();
+  enableButtonsAtras(); 
+  enableButtonVerTodo(); 
+  dibujaMenu();
+  textFont(getFontAt(2));
+  fill(0); 
+  text("RETOS", 250, 60);
+  fill(133, 77, 39);
+  text("Retos Activos", 260, 290);
+  text("Retos Conseguidos", 900, 290);
+  displayButtonsAtras();
+  displayButtonVerTodo(); 
+  popStyle();
+  
 }
 
+void dibujarRetosConseguidos () {
+  pushStyle();
+  disableButtons();
+  enableButtonsAtras(); 
+  dibujaMenu();
+  textFont(getFontAt(2));
+  fill(0); 
+  text("RETOS CONSEGUIDOS", 250, 60);
+  displayButtonsAtras();
+  popStyle();
+  
+}
+
+
+
 void dibujarTops () {
+  pushStyle();
+  disableButtons();
+  enableButtonsAtras(); 
+  dibujaMenu();
+  textFont(getFontAt(2));
+  fill(0); 
+  text("TOP'S", 250, 60);
+  displayButtonsAtras();
+  popStyle();
+  
 }
 
 void verLibrosLeidos () {

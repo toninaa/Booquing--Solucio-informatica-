@@ -1,36 +1,50 @@
 // funcion para inicializar todos los componentes GUI
-void setGUI(){
+void setGUI() {
   initButtons();
-  initTextField(); 
-  
+  initTextField();
+  initImageButton(); 
 }
-// TextField 
+// TextField
 void initTextField() {
   Titulo = new TextField(120, 330, CampoX, CampoY);
   Autor = new TextField(120, 380, CampoX, CampoY);
   Editorial = new TextField(120, 430, CampoX, CampoY);
   Valoracion = new TextField(950, 450, ValoracionX, ValoracionY);
-  Titulo.setText("título"); 
-  Autor.setText("autor"); 
+  TituloTops = new TextField(200, 450, CampoX/2, CampoY); 
+  Titulo.setText("título");
+  Autor.setText("autor");
   Editorial.setText("editorial");
-  
+  TituloTops.setText("título");
 }
 
-void displayTextField (){
-  Titulo.display(); 
-  Autor.display(); 
+void displayTextField () {
+  Titulo.display();
+  Autor.display();
   Editorial.display();
   Valoracion.display();
 }
+
+void displayTextField2 () {
+  Titulo.display();
+  Autor.display();
+  Editorial.display();
+}
+
+void displayTextFieldTops () {
+  TituloTops.display();
+
+}
+
+
 
 // botones
 
 Button [] buttons;
 
-Button Biblio, Biblio1, Perfil1, Perfil, Move1, Move2, Move3, Move4, Move5, Move6, Move7, Move8, Move9, Move10, Check, Leido, Comprar, Quiero, Pendientes, MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, Atras, Guardar, VerTodo;
+Button Biblio, Biblio1, Perfil1, Perfil, Move1, Move2, Move3, Move4, Move5, Move6, Move7, Move8, Move9, Move10, Leido, Comprar, Quiero, Pendientes, Pendientes1, MiLista1, MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, Atras, Guardar, VerTodo;
 
 void initButtons () {
-  buttons = new Button [23];
+  buttons = new Button [29];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -54,6 +68,13 @@ void initButtons () {
   buttons [20]= new Button ("Comprado", 300, 250, LeidoX, LeidoY);
   buttons [21]= new Button ("Quiero", 500, 250, LeidoX, LeidoY);
   buttons [22]= new Button ("Empezar a leer", 150, 350, 3*LeidoX, LeidoY);
+  buttons [23]= new Button ("Quiero", 500, 250, LeidoX, LeidoY);
+  buttons [24]= new Button ("Mi Lista", 980, 650, LeidoX, LeidoY);
+  buttons [25]= new Button ("Comprado", 1180, 650, LeidoX, LeidoY);
+  buttons [26]= new Button ("Mi Lista", 1070, 400, LeidoX, LeidoY);
+  buttons [27]= new Button ("Comprado", 1070, 500, LeidoX, LeidoY);
+  buttons [28]= new Button ("Ver Todo", 900, 750, LeidoX, LeidoY);
+
 
 
   Atras = buttons [0];
@@ -79,7 +100,27 @@ void initButtons () {
   Comprar =buttons [20];
   Quiero = buttons [21];
   Empezar = buttons [22];
+  MiLista1 = buttons [24];
+  Pendientes1 = buttons [25];
+  MiLista = buttons [26];
+  Pendientes = buttons [27];
+  VerTodo = buttons [28];
 }
+// botones con imagenes
+ImageButton [] imgButtons;
+
+ImageButton Check0, Check1;
+
+void initImageButton () {
+   imgButtons  = new ImageButton [2]; 
+   //imgButtons [0]= new ImageButton (getImgAt(7), width-200, 50, LeidoX, LeidoY);
+   //imgButtons [1]= new ImageButton (getImgAt(8), width-200, 50, LeidoX, LeidoY);
+   
+}
+  
+
+
+
 // función para desactivar los botones en las distintas pantallas
 void disableButtons() {
   for (int i = 0; i<buttons.length; i++ ) {
@@ -120,20 +161,38 @@ void enableButtonsPerfil() {
   Move10.setEnabled(true);
 }
 
+void enableButtonsAñadir() {
+  MiLista1.setEnabled(true);
+  Pendientes1.setEnabled(true);
+}
+
+void enableButtonsNuevoLibro() {
+  MiLista.setEnabled(true);
+  Pendientes.setEnabled(true);
+}
+
+void enableButtonsAtras() {
+  Atras.setEnabled(true);
+ 
+}
+
+void enableButtonVerTodo() {
+  VerTodo.setEnabled(true);
+ 
+}
+
 
 void displayButtonsIniciales () {
   Biblio.display1();
   Perfil.display1();
-  
 }
 
-void displayButtonsMenu(){
+void displayButtonsMenu() {
   Biblio1.display1();
   Perfil1.display1();
-  
 }
 
-void displayButtonsBiblioteca (){
+void displayButtonsBiblioteca () {
   Move1.display2();
   Move2.display2();
   Move3.display2();
@@ -144,7 +203,7 @@ void displayButtonsBiblioteca (){
   Move8.display2();
 }
 
-void displayButtonsPerfil (){
+void displayButtonsPerfil () {
   Move9.display2();
   Move10.display2();
   Leido.display3();
@@ -155,4 +214,24 @@ void displayButtonsPerfil (){
   Ver1.display3();
   Iniciar2.display3();
   Ver2.display3();
+}
+
+void displayButtonsAñadir (){  
+  MiLista1.display1();
+  Pendientes1.display1();  
+}
+
+void displayButtonsNuevoLibro (){ 
+  MiLista.display1();
+  Pendientes.display1();  
+}
+
+void displayButtonsAtras (){ 
+  Atras.display1();
+  
+}
+
+void displayButtonVerTodo (){ 
+  VerTodo.display1();
+  
 }

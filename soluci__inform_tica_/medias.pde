@@ -8,7 +8,7 @@ PImage[] imgs;
   
 // Estableix les imatges de l'App
 void setMedias(){
-    this.imgs = new PImage[7];
+    this.imgs = new PImage[9];
     this.imgs[0] = loadImage(URL_IMGS+"/logo1.png");
     this.imgs[1] = loadImage(URL_IMGS+"/trofeo0.png");
     this.imgs[2] = loadImage(URL_IMGS+"/estanteria.png");
@@ -16,6 +16,8 @@ void setMedias(){
     this.imgs[4] = loadImage(URL_IMGS+"/trofeo2.png");
     this.imgs[5] = loadImage(URL_IMGS+"/libro1.png");
     this.imgs[6] = loadImage(URL_IMGS+"/libro2.png");
+    this.imgs[7] = loadImage(URL_IMGS+"/check1.png");
+    this.imgs[8] = loadImage(URL_IMGS+"/check0.png");
       
 }
   
@@ -41,6 +43,14 @@ PImage getIcon(){
   
 // Getter de la imatge i-èssima
 PImage getImgAt(int i){
+  return this.imgs[i];
+}
+
+PImage getImgCheck0(int i){
+  return this.imgs[i];
+}
+
+PImage getImgCheck1(int i){
   return this.imgs[i];
 }
 
