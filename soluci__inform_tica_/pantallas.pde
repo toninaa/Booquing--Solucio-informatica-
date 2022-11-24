@@ -42,12 +42,10 @@ void dibujaPerfil () {
   dibujaMenu();
   fill(221, 114, 48); 
   noStroke(); 
-  rect(90,220, 570, 230); 
   nuevoLibro ();
   dibujaEstante5 ();
   esquinaIzquierda();
-  dibujaTextoPerfil();
-  
+  dibujaTextoPerfil(); 
   displayButtonsMenu();
   displayButtonsPerfil();
   popStyle();
@@ -103,6 +101,7 @@ void dibujaAñadirLibro () {
 void dibujarEmpezarLeer () {
   pushStyle();
   disableButtons();
+  enableImageButton();
   enableButtonsMenu();
   enableButtonsAñadir();
   enableButtonsNuevoLibro(); 
@@ -120,6 +119,7 @@ void dibujarEmpezarLeer () {
   displayButtonsMenu();
   displayTextField2();
   displayButtonsNuevoLibro(); 
+  displayImageButton(); 
   popStyle();
 }
 

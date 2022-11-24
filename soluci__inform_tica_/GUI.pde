@@ -111,16 +111,31 @@ ImageButton [] imgButtons;
 
 ImageButton Check0, Check1;
 
+PImage[] getImagesButton(int n1, int n2){
+  PImage[] imgsB0 = new PImage[2];
+     imgsB0[0] = getImgAt(n1);
+     imgsB0[1] = getImgAt(n2);
+     return imgsB0;
+}
+
 void initImageButton () {
    imgButtons  = new ImageButton [2]; 
-   //imgButtons [0]= new ImageButton (getImgAt(7), width-200, 50, LeidoX, LeidoY);
-   //imgButtons [1]= new ImageButton (getImgAt(8), width-200, 50, LeidoX, LeidoY);
-   
+   imgButtons [0]= new ImageButton (getImagesButton(7,8), 820, 620, CheckX, CheckY);
+  
+}
+
+void disableImageButton (){
+  imgButtons[0].setEnabled(false);  
+}
+
+void enableImageButton(){
+  imgButtons[0].setEnabled(true);  
+}
+
+void displayImageButton (){
+  imgButtons[0].display();  
 }
   
-
-
-
 // función para desactivar los botones en las distintas pantallas
 void disableButtons() {
   for (int i = 0; i<buttons.length; i++ ) {

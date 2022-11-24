@@ -30,6 +30,9 @@ float MoveY = 40;
 float LeidoX = 150; 
 float LeidoY = 50; 
 
+float CheckX = 60; 
+float CheckY =60; 
+
 
 // Medidas de la maquetación de las pantallas 
 
