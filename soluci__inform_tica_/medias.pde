@@ -16,8 +16,8 @@ void setMedias(){
     this.imgs[4] = loadImage(URL_IMGS+"/trofeo2.png");
     this.imgs[5] = loadImage(URL_IMGS+"/libro1.png");
     this.imgs[6] = loadImage(URL_IMGS+"/libro2.png");
-    this.imgs[7] = loadImage(URL_IMGS+"/check1.png");
-    this.imgs[8] = loadImage(URL_IMGS+"/check0.png");
+    this.imgs[7] = loadImage(URL_IMGS+"/checkbox1.png");
+    this.imgs[8] = loadImage(URL_IMGS+"/checkbox0.png");
       
 }
   
