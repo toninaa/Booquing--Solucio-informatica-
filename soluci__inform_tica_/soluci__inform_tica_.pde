@@ -9,7 +9,7 @@ PANTALLA pantalla = PANTALLA.INICIO;
 
 TextField Titulo, TituloTops, Autor, Editorial, Valoracion;
 
-Select s1;
+Select s1, s2;
 
 
 void setup() {

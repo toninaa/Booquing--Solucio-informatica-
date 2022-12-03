@@ -9,7 +9,7 @@ class Select {
   boolean collapsed = true;  // Plegat / Desplegat
   boolean enabled;           // Abilitat / desabilitat
   
-  float lineSpace = 10;      // Espai entre línies
+  float lineSpace = 7;      // Espai entre línies
   
  // Constructor 
   Select(String[] texts, float x, float y, float w, float h){
@@ -24,34 +24,43 @@ class Select {
     this.collapsed = true;
   }
   
+  
+  void setEnabled(boolean b){
+   this.enabled = b;
+ }
+ 
   void display(){
     pushStyle();
-    stroke(0); strokeWeight(2); fill(255);
+    stroke(231, 227, 147); strokeWeight(1); fill(255);
     rect(x, y, w, h);
     
-    fill(100);
+    fill(231, 227, 147);
     rect(x + w - 30, y, 30, h);
     
-    fill(0); stroke(0);
+    fill(133, 77, 39); stroke(133, 77, 39);
     triangle(x + w - 25, y+5, x + w - 15, y + 25, x + w - 5 , y+5);
     
-    fill(0); textSize(14); 
-    text(selectedValue, x + 10, y + 20);
+    fill(133, 77, 39); textSize(midaParagraf);
+    textFont(getFontAt(5));
+    textAlign(LEFT); 
+    text(selectedValue, x + 5, y + 30);
     
     if(!this.collapsed){
       
-      fill(255); stroke(0);
+      fill(255); stroke(231, 227, 147);
       rect(x, y+h, w, (h + lineSpace)*texts.length);
       
       for(int i=0; i<texts.length; i++){
         
         if(i== clickedOption()){
-          fill(200); noStroke();
+          fill(231, 227, 147); noStroke();
           rect(x+4, y+4 + h + (h + lineSpace)*i - 2, w -8, h + lineSpace - 8);
         }
         
-        fill(0);
-        text(texts[i], x + 10, y + h + 25 + (h + lineSpace)*i);
+        fill(133, 77, 39);
+        textAlign(LEFT); 
+        textFont(getFontAt(5)); 
+        text(texts[i], x + 5, y + h + 25 + (h + lineSpace)*i);
       }
     }
     popStyle();

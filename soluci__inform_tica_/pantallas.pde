@@ -55,6 +55,7 @@ void dibujaNuevoLibro () {
   pushStyle();
   disableButtons();
   enableButtonsMenu();
+  enableSelect1(); 
   dibujaMenu();
   esquinaIzquierda();
   fill(133, 77, 39);
@@ -148,7 +149,9 @@ void establecerTops () {
 void establecerRetos () {
   pushStyle();
   disableButtons();
+  disableSelects(); 
   enableButtonsMenu();
+  enableSelect2();
   dibujaMenu();
   esquinaIzquierda();
   textFont(getFontAt(2));
@@ -159,6 +162,7 @@ void establecerRetos () {
   strokeWeight(2);
   rect (100, 350, 1000, 400);
   displayButtonsMenu();
+  displaySelect();
   popStyle();
 }
 

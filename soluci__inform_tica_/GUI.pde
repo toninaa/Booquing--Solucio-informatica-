@@ -2,15 +2,33 @@
 void setGUI() {
   initButtons();
   initTextField();
-  initImageButton(); 
+  initImageButton();
+  initSelect(); 
 }
 
 // selects 
 void initSelect(){
   String[] selectValues = {"Narrativa", "Drama", "Poesia", "Teatro", "Clásicos" };
-  s1 = new Select(selectValues, 200, 500, selectX, selectY);
+  s1 = new Select(selectValues, 550, 350, selectX, selectY);
+  s2 = new Select(selectValues, 950, 650, selectX, selectY);
   
 }
+
+void enableSelect1(){
+  s1.setEnabled(true);  
+}
+
+void enableSelect2(){
+  s2.setEnabled(true);  
+}
+
+void disableSelects(){
+  s1.setEnabled(false);
+  s2.setEnabled(false);
+  
+}
+
+
 // dibujar selects
 void displaySelect(){
   s1.display(); 

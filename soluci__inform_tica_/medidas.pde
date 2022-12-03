@@ -58,4 +58,4 @@ int ValoracionY = 270;
 // medidas select
 
 float selectX = 200; 
-float selectY = 70; 
+float selectY = 50; 
