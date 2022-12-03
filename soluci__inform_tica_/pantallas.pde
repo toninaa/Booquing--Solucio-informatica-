@@ -71,7 +71,9 @@ void dibujaNuevoLibro () {
   PagNuevoLibro();
   textFont(getFontAt(2));
   displayButtonsMenu(); 
-  displayTextField(); 
+  displayTextField();
+  displaySelect(); 
+
 }
 
 

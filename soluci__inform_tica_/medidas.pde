@@ -54,3 +54,8 @@ int CampoY = 30;
 
 int ValoracionX = 450; 
 int ValoracionY = 270; 
+
+// medidas select
+
+float selectX = 200; 
+float selectY = 70; 

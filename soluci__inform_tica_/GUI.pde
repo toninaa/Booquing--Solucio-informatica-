@@ -4,6 +4,19 @@ void setGUI() {
   initTextField();
   initImageButton(); 
 }
+
+// selects 
+void initSelect(){
+  String[] selectValues = {"Narrativa", "Drama", "Poesia", "Teatro", "Clásicos" };
+  s1 = new Select(selectValues, 200, 500, selectX, selectY);
+  
+}
+// dibujar selects
+void displaySelect(){
+  s1.display(); 
+}
+
+
 // TextField
 void initTextField() {
   Titulo = new TextField(120, 330, CampoX, CampoY);
@@ -119,7 +132,7 @@ PImage[] getImagesButton(int n1, int n2){
 }
 
 void initImageButton () {
-   imgButtons  = new ImageButton [2]; 
+   imgButtons  = new ImageButton [1]; 
    imgButtons [0]= new ImageButton (getImagesButton(7,8), 820, 620, CheckX, CheckY);
   
 }

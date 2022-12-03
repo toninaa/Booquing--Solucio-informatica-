@@ -95,7 +95,7 @@ class TextField {
       return false;
    }
    
-   // Seleccionar el campp de texto si pulsamos sobre el 
+   // Seleccionar el campo de texto si pulsamos sobre el 
    // Deseleccionar el campo de texto si pulsamos fuera
    void isPressed() {
       if (mouseOverTextField()) {

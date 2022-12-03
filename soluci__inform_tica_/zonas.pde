@@ -131,3 +131,11 @@ void volverAtras () {
 
 void filtrar () {
 }
+
+void check(){
+  pushStyle ();
+  rectMode(CENTER);
+  fill (0);
+  textFont(getFontAt(4));
+  popStyle();
+}

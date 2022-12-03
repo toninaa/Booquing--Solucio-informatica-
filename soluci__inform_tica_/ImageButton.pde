@@ -5,7 +5,7 @@ class ImageButton {
  // Propietats d'un botó:
  float x, y, w, h;  // Posició i dimensions
  
- PImage img,imgOver;  // Imatges del botó
+ PImage img,imgOver, imgDisabled;  // Imatges del botó
  
  boolean enabled;   // Abilitat / desabilitat
  
