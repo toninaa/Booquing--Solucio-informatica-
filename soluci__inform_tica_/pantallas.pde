@@ -73,7 +73,7 @@ void dibujaNuevoLibro () {
   textFont(getFontAt(2));
   displayButtonsMenu(); 
   displayTextField();
-  displaySelect(); 
+  displaySelect1(); 
 
 }
 
@@ -81,8 +81,10 @@ void dibujaNuevoLibro () {
 void dibujaAñadirLibro () {
   pushStyle();
   disableButtons();
+  disableSelects(); 
   enableButtonsMenu();
-  enableButtonsAñadir(); 
+  enableButtonsAñadir();
+  enableSelect3(); 
   dibujaMenu();
   textFont(getFontAt(2)); 
   esquinaIzquierda();
@@ -97,6 +99,7 @@ void dibujaAñadirLibro () {
   displayButtonsMenu();
   displayTextField2();
   displayButtonsAñadir(); 
+  displaySelect3(); 
   popStyle();
  
 }
@@ -104,6 +107,7 @@ void dibujaAñadirLibro () {
 void dibujarEmpezarLeer () {
   pushStyle();
   disableButtons();
+  disableImageButton(); 
   enableImageButton();
   enableButtonsMenu();
   enableButtonsAñadir();
@@ -150,6 +154,8 @@ void establecerRetos () {
   pushStyle();
   disableButtons();
   disableSelects(); 
+  disableCounters(); 
+  enableCounter(); 
   enableButtonsMenu();
   enableSelect2();
   dibujaMenu();
@@ -162,7 +168,8 @@ void establecerRetos () {
   strokeWeight(2);
   rect (100, 350, 1000, 400);
   displayButtonsMenu();
-  displaySelect();
+  displaySelect2();
+  displayCounter(); 
   popStyle();
 }
 

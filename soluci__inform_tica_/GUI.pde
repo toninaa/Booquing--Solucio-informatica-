@@ -3,14 +3,39 @@ void setGUI() {
   initButtons();
   initTextField();
   initImageButton();
-  initSelect(); 
+  initSelect();
+  initCounter(); 
+  
 }
+
+// counters
+
+void initCounter(){
+  c1 = new Counter(getImgAt(9), getImgAt(10), 450, 400, selectX, selectY); 
+}
+
+void enableCounter(){
+  c1.setEnabled(true);  
+}
+
+void disableCounters(){
+  c1.setEnabled(false);   
+}
+
+void displayCounter(){
+  c1.display();
+}
+
+
+
 
 // selects 
 void initSelect(){
   String[] selectValues = {"Narrativa", "Drama", "Poesia", "Teatro", "Clásicos" };
   s1 = new Select(selectValues, 550, 350, selectX, selectY);
-  s2 = new Select(selectValues, 950, 650, selectX, selectY);
+  s2 = new Select(selectValues, 800, 400, selectX, selectY);
+  s3 = new Select(selectValues, 550, 350, selectX, selectY);
+  
   
 }
 
@@ -22,17 +47,32 @@ void enableSelect2(){
   s2.setEnabled(true);  
 }
 
+void enableSelect3(){
+  s3.setEnabled(true);  
+}
+
+
 void disableSelects(){
   s1.setEnabled(false);
   s2.setEnabled(false);
-  
+  s3.setEnabled(false);
+    
 }
 
 
 // dibujar selects
-void displaySelect(){
-  s1.display(); 
+void displaySelect1(){
+  s1.display();
 }
+
+void displaySelect2(){
+  s2.display();
+}
+
+void displaySelect3(){
+  s3.display();
+}
+
 
 
 // TextField

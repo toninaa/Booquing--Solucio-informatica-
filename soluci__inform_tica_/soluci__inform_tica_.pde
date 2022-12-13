@@ -9,7 +9,9 @@ PANTALLA pantalla = PANTALLA.INICIO;
 
 TextField Titulo, TituloTops, Autor, Editorial, Valoracion;
 
-Select s1, s2;
+Select s1, s2, s3;
+
+Counter c1; 
 
 
 void setup() {
@@ -116,13 +118,31 @@ void mousePressed() {
   Editorial.isPressed();
   Valoracion.isPressed();
   TituloTops.isPressed();
+  
+   c1.update();
+ 
 
- // Si pitjam sobre el select 1
+ // escuchar los selects 
   if(s1.mouseOverSelect() && s1.enabled){
     if(!s1.collapsed){
       s1.update();      // Actualitzar valor
     }
     s1.toggle();        // Plegar o desplegar
+  }
+
+
+if(s2.mouseOverSelect() && s2.enabled){
+    if(!s2.collapsed){
+      s2.update();      // Actualitzar valor
+    }
+    s2.toggle();        // Plegar o desplegar
+  }
+  
+  if(s3.mouseOverSelect() && s3.enabled){
+    if(!s3.collapsed){
+      s3.update();      // Actualitzar valor
+    }
+    s3.toggle();        // Plegar o desplegar
   }
 }
 

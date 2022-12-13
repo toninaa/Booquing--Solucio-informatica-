@@ -59,3 +59,8 @@ int ValoracionY = 270;
 
 float selectX = 200; 
 float selectY = 50; 
+
+// medidas Counters 
+
+float counterX = 200; 
+float counterY = 50; 
