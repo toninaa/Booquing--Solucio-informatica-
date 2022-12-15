@@ -11,7 +11,10 @@ TextField Titulo, TituloTops, Autor, Editorial, Valoracion;
 
 Select s1, s2, s3;
 
-Counter c1; 
+Counter c1;
+
+CalendariPlus c;
+String dataCalendari="";
 
 
 void setup() {
@@ -143,6 +146,27 @@ if(s2.mouseOverSelect() && s2.enabled){
       s3.update();      // Actualitzar valor
     }
     s3.toggle();        // Plegar o desplegar
+  }
+  
+    // Comprovar si clicam sobre botons del Calendari
+  c.checkButtons();
+  
+  // Si pitja el botó, canvia la visibilitat del calendari.
+  if(Calendario.mouseOverButton()&&Calendario.enabled){
+    c.visible = !c.visible;
+  }
+  
+  if(c.bNext.mouseOverButton()){
+    c.nextMonth();
+  }
+  
+  if(c.bPrev.mouseOverButton()){
+    c.prevMonth();
+  }
+  
+  if(c.bOK.mouseOverButton() && c.dateSelected){
+    dataCalendari = c.selectedDay +"/"+ c.selectedMonth + "/"+ c.selectedYear;
+    c.visible = false;
   }
 }
 

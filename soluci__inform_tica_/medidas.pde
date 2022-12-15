@@ -64,3 +64,8 @@ float selectY = 50;
 
 float counterX = 200; 
 float counterY = 50; 
+
+// medidas calendario 
+
+int calendarioX = 150; 
+int  calendarioY = 50; 

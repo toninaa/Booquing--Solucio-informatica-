@@ -4,10 +4,24 @@ void setGUI() {
   initTextField();
   initImageButton();
   initSelect();
-  initCounter(); 
+  initCounter();
+  initCalendari(); 
   
 }
 
+// calendari 
+void initCalendari (){ 
+ c = new CalendariPlus(50,200,700,550);
+}
+
+void enableCalendario(){
+  c.setEnabled(true);  
+}
+
+void disableCalendario(){
+  c.setEnabled(false);   
+}
+ 
 // counters
 
 void initCounter(){
@@ -112,10 +126,12 @@ void displayTextFieldTops () {
 
 Button [] buttons;
 
-Button Biblio, Biblio1, Perfil1, Perfil, Move1, Move2, Move3, Move4, Move5, Move6, Move7, Move8, Move9, Move10, Leido, Comprar, Quiero, Pendientes, Pendientes1, MiLista1, MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, Atras, Guardar, VerTodo;
+Button Biblio, Biblio1, Perfil1, Perfil, Move1, Move2, Move3, Move4, Move5, Move6, Move7, 
+Move8, Move9, Move10, Leido, Comprar, Quiero, Pendientes, Pendientes1, MiLista1, 
+MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, Atras, Guardar, VerTodo, Calendario;
 
 void initButtons () {
-  buttons = new Button [29];
+  buttons = new Button [30];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -145,6 +161,7 @@ void initButtons () {
   buttons [26]= new Button ("Mi Lista", 1070, 400, LeidoX, LeidoY);
   buttons [27]= new Button ("Comprado", 1070, 500, LeidoX, LeidoY);
   buttons [28]= new Button ("Ver Todo", 900, 750, LeidoX, LeidoY);
+  buttons [29]= new Button ("Calendario", 900, 750, calendarioX, calendarioY);
 
 
 
@@ -176,6 +193,9 @@ void initButtons () {
   MiLista = buttons [26];
   Pendientes = buttons [27];
   VerTodo = buttons [28];
+  Calendario = buttons [29];
+  
+  
 }
 // botones con imagenes
 ImageButton [] imgButtons;
@@ -252,6 +272,10 @@ void enableButtonsAñadir() {
   Pendientes1.setEnabled(true);
 }
 
+void enableButtonCalendario() {
+  Calendario.setEnabled(true);
+}
+
 void enableButtonsNuevoLibro() {
   MiLista.setEnabled(true);
   Pendientes.setEnabled(true);
@@ -304,7 +328,9 @@ void displayButtonsPerfil () {
 
 void displayButtonsAñadir (){  
   MiLista1.display1();
-  Pendientes1.display1();  
+  Pendientes1.display1();
+  Calendario.display1();
+  
 }
 
 void displayButtonsNuevoLibro (){ 

@@ -51,9 +51,13 @@ void dibujaPerfil () {
   popStyle();
 }
 
+// amb es boto leido 
 void dibujaNuevoLibro () {
   pushStyle();
   disableButtons();
+  disableCalendario(); 
+  enableCalendario(); 
+  enableButtonCalendario(); 
   enableButtonsMenu();
   enableSelect1(); 
   dibujaMenu();
@@ -73,15 +77,17 @@ void dibujaNuevoLibro () {
   textFont(getFontAt(2));
   displayButtonsMenu(); 
   displayTextField();
-  displaySelect1(); 
-
+  displaySelect1();
+  c.display();
+  Calendario.display1(); 
+  
 }
 
 
 void dibujaAñadirLibro () {
   pushStyle();
   disableButtons();
-  disableSelects(); 
+  disableSelects();
   enableButtonsMenu();
   enableButtonsAñadir();
   enableSelect3(); 
@@ -99,7 +105,7 @@ void dibujaAñadirLibro () {
   displayButtonsMenu();
   displayTextField2();
   displayButtonsAñadir(); 
-  displaySelect3(); 
+  displaySelect3();
   popStyle();
  
 }
