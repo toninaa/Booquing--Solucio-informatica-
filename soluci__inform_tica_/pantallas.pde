@@ -78,8 +78,8 @@ void dibujaNuevoLibro () {
   displayButtonsMenu(); 
   displayTextField();
   displaySelect1();
+  Calendario.display1();
   c.display();
-  Calendario.display1(); 
   
 }
 

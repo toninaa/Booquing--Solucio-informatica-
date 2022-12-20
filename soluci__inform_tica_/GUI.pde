@@ -161,7 +161,7 @@ void initButtons () {
   buttons [26]= new Button ("Mi Lista", 1070, 400, LeidoX, LeidoY);
   buttons [27]= new Button ("Comprado", 1070, 500, LeidoX, LeidoY);
   buttons [28]= new Button ("Ver Todo", 900, 750, LeidoX, LeidoY);
-  buttons [29]= new Button ("Calendario", 900, 750, calendarioX, calendarioY);
+  buttons [29]= new Button ("Calendario", 190, 500, calendarioX, calendarioY);
 
 
 
