@@ -6,8 +6,43 @@ void setGUI() {
   initSelect();
   initCounter();
   initCalendari(); 
+  initCarrousel();
   
 }
+
+// carrousel 
+void initCarrousel (){
+String[] títulos = {"camera.png", "cocktail.png", "maleta.png",
+                 "map.png", "xoquins.png", "mascara.png",
+                 "patos.png"};
+  es1 = new Carrousel(2, 300, libroWidth, libroHeight, 10);
+  es2 = new Carrousel(2, width-320, libroWidth, libroHeight, 10);
+  es3 = new Carrousel(2, 300, libroWidth, libroHeight, 10);
+  es4 = new Carrousel(2, width-320, libroWidth, libroHeight, 10);
+  es5 = new Carrousel(2, 350, libroWidth, libroHeight, 10);
+  
+}
+
+void enableCarrouselsBiblio (){
+  es1.setEnabled(true);
+  es2.setEnabled(true);
+  es3.setEnabled(true);
+  es4.setEnabled(true);
+ 
+}
+
+void enableCarrouselsPerfil (){
+  es5.setEnabled(true); 
+}
+
+void disableCarrousels(){
+  es1.setEnabled(false);
+  es2.setEnabled(false);
+  es3.setEnabled(false);
+  es4.setEnabled(false);
+  es5.setEnabled(false); 
+}
+
 
 // calendari 
 void initCalendari (){ 

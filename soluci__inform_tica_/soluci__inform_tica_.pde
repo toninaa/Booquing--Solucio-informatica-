@@ -1,6 +1,7 @@
 // Enumeracion de las pantallas de la app
 enum PANTALLA {
-  INICIO, BIBLIO, PERFIL, LEIDOS, ESTRETOS, ESTTOPS, NUEVO1, NUEVO2, PENDIENTES, LISTA, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, EMPEZAR
+  INICIO, BIBLIO, PERFIL, LEIDOS, ESTRETOS, ESTTOPS, NUEVO1, NUEVO2, PENDIENTES,
+  LISTA, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, EMPEZAR
 };
 
 PANTALLA pantalla = PANTALLA.INICIO;
@@ -14,6 +15,9 @@ Select s1, s2, s3;
 Counter c1;
 
 CalendariPlus c;
+
+Carrousel es1, es2, es3, es4, es5; 
+
 String dataCalendari="";
 
 
