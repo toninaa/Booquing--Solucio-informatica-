@@ -12,14 +12,19 @@ void setGUI() {
 
 // carrousel 
 void initCarrousel (){
-String[] títulos = {"camera.png", "cocktail.png", "maleta.png",
-                 "map.png", "xoquins.png", "mascara.png",
-                 "patos.png"};
+String[] títulos = {"portada00.jpg", "portada01.jpg", "portada02.jpg","portada03.jpg",
+"portada04.jpg", "portada05.jpg", "portada06.jpg", "portada07.jpg", "portada08.jpg"};
+  
   es1 = new Carrousel(2, 300, libroWidth, libroHeight, 10);
+  es1.setImages(títulos);
   es2 = new Carrousel(2, width-320, libroWidth, libroHeight, 10);
+  es2.setImages(títulos); 
   es3 = new Carrousel(2, 300, libroWidth, libroHeight, 10);
+  es3.setImages(títulos);
   es4 = new Carrousel(2, width-320, libroWidth, libroHeight, 10);
+  es4.setImages(títulos);
   es5 = new Carrousel(2, 350, libroWidth, libroHeight, 10);
+  es5.setImages(títulos);
   
 }
 
@@ -364,7 +369,6 @@ void displayButtonsPerfil () {
 void displayButtonsAñadir (){  
   MiLista1.display1();
   Pendientes1.display1();
-  Calendario.display1();
   
 }
 

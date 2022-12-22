@@ -172,6 +172,8 @@ if(s2.mouseOverSelect() && s2.enabled){
     dataCalendari = c.selectedDay +"/"+ c.selectedMonth + "/"+ c.selectedYear;
     c.visible = false;
   }
+  // caroussels
+  es1.checkButtons();
 }
 
 void keyPressed () {
@@ -180,4 +182,11 @@ void keyPressed () {
   Editorial.keyPressed(key, (int)keyCode);
   Valoracion.keyPressed(key, (int)keyCode);
   TituloTops.keyPressed(key, (int)keyCode);
+  
+  if (keyCode==LEFT){
+    es1.prev();
+  }
+  else if(keyCode==RIGHT){
+    es1.next();
+  }
 }

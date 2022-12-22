@@ -18,7 +18,7 @@ class Carrousel {
   String[] títulos;
   
   // Imatges del carrousel
-  PImage[] imgs;
+  PImage[] portadas;
   
   // Botons del carrousel
   Button Move1, Move2, Move3, Move4, Move5, Move6;
@@ -42,7 +42,7 @@ class Carrousel {
   void setImages(String[] títulos){
     this.títulos = títulos;
     this.numTotalImatges = títulos.length;
-    this.imgs = new PImage[títulos.length];
+    this.portadas = new PImage[títulos.length];
     for(int i=0; i<imgs.length; i++){
       imgs[i] = loadImage(títulos[i]);
     }

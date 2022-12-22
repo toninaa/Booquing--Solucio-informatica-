@@ -32,7 +32,7 @@ void dibujaBiblioteca () {
   textFont(getFontAt(2));
   displayButtonsMenu();
   displayButtonsBiblioteca();
- // es1.display(); 
+  es1.display(); 
   popStyle();
 }
 

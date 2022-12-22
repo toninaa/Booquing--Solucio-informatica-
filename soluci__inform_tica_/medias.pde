@@ -5,10 +5,11 @@ String URL_IMGS = "imgs/";
 
 // Array de imatges (JPG, PNG, GIF)
 PImage[] imgs;
+PImage[] títulos; 
   
 // Estableix les imatges de l'App
 void setMedias(){
-    this.imgs = new PImage[11];
+    this.imgs = new PImage[20];
     this.imgs[0] = loadImage(URL_IMGS+"/logo1.png");
     this.imgs[1] = loadImage(URL_IMGS+"/trofeo0.png");
     this.imgs[2] = loadImage(URL_IMGS+"/estanteria.png");
@@ -20,7 +21,29 @@ void setMedias(){
     this.imgs[8] = loadImage(URL_IMGS+"/checkbox0.png");
     this.imgs[9] = loadImage(URL_IMGS+"/mes.png");
     this.imgs[10] = loadImage(URL_IMGS+"/menys.png");
+    this.imgs[11] = loadImage(URL_IMGS+"/portada00.jpg");
+    this.imgs[12] = loadImage(URL_IMGS+"/portada01.jpg");
+    this.imgs[13] = loadImage(URL_IMGS+"/portada02.jpg");
+    this.imgs[14] = loadImage(URL_IMGS+"/portada03.jpg");
+    this.imgs[15] = loadImage(URL_IMGS+"/portada04.jpg");
+    this.imgs[16] = loadImage(URL_IMGS+"/portada05.jpg");
+    this.imgs[17] = loadImage(URL_IMGS+"/portada06.jpg");
+    this.imgs[18] = loadImage(URL_IMGS+"/portada07.jpg");
+    this.imgs[19] = loadImage(URL_IMGS+"/portada08.jpg");
       
+}
+
+void setImages(){
+    this.títulos = new PImage[9];
+    this.imgs[0] = loadImage(URL_IMGS+"/portada00.jpg");
+    this.imgs[1] = loadImage(URL_IMGS+"/portada01.jpg");
+    this.imgs[2] = loadImage(URL_IMGS+"/portada02.jpg");
+    this.imgs[3] = loadImage(URL_IMGS+"/portada03.jpg");
+    this.imgs[4] = loadImage(URL_IMGS+"/portada04.jpg");
+    this.imgs[5] = loadImage(URL_IMGS+"/portada05.jpg");
+    this.imgs[6] = loadImage(URL_IMGS+"/portada06.jpg");
+    this.imgs[7] = loadImage(URL_IMGS+"/portada07.jpg");
+    this.imgs[8] = loadImage(URL_IMGS+"/portada08.jpg");  
 }
   
 // Getter del número d'imatges
