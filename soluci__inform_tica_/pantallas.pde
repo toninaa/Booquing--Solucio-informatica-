@@ -19,10 +19,9 @@ void dibujaBiblioteca () {
   pushStyle ();
   imageMode(CENTER);
   disableButtons();
-  disableCarrousels(); 
-  enableCarrouselsBiblio(); 
+  //disableCarrousels(); 
+  //enableCarrouselsBiblio(); 
   enableButtonsMenu();
-  enableButtonsBiblioteca();
   dibujaMenu();
   dibujaEstante1 ();
   dibujaEstante2 ();
@@ -31,8 +30,10 @@ void dibujaBiblioteca () {
   dibujaLogo();
   textFont(getFontAt(2));
   displayButtonsMenu();
-  displayButtonsBiblioteca();
-  es1.display(); 
+  es1.display();
+  es2.display();
+  es3.display();
+  es4.display();
   popStyle();
 }
 

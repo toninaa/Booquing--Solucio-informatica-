@@ -46,7 +46,7 @@ float estanteWidth  = 700,
       
 // Dimensiones portadas de los libros 
 float libroWidth = 80; 
-float libroHeight = 110;
+float libroHeight = 120;
 
 // campos de texto 
 int CampoX = 300; 
@@ -64,6 +64,13 @@ float selectY = 50;
 
 float counterX = 200; 
 float counterY = 50; 
+
+// medidas añadir tiempo
+
+float AñadirTiempoX = 200; 
+float AñadirTiempoY = 50; 
+
+
 
 // medidas calendario 
 

@@ -7,45 +7,32 @@ void setGUI() {
   initCounter();
   initCalendari(); 
   initCarrousel();
-  
+  setImages();
 }
+
+// TimeField 
+
+
 
 // carrousel 
 void initCarrousel (){
-String[] títulos = {"portada00.jpg", "portada01.jpg", "portada02.jpg","portada03.jpg",
-"portada04.jpg", "portada05.jpg", "portada06.jpg", "portada07.jpg", "portada08.jpg"};
-  
-  es1 = new Carrousel(2, 300, libroWidth, libroHeight, 10);
-  es1.setImages(títulos);
-  es2 = new Carrousel(2, width-320, libroWidth, libroHeight, 10);
-  es2.setImages(títulos); 
-  es3 = new Carrousel(2, 300, libroWidth, libroHeight, 10);
-  es3.setImages(títulos);
-  es4 = new Carrousel(2, width-320, libroWidth, libroHeight, 10);
-  es4.setImages(títulos);
-  es5 = new Carrousel(2, 350, libroWidth, libroHeight, 10);
-  es5.setImages(títulos);
-  
-}
+String[] titulosEs1 = new String[9];
 
-void enableCarrouselsBiblio (){
-  es1.setEnabled(true);
-  es2.setEnabled(true);
-  es3.setEnabled(true);
-  es4.setEnabled(true);
+for(int i =0; i<titulosEs1.length; i++){
+  titulosEs1[i] = URL_IMGS+"/portada0"+i+".jpg";
+}
+  es1 = new Carrousel(libroWidth+40, height/3-150, libroWidth+400-libroWidth+40, libroHeight, 4);
+  es1.setImages(titulosEs1); es1.setButtons();
  
-}
-
-void enableCarrouselsPerfil (){
-  es5.setEnabled(true); 
-}
-
-void disableCarrousels(){
-  es1.setEnabled(false);
-  es2.setEnabled(false);
-  es3.setEnabled(false);
-  es4.setEnabled(false);
-  es5.setEnabled(false); 
+  es2 = new Carrousel(libroWidth+40, height/2, libroWidth+400-libroWidth+40, libroHeight, 4);
+  es2.setImages(titulosEs1); es2.setButtons();
+  
+  es3 = new Carrousel(10.6*libroWidth+40, height/3, libroWidth+400-libroWidth+40, libroHeight, 4);
+  es3.setImages(titulosEs1); es3.setButtons();
+  
+  es4 = new Carrousel(10.6*libroWidth+40, 2*height/3+20, libroWidth+400-libroWidth+40, libroHeight, 4);
+  es4.setImages(titulosEs1); es4.setButtons();
+  
 }
 
 
@@ -166,12 +153,11 @@ void displayTextFieldTops () {
 
 Button [] buttons;
 
-Button Biblio, Biblio1, Perfil1, Perfil, Move1, Move2, Move3, Move4, Move5, Move6, Move7, 
-Move8, Move9, Move10, Leido, Comprar, Quiero, Pendientes, Pendientes1, MiLista1, 
+Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1, 
 MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, Atras, Guardar, VerTodo, Calendario;
 
-void initButtons () {
-  buttons = new Button [30];
+void initButtons (){ 
+  buttons = new Button [20];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -181,27 +167,17 @@ void initButtons () {
   buttons [6]= new Button ("Ver", width-350, 450, LeidoX, LeidoY);
   buttons [7]= new Button ("Iniciar", width-600, 700, LeidoX, LeidoY);
   buttons [8]= new Button ("Ver", width-350, 700, LeidoX, LeidoY);
-  buttons [9]= new Button (">", estanteWidth-90, height/2+50, MoveX, MoveY);
-  buttons [10]= new Button ("<", 30, height/2+50, MoveX, MoveY);
-  buttons [11]= new Button (">", estanteWidth-90, height/3-100, MoveX, MoveY);
-  buttons [12]= new Button ("<", 30, height/3-100, MoveX, MoveY);
-  buttons [13]= new Button (">", width-70, height/2-100, MoveX, MoveY);
-  buttons [14]= new Button ("<", estanteWidth+90, height/2-100, MoveX, MoveY);
-  buttons [15]= new Button (">", width-70, height/3+370, MoveX, MoveY);
-  buttons [16]= new Button ("<", estanteWidth+90, height/3+370, MoveX, MoveY);
-  buttons [17]= new Button (">", estanteWidth-90, 2*height/3, MoveX, MoveY);
-  buttons [18]= new Button ("<", 30, 2*height/3, MoveX, MoveY);
-  buttons [19]= new Button ("Leido", 100, 250, LeidoX, LeidoY);
-  buttons [20]= new Button ("Comprado", 300, 250, LeidoX, LeidoY);
-  buttons [21]= new Button ("Quiero", 500, 250, LeidoX, LeidoY);
-  buttons [22]= new Button ("Empezar a leer", 150, 350, 3*LeidoX, LeidoY);
-  buttons [23]= new Button ("Quiero", 500, 250, LeidoX, LeidoY);
-  buttons [24]= new Button ("Mi Lista", 980, 650, LeidoX, LeidoY);
-  buttons [25]= new Button ("Comprado", 1180, 650, LeidoX, LeidoY);
-  buttons [26]= new Button ("Mi Lista", 1070, 400, LeidoX, LeidoY);
-  buttons [27]= new Button ("Comprado", 1070, 500, LeidoX, LeidoY);
-  buttons [28]= new Button ("Ver Todo", 900, 750, LeidoX, LeidoY);
-  buttons [29]= new Button ("Calendario", 190, 500, calendarioX, calendarioY);
+  buttons [9]= new Button ("Leido", 100, 250, LeidoX, LeidoY);
+  buttons [10]= new Button ("Comprado", 300, 250, LeidoX, LeidoY);
+  buttons [11]= new Button ("Quiero", 500, 250, LeidoX, LeidoY);
+  buttons [12]= new Button ("Empezar a leer", 150, 350, 3*LeidoX, LeidoY);
+  buttons [13]= new Button ("Quiero", 500, 250, LeidoX, LeidoY);
+  buttons [14]= new Button ("Mi Lista", 980, 650, LeidoX, LeidoY);
+  buttons [15]= new Button ("Comprado", 1180, 650, LeidoX, LeidoY);
+  buttons [16]= new Button ("Mi Lista", 1070, 400, LeidoX, LeidoY);
+  buttons [17]= new Button ("Comprado", 1070, 500, LeidoX, LeidoY);
+  buttons [18]= new Button ("Ver Todo", 900, 750, LeidoX, LeidoY);
+  buttons [19]= new Button ("Calendario", 190, 500, calendarioX, calendarioY);
 
 
 
@@ -214,26 +190,17 @@ void initButtons () {
   Ver1 = buttons [6];
   Iniciar2 =buttons [7];
   Ver2 = buttons [8];
-  Move1 = buttons [9];
-  Move2 = buttons [10];
-  Move3 = buttons [11];
-  Move4 = buttons [12];
-  Move5 = buttons [13];
-  Move6 = buttons [14];
-  Move7 =buttons [15];
-  Move8 = buttons [16];
-  Move9 =buttons [17];
-  Move10 = buttons [18];
-  Leido =buttons [19];
-  Comprar =buttons [20];
-  Quiero = buttons [21];
-  Empezar = buttons [22];
-  MiLista1 = buttons [24];
-  Pendientes1 = buttons [25];
-  MiLista = buttons [26];
-  Pendientes = buttons [27];
-  VerTodo = buttons [28];
-  Calendario = buttons [29];
+  Leido =buttons [9];
+  Comprar =buttons [10];
+  Quiero1 = buttons [11];
+  Empezar = buttons [12];
+    Quiero2 = buttons [13];
+  MiLista1 = buttons [14];
+  Pendientes1 = buttons [15];
+  MiLista = buttons [16];
+  Pendientes = buttons [17];
+  VerTodo = buttons [18];
+  Calendario = buttons [19];
   
   
 }
@@ -283,28 +250,16 @@ void enableButtonsMenu () {
   Perfil1.setEnabled(true);
 }
 
-void enableButtonsBiblioteca () {
-  Move1.setEnabled(true);
-  Move2.setEnabled(true);
-  Move3.setEnabled(true);
-  Move4.setEnabled(true);
-  Move5.setEnabled(true);
-  Move6.setEnabled(true);
-  Move7.setEnabled(true);
-  Move8.setEnabled(true);
-}
 
 void enableButtonsPerfil() {
   Leido.setEnabled(true);
   Comprar.setEnabled(true);
-  Quiero.setEnabled(true);
+  Quiero1.setEnabled(true);
   Empezar.setEnabled(true);
   Ver1.setEnabled(true);
   Ver2.setEnabled(true);
   Iniciar1.setEnabled(true);
   Iniciar2.setEnabled(true);
-  Move9.setEnabled(true);
-  Move10.setEnabled(true);
 }
 
 void enableButtonsAñadir() {
@@ -342,23 +297,10 @@ void displayButtonsMenu() {
   Perfil1.display1();
 }
 
-void displayButtonsBiblioteca () {
-  Move1.display2();
-  Move2.display2();
-  Move3.display2();
-  Move4.display2();
-  Move5.display2();
-  Move6.display2();
-  Move7.display2();
-  Move8.display2();
-}
-
 void displayButtonsPerfil () {
-  Move9.display2();
-  Move10.display2();
   Leido.display3();
   Comprar.display3();
-  Quiero.display3();
+  Quiero1.display3();
   Empezar.display3();
   Iniciar1.display3();
   Ver1.display3();

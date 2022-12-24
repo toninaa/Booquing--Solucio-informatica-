@@ -5,7 +5,7 @@ String URL_IMGS = "imgs/";
 
 // Array de imatges (JPG, PNG, GIF)
 PImage[] imgs;
-PImage[] títulos; 
+PImage[] imgPortada; 
   
 // Estableix les imatges de l'App
 void setMedias(){
@@ -34,16 +34,16 @@ void setMedias(){
 }
 
 void setImages(){
-    this.títulos = new PImage[9];
-    this.imgs[0] = loadImage(URL_IMGS+"/portada00.jpg");
-    this.imgs[1] = loadImage(URL_IMGS+"/portada01.jpg");
-    this.imgs[2] = loadImage(URL_IMGS+"/portada02.jpg");
-    this.imgs[3] = loadImage(URL_IMGS+"/portada03.jpg");
-    this.imgs[4] = loadImage(URL_IMGS+"/portada04.jpg");
-    this.imgs[5] = loadImage(URL_IMGS+"/portada05.jpg");
-    this.imgs[6] = loadImage(URL_IMGS+"/portada06.jpg");
-    this.imgs[7] = loadImage(URL_IMGS+"/portada07.jpg");
-    this.imgs[8] = loadImage(URL_IMGS+"/portada08.jpg");  
+    this.imgPortada = new PImage[9];
+    this.imgPortada[0] = loadImage(URL_IMGS+"/portada00.jpg");
+    this.imgPortada[1] = loadImage(URL_IMGS+"/portada01.jpg");
+    this.imgPortada[2] = loadImage(URL_IMGS+"/portada02.jpg");
+    this.imgPortada[3] = loadImage(URL_IMGS+"/portada03.jpg");
+    this.imgPortada[4] = loadImage(URL_IMGS+"/portada04.jpg");
+    this.imgPortada[5] = loadImage(URL_IMGS+"/portada05.jpg");
+    this.imgPortada[6] = loadImage(URL_IMGS+"/portada06.jpg");
+    this.imgPortada[7] = loadImage(URL_IMGS+"/portada07.jpg");
+    this.imgPortada[8] = loadImage(URL_IMGS+"/portada08.jpg");  
 }
   
 // Getter del número d'imatges

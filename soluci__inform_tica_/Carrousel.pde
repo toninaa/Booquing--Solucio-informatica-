@@ -1,12 +1,10 @@
 class Carrousel {
    
   // Dimensions del carrousel
-  float x, y, w, h;
+  float x, y; 
+  float w, h;
   float imgW;
   float margeH = 15;
-  
-  // 
-  boolean enabled; 
 
   // Informació del carrousel
   int numTotalImatges, numImatgesVisibles;
@@ -14,14 +12,11 @@ class Carrousel {
   // Index imatge actual
   int currentImage;
   
-  // Títols de les imatges
-  String[] títulos;
-  
   // Imatges del carrousel
-  PImage[] portadas;
+  PImage[] imgs;
   
   // Botons del carrousel
-  Button Move1, Move2, Move3, Move4, Move5, Move6;
+  Button bPrev, bNext;
   
   // Constructor
   Carrousel(float x, float y, float w, float h, int nv){
@@ -35,25 +30,17 @@ class Carrousel {
   
   // Setters
   
-  void setEnabled(boolean b){
-   this.enabled = b;
- }
- 
-  void setImages(String[] títulos){
-    this.títulos = títulos;
-    this.numTotalImatges = títulos.length;
-    this.portadas = new PImage[títulos.length];
+  void setImages(String[] noms){
+    this.numTotalImatges = noms.length;
+    this.imgs = new PImage[noms.length];
     for(int i=0; i<imgs.length; i++){
-      imgs[i] = loadImage(títulos[i]);
+      imgs[i] = loadImage(noms[i]);
     }
   }
   
-  void setButtons(String img1, String img2){
-    PImage imgPrev = loadImage(img1);
-    Move1 = new Button("<", x, y + h/2, MoveX, MoveY);
-    
-    PImage imgNext = loadImage(img2);
-    Move2 = new Button(">", x + w, y + h/2, MoveX, MoveY );
+  void setButtons(){
+    bPrev = new Button("<", this.x-60, y + h/2-20, MoveX, MoveY);
+    bNext = new Button(">", this.x+this.w+20, y + h/2-20, MoveX, MoveY);
   }
   
   void next(){
@@ -71,9 +58,7 @@ class Carrousel {
   
   // Dibuixa el Mosaic
   void display(){
-    
-    fill(150); stroke(0);
-    rect(x-5, y-5, w+10, h+10);
+    imageMode(CORNER);
     
     for(int i=0; i<this.numImatgesVisibles; i++){
       
@@ -83,40 +68,30 @@ class Carrousel {
       // Imatge a mostrar
       PImage img = imgs[index];
       image(img, xPos, y, this.imgW, h);
-      
-      // Titol de la imatge
-      fill(0); textAlign(CENTER); textSize(24);
-      text(títulos[index], xPos + this.imgW/2, y + h + 50);
-    
-      // Número de la imatge
-      fill(200, 100, 100); noStroke();
-      ellipse(xPos + 30, y + 30, 50, 50);
-      fill(0);
-      text(index, xPos + 30, y + 40);
     }
     
-    if(Move1!=null){
-      Move1.display2();
+    if(bNext!=null){
+      bNext.display2();
     }
-    if(Move2!=null){
-      Move2.display2();
+    if(bPrev!=null){
+      bPrev.display2();
     }
   }
   
   void checkButtons(){
-    if(Move1.mouseOverButton() && Move1.enabled){
+    if(bNext.mouseOverButton() && bNext.enabled){
       this.next();
     }
-    else if(Move2.mouseOverButton() && Move2.enabled){
+    else if(bPrev.mouseOverButton() && bPrev.enabled){
       this.prev();
     }
   }
   
   boolean checkCursor(){
-    if(Move1.mouseOverButton() && Move1.enabled){
+    if(bNext.mouseOverButton() && bNext.enabled){
       return true;
     }
-    else if(Move2.mouseOverButton() && Move2.enabled){
+    else if(bPrev.mouseOverButton() && bPrev.enabled){
       return true;
     }
     return false;

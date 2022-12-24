@@ -71,7 +71,7 @@ class TextField {
    
    // Añadir una letra del final del texto 
    void addText(char c) {
-      if (textWidth(this.text + c) < w) {
+      if (textWidth(this.text + c) < this.w*2) {
          this.text += c;
          textLength++;
       }

@@ -26,10 +26,6 @@ void dibujaEstante1 () {
   displayImg(2, 350, height/3, estanteWidth, estanteHeight);
   textFont(getFontAt(2));
   fill(255);
-  rect(libroWidth+40, height/3-150, libroWidth, libroHeight);
-  rect(libroWidth+160, height/3-150, libroWidth, libroHeight);
-  rect(libroWidth+280, height/3-150, libroWidth, libroHeight);
-  rect(libroWidth+400, height/3-150, libroWidth, libroHeight);
   popStyle();
 }
 
@@ -40,10 +36,6 @@ void dibujaEstante2 () {
   displayImg(2, width-320, height/2, estanteWidth, estanteHeight);
   textFont(getFontAt(2));
   fill(255);
-  rect(libroWidth+40, height/2, libroWidth, libroHeight);
-  rect(libroWidth+160, height/2, libroWidth, libroHeight);
-  rect(libroWidth+280, height/2, libroWidth, libroHeight);
-  rect(libroWidth+400, height/2, libroWidth, libroHeight);
   popStyle();
 }
 
@@ -53,10 +45,6 @@ void dibujaEstante3 () {
   displayImg(2, 350, 2*height/3, estanteWidth, estanteHeight);
   textFont(getFontAt(2));
   fill(255);
-  rect(10.6*libroWidth+40, height/3, libroWidth, libroHeight);
-  rect(10.6*libroWidth+160, height/3, libroWidth, libroHeight);
-  rect(10.6*libroWidth+280, height/3, libroWidth, libroHeight);
-  rect(10.6*libroWidth+400, height/3, libroWidth, libroHeight);
   popStyle();
 }
 void dibujaEstante4 () {
@@ -65,10 +53,6 @@ void dibujaEstante4 () {
   displayImg(2, width-320, 2*height/3+estanteHeight, estanteWidth, estanteHeight);
   textFont(getFontAt(2));
   fill(255);
-  rect(10.6*libroWidth+40, 2*height/3, libroWidth, libroHeight);
-  rect(10.6*libroWidth+160, 2*height/3, libroWidth, libroHeight);
-  rect(10.6*libroWidth+280, 2*height/3, libroWidth, libroHeight);
-  rect(10.6*libroWidth+400, 2*height/3, libroWidth, libroHeight);
   popStyle();
 }
 
