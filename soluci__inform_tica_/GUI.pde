@@ -6,8 +6,10 @@ void setGUI() {
   initSelect();
   initCounter();
   initCalendari(); 
-  initCarrousel();
+  initCarrouselBiblio();
+  initCarrouselPerfil(); 
   setImages();
+  
 }
 
 // TimeField 
@@ -15,7 +17,7 @@ void setGUI() {
 
 
 // carrousel 
-void initCarrousel (){
+void initCarrouselBiblio (){
 String[] titulosEs1 = new String[9];
 
 for(int i =0; i<titulosEs1.length; i++){
@@ -33,6 +35,20 @@ for(int i =0; i<titulosEs1.length; i++){
   es4 = new Carrousel(10.6*libroWidth+40, 2*height/3+20, libroWidth+400-libroWidth+40, libroHeight, 4);
   es4.setImages(titulosEs1); es4.setButtons();
   
+  
+}
+
+void initCarrouselPerfil(){
+  String[] trofeosEs5 = new String[7];
+
+for(int i =0; i<trofeosEs5.length; i++){
+  trofeosEs5[i] = URL_IMGS+"/trofeo"+i+".png";
+}
+
+ es5 = new Carrousel(libroWidth+40, 490, trofeoX+400-trofeoX+40, trofeoY, 3);
+  es5.setImages(trofeosEs5); es5.setButtons();
+  
+
 }
 
 
@@ -218,7 +234,7 @@ PImage[] getImagesButton(int n1, int n2){
 
 void initImageButton () {
    imgButtons  = new ImageButton [1]; 
-   imgButtons [0]= new ImageButton (getImagesButton(7,8), 820, 620, CheckX, CheckY);
+   imgButtons [0]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
   
 }
 

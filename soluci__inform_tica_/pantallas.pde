@@ -19,8 +19,6 @@ void dibujaBiblioteca () {
   pushStyle ();
   imageMode(CENTER);
   disableButtons();
-  //disableCarrousels(); 
-  //enableCarrouselsBiblio(); 
   enableButtonsMenu();
   dibujaMenu();
   dibujaEstante1 ();
@@ -52,6 +50,7 @@ void dibujaPerfil () {
   dibujaTextoPerfil(); 
   displayButtonsMenu();
   displayButtonsPerfil();
+  es5.display(); 
   popStyle();
 }
 

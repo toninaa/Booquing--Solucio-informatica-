@@ -91,6 +91,7 @@ if(s2.mouseOverSelect() && s2.enabled){
   es2.checkButtons();es2.checkCursor();
   es3.checkButtons();es3.checkCursor();
   es4.checkButtons();es4.checkCursor();
+  es5.checkButtons();es5.checkCursor();
 }
 
 void keyPressed () {

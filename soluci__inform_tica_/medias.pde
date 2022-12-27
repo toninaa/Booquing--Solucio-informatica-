@@ -5,32 +5,49 @@ String URL_IMGS = "imgs/";
 
 // Array de imatges (JPG, PNG, GIF)
 PImage[] imgs;
-PImage[] imgPortada; 
+PImage[] imgPortada;
+PImage[] imgTrofeos; 
   
 // Estableix les imatges de l'App
 void setMedias(){
-    this.imgs = new PImage[20];
+    this.imgs = new PImage[24];
     this.imgs[0] = loadImage(URL_IMGS+"/logo1.png");
     this.imgs[1] = loadImage(URL_IMGS+"/trofeo0.png");
     this.imgs[2] = loadImage(URL_IMGS+"/estanteria.png");
     this.imgs[3] = loadImage(URL_IMGS+"/trofeo1.png");
     this.imgs[4] = loadImage(URL_IMGS+"/trofeo2.png");
-    this.imgs[5] = loadImage(URL_IMGS+"/libro1.png");
-    this.imgs[6] = loadImage(URL_IMGS+"/libro2.png");
-    this.imgs[7] = loadImage(URL_IMGS+"/checkbox1.png");
-    this.imgs[8] = loadImage(URL_IMGS+"/checkbox0.png");
-    this.imgs[9] = loadImage(URL_IMGS+"/mes.png");
-    this.imgs[10] = loadImage(URL_IMGS+"/menys.png");
-    this.imgs[11] = loadImage(URL_IMGS+"/portada00.jpg");
-    this.imgs[12] = loadImage(URL_IMGS+"/portada01.jpg");
-    this.imgs[13] = loadImage(URL_IMGS+"/portada02.jpg");
-    this.imgs[14] = loadImage(URL_IMGS+"/portada03.jpg");
-    this.imgs[15] = loadImage(URL_IMGS+"/portada04.jpg");
-    this.imgs[16] = loadImage(URL_IMGS+"/portada05.jpg");
-    this.imgs[17] = loadImage(URL_IMGS+"/portada06.jpg");
-    this.imgs[18] = loadImage(URL_IMGS+"/portada07.jpg");
-    this.imgs[19] = loadImage(URL_IMGS+"/portada08.jpg");
+    this.imgs[5] = loadImage(URL_IMGS+"/trofeo3.png");
+    this.imgs[6] = loadImage(URL_IMGS+"/trofeo4.png");
+    this.imgs[7] = loadImage(URL_IMGS+"/trofeo5.png");
+    this.imgs[8] = loadImage(URL_IMGS+"/trofeo6.png");
+    this.imgs[9] = loadImage(URL_IMGS+"/libro1.png");
+    this.imgs[10] = loadImage(URL_IMGS+"/libro2.png");
+    this.imgs[11] = loadImage(URL_IMGS+"/checkbox1.png");
+    this.imgs[12] = loadImage(URL_IMGS+"/checkbox0.png");
+    this.imgs[13] = loadImage(URL_IMGS+"/mes.png");
+    this.imgs[14] = loadImage(URL_IMGS+"/menys.png");
+    this.imgs[15] = loadImage(URL_IMGS+"/portada00.jpg");
+    this.imgs[16] = loadImage(URL_IMGS+"/portada01.jpg");
+    this.imgs[17] = loadImage(URL_IMGS+"/portada02.jpg");
+    this.imgs[18] = loadImage(URL_IMGS+"/portada03.jpg");
+    this.imgs[19] = loadImage(URL_IMGS+"/portada04.jpg");
+    this.imgs[20] = loadImage(URL_IMGS+"/portada05.jpg");
+    this.imgs[21] = loadImage(URL_IMGS+"/portada06.jpg");
+    this.imgs[22] = loadImage(URL_IMGS+"/portada07.jpg");
+    this.imgs[23] = loadImage(URL_IMGS+"/portada08.jpg");
       
+}
+
+void setTrofeos(){
+  this.imgTrofeos = new PImage[7]; 
+  this.imgTrofeos[0] = loadImage(URL_IMGS+"/trofeo6.png "); 
+    this.imgTrofeos[1] = loadImage(URL_IMGS+"/trofeo0.png");
+    this.imgTrofeos[2] = loadImage(URL_IMGS+"/trofeo1.png");
+    this.imgTrofeos[3] = loadImage(URL_IMGS+"/trofeo2.png");
+    this.imgTrofeos[4] = loadImage(URL_IMGS+"/trofeo3.png");
+    this.imgTrofeos[5] = loadImage(URL_IMGS+"/trofeo4.png");
+    this.imgTrofeos[6] = loadImage(URL_IMGS+"/trofeo5.png");
+  
 }
 
 void setImages(){

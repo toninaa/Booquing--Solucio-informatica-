@@ -14,6 +14,7 @@ class Carrousel {
   
   // Imatges del carrousel
   PImage[] imgs;
+  PImage[] trofeos; 
   
   // Botons del carrousel
   Button bPrev, bNext;
@@ -36,6 +37,15 @@ class Carrousel {
     for(int i=0; i<imgs.length; i++){
       imgs[i] = loadImage(noms[i]);
     }
+  }
+  
+  void setTrofeos(String [] Trofeos){
+  this.numTotalImatges= trofeos.length; 
+  this.trofeos = new PImage[trofeos.length];
+   for(int i=0; i<trofeos.length; i++){
+      trofeos[i] = loadImage(Trofeos[i]);
+    }
+  
   }
   
   void setButtons(){

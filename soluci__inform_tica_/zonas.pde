@@ -61,9 +61,6 @@ void dibujaEstante5 () {
   imageMode(CENTER);
   displayImg(2, 350, 2*height/3+100, estanteWidth, estanteHeight);
   textFont(getFontAt(2));
-  displayImg(3, trofeoX+60, 2*height/3-20, trofeoX, trofeoY);
-  displayImg(4, trofeoX+230, 2*height/3-20, trofeoX, trofeoY );
-  displayImg(1, trofeoX+410, 2*height/3-15, trofeoX, trofeoY);
   popStyle();
 }
 
@@ -90,8 +87,8 @@ void nuevoLibro () {
 void esquinaIzquierda () {
   pushStyle ();
   imageMode(CENTER);
-  displayImg(5, width-400, 100, 200, 100);
-  displayImg(5, width-150, 220, 200, 100 );
+  displayImg(9, width-400, 100, 200, 100);
+  displayImg(9, width-150, 220, 200, 100 );
   fill(0);
   textFont(getFontAt(3));
   text("23", width-150, 110);
