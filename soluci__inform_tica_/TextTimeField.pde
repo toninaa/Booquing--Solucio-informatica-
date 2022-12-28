@@ -6,15 +6,15 @@ class TextTimeField {
   float x, y, h, w;
   
   // Colors
-  color bgColor = color(140, 140, 140);
-  color fgColor = color(0, 0, 0);
-  color selectedColor = color(190, 190, 60);
-  color borderColor = color(30, 30, 30);
-  int borderWeight = 1;
+  color bgColor = color(255);
+  color fgColor = color(133, 77, 39);
+  color selectedColor = color(231, 227, 147);
+  color borderColor = color(115, 135, 123);
+  int borderWeight = 2;
   
   // Text del camp
-  String text = "00";
-  int textSize = 32;
+  String text = "";
+  float textSize = midaParagraf;
   
   String labelText="";
 
@@ -44,7 +44,7 @@ class TextTimeField {
       textSize(textSize); textAlign(CENTER);
       text(text, x + w/2, y + textSize +5);
       
-      fill(0); textAlign(CENTER);
+      fill(133, 77, 39); textAlign(CENTER);
       text(labelText, x + w/2, y - textSize/2);
    }
    
@@ -59,7 +59,7 @@ class TextTimeField {
             
            boolean isKeyNumber = (key >= '0' && key <= '9');
       
-           if (isKeyNumber) {
+           if (isKeyNumber || key=='-') {
                addText(key);
            }
          }
@@ -68,12 +68,8 @@ class TextTimeField {
    
    // Afegeix la lletra c al final del text
    void addText(char c) {
-      if (this.text.length()<2) {
+      if (this.text.length()<3) {
          this.text += c;
-         int n = Integer.valueOf(this.text);
-         if(n<0 || n>60){
-           this.text="00";
-         }
       }
    }
    

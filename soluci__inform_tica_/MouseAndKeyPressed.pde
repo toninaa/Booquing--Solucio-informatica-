@@ -92,6 +92,13 @@ if(s2.mouseOverSelect() && s2.enabled){
   es3.checkButtons();es3.checkCursor();
   es4.checkButtons();es4.checkCursor();
   es5.checkButtons();es5.checkCursor();
+  
+  // timeField
+   tif.isPressed();
+   
+   // imageButton
+   
+  
 }
 
 void keyPressed () {
@@ -100,6 +107,7 @@ void keyPressed () {
   Editorial.keyPressed(key, (int)keyCode);
   Valoracion.keyPressed(key, (int)keyCode);
   TituloTops.keyPressed(key, (int)keyCode);
+  tif.keyPressed(key, (int)keyCode);
   
   if (keyCode==LEFT){
     es1.prev();

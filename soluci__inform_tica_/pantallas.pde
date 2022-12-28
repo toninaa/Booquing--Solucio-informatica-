@@ -135,7 +135,7 @@ void dibujarEmpezarLeer () {
   displayButtonsMenu();
   displayTextField2();
   displayButtonsNuevoLibro(); 
-  displayImageButton(); 
+  imgButtons[0].display();
   popStyle();
 }
 
@@ -163,7 +163,9 @@ void establecerRetos () {
   pushStyle();
   disableButtons();
   disableSelects(); 
-  disableCounters(); 
+  disableCounters();
+  disableTimeField(); 
+  enableTimeField(); 
   enableCounter(); 
   enableButtonsMenu();
   enableSelect2();
@@ -175,10 +177,12 @@ void establecerRetos () {
   fill(255);
   stroke(231, 227, 147);
   strokeWeight(2);
-  rect (100, 350, 1000, 400);
+  rect (100, 350, 1200, 400);
   displayButtonsMenu();
   displaySelect2();
   displayCounter(); 
+  tif.display();
+  imgButtons[1].display();
   popStyle();
 }
 

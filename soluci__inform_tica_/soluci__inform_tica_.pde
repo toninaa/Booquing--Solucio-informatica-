@@ -18,7 +18,9 @@ CalendariPlus c;
 
 Carrousel es1, es2, es3, es4, es5; 
 
-TextField tf; 
+TextField tf;
+
+TimeField tif;
 
 String dataCalendari="";
 

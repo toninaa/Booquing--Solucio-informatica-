@@ -75,4 +75,9 @@ float AñadirTiempoY = 50;
 // medidas calendario 
 
 int calendarioX = 150; 
-int  calendarioY = 50; 
+int  calendarioY = 50;
+
+// medidas timeField 
+
+int TimeFieldX = 300; 
+int  TimeFieldY = 50;

@@ -9,10 +9,23 @@ void setGUI() {
   initCarrouselBiblio();
   initCarrouselPerfil(); 
   setImages();
+  initTimeField(); 
   
 }
 
 // TimeField 
+
+void initTimeField(){
+ tif = new TimeField(150, 500, TimeFieldX, TimeFieldY);
+}
+
+void enableTimeField(){
+  tif.setEnabled(true);  
+}
+
+void disableTimeField(){
+  tif.setEnabled(false);   
+}
 
 
 
@@ -68,7 +81,7 @@ void disableCalendario(){
 // counters
 
 void initCounter(){
-  c1 = new Counter(getImgAt(9), getImgAt(10), 450, 400, selectX, selectY); 
+  c1 = new Counter(getImgAt(13), getImgAt(14), 600, 500, selectX, selectY); 
 }
 
 void enableCounter(){
@@ -90,7 +103,7 @@ void displayCounter(){
 void initSelect(){
   String[] selectValues = {"Narrativa", "Drama", "Poesia", "Teatro", "Clásicos" };
   s1 = new Select(selectValues, 550, 350, selectX, selectY);
-  s2 = new Select(selectValues, 800, 400, selectX, selectY);
+  s2 = new Select(selectValues, 1050, 500, selectX, selectY);
   s3 = new Select(selectValues, 550, 350, selectX, selectY);
   
   
@@ -233,17 +246,21 @@ PImage[] getImagesButton(int n1, int n2){
 }
 
 void initImageButton () {
-   imgButtons  = new ImageButton [1]; 
+   imgButtons  = new ImageButton [2]; 
    imgButtons [0]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
+   imgButtons [1]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);
+   
   
 }
 
 void disableImageButton (){
-  imgButtons[0].setEnabled(false);  
+  imgButtons[0].setEnabled(false);
+  imgButtons[1].setEnabled(false);
 }
 
 void enableImageButton(){
-  imgButtons[0].setEnabled(true);  
+  imgButtons[0].setEnabled(true);
+  imgButtons[1].setEnabled(true);
 }
 
 void displayImageButton (){
