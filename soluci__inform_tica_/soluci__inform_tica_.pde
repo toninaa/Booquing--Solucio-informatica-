@@ -12,7 +12,7 @@ TextField Titulo, TituloTops, Autor, Editorial, Valoracion;
 
 Select s1, s2, s3;
 
-Counter c1;
+Counter c1, c2;
 
 CalendariPlus c;
 

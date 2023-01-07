@@ -23,9 +23,10 @@ void dibujaEstante1 () {
 
   pushStyle ();
   imageMode(CENTER);
+  textFont(getFontAt(4));
+  fill(0);
+  text("LEIDOS", 100, 600); 
   displayImg(2, 350, height/3, estanteWidth, estanteHeight);
-  textFont(getFontAt(2));
-  fill(255);
   popStyle();
 }
 

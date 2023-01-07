@@ -21,10 +21,6 @@ void dibujaBiblioteca () {
   disableButtons();
   enableButtonsMenu();
   dibujaMenu();
-  dibujaEstante1 ();
-  dibujaEstante2 ();
-  dibujaEstante3 ();
-  dibujaEstante4 ();
   dibujaLogo();
   textFont(getFontAt(2));
   displayButtonsMenu();
@@ -32,6 +28,10 @@ void dibujaBiblioteca () {
   es2.display();
   es3.display();
   es4.display();
+  dibujaEstante1 ();
+  dibujaEstante2 ();
+  dibujaEstante3 ();
+  dibujaEstante4 ();
   popStyle();
 }
 
@@ -57,6 +57,7 @@ void dibujaPerfil () {
 // amb es boto leido 
 void dibujaNuevoLibro () {
   pushStyle();
+  // desabilitar y abilitar los objetos necesarios para esta pantalla
   disableButtons();
   disableCalendario(); 
   enableCalendario(); 
@@ -74,7 +75,7 @@ void dibujaNuevoLibro () {
   stroke(231, 227, 147);
   strokeWeight(2);
   rect (100, 300, 800, 400);
-  rect(950, 450, 400, 250);
+  rect(950, 450, 400, 250); 
   popStyle();
   PagNuevoLibro();
   textFont(getFontAt(2));
@@ -83,6 +84,9 @@ void dibujaNuevoLibro () {
   displaySelect1();
   Calendario.display1();
   c.display();
+  imgButtons[0].display();
+  text("Inicio", 200, 800);
+  text(dataCalendari, 250, 800);
   
 }
 
@@ -109,6 +113,7 @@ void dibujaAñadirLibro () {
   displayTextField2();
   displayButtonsAñadir(); 
   displaySelect3();
+  imgButtons[0].display();
   popStyle();
  
 }
@@ -142,7 +147,9 @@ void dibujarEmpezarLeer () {
 void establecerTops () {
   pushStyle();
   disableButtons();
+  disableCounters(); 
   enableButtonsMenu();
+  enableCounterTops(); 
   dibujaMenu();
   esquinaIzquierda();
   textFont(getFontAt(2));
@@ -155,7 +162,8 @@ void establecerTops () {
   rect (100, 350, 800, 400);
   rect(950, 400, 400, 250);
   displayButtonsMenu();
-  displayTextFieldTops(); 
+  displayTextFieldTops();
+  c2.display(); 
   popStyle();
 }
 
@@ -166,7 +174,7 @@ void establecerRetos () {
   disableCounters();
   disableTimeField(); 
   enableTimeField(); 
-  enableCounter(); 
+  enableCounterRetos(); 
   enableButtonsMenu();
   enableSelect2();
   dibujaMenu();
@@ -180,7 +188,7 @@ void establecerRetos () {
   rect (100, 350, 1200, 400);
   displayButtonsMenu();
   displaySelect2();
-  displayCounter(); 
+  c1.display(); 
   tif.display();
   imgButtons[1].display();
   popStyle();

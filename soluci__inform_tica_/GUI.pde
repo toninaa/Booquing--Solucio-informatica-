@@ -82,19 +82,25 @@ void disableCalendario(){
 
 void initCounter(){
   c1 = new Counter(getImgAt(13), getImgAt(14), 600, 500, selectX, selectY); 
+  c2 = new Counter(getImgAt(13), getImgAt(14), 150, 500, selectX, selectY);
 }
 
-void enableCounter(){
+void enableCounterRetos(){
   c1.setEnabled(true);  
 }
 
-void disableCounters(){
-  c1.setEnabled(false);   
+void enableCounterTops(){
+  c2.setEnabled(true);  
 }
 
-void displayCounter(){
-  c1.display();
+void disableCounters(){
+  c1.setEnabled(false);
+  c2.setEnabled(false); 
 }
+
+
+
+
 
 
 
@@ -151,7 +157,7 @@ void initTextField() {
   Autor = new TextField(120, 380, CampoX, CampoY);
   Editorial = new TextField(120, 430, CampoX, CampoY);
   Valoracion = new TextField(950, 450, ValoracionX, ValoracionY);
-  TituloTops = new TextField(200, 450, CampoX/2, CampoY); 
+  TituloTops = new TextField(150, 400, CampoX, CampoY); 
   Titulo.setText("título");
   Autor.setText("autor");
   Editorial.setText("editorial");

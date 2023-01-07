@@ -11,7 +11,7 @@ class ImageButton {
  
  // Mètode Constructor
  ImageButton(PImage[] imgs, float x, float y, float w, float h){
-   this.img = imgs[0];
+   this.img = imgs[1];
    this.imgOver = imgs[0];
    this.x = x;
    this.y = y;

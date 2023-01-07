@@ -40,7 +40,11 @@ void mousePressed() {
   Valoracion.isPressed();
   TituloTops.isPressed();
   
+  
+// counters 
    c1.update();
+   c2.update(); 
+   
  
 
  // escuchar los selects 
@@ -96,8 +100,9 @@ if(s2.mouseOverSelect() && s2.enabled){
   // timeField
    tif.isPressed();
    
-   // imageButton
    
+    
+  
   
 }
 
