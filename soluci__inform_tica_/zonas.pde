@@ -111,8 +111,39 @@ void volverAtras () {
   popStyle();
 }
 
-void filtrar () {
+void calendarioInicioFin () {
+  pushStyle(); 
+  fill(0);
+  textFont(getFontAt(4));
+  text("Inicio:", 170, 600);
+  text("Fin:", 170, 650);
+  fill(255);  
+  stroke(231, 227, 147);
+  rect(230, 570, 140, 40, 5); 
+   rect(230, 620, 140, 40, 5); 
+  fill(133, 77, 39); 
+  text(dataCalendari, 300, 600);
+  Calendario.display1();
+  c.display();
+  popStyle(); 
 }
+
+void calendarioInicio () {
+  pushStyle(); 
+  fill(0);
+  textFont(getFontAt(4));
+  text("Inicio:", 170, 600);
+  fill(255);  
+  stroke(231, 227, 147);
+  rect(230, 570, 140, 40, 5);   
+  fill(133, 77, 39); 
+  text(dataCalendari, 300, 600);
+  Calendario.display1();
+  c.display();
+  popStyle(); 
+}
+
+
 
 void check(){
   pushStyle ();

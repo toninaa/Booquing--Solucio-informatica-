@@ -8,7 +8,7 @@ PANTALLA pantalla = PANTALLA.INICIO;
 
 //  campos de texto
 
-TextField Titulo, TituloTops, Autor, Editorial, Valoracion;
+TextField Titulo, TituloTops, Autor, Editorial, Valoracion, Destino;
 
 Select s1, s2, s3;
 

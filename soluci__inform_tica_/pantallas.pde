@@ -4,6 +4,7 @@ void dibujaPantallaInicio() {
 
   pushStyle();
   imageMode(CENTER);
+  // desabilitar y abilitar los objetos necesarios para esta pantalla
   disableButtons();
   enableButtonsIniciales();
   textFont(getFontAt(2));
@@ -18,6 +19,7 @@ void dibujaPantallaInicio() {
 void dibujaBiblioteca () {
   pushStyle ();
   imageMode(CENTER);
+  // desabilitar y abilitar los objetos necesarios para esta pantalla
   disableButtons();
   enableButtonsMenu();
   dibujaMenu();
@@ -37,6 +39,7 @@ void dibujaBiblioteca () {
 
 void dibujaPerfil () {
   pushStyle ();
+  // desabilitar y abilitar los objetos necesarios para esta pantalla
   disableButtons();
   textFont(getFontAt(2));
   enableButtonsMenu();
@@ -63,7 +66,8 @@ void dibujaNuevoLibro () {
   enableCalendario(); 
   enableButtonCalendario(); 
   enableButtonsMenu();
-  enableSelect1(); 
+  enableSelect1();
+  // dibujar los objetos
   dibujaMenu();
   esquinaIzquierda();
   fill(133, 77, 39);
@@ -82,11 +86,10 @@ void dibujaNuevoLibro () {
   displayButtonsMenu(); 
   displayTextField();
   displaySelect1();
-  Calendario.display1();
-  c.display();
+  calendarioInicioFin();  
   imgButtons[0].display();
-  text("Inicio", 200, 800);
-  text(dataCalendari, 250, 800);
+  
+  
   
 }
 
@@ -121,7 +124,10 @@ void dibujaAñadirLibro () {
 void dibujarEmpezarLeer () {
   pushStyle();
   disableButtons();
-  disableImageButton(); 
+  disableImageButton();
+  disableCalendario(); 
+  enableCalendario(); 
+  enableButtonCalendario(); 
   enableImageButton();
   enableButtonsMenu();
   enableButtonsAñadir();
@@ -131,16 +137,17 @@ void dibujarEmpezarLeer () {
   textFont(getFontAt(2));
   fill(133, 77, 39);
   text("Empezar libro", 230, 250);
-  text("Elegir destino", 1090, 320);
+  text("Elegir destino", 1090, 400);
   stroke(231, 227, 147);
   strokeWeight(2);
   fill(255); 
   rect (100, 300, 800, 400);
-  rect(950, 350, 400, 250);
+  rect(950, 450, 400, 250);
   displayButtonsMenu();
   displayTextField2();
   displayButtonsNuevoLibro(); 
   imgButtons[0].display();
+  calendarioInicio(); 
   popStyle();
 }
 

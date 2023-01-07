@@ -12,16 +12,18 @@ class TextField {
   color borderColor = color(231, 227, 147);
   int borderWeight = 1;
   
+  
   // Texto del campo
   String text = "";
   int textLength = 0;
   int textSize = 24;
+  String textDefault = ""; 
 
   boolean selected = false;
    
   // Constructor
   TextField(int x, int y, int w, int h) {
-      this.x = x; this.y = y; this.w = w; this.h = h;
+      this.x = x; this.y = y; this.w = w; this.h = h; 
    }
   
   void setText(String t){
