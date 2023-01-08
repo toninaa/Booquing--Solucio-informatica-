@@ -8,6 +8,7 @@ class ImageButton {
  PImage img,imgOver, imgDisabled;  // Imatges del botó
  
  boolean enabled;   // Abilitat / desabilitat
+ boolean selected = false;
  
  // Mètode Constructor
  ImageButton(PImage[] imgs, float x, float y, float w, float h){
@@ -53,5 +54,14 @@ class ImageButton {
           (mouseY>= this.y) && 
           (mouseY<= this.y + this.h); 
  }
+ 
+  void isPressed() {
+      if (mouseOverButton()) {
+         selected = true;
+  
+      } else {
+         selected = false;
+      }
+   }
   
 }

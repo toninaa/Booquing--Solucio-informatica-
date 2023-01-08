@@ -1,3 +1,41 @@
+
+// Enumeracion de las pantallas de la app
+enum PANTALLA {
+  INICIO, BIBLIO, PERFIL, LEIDOS, ESTRETOS, ESTTOPS, NUEVO1, NUEVO2, PENDIENTES,
+  LISTA, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, EMPEZAR
+};
+
+PANTALLA pantalla = PANTALLA.INICIO;
+
+// creación de los diferentes compenentes 
+
+
+TextField Titulo, TituloTops, Autor, Editorial, Valoracion, Buscar;
+
+Select s1, s2, s3;
+
+Counter c1, c2;
+
+CalendariPlus c;
+
+Carrousel es1, es2, es3, es4, es5; 
+
+TextField tf;
+
+TimeField tif;
+
+PopUp p;
+
+// Strings de algunos componentes 
+
+// texto del calendario 
+String dataCalendari="";
+
+// Textos del PopUp
+String title = "Guardado";
+String message = "Tu libro se ha guardado con èxito";
+
+
 // funcion para inicializar todos los componentes GUI
 void setGUI() {
   initButtons();
@@ -9,8 +47,25 @@ void setGUI() {
   initCarrouselBiblio();
   initCarrouselPerfil(); 
   setImages();
-  initTimeField(); 
+  initTimeField();
+  initPopUp(); 
   
+}
+
+
+// PopUP
+void initPopUp (){
+  
+  p = new PopUp(title, message, width/2, height/2, popW, popH);
+   
+}
+
+void enablePopUp(){
+  p.setEnabled(true);  
+}
+
+void disablePopUp(){
+  p.setEnabled(false);   
 }
 
 // TimeField 
@@ -65,7 +120,7 @@ for(int i =0; i<trofeosEs5.length; i++){
 }
 
 
-// calendari 
+// calendario 
 void initCalendari (){ 
  c = new CalendariPlus(50,200,700,550);
 }
@@ -97,12 +152,6 @@ void disableCounters(){
   c1.setEnabled(false);
   c2.setEnabled(false); 
 }
-
-
-
-
-
-
 
 
 // selects 
@@ -158,10 +207,13 @@ void initTextField() {
   Editorial = new TextField(120, 430, CampoX, CampoY);
   Valoracion = new TextField(950, 450, ValoracionX, ValoracionY);
   TituloTops = new TextField(150, 400, CampoX, CampoY); 
+  Buscar = new TextField(width/2-CampoX, 200, CampoX*2, CampoY);
   Titulo.setText("título");
   Autor.setText("autor");
   Editorial.setText("editorial");
   TituloTops.setText("título");
+  Buscar.setText("buscar...");
+  
 }
 
 void displayTextField () {
@@ -182,6 +234,10 @@ void displayTextFieldTops () {
 
 }
 
+void displayTextFieldBuscar (){
+ Buscar.display(); 
+}
+
 
 
 // botones
@@ -189,7 +245,7 @@ void displayTextFieldTops () {
 Button [] buttons;
 
 Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1, 
-MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, Atras, Guardar, VerTodo, Calendario;
+MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, Atras, Guardar, VerTodo, Calendario, Aceptar;
 
 void initButtons (){ 
   buttons = new Button [20];
@@ -213,6 +269,8 @@ void initButtons (){
   buttons [17]= new Button ("Comprado", 1070, 500, LeidoX, LeidoY);
   buttons [18]= new Button ("Ver Todo", 900, 750, LeidoX, LeidoY);
   buttons [19]= new Button ("Calendario", 190, 490, calendarioX, calendarioY);
+
+
 
 
 

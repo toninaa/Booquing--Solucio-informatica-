@@ -34,14 +34,18 @@ void mousePressed() {
     pantalla = PANTALLA.RETOSCON;
   }
 
+// activar el cambio de color al estar encima del textField 
   Titulo.isPressed();
   Autor.isPressed();
   Editorial.isPressed();
   Valoracion.isPressed();
   TituloTops.isPressed();
+  Buscar.isPressed();
+  
+  imgButtons[0].isPressed(); 
   
   
-// counters 
+// actualizar el valor de los counters al pulsar + 0 -
    c1.update();
    c2.update(); 
    
@@ -70,10 +74,10 @@ if(s2.mouseOverSelect() && s2.enabled){
     s3.toggle();        // Plegar o desplegar
   }
   
-    // Comprovar si clicam sobre botons del Calendari
+    // Comprobar si clicamos sobre el botón del Calendario
   c.checkButtons();
   
-  // Si pitja el botó, canvia la visibilitat del calendari.
+  // Si se pulsa el botón, cambia la visibilidad del calendario.
   if(Calendario.mouseOverButton()&&Calendario.enabled){
     c.visible = !c.visible;
   }
@@ -107,13 +111,16 @@ if(s2.mouseOverSelect() && s2.enabled){
 }
 
 void keyPressed () {
+  // escuchar las teclas del teclado en los textFields
   Titulo.keyPressed(key, (int)keyCode);
   Autor.keyPressed(key, (int)keyCode);
   Editorial.keyPressed(key, (int)keyCode);
   Valoracion.keyPressed(key, (int)keyCode);
   TituloTops.keyPressed(key, (int)keyCode);
+  Buscar.keyPressed(key, (int)keyCode);
+  // escuchar las teclas del teclado en el TimeField
   tif.keyPressed(key, (int)keyCode);
-  
+  // 
   if (keyCode==LEFT){
     es1.prev();
   }

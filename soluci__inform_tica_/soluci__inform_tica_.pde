@@ -1,29 +1,3 @@
-// Enumeracion de las pantallas de la app
-enum PANTALLA {
-  INICIO, BIBLIO, PERFIL, LEIDOS, ESTRETOS, ESTTOPS, NUEVO1, NUEVO2, PENDIENTES,
-  LISTA, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, EMPEZAR
-};
-
-PANTALLA pantalla = PANTALLA.INICIO;
-
-//  campos de texto
-
-TextField Titulo, TituloTops, Autor, Editorial, Valoracion, Destino;
-
-Select s1, s2, s3;
-
-Counter c1, c2;
-
-CalendariPlus c;
-
-Carrousel es1, es2, es3, es4, es5; 
-
-TextField tf;
-
-TimeField tif;
-
-String dataCalendari="";
-
 
 void setup() {
   // Dimensiones de la App

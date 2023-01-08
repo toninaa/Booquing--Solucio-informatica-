@@ -67,6 +67,7 @@ void dibujaNuevoLibro () {
   enableButtonCalendario(); 
   enableButtonsMenu();
   enableSelect1();
+  enablePopUp(); 
   // dibujar los objetos
   dibujaMenu();
   esquinaIzquierda();
@@ -88,6 +89,7 @@ void dibujaNuevoLibro () {
   displaySelect1();
   calendarioInicioFin();  
   imgButtons[0].display();
+  displayPopUp(); 
   
   
   
@@ -228,6 +230,7 @@ void dibujarRetosConseguidos () {
   fill(0); 
   text("RETOS CONSEGUIDOS", 250, 60);
   displayButtonsAtras();
+  displayTextFieldBuscar(); 
   popStyle();
   
 }
@@ -243,6 +246,7 @@ void dibujarTops () {
   fill(0); 
   text("TOP'S", 250, 60);
   displayButtonsAtras();
+  displayTextFieldBuscar(); 
   popStyle();
   
 }

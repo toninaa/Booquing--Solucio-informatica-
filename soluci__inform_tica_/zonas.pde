@@ -143,6 +143,13 @@ void calendarioInicio () {
   popStyle(); 
 }
 
+void displayPopUp (){
+   if(imgButtons[0].mouseOverButton()){
+      p.display();
+   }
+    
+}
+
 
 
 void check(){

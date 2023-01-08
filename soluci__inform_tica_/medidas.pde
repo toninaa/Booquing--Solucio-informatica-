@@ -81,3 +81,8 @@ int  calendarioY = 50;
 
 int TimeFieldX = 300; 
 int  TimeFieldY = 50;
+
+// medidas del Pop up
+
+float popW = 550;
+float popH = 250;
