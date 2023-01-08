@@ -22,6 +22,7 @@ void dibujaBiblioteca () {
   // desabilitar y abilitar los objetos necesarios para esta pantalla
   disableButtons();
   enableButtonsMenu();
+  enableButtonsBiblioteca(); 
   dibujaMenu();
   dibujaLogo();
   textFont(getFontAt(2));
@@ -34,6 +35,7 @@ void dibujaBiblioteca () {
   dibujaEstante2 ();
   dibujaEstante3 ();
   dibujaEstante4 ();
+  displayButtonsBiblioteca(); 
   popStyle();
 }
 
@@ -47,7 +49,6 @@ void dibujaPerfil () {
   dibujaMenu();
   fill(221, 114, 48); 
   noStroke(); 
-  nuevoLibro ();
   dibujaEstante5 ();
   esquinaIzquierda();
   dibujaTextoPerfil(); 
@@ -89,7 +90,7 @@ void dibujaNuevoLibro () {
   displaySelect1();
   calendarioInicioFin();  
   imgButtons[0].display();
-  displayPopUp(); 
+  
   
   
   
@@ -206,7 +207,7 @@ void establecerRetos () {
 void dibujarRetos () {
   pushStyle();
   disableButtons();
-  enableButtonsAtras(); 
+  enableButtonsAtrasPerfil(); 
   enableButtonVerTodo(); 
   dibujaMenu();
   textFont(getFontAt(2));
@@ -215,7 +216,7 @@ void dibujarRetos () {
   fill(133, 77, 39);
   text("Retos Activos", 260, 290);
   text("Retos Conseguidos", 900, 290);
-  displayButtonsAtras();
+  displayButtonsAtrasPerfil();
   displayButtonVerTodo(); 
   popStyle();
   
@@ -224,12 +225,12 @@ void dibujarRetos () {
 void dibujarRetosConseguidos () {
   pushStyle();
   disableButtons();
-  enableButtonsAtras(); 
+  enableButtonsAtrasPerfil(); 
   dibujaMenu();
   textFont(getFontAt(2));
   fill(0); 
   text("RETOS CONSEGUIDOS", 250, 60);
-  displayButtonsAtras();
+  displayButtonsAtrasPerfil();
   displayTextFieldBuscar(); 
   popStyle();
   
@@ -240,12 +241,12 @@ void dibujarRetosConseguidos () {
 void dibujarTops () {
   pushStyle();
   disableButtons();
-  enableButtonsAtras(); 
+  enableButtonsAtrasPerfil(); 
   dibujaMenu();
   textFont(getFontAt(2));
   fill(0); 
   text("TOP'S", 250, 60);
-  displayButtonsAtras();
+  displayButtonsAtrasPerfil();
   displayTextFieldBuscar(); 
   popStyle();
   
@@ -253,33 +254,38 @@ void dibujarTops () {
 
 void verLibrosLeidos () {
   pushStyle();
+  enableButtonsAtrasBiblioteca(); 
   fill(115, 135, 123);
   rect(0, 0, menuWidth, menuHeight);
   fill(0);
   textFont(getFontAt(2));
   text("LEIDOS", 250, 60);
-  volverAtras();
+  filtrosLeidosYLista(); 
+  displayButtonsAtrasBiblioteca(); 
   popStyle();
 }
 
 void verLibrosPendientes () {
   pushStyle();
-  fill(115, 135, 123);
-  rect(0, 0, menuWidth, menuHeight);
-  fill(0);
-  textFont(getFontAt(2));
-  text("PENDIENTES", 250, 60);
-  volverAtras();
-  popStyle();
-}
-
-void verMiLista () {
-  pushStyle();
+  enableButtonsAtrasBiblioteca(); 
   fill(115, 135, 123);
   rect(0, 0, menuWidth, menuHeight);
   fill(0);
   textFont(getFontAt(2));
   text("MI LISTA", 250, 60);
-  volverAtras();
+  filtrosLeidosYLista(); 
+  displayButtonsAtrasBiblioteca(); 
+  popStyle();
+}
+
+void verMiLista () {
+  pushStyle();
+  enableButtonsAtrasBiblioteca(); 
+  fill(115, 135, 123);
+  rect(0, 0, menuWidth, menuHeight);
+  fill(0);
+  textFont(getFontAt(2));
+  text("COMPRAR", 250, 60);
+  displayButtonsAtrasBiblioteca(); 
   popStyle();
 }

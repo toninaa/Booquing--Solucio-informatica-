@@ -28,10 +28,22 @@ void mousePressed() {
     pantalla = PANTALLA.TOPS;
   } else if (Ver2.mouseOverButton() && Ver2.enabled) {
     pantalla = PANTALLA.RETOS;
-  } else if (Atras.mouseOverButton() && Atras.enabled) {
+  } else if (AtrasP.mouseOverButton() && AtrasP.enabled) {
     pantalla = PANTALLA.PERFIL;
+     } else if (AtrasB.mouseOverButton() && AtrasB.enabled) {
+    pantalla = PANTALLA.BIBLIO;
   } else if (VerTodo.mouseOverButton() && VerTodo.enabled) {
     pantalla = PANTALLA.RETOSCON;
+    } else if (Leidos.mouseOverButton() && Leidos.enabled) {
+    pantalla = PANTALLA.LEIDOS;
+    } else if (Lista.mouseOverButton() && Lista.enabled) {
+    pantalla = PANTALLA.MILISTA;
+     } else if (ComprarB.mouseOverButton() && ComprarB.enabled) {
+    pantalla = PANTALLA.COMPRAR;
+    } else if (Actuales.mouseOverButton() && Actuales.enabled) {
+    pantalla = PANTALLA.ACTIVOS;
+     } else if ( imgButtons[0].mouseOverButton() &&  imgButtons[0].enabled) {
+     p.display(); 
   }
 
 // activar el cambio de color al estar encima del textField 
@@ -41,8 +53,11 @@ void mousePressed() {
   Valoracion.isPressed();
   TituloTops.isPressed();
   Buscar.isPressed();
+  Filtrar.isPressed();
   
   imgButtons[0].isPressed(); 
+  
+  
   
   
 // actualizar el valor de los counters al pulsar + 0 -
@@ -74,6 +89,14 @@ if(s2.mouseOverSelect() && s2.enabled){
     s3.toggle();        // Plegar o desplegar
   }
   
+  if(s4.mouseOverSelect() && s4.enabled){
+    if(!s4.collapsed){
+      s4.update();      // Actualitzar valor
+    }
+    s4.toggle();        // Plegar o desplegar
+  }
+  
+// CALENDARIO
     // Comprobar si clicamos sobre el botón del Calendario
   c.checkButtons();
   

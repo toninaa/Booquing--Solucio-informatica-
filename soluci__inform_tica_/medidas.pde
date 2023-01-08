@@ -86,3 +86,7 @@ int  TimeFieldY = 50;
 
 float popW = 550;
 float popH = 250;
+
+// medidas cuadro para filtrar 
+int FiltrarW= 350;
+int FiltrarH = 500; 

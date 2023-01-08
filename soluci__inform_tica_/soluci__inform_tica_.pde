@@ -51,10 +51,10 @@ void draw() {
   case LEIDOS:
     verLibrosLeidos ();
     break;
-  case PENDIENTES:
+  case MILISTA:
     verLibrosPendientes ();
     break;
-  case LISTA:
+  case COMPRAR:
     verMiLista ();
     break;
   case RETOSCON:
@@ -62,7 +62,7 @@ void draw() {
     break;
   }
 
-  //String infoPantalla= pantalla.ordinal()+")"+pantalla.name();
-  //fill(0);
-  //text(infoPantalla, width/2, height/2);
+  String infoPantalla= pantalla.ordinal()+")"+pantalla.name();
+  fill(0);
+  text(infoPantalla, width/2, height/2);
 }

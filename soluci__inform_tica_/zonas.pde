@@ -78,13 +78,6 @@ void dibujaTextoPerfil(){
 }
 
 
-void nuevoLibro () {
-
-  pushStyle ();
-
-  popStyle();
-}
-
 void esquinaIzquierda () {
   pushStyle ();
   imageMode(CENTER);
@@ -104,12 +97,7 @@ void PagNuevoLibro () {
   popStyle();
 }
 
-void volverAtras () {
-  pushStyle ();
-  textFont(getFontAt(2));
-  Atras.display1();
-  popStyle();
-}
+
 
 void calendarioInicioFin () {
   pushStyle(); 
@@ -148,6 +136,27 @@ void displayPopUp (){
       p.display();
    }
     
+}
+
+void filtrar (){
+  pushStyle();
+  disableSelects(); 
+  enableSelect4(); 
+  fill(133, 77, 39);
+  textFont(getFontAt(2));
+  text("Filtrar", 100, 200); 
+  stroke(231, 227, 147); strokeWeight(2); fill(255);  
+  rect(50, 250, FiltrarW,FiltrarH);
+  displayTextFieldFiltrar();
+  displaySelect4();
+  popStyle(); 
+}
+
+void filtrosLeidosYLista (){
+  pushStyle();
+  filtrar(); 
+  popStyle(); 
+  
 }
 
 

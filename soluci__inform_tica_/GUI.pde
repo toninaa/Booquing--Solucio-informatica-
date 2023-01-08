@@ -1,8 +1,8 @@
 
 // Enumeracion de las pantallas de la app
 enum PANTALLA {
-  INICIO, BIBLIO, PERFIL, LEIDOS, ESTRETOS, ESTTOPS, NUEVO1, NUEVO2, PENDIENTES,
-  LISTA, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, EMPEZAR
+  INICIO, BIBLIO, PERFIL, LEIDOS, ESTRETOS, ESTTOPS, NUEVO1, NUEVO2, MILISTA,
+  COMPRAR, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, EMPEZAR
 };
 
 PANTALLA pantalla = PANTALLA.INICIO;
@@ -10,9 +10,9 @@ PANTALLA pantalla = PANTALLA.INICIO;
 // creación de los diferentes compenentes 
 
 
-TextField Titulo, TituloTops, Autor, Editorial, Valoracion, Buscar;
+TextField Titulo, TituloTops, Autor, Editorial, Valoracion, Buscar, Filtrar;
 
-Select s1, s2, s3;
+Select s1, s2, s3, s4;
 
 Counter c1, c2;
 
@@ -160,6 +160,7 @@ void initSelect(){
   s1 = new Select(selectValues, 550, 350, selectX, selectY);
   s2 = new Select(selectValues, 1050, 500, selectX, selectY);
   s3 = new Select(selectValues, 550, 350, selectX, selectY);
+  s4 = new Select(selectValues, 70, 350, selectX, selectY);
   
   
 }
@@ -176,11 +177,16 @@ void enableSelect3(){
   s3.setEnabled(true);  
 }
 
+void enableSelect4(){
+  s4.setEnabled(true);  
+}
+
 
 void disableSelects(){
   s1.setEnabled(false);
   s2.setEnabled(false);
   s3.setEnabled(false);
+  s4.setEnabled(false);
     
 }
 
@@ -198,6 +204,9 @@ void displaySelect3(){
   s3.display();
 }
 
+void displaySelect4(){
+  s4.display();
+}
 
 
 // TextField
@@ -208,11 +217,13 @@ void initTextField() {
   Valoracion = new TextField(950, 450, ValoracionX, ValoracionY);
   TituloTops = new TextField(150, 400, CampoX, CampoY); 
   Buscar = new TextField(width/2-CampoX, 200, CampoX*2, CampoY);
+  Filtrar = new TextField(width/2-CampoX+100, 200, CampoX*2, CampoY); 
   Titulo.setText("título");
   Autor.setText("autor");
   Editorial.setText("editorial");
   TituloTops.setText("título");
   Buscar.setText("buscar...");
+  Filtrar.setText("buscar...");
   
 }
 
@@ -238,6 +249,10 @@ void displayTextFieldBuscar (){
  Buscar.display(); 
 }
 
+void displayTextFieldFiltrar (){
+ Filtrar.display(); 
+}
+
 
 
 // botones
@@ -245,10 +260,12 @@ void displayTextFieldBuscar (){
 Button [] buttons;
 
 Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1, 
-MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, Atras, Guardar, VerTodo, Calendario, Aceptar;
+MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, Guardar, VerTodo, Calendario, Aceptar, 
+Leidos, Lista, ComprarB,
+Actuales;
 
 void initButtons (){ 
-  buttons = new Button [20];
+  buttons = new Button [25];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -269,12 +286,15 @@ void initButtons (){
   buttons [17]= new Button ("Comprado", 1070, 500, LeidoX, LeidoY);
   buttons [18]= new Button ("Ver Todo", 900, 750, LeidoX, LeidoY);
   buttons [19]= new Button ("Calendario", 190, 490, calendarioX, calendarioY);
+  buttons [20]= new Button ("Leidos", 450, height/3+40, LeidoX, LeidoY);
+  buttons [21]= new Button ("Mi Lista", width/2+120, height/3+190, LeidoX, LeidoY);
+  buttons [22]= new Button ("Comprar", 450, height/3+340, LeidoX, LeidoY);
+  buttons [23]= new Button ("Leyendo", width/2+120, height/3+510, LeidoX, LeidoY);
+  buttons [24]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
 
 
 
-
-
-  Atras = buttons [0];
+  AtrasP = buttons [0];
   Biblio =buttons [1];
   Perfil =buttons [2];
   Biblio1 =buttons [3];
@@ -294,9 +314,138 @@ void initButtons (){
   Pendientes = buttons [17];
   VerTodo = buttons [18];
   Calendario = buttons [19];
+  Leidos = buttons [20];
+  Lista = buttons [21];
+  ComprarB = buttons [22];
+  Actuales = buttons [23];
+  AtrasB = buttons [24];
   
   
 }
+
+  
+// función para desactivar los botones en las distintas pantallas
+void disableButtons() {
+  for (int i = 0; i<buttons.length; i++ ) {
+    buttons[i].setEnabled(false);
+  }
+}
+void enableButtonsIniciales () {
+  Biblio.setEnabled(true);
+  Perfil.setEnabled(true);
+}
+
+void enableButtonsMenu () {
+  Biblio1.setEnabled(true);
+  Perfil1.setEnabled(true);
+}
+
+void enableButtonsBiblioteca() {
+  Leidos.setEnabled(true); 
+  Lista.setEnabled(true); 
+  ComprarB.setEnabled(true); 
+  Actuales.setEnabled(true);
+  
+}
+
+
+
+void enableButtonsPerfil() {
+  Leido.setEnabled(true);
+  Comprar.setEnabled(true);
+  Quiero1.setEnabled(true);
+  Empezar.setEnabled(true);
+  Ver1.setEnabled(true);
+  Ver2.setEnabled(true);
+  Iniciar1.setEnabled(true);
+  Iniciar2.setEnabled(true);
+}
+
+void enableButtonsAñadir() {
+  MiLista1.setEnabled(true);
+  Pendientes1.setEnabled(true);
+}
+
+void enableButtonCalendario() {
+  Calendario.setEnabled(true);
+}
+
+void enableButtonsNuevoLibro() {
+  MiLista.setEnabled(true);
+  Pendientes.setEnabled(true);
+}
+
+void enableButtonsAtrasPerfil() {
+  AtrasP.setEnabled(true);
+ 
+}
+
+void enableButtonsAtrasBiblioteca() {
+  AtrasB.setEnabled(true);
+ 
+}
+
+void enableButtonVerTodo() {
+  VerTodo.setEnabled(true);
+ 
+}
+
+
+void displayButtonsIniciales () {
+  Biblio.display1();
+  Perfil.display1();
+}
+
+void displayButtonsMenu() {
+  Biblio1.display1();
+  Perfil1.display1();
+}
+
+void displayButtonsBiblioteca() {
+  Leidos.display1();
+  Lista.display1();
+  ComprarB.display1();
+  Actuales.display1(); 
+  
+}
+
+void displayButtonsPerfil () {
+  Leido.display3();
+  Comprar.display3();
+  Quiero1.display3();
+  Empezar.display3();
+  Iniciar1.display3();
+  Ver1.display3();
+  Iniciar2.display3();
+  Ver2.display3();
+}
+
+void displayButtonsAñadir (){  
+  MiLista1.display1();
+  Pendientes1.display1();
+  
+}
+
+void displayButtonsNuevoLibro (){ 
+  MiLista.display1();
+  Pendientes.display1();  
+}
+
+void displayButtonsAtrasPerfil (){ 
+  AtrasP.display1();
+  
+}
+
+void displayButtonsAtrasBiblioteca (){ 
+  AtrasB.display1();
+  
+}
+
+void displayButtonVerTodo (){ 
+  VerTodo.display1();
+  
+}
+
 // botones con imagenes
 ImageButton [] imgButtons;
 
@@ -329,99 +478,4 @@ void enableImageButton(){
 
 void displayImageButton (){
   imgButtons[0].display();  
-}
-  
-// función para desactivar los botones en las distintas pantallas
-void disableButtons() {
-  for (int i = 0; i<buttons.length; i++ ) {
-    buttons[i].setEnabled(false);
-  }
-}
-void enableButtonsIniciales () {
-  Biblio.setEnabled(true);
-  Perfil.setEnabled(true);
-}
-
-void enableButtonsMenu () {
-  Biblio1.setEnabled(true);
-  Perfil1.setEnabled(true);
-}
-
-
-void enableButtonsPerfil() {
-  Leido.setEnabled(true);
-  Comprar.setEnabled(true);
-  Quiero1.setEnabled(true);
-  Empezar.setEnabled(true);
-  Ver1.setEnabled(true);
-  Ver2.setEnabled(true);
-  Iniciar1.setEnabled(true);
-  Iniciar2.setEnabled(true);
-}
-
-void enableButtonsAñadir() {
-  MiLista1.setEnabled(true);
-  Pendientes1.setEnabled(true);
-}
-
-void enableButtonCalendario() {
-  Calendario.setEnabled(true);
-}
-
-void enableButtonsNuevoLibro() {
-  MiLista.setEnabled(true);
-  Pendientes.setEnabled(true);
-}
-
-void enableButtonsAtras() {
-  Atras.setEnabled(true);
- 
-}
-
-void enableButtonVerTodo() {
-  VerTodo.setEnabled(true);
- 
-}
-
-
-void displayButtonsIniciales () {
-  Biblio.display1();
-  Perfil.display1();
-}
-
-void displayButtonsMenu() {
-  Biblio1.display1();
-  Perfil1.display1();
-}
-
-void displayButtonsPerfil () {
-  Leido.display3();
-  Comprar.display3();
-  Quiero1.display3();
-  Empezar.display3();
-  Iniciar1.display3();
-  Ver1.display3();
-  Iniciar2.display3();
-  Ver2.display3();
-}
-
-void displayButtonsAñadir (){  
-  MiLista1.display1();
-  Pendientes1.display1();
-  
-}
-
-void displayButtonsNuevoLibro (){ 
-  MiLista.display1();
-  Pendientes.display1();  
-}
-
-void displayButtonsAtras (){ 
-  Atras.display1();
-  
-}
-
-void displayButtonVerTodo (){ 
-  VerTodo.display1();
-  
 }
