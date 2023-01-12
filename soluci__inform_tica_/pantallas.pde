@@ -68,7 +68,7 @@ void dibujaNuevoLibro () {
   enableButtonCalendario(); 
   enableButtonsMenu();
   enableSelect1();
-  enablePopUp(); 
+  //enablePopUp(); 
   // dibujar los objetos
   dibujaMenu();
   esquinaIzquierda();
@@ -90,6 +90,8 @@ void dibujaNuevoLibro () {
   displaySelect1();
   calendarioInicioFin();  
   imgButtons[0].display();
+  p.display(); 
+ // cbl1.display(); 
   
   
   
@@ -120,6 +122,7 @@ void dibujaAñadirLibro () {
   displayButtonsAñadir(); 
   displaySelect3();
   imgButtons[0].display();
+   p.display();
   popStyle();
  
 }
@@ -151,6 +154,7 @@ void dibujarEmpezarLeer () {
   displayButtonsNuevoLibro(); 
   imgButtons[0].display();
   calendarioInicio(); 
+   p.display();
   popStyle();
 }
 
@@ -173,7 +177,8 @@ void establecerTops () {
   rect(950, 400, 400, 250);
   displayButtonsMenu();
   displayTextFieldTops();
-  c2.display(); 
+  c2.display();
+   p.display();
   popStyle();
 }
 
@@ -201,6 +206,7 @@ void establecerRetos () {
   c1.display(); 
   tif.display();
   imgButtons[1].display();
+  p.display();
   popStyle();
 }
 

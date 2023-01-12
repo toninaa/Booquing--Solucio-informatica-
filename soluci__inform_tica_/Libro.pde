@@ -37,16 +37,43 @@ class Libro {
    pushStyle(); 
    
    // imagen desciptiva 
-   float imgW = (w/3)-2*b; 
-   float imgH = h-2*b; 
-    if(img!=null){
-     image(img, x + b, y + b, imgW, imgH);
-     noFill(); rect(x + b, y + b, imgW, imgH);
-   }
-   else {
-     fill(50);
-     rect(x + b, y + b, imgW, imgH);
-   }
+   float imgW = 500; 
+   float imgH = 700;
+   image(img, 50, 100, imgW, imgH); 
+    
+   
+ // titol 
+ fill(115, 135, 123); textSize(35); textAlign(LEFT);
+ text(titulo, width/2+50, 100);
+ 
+ // autor
+ fill (133, 77, 39); textSize(25);textAlign(LEFT);
+ text(autor, width/2-130, 200);
+ 
+  // editorial
+ fill (133, 77, 39); textSize(25);textAlign(LEFT);
+ text(editorial, width/2-130, 300);
+ 
+  // genero
+ fill (133, 77, 39); textSize(25);textAlign(LEFT);
+ text(genero, width/2-130, 400);
+ 
+  // valoracion
+ fill (133, 77, 39); textSize(25);textAlign(LEFT);
+ text(valoracion, width/2-130, 600, 350, 200);
+ cbl1.display();
+ 
+ // recomendaciones 
+  fill (133, 77, 39); textSize(35);textAlign(LEFT);
+ text("Recomendaciones", width/2+325, 250);
+ fill(255); stroke(0); strokeWeight(1); 
+ rect(width/2+300, 300, 120,150);
+ rect(width/2+500, 300, 120,150);
+ rect(width/2+300, 500, 120,150);
+ rect(width/2+500, 500, 120,150);
+ 
+
+ popStyle(); 
+ 
  }
-  
 }

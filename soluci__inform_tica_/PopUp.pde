@@ -13,7 +13,7 @@ class PopUp {
  float buttonH = 50;
  
  boolean visible = true;
- boolean enabled; 
+ boolean enabled= false; 
  
  // Constructor
  
@@ -41,21 +41,13 @@ class PopUp {
    this.message = message;
  }
  
- void setVisible(boolean b){
-   this.visible = b;
-   if(!this.visible){
-     this.Aceptar.setEnabled(false);
-   }
-   else {
-     this.Aceptar.setEnabled(true);
-   }
- }
  
  // Dibuixa el PopUp
  
  void display(){
    
-   if(this.visible){
+    
+   if(this.enabled){
      float b = 40;
      
      pushStyle();
@@ -77,7 +69,8 @@ class PopUp {
       popStyle();
      // Botó d'Acceptar
      Aceptar.display1();
-    
+   
+  
    }
  }
  

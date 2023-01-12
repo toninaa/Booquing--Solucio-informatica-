@@ -26,6 +26,8 @@ TimeField tif;
 
 PopUp p;
 
+CheckBoxStarList cbl1, cbl2;
+
 // Strings de algunos componentes 
 
 // texto del calendario 
@@ -34,6 +36,9 @@ String dataCalendari="";
 // Textos del PopUp
 String title = "Guardado";
 String message = "Tu libro se ha guardado con èxito";
+
+// Imatges de les opcions del checkboxstarlist
+String[] stars = {"starON.png", "starOFF.png"};
 
 
 // funcion para inicializar todos los componentes GUI
@@ -49,10 +54,19 @@ void setGUI() {
   setImages();
   initTimeField();
   initPopUp(); 
+  initCheckStars(); 
   
 }
 
+ // checkboxstarlist
+ void initCheckStars (){
+  cbl1 = new CheckBoxStarList(5, stars, 100, height/2 - 100, 100, 100);
+  cbl1.setCheckBoxStars(3);
+  
+  cbl2 = new CheckBoxStarList(5, stars, 100, height/2 - 100, 100, 100);
+  cbl2.setCheckBoxStars(3);
 
+ }
 // PopUP
 void initPopUp (){
   

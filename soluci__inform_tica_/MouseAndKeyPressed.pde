@@ -6,47 +6,57 @@ void mousePressed() {
   
   if (Biblio.mouseOverButton() && Biblio.enabled) {
     pantalla = PANTALLA.BIBLIO;
-  } else if (Perfil.mouseOverButton() && Perfil.enabled) {
+    } else if (Perfil.mouseOverButton() && Perfil.enabled) {
     pantalla = PANTALLA.PERFIL;
-  } else if (Perfil1.mouseOverButton() && Perfil1.enabled) {
+    } else if (Perfil1.mouseOverButton() && Perfil1.enabled) {
     pantalla = PANTALLA.PERFIL;
-  } else if (Biblio1.mouseOverButton() && Biblio1.enabled) {
+    resetFields(); 
+    } else if (Biblio1.mouseOverButton() && Biblio1.enabled) {
     pantalla = PANTALLA.BIBLIO;
-  } else if (Leido.mouseOverButton() && Leido.enabled) {
+    } else if (Leido.mouseOverButton() && Leido.enabled) {
     pantalla = PANTALLA.NUEVO1;
-  } else if (Empezar.mouseOverButton() && Empezar.enabled) {
+    resetFields();
+    } else if (Empezar.mouseOverButton() && Empezar.enabled) {
     pantalla = PANTALLA.EMPEZAR;
-  } else if (Quiero1.mouseOverButton() && Quiero1.enabled) {
+    resetFields();
+    } else if (Quiero1.mouseOverButton() && Quiero1.enabled) {
     pantalla = PANTALLA.NUEVO2;
-  } else if (Comprar.mouseOverButton() && Comprar.enabled) {
+    resetFields();
+    } else if (Comprar.mouseOverButton() && Comprar.enabled) {
     pantalla = PANTALLA.NUEVO2;
-  } else if (Iniciar1.mouseOverButton() && Iniciar1.enabled) {
+    resetFields();
+    } else if (Iniciar1.mouseOverButton() && Iniciar1.enabled) {
     pantalla = PANTALLA.ESTTOPS;
-  } else if (Iniciar2.mouseOverButton() && Iniciar2.enabled) {
+    resetFields();
+    } else if (Iniciar2.mouseOverButton() && Iniciar2.enabled) {
     pantalla = PANTALLA.ESTRETOS;
-  } else if (Ver1.mouseOverButton() && Ver1.enabled) {
+    resetFields();
+    } else if (Ver1.mouseOverButton() && Ver1.enabled) {
     pantalla = PANTALLA.TOPS;
-  } else if (Ver2.mouseOverButton() && Ver2.enabled) {
+    } else if (Ver2.mouseOverButton() && Ver2.enabled) {
     pantalla = PANTALLA.RETOS;
-  } else if (AtrasP.mouseOverButton() && AtrasP.enabled) {
+    } else if (AtrasP.mouseOverButton() && AtrasP.enabled) {
     pantalla = PANTALLA.PERFIL;
-     } else if (AtrasB.mouseOverButton() && AtrasB.enabled) {
+    } else if (AtrasB.mouseOverButton() && AtrasB.enabled) {
     pantalla = PANTALLA.BIBLIO;
-  } else if (VerTodo.mouseOverButton() && VerTodo.enabled) {
+    } else if (VerTodo.mouseOverButton() && VerTodo.enabled) {
     pantalla = PANTALLA.RETOSCON;
     } else if (Leidos.mouseOverButton() && Leidos.enabled) {
     pantalla = PANTALLA.LEIDOS;
     } else if (Lista.mouseOverButton() && Lista.enabled) {
     pantalla = PANTALLA.MILISTA;
-     } else if (ComprarB.mouseOverButton() && ComprarB.enabled) {
+    } else if (ComprarB.mouseOverButton() && ComprarB.enabled) {
     pantalla = PANTALLA.COMPRAR;
     } else if (Actuales.mouseOverButton() && Actuales.enabled) {
     pantalla = PANTALLA.ACTIVOS;
-     } else if (AtrasR.mouseOverButton() && AtrasR.enabled) {
+    } else if (AtrasR.mouseOverButton() && AtrasR.enabled) {
     pantalla = PANTALLA.RETOS;
-     } else if ( imgButtons[0].mouseOverButton() &&  imgButtons[0].enabled) {
-     getFontAt(4); 
-     p.display(); 
+    } else if (imgButtons[0].mouseOverButton()) {
+     getFontAt(4);  
+    p.setEnabled(true);
+    } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) { 
+    p.setEnabled(false);
+    
   }
 
 // activar el cambio de color al estar encima del textField 
@@ -60,6 +70,10 @@ void mousePressed() {
   
 // activar el cambio de color en el boton Check 
   imgButtons[0].isPressed(); 
+  
+//CheckBoxStarList
+cbl1.checkMouse();
+cbl2.checkMouse();
  
 // actualizar el valor de los counters al pulsar + 0 -
    c1.update();
@@ -133,6 +147,16 @@ if(s2.mouseOverSelect() && s2.enabled){
    tif.isPressed();
    
  
+}
+// funcion para resetar los TextFields
+void resetFields(){
+  Titulo.setText("título"); 
+  TituloTops.setText("título"); 
+  Autor.setText("autor"); 
+  Editorial.setText("editorial"); 
+  Valoracion.setText("valoración"); 
+  Buscar.setText("buscar"); 
+  Filtrar.setText("filtrar"); 
 }
 
 void keyPressed () {
