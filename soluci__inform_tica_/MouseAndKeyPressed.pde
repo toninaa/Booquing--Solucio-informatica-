@@ -45,6 +45,7 @@ void mousePressed() {
      } else if (AtrasR.mouseOverButton() && AtrasR.enabled) {
     pantalla = PANTALLA.RETOS;
      } else if ( imgButtons[0].mouseOverButton() &&  imgButtons[0].enabled) {
+     getFontAt(4); 
      p.display(); 
   }
 
@@ -57,25 +58,20 @@ void mousePressed() {
   Buscar.isPressed();
   Filtrar.isPressed();
   
+// activar el cambio de color en el boton Check 
   imgButtons[0].isPressed(); 
-  
-  
-  
-  
+ 
 // actualizar el valor de los counters al pulsar + 0 -
    c1.update();
    c2.update(); 
-   
- 
 
- // escuchar los selects 
+// escuchar los selects 
   if(s1.mouseOverSelect() && s1.enabled){
     if(!s1.collapsed){
       s1.update();      // Actualitzar valor
     }
     s1.toggle();        // Plegar o desplegar
   }
-
 
 if(s2.mouseOverSelect() && s2.enabled){
     if(!s2.collapsed){
@@ -136,10 +132,7 @@ if(s2.mouseOverSelect() && s2.enabled){
   // timeField
    tif.isPressed();
    
-   
-    
-  
-  
+ 
 }
 
 void keyPressed () {
