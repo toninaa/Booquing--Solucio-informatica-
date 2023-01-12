@@ -12,7 +12,7 @@ PANTALLA pantalla = PANTALLA.INICIO;
 
 TextField Titulo, TituloTops, Autor, Editorial, Valoracion, Buscar, Filtrar;
 
-Select s1, s2, s3, s4;
+Select s1, s2, s3, s4, s5;
 
 Counter c1, c2;
 
@@ -157,10 +157,17 @@ void disableCounters(){
 // selects 
 void initSelect(){
   String[] selectValues = {"Narrativa", "Drama", "Poesia", "Teatro", "Clásicos" };
+   String[] selectValoraciones = {"1", "2", "3", "4", "5" };
   s1 = new Select(selectValues, 550, 350, selectX, selectY);
   s2 = new Select(selectValues, 1050, 500, selectX, selectY);
   s3 = new Select(selectValues, 550, 350, selectX, selectY);
   s4 = new Select(selectValues, 70, 350, selectX, selectY);
+  s5 = new Select(selectValoraciones, 70, 270, selectX, selectY);
+  s1.setText("Generos");
+  s2.setText("Generos");
+  s3.setText("Generos");
+  s4.setText("Generos");
+  s5.setText("valoraciones");
   
   
 }
@@ -181,12 +188,17 @@ void enableSelect4(){
   s4.setEnabled(true);  
 }
 
+void enableSelect5(){
+  s5.setEnabled(true);  
+}
+
 
 void disableSelects(){
   s1.setEnabled(false);
   s2.setEnabled(false);
   s3.setEnabled(false);
   s4.setEnabled(false);
+  s5.setEnabled(false);
     
 }
 
@@ -207,6 +219,12 @@ void displaySelect3(){
 void displaySelect4(){
   s4.display();
 }
+
+void displaySelect5(){
+  s5.display();
+}
+
+
 
 
 // TextField
@@ -260,12 +278,12 @@ void displayTextFieldFiltrar (){
 Button [] buttons;
 
 Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1, 
-MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, Guardar, VerTodo, Calendario, Aceptar, 
+MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, AtrasR, Guardar, VerTodo, Calendario, Aceptar, 
 Leidos, Lista, ComprarB,
 Actuales;
 
 void initButtons (){ 
-  buttons = new Button [25];
+  buttons = new Button [26];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -291,6 +309,7 @@ void initButtons (){
   buttons [22]= new Button ("Comprar", 450, height/3+340, LeidoX, LeidoY);
   buttons [23]= new Button ("Leyendo", width/2+120, height/3+510, LeidoX, LeidoY);
   buttons [24]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
+  buttons [25]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
 
 
 
@@ -319,6 +338,7 @@ void initButtons (){
   ComprarB = buttons [22];
   Actuales = buttons [23];
   AtrasB = buttons [24];
+  AtrasR = buttons [25];
   
   
 }
@@ -385,6 +405,11 @@ void enableButtonsAtrasBiblioteca() {
  
 }
 
+void enableButtonsAtrasRetos() {
+  AtrasR.setEnabled(true);
+ 
+}
+
 void enableButtonVerTodo() {
   VerTodo.setEnabled(true);
  
@@ -438,6 +463,11 @@ void displayButtonsAtrasPerfil (){
 
 void displayButtonsAtrasBiblioteca (){ 
   AtrasB.display1();
+  
+}
+
+void displayButtonsAtrasRetos (){ 
+  AtrasR.display1();
   
 }
 

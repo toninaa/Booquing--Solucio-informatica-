@@ -148,14 +148,24 @@ void filtrar (){
   stroke(231, 227, 147); strokeWeight(2); fill(255);  
   rect(50, 250, FiltrarW,FiltrarH);
   displayTextFieldFiltrar();
-  displaySelect4();
+  displaySelect4(); 
   popStyle(); 
 }
 
 void filtrosLeidosYLista (){
   pushStyle();
-  filtrar(); 
+  filtrar();
+  enableSelect5();
+  displaySelect5();
   popStyle(); 
+  
+}
+
+void filtrosComprar (){
+  
+  pushStyle();
+  filtrar(); 
+  popStyle();
   
 }
 

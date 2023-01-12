@@ -60,9 +60,12 @@ void draw() {
   case RETOSCON:
     dibujarRetosConseguidos();
     break;
+    case ACTIVOS:
+    librosActivos();
+    break;
   }
 
-  String infoPantalla= pantalla.ordinal()+")"+pantalla.name();
-  fill(0);
-  text(infoPantalla, width/2, height/2);
+  //String infoPantalla= pantalla.ordinal()+")"+pantalla.name();
+ // fill(0);
+ // text(infoPantalla, width/2, height/2);
 }

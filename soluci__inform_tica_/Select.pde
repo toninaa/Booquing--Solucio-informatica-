@@ -5,6 +5,7 @@ class Select {
   float x, y, w, h;          // Posició i dimensions
   String[] texts;            // Valors possibles
   String selectedValue;      // Valor Seleccionat
+  String text= ""; 
   
   boolean collapsed = true;  // Plegat / Desplegat
   boolean enabled;           // Abilitat / desabilitat
@@ -28,6 +29,10 @@ class Select {
   void setEnabled(boolean b){
    this.enabled = b;
  }
+ 
+  void setText(String t){
+    this.text = t;   
+  }
  
   void display(){
     pushStyle();

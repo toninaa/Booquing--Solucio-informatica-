@@ -225,12 +225,12 @@ void dibujarRetos () {
 void dibujarRetosConseguidos () {
   pushStyle();
   disableButtons();
-  enableButtonsAtrasPerfil(); 
+  enableButtonsAtrasRetos(); 
   dibujaMenu();
   textFont(getFontAt(2));
   fill(0); 
   text("RETOS CONSEGUIDOS", 250, 60);
-  displayButtonsAtrasPerfil();
+  displayButtonsAtrasRetos(); 
   displayTextFieldBuscar(); 
   popStyle();
   
@@ -286,6 +286,19 @@ void verMiLista () {
   fill(0);
   textFont(getFontAt(2));
   text("COMPRAR", 250, 60);
+  filtrosComprar(); 
   displayButtonsAtrasBiblioteca(); 
   popStyle();
+}
+
+void librosActivos (){
+  pushStyle(); 
+  enableButtonsAtrasBiblioteca(); 
+  fill(115, 135, 123);
+  rect(0, 0, menuWidth, menuHeight);
+  fill(0);
+  textFont(getFontAt(2));
+  text("LIBROS ACTIVOS", 250, 60);
+  displayButtonsAtrasBiblioteca(); 
+  popStyle(); 
 }

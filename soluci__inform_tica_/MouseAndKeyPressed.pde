@@ -42,6 +42,8 @@ void mousePressed() {
     pantalla = PANTALLA.COMPRAR;
     } else if (Actuales.mouseOverButton() && Actuales.enabled) {
     pantalla = PANTALLA.ACTIVOS;
+     } else if (AtrasR.mouseOverButton() && AtrasR.enabled) {
+    pantalla = PANTALLA.RETOS;
      } else if ( imgButtons[0].mouseOverButton() &&  imgButtons[0].enabled) {
      p.display(); 
   }
@@ -94,6 +96,13 @@ if(s2.mouseOverSelect() && s2.enabled){
       s4.update();      // Actualitzar valor
     }
     s4.toggle();        // Plegar o desplegar
+  }
+  
+   if(s5.mouseOverSelect() && s5.enabled){
+    if(!s5.collapsed){
+      s5.update();      // Actualitzar valor
+    }
+    s5.toggle();        // Plegar o desplegar
   }
   
 // CALENDARIO
