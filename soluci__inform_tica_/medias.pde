@@ -2,6 +2,7 @@
 
 // URL de la carpeta donde estan las imagenes 
 String URL_IMGS = "imgs/";
+String URL_STARS = "stars/";
 
 // Array de imatges (JPG, PNG, GIF)
 PImage[] imgs;
@@ -35,8 +36,8 @@ void setMedias(){
     this.imgs[21] = loadImage(URL_IMGS+"/portada06.jpg");
     this.imgs[22] = loadImage(URL_IMGS+"/portada07.jpg");
     this.imgs[23] = loadImage(URL_IMGS+"/portada08.jpg");
-    this.imgs[24] = loadImage(URL_IMGS+"/starON.png");
-    this.imgs[25] = loadImage(URL_IMGS+"/starOFF.png");
+    this.imgs[24] = loadImage(URL_IMGS+"/portada.jpg");
+    this.imgs[25] = loadImage(URL_IMGS+"/valoracion.png");
       
 }
 

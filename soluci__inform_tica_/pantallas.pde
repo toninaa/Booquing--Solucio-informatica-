@@ -92,7 +92,8 @@ void dibujaNuevoLibro () {
   imgButtons[0].display();
   p.display(); 
  // cbl1.display(); 
-  
+ // s'ha de canviar ara nomes es una foto (valoració)
+  displayImg(25, 520, 500, 250, 50);
   
   
   
@@ -223,7 +224,14 @@ void dibujarRetos () {
   text("Retos Activos", 260, 290);
   text("Retos Conseguidos", 900, 290);
   displayButtonsAtrasPerfil();
-  displayButtonVerTodo(); 
+  displayButtonVerTodo();
+  Pg1.disaply();
+  Pg2.disaply();
+  Pg3.disaply();
+  fill(getColorAt(4)); 
+  rect(70, 400, 100, 20, 10);
+  rect(400, 400, 150, 20, 10);
+  rect(70, 550, 50, 20, 10);
   popStyle();
   
 }
@@ -238,6 +246,7 @@ void dibujarRetosConseguidos () {
   text("RETOS CONSEGUIDOS", 250, 60);
   displayButtonsAtrasRetos(); 
   displayTextFieldBuscar(); 
+
   popStyle();
   
 }

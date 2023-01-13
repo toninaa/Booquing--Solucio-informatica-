@@ -2,17 +2,19 @@ class Libro {
   
   // propiedades
   PImage img; 
-  String titulo, autor, editorial, genero; 
+  String titulo, autor, editorial, genero;
+  String ranking; 
   String valoracion; 
   
   
   // Constructor 
   
-  Libro(String titulo, String autor, String editorial, String genero, String valoracion){
+  Libro(String titulo, String autor, String editorial, String genero, String ranking, String valoracion){
   this.titulo = titulo; 
   this.autor = autor; 
   this.editorial = editorial; 
   this.genero = genero; 
+  this.ranking = ranking; 
   this.valoracion = valoracion; 
   }
   
@@ -21,7 +23,8 @@ class Libro {
   this.autor = info [1]; 
   this.editorial = info[2]; 
   this.genero = info[3]; 
-  this.valoracion = info[4]; 
+  this.ranking = info[4]; 
+  this.valoracion = info[5]; 
   }
   
   // setters
@@ -43,28 +46,30 @@ class Libro {
     
    
  // titol 
- fill(115, 135, 123); textSize(35); textAlign(LEFT);
+ fill(115, 135, 123); textSize(35); textAlign(LEFT); getFontAt(1);
  text(titulo, width/2+50, 100);
  
  // autor
- fill (133, 77, 39); textSize(25);textAlign(LEFT);
+ fill(133, 77, 39); textSize(25); textAlign(LEFT); getFontAt(4);
  text(autor, width/2-130, 200);
  
   // editorial
- fill (133, 77, 39); textSize(25);textAlign(LEFT);
+
  text(editorial, width/2-130, 300);
  
   // genero
- fill (133, 77, 39); textSize(25);textAlign(LEFT);
+ 
  text(genero, width/2-130, 400);
  
   // valoracion
- fill (133, 77, 39); textSize(25);textAlign(LEFT);
+
  text(valoracion, width/2-130, 600, 350, 200);
- cbl1.display();
+ 
+ // ranquing 
+
+ text(ranking, width/2-130, 460, 350, 200);
  
  // recomendaciones 
-  fill (133, 77, 39); textSize(35);textAlign(LEFT);
  text("Recomendaciones", width/2+325, 250);
  fill(255); stroke(0); strokeWeight(1); 
  rect(width/2+300, 300, 120,150);

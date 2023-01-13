@@ -90,3 +90,7 @@ float popH = 250;
 // medidas cuadro para filtrar 
 int FiltrarW= 350;
 int FiltrarH = 500; 
+
+// dimensiones del la foto de la card 
+float libroW = 800; 
+float libroH = 700; 

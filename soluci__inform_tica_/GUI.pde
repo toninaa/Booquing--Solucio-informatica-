@@ -28,6 +28,8 @@ PopUp p;
 
 CheckBoxStarList cbl1, cbl2;
 
+PagRestantes Pg1, Pg2,Pg3;
+
 // Strings de algunos componentes 
 
 // texto del calendario 
@@ -54,8 +56,17 @@ void setGUI() {
   setImages();
   initTimeField();
   initPopUp(); 
-  initCheckStars(); 
+  initCheckStars();
+  initPagRestantes(); 
   
+}
+
+//PagRestantes 
+
+void initPagRestantes (){
+  Pg1 = new PagRestantes(70, 400, 50, 20, 5); 
+  Pg2 = new PagRestantes(400, 400, 50, 20, 5); 
+  Pg3 = new PagRestantes(70, 550, 50, 20, 5); 
 }
 
  // checkboxstarlist

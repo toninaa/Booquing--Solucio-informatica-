@@ -146,6 +146,8 @@ if(s2.mouseOverSelect() && s2.enabled){
   // timeField
    tif.isPressed();
    
+     cbl1.checkMouse();
+   
  
 }
 // funcion para resetar los TextFields
