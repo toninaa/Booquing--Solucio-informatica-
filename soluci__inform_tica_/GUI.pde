@@ -28,7 +28,7 @@ PopUp p;
 
 CheckBoxStarList cbl1, cbl2;
 
-PagRestantes Pg1, Pg2,Pg3;
+PagRestantes Pg1, Pg2, Pg3, Pg4, Pg5, Pg6, Pg7;
 
 // Strings de algunos componentes 
 
@@ -67,6 +67,10 @@ void initPagRestantes (){
   Pg1 = new PagRestantes(70, 400, 50, 20, 5); 
   Pg2 = new PagRestantes(400, 400, 50, 20, 5); 
   Pg3 = new PagRestantes(70, 550, 50, 20, 5); 
+  Pg4 = new PagRestantes(400, 550, 50, 20, 5); 
+  Pg5 = new PagRestantes(100, 750, 50, 20, 5); 
+  Pg6 = new PagRestantes(600, 750, 50, 20, 5); 
+  Pg7 = new PagRestantes(1100, 750, 50, 20, 5);
 }
 
  // checkboxstarlist
@@ -327,7 +331,7 @@ void initButtons (){
   buttons [15]= new Button ("Comprado", 1180, 650, LeidoX, LeidoY);
   buttons [16]= new Button ("Mi Lista", 1070, 600, LeidoX, LeidoY);
   buttons [17]= new Button ("Comprado", 1070, 500, LeidoX, LeidoY);
-  buttons [18]= new Button ("Ver Todo", 900, 750, LeidoX, LeidoY);
+  buttons [18]= new Button ("Ver Todo", 930, 750, LeidoX, LeidoY);
   buttons [19]= new Button ("Calendario", 190, 490, calendarioX, calendarioY);
   buttons [20]= new Button ("Leidos", 450, height/3+40, LeidoX, LeidoY);
   buttons [21]= new Button ("Mi Lista", width/2+120, height/3+190, LeidoX, LeidoY);

@@ -221,17 +221,43 @@ void dibujarRetos () {
   fill(0); 
   text("RETOS", 250, 60);
   fill(133, 77, 39);
-  text("Retos Activos", 260, 290);
-  text("Retos Conseguidos", 900, 290);
+  text("Retos Activos", 200, 290);
+  text("Retos Conseguidos", 950, 290);
   displayButtonsAtrasPerfil();
   displayButtonVerTodo();
+  // s'ha de canviar
   Pg1.disaply();
   Pg2.disaply();
   Pg3.disaply();
-  fill(getColorAt(4)); 
+  Pg4.disaply();
+  fill(getColorAt(4));
   rect(70, 400, 100, 20, 10);
+  textFont(getFontAt(5)); textAlign(LEFT); fill(getColorAt(1)); 
+  text("5 novelas en dos meses", 70, 450);
+  fill(getColorAt(4));
   rect(400, 400, 150, 20, 10);
+  fill(getColorAt(1)); 
+  text("3 libros en 2 semanas", 400, 450);
+  fill(getColorAt(4));
   rect(70, 550, 50, 20, 10);
+  fill(getColorAt(1)); 
+  text("70 libros en 1 año", 70, 600);
+  fill(getColorAt(4));
+  rect(400, 550, 200, 20, 10);
+  fill(getColorAt(1)); 
+  text("4 poemas en una semana", 400, 600);
+  displayImg(5, 800, 350, trofeoX,trofeoY/2*1.5);
+  text("3 poemas ", 900, 400);
+  text("en una semana ", 900, 430);
+  displayImg(6, 1100, 350, trofeoX,trofeoY/2*1.5); 
+  text("60 libros ", 1200, 400);
+  text("en un año ", 1200, 430);
+  displayImg(7, 800, 550, trofeoX,trofeoY/2*1.5); 
+  text("1 novela ", 900, 600);
+  text("en un dia ", 900, 630);
+  displayImg(8, 1100, 550, trofeoX,trofeoY/2*1.5);
+  text("2 dramas ", 1200, 600);
+  text("en una semana ", 1200, 630);
   popStyle();
   
 }
@@ -276,7 +302,8 @@ void verLibrosLeidos () {
   textFont(getFontAt(2));
   text("LEIDOS", 250, 60);
   filtrosLeidosYLista(); 
-  displayButtonsAtrasBiblioteca(); 
+  displayButtonsAtrasBiblioteca();
+  
   popStyle();
 }
 
@@ -315,5 +342,18 @@ void librosActivos (){
   textFont(getFontAt(2));
   text("LIBROS ACTIVOS", 250, 60);
   displayButtonsAtrasBiblioteca(); 
+  Pg5.disaply();
+  Pg6.disaply();
+  Pg7.disaply();
+  fill(getColorAt(4));
+  rect(100, 750, 50, 20, 10);
+  rect(600, 750, 100, 20, 10);
+  rect(1100, 750, 150, 20, 10);
+  imageMode(CENTER);
+  displayImg(16,230, 450, 300, 500);
+  displayImg(18,730, 450, 300, 500);
+  displayImg(20, 1230, 450, 300, 500);
+  
+
   popStyle(); 
 }

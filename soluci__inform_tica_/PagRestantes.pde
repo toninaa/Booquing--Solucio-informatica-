@@ -18,7 +18,7 @@ class PagRestantes{
  }
  
  void disaply(){
-   fill(0);
+   fill(0); 
    rect(x, y, w, h, 10);
    fill(getColorAt(0));
    rect(x, y, w*this.portentaje, h, 10 );
