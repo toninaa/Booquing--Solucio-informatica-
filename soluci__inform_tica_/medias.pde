@@ -11,7 +11,7 @@ PImage[] imgTrofeos;
   
 // Estableix les imatges de l'App
 void setMedias(){
-    this.imgs = new PImage[30];
+    this.imgs = new PImage[32];
     this.imgs[0] = loadImage(URL_IMGS+"/logo1.png");
     this.imgs[1] = loadImage(URL_IMGS+"/trofeo0.png");
     this.imgs[2] = loadImage(URL_IMGS+"/estanteria.png");
@@ -42,6 +42,8 @@ void setMedias(){
     this.imgs[27] = loadImage(URL_IMGS+"/3.png");
     this.imgs[28] = loadImage(URL_IMGS+"/4.png");
     this.imgs[29] = loadImage(URL_IMGS+"/5.png");
+ //   this.imgs[30] = loadImage(URL_IMGS+"/ON.png");
+ //   this.imgs[31] = loadImage(URL_IMGS+"/OFF.png");
       
 }
 

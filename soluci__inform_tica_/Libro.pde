@@ -46,7 +46,8 @@ class Libro {
     
    
  // titol 
- fill(115, 135, 123); textSize(35); textAlign(LEFT); getFontAt(1);
+ fill(115, 135, 123); textSize(35); textAlign(LEFT); 
+ getFontAt(1);
  text(titulo, width/2+50, 100);
  
  // autor

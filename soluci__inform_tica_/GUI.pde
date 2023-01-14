@@ -30,6 +30,8 @@ CheckBoxStarList cbl1, cbl2;
 
 PagRestantes Pg1, Pg2, Pg3, Pg4, Pg5, Pg6, Pg7;
 
+Libro l1;
+
 // Strings de algunos componentes 
 
 // texto del calendario 
@@ -40,7 +42,13 @@ String title = "Guardado";
 String message = "Tu libro se ha guardado con èxito";
 
 // Imatges de les opcions del checkboxstarlist
-String[] stars = {"starON.png", "starOFF.png"};
+String[] stars = {"ON.png", "OFF.png"};
+
+// datos del libro
+String [] info1 = {"Un cuento perfecto",
+"Elísabet Benavent", "Suma", "Novela","Paginas restantes", 
+"Dia de inicio: 7/11/22"};
+
 
 
 // funcion para inicializar todos los componentes GUI
@@ -58,8 +66,17 @@ void setGUI() {
   initPopUp(); 
   initCheckStars();
   initPagRestantes(); 
-  
+  initLibro();
 }
+
+//cards libros 
+
+void initLibro (){
+  l1 = new Libro (info1); 
+  l1.setImage( this.imgs[24]);
+}
+  
+ 
 
 //PagRestantes 
 
@@ -190,8 +207,8 @@ void initSelect(){
   s1 = new Select(selectValues, 550, 350, selectX, selectY);
   s2 = new Select(selectValues, 1050, 500, selectX, selectY);
   s3 = new Select(selectValues, 550, 350, selectX, selectY);
-  s4 = new Select(selectValues, 70, 300, selectX, selectY);
-  s5 = new Select(selectValoraciones, 70, 270, selectX, selectY);
+  s4 = new Select(selectValues, 70, 350, selectX, selectY);
+  s5 = new Select(selectValoraciones, 70, 350, selectX, selectY);
   s1.setText("Generos");
   s2.setText("Generos");
   s3.setText("Generos");

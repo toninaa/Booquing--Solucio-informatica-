@@ -13,6 +13,7 @@ void dibujaPantallaInicio() {
   fill(231, 227, 147);
   textFont(getFontAt(0));
   text("BOOQUING", width/2-150, height/3+20);
+ 
   popStyle();
 }
 
@@ -357,7 +358,7 @@ void verLibrosLeidos () {
   fill(0);
   textFont(getFontAt(2));
   text("LEIDOS", 250, 60);
-  filtrosLeidosYLista(); 
+  filtrosLeidos(); 
   displayButtonsAtrasBiblioteca();
   libros();
   popStyle();
@@ -371,7 +372,7 @@ void verLibrosPendientes () {
   fill(0);
   textFont(getFontAt(2));
   text("MI LISTA", 250, 60);
-  filtrosLeidosYLista(); 
+  filtrosComprarYlista(); 
   displayButtonsAtrasBiblioteca(); 
   libros();
   popStyle();
@@ -385,7 +386,7 @@ void verMiLista () {
   fill(0);
   textFont(getFontAt(2));
   text("COMPRAR", 250, 60);
-  filtrosComprar(); 
+  filtrosComprarYlista(); 
   displayButtonsAtrasBiblioteca();
   libros();
   popStyle();
