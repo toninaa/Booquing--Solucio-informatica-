@@ -162,13 +162,37 @@ void filtrosLeidosYLista (){
 }
 
 void filtrosComprar (){
-  
   pushStyle();
   filtrar(); 
-  popStyle();
-  
+  popStyle();  
 }
-
+ void libros (){
+  textFont(getFontAt(5)); textAlign(LEFT); fill(getColorAt(1)); 
+  displayImg(15, 500, 300, libroWidth*1.5, libroHeight*1.5);
+  text("El Quijote",630 , 330);
+  text("Cervantes", 630, 370);
+  displayImg(25, 630, 400, 200, 50);
+  displayImg(17,500, 500, libroWidth*1.5, libroHeight*1.5);
+  text("La Celestina",630 , 530);
+  text("Fernando de Rojas", 630, 570);
+  displayImg(25, 630, 600, 200, 50);
+  displayImg(22, 500, 700, libroWidth*1.5, libroHeight*1.5);
+  text("Nunca",630 , 730);
+  text("Ken Follet", 630, 770);
+  displayImg(27, 630, 800, 200, 50);
+  displayImg(23, 950, 300, libroWidth*1.5, libroHeight*1.5);
+  text("Martina",1080 , 330);
+  text("Carlos Ruiz Zafón", 1080, 370);
+  displayImg(26, 1080, 400, 200, 50);
+  displayImg(24, 950, 500, libroWidth*1.5, libroHeight*1.5);
+  text("Un cuento perfecto",1080 , 530);
+  text("Elisabet Bennavent", 1080, 570);
+  displayImg(29, 1080, 600, 200, 50);
+  displayImg(18, 950, 700, libroWidth*1.5, libroHeight*1.5);
+  text("La vida del buscón",1080 , 730);
+  text("Quevedo", 1080, 770);
+  displayImg(25, 1080, 800, 200, 50);
+ }
 
 
 void check(){

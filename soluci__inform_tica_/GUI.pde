@@ -190,7 +190,7 @@ void initSelect(){
   s1 = new Select(selectValues, 550, 350, selectX, selectY);
   s2 = new Select(selectValues, 1050, 500, selectX, selectY);
   s3 = new Select(selectValues, 550, 350, selectX, selectY);
-  s4 = new Select(selectValues, 70, 350, selectX, selectY);
+  s4 = new Select(selectValues, 70, 300, selectX, selectY);
   s5 = new Select(selectValoraciones, 70, 270, selectX, selectY);
   s1.setText("Generos");
   s2.setText("Generos");

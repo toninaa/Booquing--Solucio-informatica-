@@ -359,7 +359,7 @@ void verLibrosLeidos () {
   text("LEIDOS", 250, 60);
   filtrosLeidosYLista(); 
   displayButtonsAtrasBiblioteca();
-  
+  libros();
   popStyle();
 }
 
@@ -373,6 +373,7 @@ void verLibrosPendientes () {
   text("MI LISTA", 250, 60);
   filtrosLeidosYLista(); 
   displayButtonsAtrasBiblioteca(); 
+  libros();
   popStyle();
 }
 
@@ -385,7 +386,8 @@ void verMiLista () {
   textFont(getFontAt(2));
   text("COMPRAR", 250, 60);
   filtrosComprar(); 
-  displayButtonsAtrasBiblioteca(); 
+  displayButtonsAtrasBiblioteca();
+  libros();
   popStyle();
 }
 
