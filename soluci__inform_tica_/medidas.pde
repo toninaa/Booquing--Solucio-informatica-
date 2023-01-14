@@ -94,3 +94,7 @@ int FiltrarH = 500;
 // dimensiones del la foto de la card 
 float libroW = 800; 
 float libroH = 700; 
+
+// dimensiones de las cards de los Tops
+float TopW = 350; 
+float TopH = 250; 

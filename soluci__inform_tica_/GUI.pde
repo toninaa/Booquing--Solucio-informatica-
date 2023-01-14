@@ -10,11 +10,11 @@ PANTALLA pantalla = PANTALLA.INICIO;
 // creación de los diferentes compenentes 
 
 
-TextField Titulo, TituloTops, Autor, Editorial, Valoracion, Buscar, Filtrar;
+TextField Titulo, TituloTops, Autor, Editorial, Valoracion, Buscar, Filtrar, Libro;
 
 Select s1, s2, s3, s4, s5;
 
-Counter c1, c2;
+Counter cRetos, cTops;
 
 CalendariPlus c;
 
@@ -165,21 +165,21 @@ void disableCalendario(){
 // counters
 
 void initCounter(){
-  c1 = new Counter(getImgAt(13), getImgAt(14), 600, 500, selectX, selectY); 
-  c2 = new Counter(getImgAt(13), getImgAt(14), 150, 500, selectX, selectY);
+  cRetos = new Counter(getImgAt(13), getImgAt(14), 600, 500, selectX, selectY); 
+  cTops = new Counter(getImgAt(13), getImgAt(14), 150, 600, selectX, selectY);
 }
 
 void enableCounterRetos(){
-  c1.setEnabled(true);  
+  cRetos.setEnabled(true);  
 }
 
 void enableCounterTops(){
-  c2.setEnabled(true);  
+  cTops.setEnabled(true);  
 }
 
 void disableCounters(){
-  c1.setEnabled(false);
-  c2.setEnabled(false); 
+  cRetos.setEnabled(false);
+  cTops.setEnabled(false); 
 }
 
 
@@ -262,15 +262,17 @@ void initTextField() {
   Autor = new TextField(120, 380, CampoX, CampoY);
   Editorial = new TextField(120, 430, CampoX, CampoY);
   Valoracion = new TextField(950, 450, ValoracionX, ValoracionY);
-  TituloTops = new TextField(150, 400, CampoX, CampoY); 
+  TituloTops = new TextField(150, 450, CampoX, CampoY); 
   Buscar = new TextField(width/2-CampoX, 200, CampoX*2, CampoY);
-  Filtrar = new TextField(width/2-CampoX+100, 200, CampoX*2, CampoY); 
+  Filtrar = new TextField(width/2-CampoX+100, 200, CampoX*2, CampoY);
+  Libro = new TextField(width/2-CampoX+100, 525, CampoX, CampoY);
   Titulo.setText("título");
   Autor.setText("autor");
   Editorial.setText("editorial");
   TituloTops.setText("título");
   Buscar.setText("buscar...");
   Filtrar.setText("buscar...");
+  Libro.setText("libros");
   
 }
 
@@ -289,6 +291,7 @@ void displayTextField2 () {
 
 void displayTextFieldTops () {
   TituloTops.display();
+  Libro.display();
 
 }
 
@@ -518,9 +521,11 @@ PImage[] getImagesButton(int n1, int n2){
 }
 
 void initImageButton () {
-   imgButtons  = new ImageButton [2]; 
+   imgButtons  = new ImageButton [3]; 
    imgButtons [0]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
    imgButtons [1]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);
+   imgButtons [2]= new ImageButton (getImagesButton(11,12), 830, 680, CheckX, CheckY);
+ 
    
   
 }
@@ -528,11 +533,13 @@ void initImageButton () {
 void disableImageButton (){
   imgButtons[0].setEnabled(false);
   imgButtons[1].setEnabled(false);
+  imgButtons[2].setEnabled(false);
 }
 
 void enableImageButton(){
   imgButtons[0].setEnabled(true);
   imgButtons[1].setEnabled(true);
+  imgButtons[2].setEnabled(true);
 }
 
 void displayImageButton (){

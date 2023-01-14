@@ -56,6 +56,12 @@ void mousePressed() {
     p.setEnabled(true);
     } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) { 
     p.setEnabled(false);
+    } else if (imgButtons[1].mouseOverButton()) {
+     getFontAt(4);  
+    p.setEnabled(true);
+    } else if (imgButtons[2].mouseOverButton()) {
+     getFontAt(4);  
+    p.setEnabled(true);
     
   }
 
@@ -69,15 +75,15 @@ void mousePressed() {
   Filtrar.isPressed();
   
 // activar el cambio de color en el boton Check 
-  imgButtons[0].isPressed(); 
+  //imgButtons[0].isPressed(); 
   
 //CheckBoxStarList
 cbl1.checkMouse();
 cbl2.checkMouse();
  
 // actualizar el valor de los counters al pulsar + 0 -
-   c1.update();
-   c2.update(); 
+   cRetos.update();
+   cTops.update(); 
 
 // escuchar los selects 
   if(s1.mouseOverSelect() && s1.enabled){

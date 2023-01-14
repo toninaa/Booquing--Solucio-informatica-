@@ -178,8 +178,9 @@ void establecerTops () {
   rect(950, 400, 400, 250);
   displayButtonsMenu();
   displayTextFieldTops();
-  c2.display();
-   p.display();
+  cTops.display();
+  imgButtons[2].display();
+  p.display();
   popStyle();
 }
 
@@ -204,7 +205,7 @@ void establecerRetos () {
   rect (100, 350, 1200, 400);
   displayButtonsMenu();
   displaySelect2();
-  c1.display(); 
+  cRetos.display(); 
   tif.display();
   imgButtons[1].display();
   p.display();
@@ -272,6 +273,36 @@ void dibujarRetosConseguidos () {
   text("RETOS CONSEGUIDOS", 250, 60);
   displayButtonsAtrasRetos(); 
   displayTextFieldBuscar(); 
+  
+  // s'ha de canviar
+  textFont(getFontAt(5)); textAlign(LEFT); fill(getColorAt(1)); 
+  displayImg(5, 200, 300, trofeoX,trofeoY/2*1.5);
+  text("2 novelas ", 330, 330);
+  text("en 5 dias ", 330, 360);
+  displayImg(6, 200, 500, trofeoX,trofeoY/2*1.5);
+  text("1 ensayo ", 330, 530);
+  text("en un mes ", 330, 560);
+  displayImg(7, 200, 700, trofeoX,trofeoY/2*1.5);
+  text("50 libros ", 330, 730);
+  text("en un año", 330, 760);
+  displayImg(8, width/2-100, 300, trofeoX,trofeoY/2*1.5);
+  text("2 poemas ",width/2+50 , 330);
+  text("en un dia", width/2+50, 360);
+  displayImg(3, width/2-100, 500, trofeoX,trofeoY/2*1.5);
+  text("1 clásico ",width/2+50 , 530);
+  text("en un año", width/2+50, 560);
+  displayImg(4, width/2-100, 700, trofeoX,trofeoY/2*1.5);
+  text("1 teatro ",width/2+50 , 730);
+  text("en un mes", width/2+50, 760);
+  displayImg(6, width-400, 500, trofeoX,trofeoY/2*1.5);
+  text("2 dramas ",width-270 , 530);
+  text("en un mes", width-270, 560);
+  displayImg(7, width-400, 700, trofeoX,trofeoY/2*1.5);
+  text("1 clasico ",width-270 , 730);
+  text("en 6 meses", width-270, 760);
+  displayImg(8, width-400, 300, trofeoX,trofeoY/2*1.5);
+    text("15 libros ",width-270 , 330);
+  text("en 4 meses", width-270, 360);
 
   popStyle();
   
@@ -288,7 +319,32 @@ void dibujarTops () {
   fill(0); 
   text("TOP'S", 250, 60);
   displayButtonsAtrasPerfil();
-  displayTextFieldBuscar(); 
+  displayTextFieldBuscar();
+  // s'ha de canviar 
+  fill(255); stroke(getColorAt(4)); textAlign(LEFT);
+  rect(100, height/3, TopW, TopH);
+  fill(133, 77, 39);  textFont(getFontAt(4));
+  text("Top 10 mejores novelas",110,height/3+40 );
+  fill(255);
+  rect(width-100-TopW, height/3, TopW, TopH);
+  fill(133, 77, 39);  textFont(getFontAt(4));
+  text("Top 5 peores novelas", width-90-TopW,height/3+40 );
+  fill(255);
+  rect(width-2*100-2*TopW, height/3, TopW, TopH);
+  fill(133, 77, 39);  textFont(getFontAt(4));
+  text("Top 10 mejores poemas", width-2*90-2*TopW-10,height/3+40 );
+  fill(255);
+  rect(100, height*3/4-100, TopW, TopH);
+  fill(133, 77, 39);  textFont(getFontAt(4));
+  text("Top 3 mejores Ensayos", 110,height*3/4-60 );
+  fill(255);
+  rect(width-100-TopW, height*3/4-100, TopW, TopH);
+  fill(133, 77, 39);  textFont(getFontAt(4));
+  text("Top 10 mejores teatros", width-90-TopW,height*3/4-60 );
+  fill(255);
+  rect(width-2*100-2*TopW, height*3/4-100, TopW, TopH);
+  fill(133, 77, 39);  textFont(getFontAt(4));
+  text("Top 10 mejores dramas",width-2*90-2*TopW-10 ,height*3/4-60 );
   popStyle();
   
 }
