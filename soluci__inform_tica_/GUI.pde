@@ -5,10 +5,10 @@ enum PANTALLA {
   COMPRAR, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, EMPEZAR
 };
 
+// pantalla inicial
 PANTALLA pantalla = PANTALLA.INICIO;
 
 // creación de los diferentes compenentes 
-
 
 TextField Titulo, TituloTops, Autor, Editorial, Valoracion, Buscar, Filtrar, Libro;
 
@@ -69,6 +69,8 @@ void setGUI() {
   initLibro();
 }
 
+//COMPONENTES
+
 //cards libros 
 
 void initLibro (){
@@ -101,9 +103,7 @@ void initPagRestantes (){
  }
 // PopUP
 void initPopUp (){
-  
-  p = new PopUp(title, message, width/2, height/2, popW, popH);
-   
+   p = new PopUp(title, message, width/2, height/2, popW, popH);   
 }
 
 void enablePopUp(){
@@ -127,7 +127,6 @@ void enableTimeField(){
 void disableTimeField(){
   tif.setEnabled(false);   
 }
-
 
 
 // carrousel 

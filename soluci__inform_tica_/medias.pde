@@ -4,12 +4,12 @@
 String URL_IMGS = "imgs/";
 String URL_STARS = "stars/";
 
-// Array de imatges (JPG, PNG, GIF)
+// Array de imagenes (JPG, PNG, GIF)
 PImage[] imgs;
 PImage[] imgPortada;
 PImage[] imgTrofeos; 
   
-// Estableix les imatges de l'App
+// Establecer las imagenes de la App
 void setMedias(){
     this.imgs = new PImage[32];
     this.imgs[0] = loadImage(URL_IMGS+"/logo1.png");
@@ -46,7 +46,7 @@ void setMedias(){
  //   this.imgs[31] = loadImage(URL_IMGS+"/OFF.png");
       
 }
-
+// array para el carrousel de trofeos
 void setTrofeos(){
   this.imgTrofeos = new PImage[7]; 
   this.imgTrofeos[0] = loadImage(URL_IMGS+"/trofeo6.png "); 
@@ -58,7 +58,7 @@ void setTrofeos(){
     this.imgTrofeos[6] = loadImage(URL_IMGS+"/trofeo5.png");
   
 }
-
+// array para el carrousel de libros
 void setImages(){
     this.imgPortada = new PImage[9];
     this.imgPortada[0] = loadImage(URL_IMGS+"/portada00.jpg");
@@ -72,27 +72,18 @@ void setImages(){
     this.imgPortada[8] = loadImage(URL_IMGS+"/portada08.jpg");  
 }
   
-// Getter del número d'imatges
+// Getter del número de imagenes
 int getNumImatges(){
   return this.imgs.length;
 }
   
-// Getter de la imatge del logo
+// Getter de la imagen del logo
 PImage getLogo(){
   return  this.imgs[0];
 }
   
-// Getter de la imatge del banner
-PImage getBanner(){
-  return  this.imgs[1];
-}
   
-// Getter de la imatge de la icona
-PImage getIcon(){
-  return  this.imgs[2];
-}
-  
-// Getter de la imatge i-èssima
+// Getter de la imagen i-esima
 PImage getImgAt(int i){
   return this.imgs[i];
 }
@@ -106,22 +97,12 @@ PImage getImgCheck1(int i){
 }
 
   
-// Dibuixa el logo
+// Dibujar el logo
 void displayLogo(float x, float y, float w, float h){    
     image(getLogo(), x, y, w, h);
 }
-
-// Dibuixa la Icona
-void displayIcon(float x, float y, float w, float h){    
-    image(getIcon(), x, y, w, h);
-}
-
-// Dibuixa el Banner
-void displayBanner(float x, float y, float w, float h){    
-    image(getBanner(), x, y, w, h);
-}
-  
-// Dibuixa la imatge i-èssima
+ 
+// Dibujar la imagen i-esima
 void displayImg(int i, float x, float y, float w, float h){    
     image(getImgAt(i), x, y, w, h);
 }

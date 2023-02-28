@@ -1,9 +1,8 @@
 class PagRestantes{
  
-  //Atri
- 
+  //Atributos
  float x, y, w, h;
- float portentaje;
+ float porcentaje;
  
  // Constructor
  PagRestantes(float x, float y, float w, float h, float p){
@@ -11,16 +10,16 @@ class PagRestantes{
    this.y = y;
    this.w = w;
    this.h = h;
-   this.portentaje = p;
+   this.porcentaje = p;
  }
  void setPorcentaje(float p){
-   this.portentaje = p;
+   this.porcentaje = p;
  }
  
- void disaply(){
+ void display(){
    fill(0); 
    rect(x, y, w, h, 10);
    fill(getColorAt(0));
-   rect(x, y, w*this.portentaje, h, 10 );
+   rect(x, y, w*this.porcentaje, h, 10 );
  }
 }

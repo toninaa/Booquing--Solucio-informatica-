@@ -1,10 +1,10 @@
 class CheckBoxStarList {
 
-  // Propietats (posició i dimensions)
+  // Propiedades (posición y dimensiones)
   int x, y, w, h;
   int marge = 15;
 
-  // Propietats(checkboxes)
+  // Propiedades(checkboxes)
   CheckBoxStar[] cbs;
 
   // Constructor
@@ -23,14 +23,14 @@ class CheckBoxStarList {
   }
 
 
-  // Dibuixam el checkboxlist
+  // Dibujar el checkboxlist
   void display() {
     for (CheckBoxStar cb : cbs) {
       cb.display();
     }
   }
 
-  // Comprova si feim click sobre algun checkboxstar
+  // Comprovar si hacemos clik sobre algun checkboxstar
   void checkMouse() {
 
     for (int i=0; i<cbs.length; i++) {
@@ -53,7 +53,7 @@ class CheckBoxStarList {
     }
   }
   
-  // Setter del número de estrelles activades
+  // Setter del número de estrellas activadas
   void setCheckBoxStars(int n){
     for (int i=0; i<n; i++) {
       cbs[i].checked = true;
@@ -64,12 +64,12 @@ class CheckBoxStarList {
   }
 
 
-  // Retorna si el checkBox n està seleccionat
+  // Devuelva si el checkBox n esta seleccionado
   boolean isChecked(int n) {
     return cbs[n].checked;
   }
 
-  // Retorna true si el mouse està sobre algun checkbox
+  // Devuelve true si el mouse esta sobre algun checkbox
   boolean checkCursor() {
     for (CheckBoxStar cb : cbs) {
       if (cb.onMouseOver()) {
@@ -79,7 +79,7 @@ class CheckBoxStarList {
     return false;
   }
 
-  // Retorna el número d'elements seleccionats
+  // Devuelve el número de elementos seleccionados
   int getNumSelected() {
     int n = 0;
     for (CheckBoxStar cb : cbs) {

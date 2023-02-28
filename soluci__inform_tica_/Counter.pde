@@ -2,22 +2,22 @@
 
 class Counter {
   
-  // Valor del comptador
+  // Valor del contador
   int value = 1;
   int minValue = 1, maxValue = 500;
   int stepValue = 1;
   
- // Propietats d'un counter:
- float x, y, w, h;  // Posició i dimensions
+ // Propiedades de un counter:
+ float x, y, w, h;  // Posición y dimensiones
  
- // Colors de farciment i contorn
+ // Colores del relleno y del contorno 
  color fillColor, strokeColor;
  
- PImage iconaMes, iconaMenys;       // Icones del botó
+ PImage iconaMes, iconaMenys;       // Iconos del botón
 
  boolean enabled;
  
- // Mètode Constructor
+ //  Constructor
  Counter(PImage iconaMes, PImage iconaMenys, float x, float y, float w, float h){
    this.iconaMes = iconaMes;
    this.iconaMenys = iconaMenys;
@@ -45,17 +45,17 @@ class Counter {
  }
  
  
- // Dibuixa el botó
+ // Dibujar el botó
  void display(){
    
    fill(fillColor);                            // Color 
-   stroke(strokeColor); strokeWeight(2);      //Color i gruixa del contorn
-   rect(this.x, this.y, this.w + 2*this.h, this.h, 10);   // Rectangle del botó
+   stroke(strokeColor); strokeWeight(2);      //Color y anchura  del contorno
+   rect(this.x, this.y, this.w + 2*this.h, this.h, 10);   // rectangulo del botón
    
    fill(133, 77, 39); textSize(25);
    text(value, this.x + 20, this.y + this.h/2 + 10);
    
-   // Icona del botó
+   // Icono del botón
    fill(255); stroke(115, 135, 123);
    rect(this.x + this.w, this.y, this.h, this.h, 10);
    image(iconaMes,   this.x + this.w, this.y, this.h, this.h);
@@ -67,18 +67,19 @@ class Counter {
    return mouseOverButtonMes() || mouseOverButtonMenys();
  }
  
- // Indica si el cursor està sobre el botó Més
+ // Indica si el cursor esta sobre el botón Más
  boolean mouseOverButtonMes(){
    return mouseX >= this.x + this.w && mouseX <= this.x + this.w + this.h &&
           mouseY >= this.y && mouseY <= this.y + this.h; 
  }
  
- // Indica si el cursor està sobre el botó Menys
+ // Indica si el cursor esta sobre el botón Menos
  boolean mouseOverButtonMenys(){
    return mouseX >= this.x + this.w + this.h && mouseX <= this.x + this.w + 2*this.h &&
           mouseY >= this.y && mouseY <= this.y + this.h; 
  }
  
+ // aumentar su valor 
  void increment(){
    this.value += stepValue;
    if(this.value>this.maxValue){
@@ -86,6 +87,7 @@ class Counter {
    }
  }
  
+ // disminuir su valor
  void decrement(){
    this.value -= stepValue;
    if(this.value<this.minValue){

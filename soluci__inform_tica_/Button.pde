@@ -12,7 +12,7 @@ class Button {
  String textBoto;  // Texto
  boolean enabled;  // Activado / desactivado 
  
- // Mètode Constructor
+ // Constructor
  Button(String text, float x, float y, float w, float h){
    this.textBoto = text;
    this.x = x;
@@ -20,14 +20,14 @@ class Button {
    this.w = w;
    this.h = h;
    this.enabled = true;
-   fillColor1 = color(115,135,123);
-   fillColorOver1 = color(231,227,147);
-   fillColor2 = color(155, 119, 93);
-   fillColorOver2 = color(244, 201, 93);
-   fillColor3 = color(244, 201, 93);
-   fillColorOver3 = color(231, 227, 147);
+   fillColor1 = color(getColorAt(0));
+   fillColorOver1 = color(getColorAt(4));
+   fillColor2 = color(getColorAt(0));
+   fillColorOver2 = color(getColorAt(3));
+   fillColor3 = color(getColorAt(3));
+   fillColorOver3 = color(getColorAt(4));
    fillColorDisabled = color(150);
-   //strokeColor = color(0);
+  
  }
  
  // Setters

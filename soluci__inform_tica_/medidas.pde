@@ -40,6 +40,7 @@ float menuWidth = 500;
 float menuHeight = 100; 
 
 // Dimensiones estanteries 
+
 float estanteWidth  = 700, 
       estanteHeight = 170;
 
@@ -70,8 +71,6 @@ float counterY = 50;
 float AñadirTiempoX = 200; 
 float AñadirTiempoY = 50; 
 
-
-
 // medidas calendario 
 
 int calendarioX = 150; 
@@ -87,14 +86,17 @@ int  TimeFieldY = 50;
 float popW = 550;
 float popH = 250;
 
-// medidas cuadro para filtrar 
+// medidas cuadro para filtrar
+
 int FiltrarW= 350;
 int FiltrarH = 500; 
 
 // dimensiones del la foto de la card 
+
 float libroW = 800; 
 float libroH = 700; 
 
 // dimensiones de las cards de los Tops
+
 float TopW = 350; 
 float TopH = 250; 

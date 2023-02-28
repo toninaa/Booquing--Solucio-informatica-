@@ -1,8 +1,8 @@
-// Component CheckBoxStar
+// Componente CheckBoxStar
 
 class CheckBoxStar {
   
-  // Propietats
+  // Propiedades
   float x, y, w, h;
   PImage imgChecked, imgNotChecked;
   
@@ -20,13 +20,10 @@ class CheckBoxStar {
     this.imgNotChecked = loadImage(imgName2);
   }
   
-  // Dibuixa el CheckBox
+  // Dibujar el CheckBox
   void display(){
     
     pushStyle();
-    
-    
-    
     imageMode(CORNER);
     
     if(this.checked){
@@ -43,13 +40,13 @@ class CheckBoxStar {
     this.checked = b;
   }
   
-  // Canvia l'estat de selecció
+  // Cambia el estado de la selección 
   void toggle(){
     this.checked = ! this.checked;
   }
   
   
-  // Mira si el ratolí està sobre el checkbox
+  // Mira si el ratón esta sobre el checkbox
   boolean onMouseOver(){
     return  mouseX>= this.x && 
             mouseX<= this.x + this.w &&

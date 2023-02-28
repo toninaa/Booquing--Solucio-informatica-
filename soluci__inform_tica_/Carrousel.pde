@@ -1,22 +1,22 @@
 class Carrousel {
    
-  // Dimensions del carrousel
+  // Dimensiones del carrousel
   float x, y; 
   float w, h;
   float imgW;
   float margeH = 15;
 
-  // Informació del carrousel
+  // Información del carrousel
   int numTotalImatges, numImatgesVisibles;
   
-  // Index imatge actual
+  //  imatgen actual
   int currentImage;
   
-  // Imatges del carrousel
+  // Imagenes del carrousel
   PImage[] imgs;
   PImage[] trofeos; 
   
-  // Botons del carrousel
+  // Botones del carrousel
   Button bPrev, bNext;
   
   // Constructor
@@ -53,12 +53,14 @@ class Carrousel {
     bNext = new Button(">", this.x+this.w+20, y + h/2-20, MoveX, MoveY);
   }
   
+  // ir hacia adelante
   void next(){
     if(this.currentImage<this.numTotalImatges - this.numImatgesVisibles){
       this.currentImage++;
     }
   }
   
+  // ir hacia atrás
   void prev(){
     if(this.currentImage>0){
       this.currentImage--;
@@ -66,7 +68,7 @@ class Carrousel {
   }
   
   
-  // Dibuixa el Mosaic
+  // Dibujar el Mosaico
   void display(){
     imageMode(CORNER);
     
@@ -75,7 +77,7 @@ class Carrousel {
       int index = i + this.currentImage;
       float xPos = x + i*(this.imgW + this.margeH);
       
-      // Imatge a mostrar
+      // Imagen a mostrar
       PImage img = imgs[index];
       image(img, xPos, y, this.imgW, h);
     }

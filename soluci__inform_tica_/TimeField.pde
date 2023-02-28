@@ -1,11 +1,11 @@
-// Component Camp de Temps
+// Componente Campo de Tiempo
 
 class TimeField {
   
-  // Propietats del camp de temps
+  // Propiedades del campo de tiempo
   int x, y, h, w;
   TextTimeField[] tf;
-  boolean enabled;   // Abilitat / desabilitat
+  boolean enabled;   // Abilitado / desabilitado
    
   // Constructor
    TimeField(int x, int y, int w, int h) {
@@ -16,21 +16,21 @@ class TimeField {
       tf[2] = new TextTimeField("Dias", x + 2*w/3+10, y, w/3.1, h);
    }
   
-  // Dibuixa el Camp de Text
+  // Dibujar el Campo de Tiempo
   void display() {
       for(int i=0; i<tf.length; i++){
         tf[i].display();
       }
    }
    
-   // Escritura en algun dels camps de texte
+   // Escritura en alguno de los Campo de Texto
    void keyPressed(char key, int keyCode) {
       for(int i=0; i<tf.length; i++){
         tf[i].keyPressed(key, keyCode);
       }
    }
    
-   // Click sobre algun dels camps de texte
+   // Click sobre alguno de los campos de texto
    void isPressed() {
      for(int i=0; i<tf.length; i++){
         tf[i].isPressed();

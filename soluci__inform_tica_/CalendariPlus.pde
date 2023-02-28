@@ -2,33 +2,33 @@ import java.util.Calendar;
 
 class CalendariPlus {
 
-  // Textos representatius dels mesos
+  // Textos representativos de los meses
   String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", 
     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
-  // Informació del calendari
+  // Información del calendario
   int any, mes, dia;
   int numDaysMonth, numDaysPrevMonth;
   int dayOfWeek, firstDay;
   
-  // enabled
+  // variable para activar y desactivar 
   boolean enabled;
 
-  // Data seleccionada
+  // Fecha seleccionada
   boolean dateSelected = false;
   int selectedDay=0, selectedMonth=0, selectedYear=0;
 
-  // Calendari actual, i del mes anterior
+  // Calendario actual, y del mes anterior
   Calendar cal, cPrev;
 
-  // Botons del calendari
+  // Botones del calendario
   DayButton[] buttons;
   Button bNext, bPrev, bOK;
 
-  // Dimensions del calendari
+  // Dimensiones del calendario
   int x, y, w, h;
 
-  // Visibilitat del calendari
+  // Visibilidad del calendario
   boolean visible = false;
 
 
@@ -93,7 +93,7 @@ class CalendariPlus {
     this.selectedYear = y;
   }
 
-  // Va un mes enrera en el Calendari
+  // Ir un mes atrás en el Calendario
   void prevMonth() {
 
     this.buttons = new DayButton[37];
@@ -160,7 +160,7 @@ class CalendariPlus {
     }
   }
 
-  // Va un mes endavant en el calendari
+  // Ir un mes hacia adelante en el calendario
   void nextMonth() {
 
     this.buttons = new DayButton[37];
@@ -193,7 +193,7 @@ class CalendariPlus {
 
 
 
-  // Dibuixa el Calendari
+  // Dibujar el Calendario
   void display() {
     if (visible) {
       pushStyle();
@@ -219,7 +219,7 @@ class CalendariPlus {
         text(dateText, x+w, y - 30);
       }
       
-      // Dibuixa els botons
+      // Dibujar los botones
       bNext.display1();
       bPrev.display1();
       bOK.display1();
@@ -230,7 +230,7 @@ class CalendariPlus {
   }
 
 
-  // Comprova si pitjam sobre els botons del Calendari
+  // Comprovar si pulsamos sobre los botones del Calendario
   void checkButtons() {
     for (DayButton b : buttons) {
       if ((b!=null)&&(b.enabled)&&(b.mouseOver())) {
@@ -247,7 +247,7 @@ class CalendariPlus {
     }
   }
 
-  // Deselecciona tots els botons del Calendari
+  // Deseleccionar todos los botones del Calendario
   void deselectAll() {
     for (DayButton b : buttons) {
       if (b!=null) {
@@ -255,8 +255,8 @@ class CalendariPlus {
       }
     }
   }
- // función para enabled el calendario 
-  void setEnabled(boolean b){
+ // función para activar o desactivar el calendario 
+ void setEnabled(boolean b){
    this.enabled = b;
  }
  

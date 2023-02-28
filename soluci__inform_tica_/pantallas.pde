@@ -10,7 +10,7 @@ void dibujaPantallaInicio() {
   textFont(getFontAt(2));
   displayButtonsIniciales();
   displayLogo(width/2, height/3, logoWidth, logoHeight);
-  fill(231, 227, 147);
+  fill(getColorAt(4));
   textFont(getFontAt(0));
   text("BOOQUING", width/2-150, height/3+20);
  
@@ -48,7 +48,7 @@ void dibujaPerfil () {
   enableButtonsMenu();
   enableButtonsPerfil();
   dibujaMenu();
-  fill(221, 114, 48); 
+  fill(getColorAt(2)); 
   noStroke(); 
   dibujaEstante5 ();
   esquinaIzquierda();
@@ -73,13 +73,13 @@ void dibujaNuevoLibro () {
   // dibujar los objetos
   dibujaMenu();
   esquinaIzquierda();
-  fill(133, 77, 39);
+  fill(getColorAt(1));
   textFont(getFontAt(2));
   dibujaMenu();
   text("Nuevo libro", 200, 250);
   text("Valoración", 1060, 400);
   fill(255);
-  stroke(231, 227, 147);
+  stroke(getColorAt(4));
   strokeWeight(2);
   rect (100, 300, 800, 400);
   rect(950, 450, 400, 250); 
@@ -111,11 +111,11 @@ void dibujaAñadirLibro () {
   dibujaMenu();
   textFont(getFontAt(2)); 
   esquinaIzquierda();
-  fill(133, 77, 39);
+  fill(getColorAt(1));
   text("Nuevo libro", 220, 250);
   text("Portada", 1040, 320);
   fill(255);
-  stroke(231, 227, 147);
+  stroke(getColorAt(4));
   strokeWeight(2);
   rect (100, 300, 800, 400);
   rect(950, 350, 400, 250);
@@ -143,10 +143,10 @@ void dibujarEmpezarLeer () {
   dibujaMenu();
   esquinaIzquierda();
   textFont(getFontAt(2));
-  fill(133, 77, 39);
+  fill(getColorAt(1));
   text("Empezar libro", 230, 250);
   text("Elegir destino", 1090, 400);
-  stroke(231, 227, 147);
+  stroke(getColorAt(4));
   strokeWeight(2);
   fill(255); 
   rect (100, 300, 800, 400);
@@ -169,11 +169,11 @@ void establecerTops () {
   dibujaMenu();
   esquinaIzquierda();
   textFont(getFontAt(2));
-  fill(133, 77, 39);
+  fill(getColorAt(1));
   text("Establecer Top's", 260, 290);
    text("Previsualización", 1110, 350);
   fill(255); 
-  stroke(231, 227, 147);
+  stroke(getColorAt(4));
   strokeWeight(2);
   rect (100, 350, 800, 400);
   rect(950, 400, 400, 250);
@@ -198,10 +198,10 @@ void establecerRetos () {
   dibujaMenu();
   esquinaIzquierda();
   textFont(getFontAt(2));
-  fill(133, 77, 39);
+  fill(getColorAt(1));
   text("Establecer Retos", 260, 290);
   fill(255);
-  stroke(231, 227, 147);
+  stroke(getColorAt(4));
   strokeWeight(2);
   rect (100, 350, 1200, 400);
   displayButtonsMenu();
@@ -222,16 +222,16 @@ void dibujarRetos () {
   textFont(getFontAt(2));
   fill(0); 
   text("RETOS", 250, 60);
-  fill(133, 77, 39);
+  fill(getColorAt(1));
   text("Retos Activos", 200, 290);
   text("Retos Conseguidos", 950, 290);
   displayButtonsAtrasPerfil();
   displayButtonVerTodo();
   // s'ha de canviar
-  Pg1.disaply();
-  Pg2.disaply();
-  Pg3.disaply();
-  Pg4.disaply();
+  Pg1.display();
+  Pg2.display();
+  Pg3.display();
+  Pg4.display();
   fill(getColorAt(4));
   rect(70, 400, 100, 20, 10);
   textFont(getFontAt(5)); textAlign(LEFT); fill(getColorAt(1)); 
@@ -401,9 +401,9 @@ void librosActivos (){
   textFont(getFontAt(2));
   text("LIBROS ACTIVOS", 250, 60);
   displayButtonsAtrasBiblioteca(); 
-  Pg5.disaply();
-  Pg6.disaply();
-  Pg7.disaply();
+  Pg5.display();
+  Pg6.display();
+  Pg7.display();
   fill(getColorAt(4));
   rect(100, 750, 50, 20, 10);
   rect(600, 750, 100, 20, 10);

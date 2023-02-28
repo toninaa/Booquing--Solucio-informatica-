@@ -1,12 +1,12 @@
 class DayButton {
   
-  // Dimensions del botó
+  // Dimensiones del botón
   float x, y, w, h;
   
-  // Data representativa
+  // Fecha representativa
   int dia, mes, any;
   
-  // Estats del botó
+  // Estados del botón
   boolean selected, enabled;
   
   // Constructor
@@ -28,7 +28,7 @@ class DayButton {
   }
   
   
-  // Dibuixa el botó
+  // Dibujar el botón
   void display(){
     pushStyle();
     if(enabled){
@@ -48,7 +48,7 @@ class DayButton {
     popStyle();
   }
   
-  // Ratolí sobre el botó
+  // Ratón sobre el botón
   boolean mouseOver(){
     return mouseX>=this.x && mouseX<=this.x+this.w &&
            mouseY>=this.y && mouseY<=this.y+this.h;

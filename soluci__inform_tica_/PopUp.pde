@@ -1,9 +1,9 @@
 class PopUp {
   
-  // Dimensions
+  // Dimensiones
   float x, y, w, h;
   
- // Propietats
+ // Propiedades
  PImage img;
  String title;
  String message;
@@ -16,7 +16,6 @@ class PopUp {
  boolean enabled= false; 
  
  // Constructor
- 
  PopUp(String title, String message, float x, float y, float w, float h){
    this.title = title;
    this.message = message;
@@ -42,7 +41,7 @@ class PopUp {
  }
  
  
- // Dibuixa el PopUp
+ // Dibujar el PopUp
  
  void display(){
    
@@ -52,22 +51,22 @@ class PopUp {
      
      pushStyle();
      
-     // Rectangle
+     // Rectangulo
      rectMode(CENTER); 
      stroke(133, 77, 39); strokeWeight(2);fill(244, 201, 93);
      rect(x, y, w, h, b/2);
      
      line(x-275, y + 2*b-120 , x+w-275, y + 2*b-120);
      
-     // Títol
+     // Título
      fill(0); textSize(35); textAlign(CENTER);
      text(title, width/2-140, height/2-70);
      
-     // Missatge
+     // Mensage
      fill(0);textSize(25); textAlign(CENTER);
      text(message, width/2, height/2+20);
       popStyle();
-     // Botó d'Acceptar
+     // Botón para Acceptar
      Aceptar.display1();
    
   

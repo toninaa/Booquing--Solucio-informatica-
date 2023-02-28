@@ -1,6 +1,6 @@
 void mousePressed() {
   if(pantalla ==PANTALLA.BIBLIO){
-    //escoltarBotonsBiblio();
+    
 }
   
   
@@ -156,6 +156,7 @@ if(s2.mouseOverSelect() && s2.enabled){
    
  
 }
+
 // funcion para resetar los TextFields
 void resetFields(){
   Titulo.setText("título"); 

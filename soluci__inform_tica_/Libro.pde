@@ -5,7 +5,8 @@ class Libro {
   String titulo, autor, editorial, genero;
   String ranking; 
   String valoracion; 
-  
+  // margenes entre textos 
+  int dist = 130;
   
   // Constructor 
   
@@ -45,30 +46,26 @@ class Libro {
    image(img, 50, 100, imgW, imgH); 
     
    
- // titol 
+ // titulo 
  fill(115, 135, 123); textSize(35); textAlign(LEFT); 
  getFontAt(1);
  text(titulo, width/2+50, 100);
  
  // autor
  fill(133, 77, 39); textSize(25); textAlign(LEFT); getFontAt(4);
- text(autor, width/2-130, 200);
+ text(autor, width/2-dist, 200);
  
   // editorial
-
- text(editorial, width/2-130, 300);
+ text(editorial, width/2-dist, 300);
  
   // genero
- 
- text(genero, width/2-130, 400);
+ text(genero, width/2-dist, 400);
  
   // valoracion
-
- text(valoracion, width/2-130, 600, 350, 200);
+ text(valoracion, width/2-dist, 600, 350, 200);
  
  // ranquing 
-
- text(ranking, width/2-130, 460, 350, 200);
+ text(ranking, width/2-dist, 460, 350, 200);
  
  // recomendaciones 
  text("Recomendaciones", width/2+325, 250);
