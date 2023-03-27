@@ -33,6 +33,11 @@ class Select {
   void setText(String t){
     this.text = t;   
   }
+  
+ // int getValue(){
+ //  return this.value;
+// }
+  
  
   void display(){
     pushStyle();

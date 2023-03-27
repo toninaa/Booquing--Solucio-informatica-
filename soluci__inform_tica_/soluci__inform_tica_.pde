@@ -1,4 +1,5 @@
 
+
 void setup() {
   // Dimensiones de la App
   fullScreen();
@@ -8,6 +9,7 @@ void setup() {
   setFonts();
   setMedias();
   setGUI();
+  connexioBBDD();
 }
 
 

@@ -208,6 +208,7 @@ void establecerRetos () {
   displaySelect2();
   cRetos.display(); 
   tif.display();
+  displayTextFieldRetos();
   imgButtons[1].display();
   p.display();
   popStyle();

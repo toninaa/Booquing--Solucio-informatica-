@@ -37,13 +37,13 @@ void setMedias(){
     this.imgs[22] = loadImage(URL_IMGS+"/portada07.jpg");
     this.imgs[23] = loadImage(URL_IMGS+"/portada08.jpg");
     this.imgs[24] = loadImage(URL_IMGS+"/portada.jpg");
-    this.imgs[25] = loadImage(URL_IMGS+"/1.png");
+   /* this.imgs[25] = loadImage(URL_IMGS+"/1.png");
     this.imgs[26] = loadImage(URL_IMGS+"/2.png");
     this.imgs[27] = loadImage(URL_IMGS+"/3.png");
     this.imgs[28] = loadImage(URL_IMGS+"/4.png");
-    this.imgs[29] = loadImage(URL_IMGS+"/5.png");
- //   this.imgs[30] = loadImage(URL_IMGS+"/ON.png");
- //   this.imgs[31] = loadImage(URL_IMGS+"/OFF.png");
+    this.imgs[29] = loadImage(URL_IMGS+"/5.png"); */
+    this.imgs[30] = loadImage(URL_IMGS+"/ON.png");
+    this.imgs[31] = loadImage(URL_IMGS+"/OFF.png");
       
 }
 // array para el carrousel de trofeos

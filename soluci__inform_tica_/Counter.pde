@@ -44,7 +44,10 @@ class Counter {
    this.enabled = b;
  }
  
- 
+ int getValue(){
+   return this.value;
+ }
+  
  // Dibujar el botó
  void display(){
    

@@ -26,6 +26,11 @@ class TextTimeField {
       this.x = x; this.y = y; 
       this.w = w; this.h = h;
    }
+   
+ //  int getValue(){
+ //  return this.value;
+ //}
+  
   
   // Dibujar el Campo de Texto
   void display() {

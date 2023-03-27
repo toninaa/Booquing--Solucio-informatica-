@@ -10,7 +10,7 @@ PANTALLA pantalla = PANTALLA.INICIO;
 
 // creación de los diferentes compenentes 
 
-TextField Titulo, TituloTops, Autor, Editorial, Valoracion, Buscar, Filtrar, Libro;
+TextField Titulo, TituloTops, Autor, Editorial, Valoracion, Buscar, Filtrar, Libro, TituloReto;
 
 Select s1, s2, s3, s4, s5;
 
@@ -117,7 +117,7 @@ void disablePopUp(){
 // TimeField 
 
 void initTimeField(){
- tif = new TimeField(150, 500, TimeFieldX, TimeFieldY);
+ tif = new TimeField(150, 550, TimeFieldX, TimeFieldY);
 }
 
 void enableTimeField(){
@@ -181,7 +181,7 @@ void disableCalendario(){
 // counters
 
 void initCounter(){
-  cRetos = new Counter(getImgAt(13), getImgAt(14), 600, 500, selectX, selectY); 
+  cRetos = new Counter(getImgAt(13), getImgAt(14), 600, 550, selectX, selectY); 
   cTops = new Counter(getImgAt(13), getImgAt(14), 150, 600, selectX, selectY);
 }
 
@@ -204,7 +204,7 @@ void initSelect(){
   String[] selectValues = {"Narrativa", "Drama", "Poesia", "Teatro", "Clásicos" };
    String[] selectValoraciones = {"1", "2", "3", "4", "5" };
   s1 = new Select(selectValues, 550, 350, selectX, selectY);
-  s2 = new Select(selectValues, 1050, 500, selectX, selectY);
+  s2 = new Select(selectValues, 1050, 550, selectX, selectY);
   s3 = new Select(selectValues, 550, 350, selectX, selectY);
   s4 = new Select(selectValues, 70, 350, selectX, selectY);
   s5 = new Select(selectValoraciones, 70, 350, selectX, selectY);
@@ -282,6 +282,7 @@ void initTextField() {
   Buscar = new TextField(width/2-CampoX, 200, CampoX*2, CampoY);
   Filtrar = new TextField(width/2-CampoX+100, 200, CampoX*2, CampoY);
   Libro = new TextField(width/2-CampoX+100, 525, CampoX, CampoY);
+  TituloReto=  new TextField(120, 425, CampoX, CampoY);
   Titulo.setText("título");
   Autor.setText("autor");
   Editorial.setText("editorial");
@@ -289,6 +290,7 @@ void initTextField() {
   Buscar.setText("buscar...");
   Filtrar.setText("buscar...");
   Libro.setText("libros");
+  TituloReto.setText("titulo");
   
 }
 
@@ -317,6 +319,10 @@ void displayTextFieldBuscar (){
 
 void displayTextFieldFiltrar (){
  Filtrar.display(); 
+}
+
+void displayTextFieldRetos(){
+TituloReto.display();
 }
 
 
