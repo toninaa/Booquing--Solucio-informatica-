@@ -27,9 +27,9 @@ class TextTimeField {
       this.w = w; this.h = h;
    }
    
- //  int getValue(){
- //  return this.value;
- //}
+  String getValue(){
+   return this.text;
+ }
   
   
   // Dibujar el Campo de Texto

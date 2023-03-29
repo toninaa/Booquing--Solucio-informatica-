@@ -23,6 +23,8 @@ class TimeField {
       }
    }
    
+ 
+   
    // Escritura en alguno de los Campo de Texto
    void keyPressed(char key, int keyCode) {
       for(int i=0; i<tf.length; i++){

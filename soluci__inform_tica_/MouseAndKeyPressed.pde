@@ -57,15 +57,14 @@ void mousePressed() {
     } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) { 
     p.setEnabled(false);
       // Agafar els valors dels camps del formulari
-     //String valorTiempo= String.valueOf(tif.getValue());//textTimeField
-    // String valorGenero   = String.valueOf(s2.getValue());// select
-  //   String valorNumero = String.valueOf(cRetos.getValue());//counter
-   //  String valorNom = String.valueOf(cRetos.getValue());//counter
-     
-    // Inserir a la BBDD
-    //insertInfoTaulaReto(valorNom, valorNumero,valorTiempo, ValorGenero);
-     // Resetear camps del formulari
-    //resetFormulari();
+    // String valorTiempo= String.valueOf(tif.getValue());//textTimeField
+     String valorGenero   = String.valueOf(s2.getValue());// select
+     String valorNumero = String.valueOf(cRetos.getValue());//counter
+     String valorNom = String.valueOf(TituloReto.getValue());//textField   
+    // Inserir en la BBDD
+    //insertInfoTaulaReto(valorNom, valorNumero,valorTiempo, valorGenero);
+     // Resetear campos del formulario
+   // resetFormulari();
     } else if (imgButtons[1].mouseOverButton()) {
      getFontAt(4);  
     p.setEnabled(true);
@@ -74,7 +73,6 @@ void mousePressed() {
     p.setEnabled(true);   
   }
  
-
 
 // activar el cambio de color al estar encima del textField 
   Titulo.isPressed();
@@ -179,6 +177,14 @@ void resetFields(){
   Buscar.setText("buscar"); 
   Filtrar.setText("filtrar");
   TituloReto.setText("titulo");
+}
+
+// Reset del Formulari
+void resetFormulari(){
+  cRetos.resetValue();
+  TituloReto.removeAllText();
+  //tif.removeAllText(); 
+  s4.removeAllText();
 }
 
 void keyPressed () {

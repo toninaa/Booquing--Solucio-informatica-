@@ -30,6 +30,15 @@ class TextField {
     this.text = t;   
   }
   
+   String getValue(){
+   return this.text;
+  }
+  
+  // Quitar todo el texto
+   void removeAllText(){
+     this.text = "";
+   }
+  
   // Dibuja el Campo de Texto
   void display() {
       pushStyle(); 

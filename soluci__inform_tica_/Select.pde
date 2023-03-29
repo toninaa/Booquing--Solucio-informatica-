@@ -34,10 +34,14 @@ class Select {
     this.text = t;   
   }
   
- // int getValue(){
- //  return this.value;
-// }
-  
+   String getValue(){
+   return this.text;
+ }
+ 
+ // Lleva tot el text
+   void removeAllText(){
+     this.text = "";
+   }
  
   void display(){
     pushStyle();
