@@ -82,19 +82,17 @@ void dibujaNuevoLibro () {
   stroke(getColorAt(4));
   strokeWeight(2);
   rect (100, 300, 800, 400);
-  rect(950, 450, 400, 250); 
   popStyle();
   PagNuevoLibro();
   textFont(getFontAt(2));
   displayButtonsMenu(); 
-  displayTextField();
+  displayTextFieldLeido();
   displaySelect1();
   calendarioInicioFin();  
   imgButtons[0].display();
   p.display(); 
- // cbl1.display(); 
- // s'ha de canviar ara nomes es una foto (valoració)
-  displayImg(25, 520, 500, 250, 50);
+  cblLeido.display(); 
+
   
   
   
@@ -106,22 +104,18 @@ void dibujaAñadirLibro () {
   disableButtons();
   disableSelects();
   enableButtonsMenu();
-  enableButtonsAñadir();
   enableSelect3(); 
   dibujaMenu();
   textFont(getFontAt(2)); 
   esquinaIzquierda();
   fill(getColorAt(1));
   text("Nuevo libro", 220, 250);
-  text("Portada", 1040, 320);
   fill(255);
   stroke(getColorAt(4));
   strokeWeight(2);
   rect (100, 300, 800, 400);
-  rect(950, 350, 400, 250);
   displayButtonsMenu();
-  displayTextField2();
-  displayButtonsAñadir(); 
+  displayTextFieldComprar();
   displaySelect3();
   imgButtons[0].display();
    p.display();
@@ -138,21 +132,19 @@ void dibujarEmpezarLeer () {
   enableButtonCalendario(); 
   enableImageButton();
   enableButtonsMenu();
-  enableButtonsAñadir();
   enableButtonsNuevoLibro(); 
   dibujaMenu();
   esquinaIzquierda();
   textFont(getFontAt(2));
   fill(getColorAt(1));
   text("Empezar libro", 230, 250);
-  text("Elegir destino", 1090, 400);
   stroke(getColorAt(4));
   strokeWeight(2);
   fill(255); 
   rect (100, 300, 800, 400);
   rect(950, 450, 400, 250);
   displayButtonsMenu();
-  displayTextField2();
+  displayTextFieldLista();
   displayButtonsNuevoLibro(); 
   imgButtons[0].display();
   calendarioInicio(); 
@@ -171,12 +163,10 @@ void establecerTops () {
   textFont(getFontAt(2));
   fill(getColorAt(1));
   text("Establecer Top's", 260, 290);
-   text("Previsualización", 1110, 350);
   fill(255); 
   stroke(getColorAt(4));
   strokeWeight(2);
-  rect (100, 350, 800, 400);
-  rect(950, 400, 400, 250);
+  rect (100, 350, 1200, 400);
   displayButtonsMenu();
   displayTextFieldTops();
   cTops.display();

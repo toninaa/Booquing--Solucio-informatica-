@@ -11,7 +11,7 @@ PImage[] imgTrofeos;
   
 // Establecer las imagenes de la App
 void setMedias(){
-    this.imgs = new PImage[32];
+    this.imgs = new PImage[27];
     this.imgs[0] = loadImage(URL_IMGS+"/logo1.png");
     this.imgs[1] = loadImage(URL_IMGS+"/trofeo0.png");
     this.imgs[2] = loadImage(URL_IMGS+"/estanteria.png");
@@ -36,14 +36,9 @@ void setMedias(){
     this.imgs[21] = loadImage(URL_IMGS+"/portada06.jpg");
     this.imgs[22] = loadImage(URL_IMGS+"/portada07.jpg");
     this.imgs[23] = loadImage(URL_IMGS+"/portada08.jpg");
-    this.imgs[24] = loadImage(URL_IMGS+"/portada.jpg");
-   /* this.imgs[25] = loadImage(URL_IMGS+"/1.png");
-    this.imgs[26] = loadImage(URL_IMGS+"/2.png");
-    this.imgs[27] = loadImage(URL_IMGS+"/3.png");
-    this.imgs[28] = loadImage(URL_IMGS+"/4.png");
-    this.imgs[29] = loadImage(URL_IMGS+"/5.png"); */
-    this.imgs[30] = loadImage(URL_IMGS+"/ON.png");
-    this.imgs[31] = loadImage(URL_IMGS+"/OFF.png");
+    this.imgs[24] = loadImage(URL_IMGS+"/portada10.jpg");
+    this.imgs[25] = loadImage(URL_IMGS+"/ON.png");
+    this.imgs[26] = loadImage(URL_IMGS+"/OFF.png");
       
 }
 // array para el carrousel de trofeos
@@ -104,5 +99,5 @@ void displayLogo(float x, float y, float w, float h){
  
 // Dibujar la imagen i-esima
 void displayImg(int i, float x, float y, float w, float h){    
-    image(getImgAt(i), x, y, w, h);
+   image(getImgAt(i), x, y, w, h);
 }

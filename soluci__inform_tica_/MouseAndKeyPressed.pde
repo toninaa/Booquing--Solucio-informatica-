@@ -54,30 +54,47 @@ void mousePressed() {
     } else if (imgButtons[0].mouseOverButton()) {
      getFontAt(4);  
     p.setEnabled(true);
+     // Coger los valores del campo del formulario 
+     String valorTitulo= TituloComprar.getValue();//textField
+     String valorAutor = AutorComprar.getValue();//textField
+     String valorEditorial = EditorialComprar.getValue();//textField 
+     String valorISBN = ISBNComprar.getValue();// textField
+     String valorGenero   = s3.selectedValue; // select
+    // Inserir en la BBDD
+    //insertInfoTaulaLibro(valorTitulo, valorAutor,valorEditorial, valorISBN, valorGenero );
     } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) { 
     p.setEnabled(false);
-      // Agafar els valors dels camps del formulari
-    // String valorTiempo= String.valueOf(tif.getValue());//textTimeField
-     String valorGenero   = String.valueOf(s2.getValue());// select
+      // Coger los valores del campo del formulario 
+     String valorTiempo= tif.getValue();//textTimeField
+     String valorGenero   = s2.selectedValue; // select
      String valorNumero = String.valueOf(cRetos.getValue());//counter
-     String valorNom = String.valueOf(TituloReto.getValue());//textField   
+     String valorNom = TituloReto.getValue();//textField   
     // Inserir en la BBDD
-    //insertInfoTaulaReto(valorNom, valorNumero,valorTiempo, valorGenero);
+    insertInfoTaulaReto(valorNom, valorNumero,valorTiempo, valorGenero);
      // Resetear campos del formulario
-   // resetFormulari();
+    // resetFormulari();
     } else if (imgButtons[1].mouseOverButton()) {
      getFontAt(4);  
     p.setEnabled(true);
     } else if (imgButtons[2].mouseOverButton()) {
      getFontAt(4);  
-    p.setEnabled(true);   
+    p.setEnabled(true); 
   }
  
 
 // activar el cambio de color al estar encima del textField 
-  Titulo.isPressed();
-  Autor.isPressed();
-  Editorial.isPressed();
+  TituloLeido.isPressed();
+  AutorLeido.isPressed();
+  EditorialLeido.isPressed();
+  TituloComprar.isPressed();
+  AutorComprar.isPressed();
+  EditorialComprar.isPressed();
+  TituloLista.isPressed();
+  AutorLista.isPressed();
+  EditorialLista.isPressed();
+  ISBNLeido.isPressed();
+  ISBNComprar.isPressed();
+  ISBNLista.isPressed();
   Valoracion.isPressed();
   TituloTops.isPressed();
   Buscar.isPressed();
@@ -88,8 +105,8 @@ void mousePressed() {
   //imgButtons[0].isPressed(); 
   
 //CheckBoxStarList
-cbl1.checkMouse();
-cbl2.checkMouse();
+cblLeido.checkMouse();
+
  
 // actualizar el valor de los counters al pulsar + 0 -
    cRetos.update();
@@ -162,17 +179,26 @@ if(s2.mouseOverSelect() && s2.enabled){
   // timeField
    tif.isPressed();
    
-     cbl1.checkMouse();
+   cblLeido.checkMouse();
    
  
 }
 
 // funcion para resetar los TextFields
 void resetFields(){
-  Titulo.setText("título"); 
+  TituloLeido.setText("título");
+  AutorLeido.setText("autor");
+  EditorialLeido.setText("editorial");
+  TituloComprar.setText("título");
+  AutorComprar.setText("autor");
+  EditorialComprar.setText("editorial");
+  TituloLista.setText("título");
+  AutorLista.setText("autor");
+  EditorialLista.setText("editorial");
+  ISBNLeido.setText("ISBN");
+  ISBNComprar.setText("ISBN");
+  ISBNLista.setText("ISBN");
   TituloTops.setText("título"); 
-  Autor.setText("autor"); 
-  Editorial.setText("editorial"); 
   Valoracion.setText("valoración"); 
   Buscar.setText("buscar"); 
   Filtrar.setText("filtrar");
@@ -189,9 +215,15 @@ void resetFormulari(){
 
 void keyPressed () {
   // escuchar las teclas del teclado en los textFields
-  Titulo.keyPressed(key, (int)keyCode);
-  Autor.keyPressed(key, (int)keyCode);
-  Editorial.keyPressed(key, (int)keyCode);
+  TituloLeido.keyPressed(key, (int)keyCode);
+  AutorLeido.keyPressed(key, (int)keyCode);
+  EditorialLeido.keyPressed(key, (int)keyCode);
+  TituloComprar.keyPressed(key, (int)keyCode);
+  AutorComprar.keyPressed(key, (int)keyCode);
+  EditorialComprar.keyPressed(key, (int)keyCode);
+  TituloLista.keyPressed(key, (int)keyCode);
+  AutorLista.keyPressed(key, (int)keyCode);
+  EditorialLista.keyPressed(key, (int)keyCode);
   Valoracion.keyPressed(key, (int)keyCode);
   TituloTops.keyPressed(key, (int)keyCode);
   Buscar.keyPressed(key, (int)keyCode);

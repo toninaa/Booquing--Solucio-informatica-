@@ -14,6 +14,16 @@ void connexioBBDD(){
     
     msql = new MySQL( this, "localhost:8889", database, user, pass );
     
+     // Si la connexió s'ha establert
+    if (msql.connect()){
+        // La connexió ha funcionat!!!
+        println("Connected to database!!");
+    }
+    else {
+      // La connexió ha fallat!!!
+      println("Connection failed !");
+    }
+    
 }
 
 // Insertar los dados de la tabla Editorial
@@ -39,7 +49,7 @@ void insertInfoTaulaImagen(String num, String nom){
 
 // Insertar los dados de la tabla Reto
 void insertInfoTaulaReto(String nom, String num, String tiempo, String genero){
-  String q = "INSERT INTO Reto (idReto, NumLibros, Tiempo, Genero) VALUES ('"+nom+"''"+num+"''"+tiempo+"''"+genero+"')";
+  String q = "INSERT INTO Reto (idReto, NumLibros, Tiempo, Genero) VALUES ('"+nom+"','"+num+"','"+tiempo+"','"+genero+"')";
   println(q);
   msql.query(q);
 }

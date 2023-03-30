@@ -6,6 +6,7 @@ class TimeField {
   int x, y, h, w;
   TextTimeField[] tf;
   boolean enabled;   // Abilitado / desabilitado
+ 
    
   // Constructor
    TimeField(int x, int y, int w, int h) {
@@ -23,8 +24,16 @@ class TimeField {
       }
    }
    
- 
-   
+  String getValue(){
+     return tf[0].text+"-"+tf[1].text+"-"+tf[2].text;
+  }
+  
+  /*void resetValue(){
+   this.tf[0] = this.minValue;
+   this.tf[1] = this.minValue;
+   this.tf[2] = this.minValue;  
+ }
+ */  
    // Escritura en alguno de los Campo de Texto
    void keyPressed(char key, int keyCode) {
       for(int i=0; i<tf.length; i++){
@@ -43,5 +52,7 @@ class TimeField {
    this.enabled = b;
  }
  
+ 
+ }
+ 
    
-}
