@@ -86,12 +86,13 @@ void dibujaNuevoLibro () {
   PagNuevoLibro();
   textFont(getFontAt(2));
   displayButtonsMenu(); 
+  cblLeido.display(); 
   displayTextFieldLeido();
   displaySelect1();
   calendarioInicioFin();  
   imgButtons[0].display();
   p.display(); 
-  cblLeido.display(); 
+ 
 
   
   

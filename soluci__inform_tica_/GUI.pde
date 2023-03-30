@@ -44,7 +44,7 @@ String title = "Guardado";
 String message = "Tu libro se ha guardado con èxito";
 
 // Imatges de les opcions del checkboxstarlist
-String[] stars = {"ON.png", "OFF.png"};
+String[] stars = {"imgs/ON.png", "imgs/OFF.png"};
 
 // datos del libro
 String [] info1 = {"Un cuento perfecto",
@@ -96,8 +96,8 @@ void initPagRestantes (){
 
  // checkboxstarlist
  void initCheckStars (){
-  cblLeido = new CheckBoxStarList(5, stars, 100, height/2 - 100, 100, 100);
-  cblLeido.setCheckBoxStars(3);
+  cblLeido = new CheckBoxStarList(5, stars, 500, height/2 , 45, 45);
+  cblLeido.setCheckBoxStars(1);
  }
  
 // PopUP
@@ -380,7 +380,7 @@ void initButtons (){
   buttons [12]= new Button ("Empezar a leer", 150, 350, 3*LeidoX, LeidoY);
   buttons [13]= new Button ("Quiero", 500, 250, LeidoX, LeidoY);
   buttons [14]= new Button ("Ver Todo", 930, 750, LeidoX, LeidoY);
-  buttons [15]= new Button ("Calendario", 190, 490, calendarioX, calendarioY);
+  buttons [15]= new Button ("Calendario", 420, 590, calendarioX, calendarioY);
   buttons [16]= new Button ("Leidos", 450, height/3+40, LeidoX, LeidoY);
   buttons [17]= new Button ("Mi Lista", width/2+120, height/3+190, LeidoX, LeidoY);
   buttons [18]= new Button ("Comprar", 450, height/3+340, LeidoX, LeidoY);
