@@ -1,5 +1,3 @@
-
-
 void setup() {
   // Dimensiones de la App
   fullScreen();

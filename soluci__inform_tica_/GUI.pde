@@ -11,14 +11,16 @@ PANTALLA pantalla = PANTALLA.INICIO;
 // creación de los diferentes compenentes 
 
 TextField TituloLeido, TituloComprar, TituloLista, TituloTops, AutorLeido, AutorComprar, AutorLista,
-EditorialLeido, EditorialComprar, EditorialLista, Valoracion, Buscar, Filtrar, Libro, TituloReto, 
+EditorialLeido, EditorialComprar, EditorialLista, Buscar, Filtrar, Libro, TituloReto, 
 ISBNLeido,ISBNComprar, ISBNLista;
+
+TextArea Valoracion; 
 
 Select s1, s2, s3, s4, s5;
 
 Counter cRetos, cTops;
 
-CalendariPlus c;
+CalendariPlus cI, cF;
 
 Carrousel es1, es2, es3, es4, es5; 
 
@@ -37,7 +39,9 @@ Libro l1;
 // Strings de algunos componentes 
 
 // texto del calendario 
-String dataCalendari="";
+String dataCalendariInicio="";
+String dataCalendariFin="";
+
 
 // Textos del PopUp
 String title = "Guardado";
@@ -69,6 +73,7 @@ void setGUI() {
   initCheckStars();
   initPagRestantes(); 
   initLibro();
+  initTextArea();
 }
 
 //COMPONENTES
@@ -166,15 +171,18 @@ for(int i =0; i<trofeosEs5.length; i++){
 
 // calendario 
 void initCalendari (){ 
- c = new CalendariPlus(50,200,700,550);
+ cI = new CalendariPlus(50,200,700,550);
+ cF= new CalendariPlus(50,200,700,550);
 }
 
 void enableCalendario(){
-  c.setEnabled(true);  
+  cI.setEnabled(true); 
+  cF.setEnabled(true); 
 }
 
 void disableCalendario(){
-  c.setEnabled(false);   
+  cI.setEnabled(false);
+  cF.setEnabled(false);
 }
  
 // counters
@@ -200,7 +208,7 @@ void disableCounters(){
 
 // selects 
 void initSelect(){
-  String[] selectValues = {"Narrativa", "Drama", "Poesia", "Teatro", "Clásicos" };
+  String[] selectValues = {"Narrativa", "Drama", "Poesia", "Teatro", "Clásicos", "Romance" };
    String[] selectValoraciones = {"1", "2", "3", "4", "5" };
   s1 = new Select(selectValues, 550, 350, selectX, selectY);
   s2 = new Select(selectValues, 1050, 550, selectX, selectY);
@@ -282,7 +290,6 @@ void initTextField() {
   TituloLista = new TextField(120, 330, CampoX, CampoY);
   AutorLista = new TextField(120, 380, CampoX, CampoY);
   EditorialLista = new TextField(120, 430, CampoX, CampoY);
-  Valoracion = new TextField(950, 450, ValoracionX, ValoracionY);
   TituloTops = new TextField(150, 525, CampoX, CampoY); 
   Buscar = new TextField(width/2-CampoX, 200, CampoX*2, CampoY);
   Filtrar = new TextField(width/2-CampoX+100, 200, CampoX*2, CampoY);
@@ -352,19 +359,25 @@ void displayTextFieldRetos(){
 TituloReto.display();
 }
 
+//TextArea 
+void initTextArea (){
+  Valoracion = new TextArea (950, 450, ValoracionX, ValoracionY, 30, 6);
+}
 
+void displayTextArea(){
+Valoracion.display(); 
+}
 
 // botones
 
 Button [] buttons;
 
 Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1, 
-MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, AtrasR, Guardar, VerTodo, Calendario, Aceptar, 
-Leidos, Lista, ComprarB,
-Actuales;
+MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, AtrasR, Guardar, VerTodo, CalendarioI,
+CalendarioF, Aceptar,Leidos, Lista, ComprarB, Actuales;
 
 void initButtons (){ 
-  buttons = new Button [22];
+  buttons = new Button [23];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -380,14 +393,14 @@ void initButtons (){
   buttons [12]= new Button ("Empezar a leer", 150, 350, 3*LeidoX, LeidoY);
   buttons [13]= new Button ("Quiero", 500, 250, LeidoX, LeidoY);
   buttons [14]= new Button ("Ver Todo", 930, 750, LeidoX, LeidoY);
-  buttons [15]= new Button ("Calendario", 420, 590, calendarioX, calendarioY);
+  buttons [15]= new Button ("Calendario", 420, 560, calendarioX, calendarioY);
   buttons [16]= new Button ("Leidos", 450, height/3+40, LeidoX, LeidoY);
   buttons [17]= new Button ("Mi Lista", width/2+120, height/3+190, LeidoX, LeidoY);
   buttons [18]= new Button ("Comprar", 450, height/3+340, LeidoX, LeidoY);
   buttons [19]= new Button ("Leyendo", width/2+120, height/3+510, LeidoX, LeidoY);
   buttons [20]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [21]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
-
+  buttons [22]= new Button ("Calendario", 420, 630, calendarioX, calendarioY);
 
 
   AtrasP = buttons [0];
@@ -405,13 +418,14 @@ void initButtons (){
   Empezar = buttons [12];
   Quiero2 = buttons [13];
   VerTodo = buttons [14];
-  Calendario = buttons [15];
+  CalendarioI = buttons [15];
   Leidos = buttons [16];
   Lista = buttons [17];
   ComprarB = buttons [18];
   Actuales = buttons [19];
   AtrasB = buttons [20];
   AtrasR = buttons [21];
+  CalendarioF = buttons [22];
   
   
 }
@@ -437,11 +451,8 @@ void enableButtonsBiblioteca() {
   Leidos.setEnabled(true); 
   Lista.setEnabled(true); 
   ComprarB.setEnabled(true); 
-  Actuales.setEnabled(true);
-  
+  Actuales.setEnabled(true);  
 }
-
-
 
 void enableButtonsPerfil() {
   Leido.setEnabled(true);
@@ -455,15 +466,12 @@ void enableButtonsPerfil() {
 }
 
 
-
 void enableButtonCalendario() {
-  Calendario.setEnabled(true);
+  CalendarioI.setEnabled(true);
+  CalendarioF.setEnabled(true);
+  
 }
 
-void enableButtonsNuevoLibro() {
-  MiLista.setEnabled(true);
-  Pendientes.setEnabled(true);
-}
 
 void enableButtonsAtrasPerfil() {
   AtrasP.setEnabled(true);
@@ -516,10 +524,6 @@ void displayButtonsPerfil () {
 }
 
 
-void displayButtonsNuevoLibro (){ 
-  MiLista.display1();
-  Pendientes.display1();  
-}
 
 void displayButtonsAtrasPerfil (){ 
   AtrasP.display1();
@@ -554,27 +558,30 @@ PImage[] getImagesButton(int n1, int n2){
 }
 
 void initImageButton () {
-   imgButtons  = new ImageButton [3]; 
+   imgButtons  = new ImageButton [6]; 
    imgButtons [0]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
-   imgButtons [1]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);
-   imgButtons [2]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);
- 
+   imgButtons [1]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
+   imgButtons [2]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
+   imgButtons [3]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
+   imgButtons [4]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);
+   imgButtons [5]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);
    
-  
 }
 
 void disableImageButton (){
   imgButtons[0].setEnabled(false);
   imgButtons[1].setEnabled(false);
   imgButtons[2].setEnabled(false);
+  imgButtons[3].setEnabled(false);
+  imgButtons[4].setEnabled(false);
+  imgButtons[5].setEnabled(false);
 }
 
 void enableImageButton(){
   imgButtons[0].setEnabled(true);
   imgButtons[1].setEnabled(true);
   imgButtons[2].setEnabled(true);
-}
-
-void displayImageButton (){
-  imgButtons[0].display();  
+  imgButtons[3].setEnabled(true);
+  imgButtons[4].setEnabled(true);
+  imgButtons[5].setEnabled(true);
 }

@@ -98,7 +98,6 @@ void PagNuevoLibro () {
 }
 
 
-
 void calendarioInicioFin () {
   pushStyle(); 
   fill(0);
@@ -108,11 +107,15 @@ void calendarioInicioFin () {
   fill(255);  
   stroke(231, 227, 147);
   rect(230, 570, 140, 40, 5); 
-   rect(230, 620, 140, 40, 5); 
+  rect(230, 620, 140, 40, 5); 
   fill(133, 77, 39); 
-  text(dataCalendari, 300, 600);
-  Calendario.display1();
-  c.display();
+  text(dataCalendariInicio, 300, 600);
+  fill(255, 0, 0);
+  text(dataCalendariFin, 300, 650);
+  CalendarioI.display1();
+  CalendarioF.display1();
+  cI.display();
+  cF.display();
   popStyle(); 
 }
 
@@ -125,9 +128,11 @@ void calendarioInicio () {
   stroke(231, 227, 147);
   rect(230, 570, 140, 40, 5);   
   fill(133, 77, 39); 
-  text(dataCalendari, 300, 600);
-  Calendario.display1();
-  c.display();
+  text(dataCalendariInicio, 300, 600);
+  CalendarioI.display1();
+  CalendarioF.display1();
+  cI.display();
+  cF.display();
   popStyle(); 
 }
 

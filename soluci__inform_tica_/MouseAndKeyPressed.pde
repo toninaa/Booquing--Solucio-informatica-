@@ -1,9 +1,7 @@
 void mousePressed() {
   if(pantalla ==PANTALLA.BIBLIO){
     
-}
-  
-  
+}  
   if (Biblio.mouseOverButton() && Biblio.enabled) {
     pantalla = PANTALLA.BIBLIO;
     } else if (Perfil.mouseOverButton() && Perfil.enabled) {
@@ -60,11 +58,31 @@ void mousePressed() {
      String valorEditorial = EditorialComprar.getValue();//textField 
      String valorISBN = ISBNComprar.getValue();// textField
      String valorGenero   = s3.selectedValue; // select
+     String valorRanking = String.valueOf(cblLeido.getNumSelected());//checkBoxStars
+     String valorDiaInicio= "";
+     String valorDiaFin = "";
+     String valorValoracion= Valoracion.getValue(); 
+     String valorPagRestantes= "";
+     String valorUbi= "Leido"; 
+     String valorImg= ""; 
     // Inserir en la BBDD
-    //insertInfoTaulaLibro(valorTitulo, valorAutor,valorEditorial, valorISBN, valorGenero );
+    insertInfoTaulaLibro(valorTitulo, valorAutor,valorEditorial, valorISBN, valorGenero, valorRanking, valorDiaInicio,
+    valorDiaFin,valorPagRestantes, valorUbi, valorImg, valorValoracion );
     } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) { 
     p.setEnabled(false);
-      // Coger los valores del campo del formulario 
+    } else if (imgButtons[1].mouseOverButton()) {
+     getFontAt(4);
+    p.setEnabled(true);
+    } else if (imgButtons[2].mouseOverButton()) {
+     getFontAt(4);  
+    p.setEnabled(true); 
+  }else if (imgButtons[3].mouseOverButton()) {
+     getFontAt(4);  
+    p.setEnabled(true); 
+  } else if (imgButtons[5].mouseOverButton()) {
+     getFontAt(4);  
+    p.setEnabled(true);
+     // Coger los valores del campo del formulario 
      String valorTiempo= tif.getValue();//textTimeField
      String valorGenero   = s2.selectedValue; // select
      String valorNumero = String.valueOf(cRetos.getValue());//counter
@@ -73,12 +91,9 @@ void mousePressed() {
     insertInfoTaulaReto(valorNom, valorNumero,valorTiempo, valorGenero);
      // Resetear campos del formulario
     // resetFormulari();
-    } else if (imgButtons[1].mouseOverButton()) {
+  }else if (imgButtons[4].mouseOverButton()) {
      getFontAt(4);  
     p.setEnabled(true);
-    } else if (imgButtons[2].mouseOverButton()) {
-     getFontAt(4);  
-    p.setEnabled(true); 
   }
  
 
@@ -95,11 +110,13 @@ void mousePressed() {
   ISBNLeido.isPressed();
   ISBNComprar.isPressed();
   ISBNLista.isPressed();
-  Valoracion.isPressed();
   TituloTops.isPressed();
   Buscar.isPressed();
   Filtrar.isPressed();
   TituloReto.isPressed();
+  
+ // activar el cambio de color al estar encima del textArea
+ Valoracion.isPressed();
   
 // activar el cambio de color en el boton Check 
   //imgButtons[0].isPressed(); 
@@ -150,24 +167,42 @@ if(s2.mouseOverSelect() && s2.enabled){
   
 // CALENDARIO
     // Comprobar si clicamos sobre el botón del Calendario
-  c.checkButtons();
+  cI.checkButtons();
+  cF.checkButtons();
   
   // Si se pulsa el botón, cambia la visibilidad del calendario.
-  if(Calendario.mouseOverButton()&&Calendario.enabled){
-    c.visible = !c.visible;
+  if(CalendarioI.mouseOverButton()&&CalendarioI.enabled){
+    cI.visible = !cI.visible;
   }
   
-  if(c.bNext.mouseOverButton()){
-    c.nextMonth();
+  if(cI.bNext.mouseOverButton()){
+    cI.nextMonth();
   }
   
-  if(c.bPrev.mouseOverButton()){
-    c.prevMonth();
+  if(cI.bPrev.mouseOverButton()){
+    cI.prevMonth();
   }
   
-  if(c.bOK.mouseOverButton() && c.dateSelected){
-    dataCalendari = c.selectedDay +"/"+ c.selectedMonth + "/"+ c.selectedYear;
-    c.visible = false;
+  if(cI.bOK.mouseOverButton() && cI.dateSelected){
+    dataCalendariInicio = cI.selectedDay +"/"+ cI.selectedMonth + "/"+ cI.selectedYear;
+    cI.visible = false;
+  }
+   // Si se pulsa el botón, cambia la visibilidad del calendario.
+  if(CalendarioF.mouseOverButton()&&CalendarioF.enabled){
+    cF.visible = !cF.visible;
+  }
+  
+  if(cF.bNext.mouseOverButton()){
+    cF.nextMonth();
+  }
+  
+  if(cF.bPrev.mouseOverButton()){
+    cF.prevMonth();
+  }
+  
+  if(cF.bOK.mouseOverButton() && cF.dateSelected){
+    dataCalendariFin = cF.selectedDay +"/"+ cF.selectedMonth + "/"+ cF.selectedYear;
+    cF.visible = false;
   }
   // caroussels
   es1.checkButtons();es1.checkCursor();
@@ -184,7 +219,7 @@ if(s2.mouseOverSelect() && s2.enabled){
  
 }
 
-// funcion para resetar los TextFields
+// funcion para resetar los TextFields y el textArea
 void resetFields(){
   TituloLeido.setText("título");
   AutorLeido.setText("autor");
@@ -199,7 +234,6 @@ void resetFields(){
   ISBNComprar.setText("ISBN");
   ISBNLista.setText("ISBN");
   TituloTops.setText("título"); 
-  Valoracion.setText("valoración"); 
   Buscar.setText("buscar"); 
   Filtrar.setText("filtrar");
   TituloReto.setText("titulo");
@@ -228,6 +262,12 @@ void keyPressed () {
   TituloTops.keyPressed(key, (int)keyCode);
   Buscar.keyPressed(key, (int)keyCode);
   TituloReto.keyPressed(key, (int)keyCode);
+  ISBNLeido.keyPressed(key, (int)keyCode);
+  ISBNComprar.keyPressed(key, (int)keyCode);
+  ISBNLista.keyPressed(key, (int)keyCode);
+  
+  // escuchar las teclas del teclado para el TextArea
+  Valoracion.keyPressed(key, (int)keyCode);
   // escuchar las teclas del teclado en el TimeField
   tif.keyPressed(key, (int)keyCode);
   // 

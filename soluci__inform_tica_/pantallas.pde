@@ -69,7 +69,6 @@ void dibujaNuevoLibro () {
   enableButtonCalendario(); 
   enableButtonsMenu();
   enableSelect1();
-  //enablePopUp(); 
   // dibujar los objetos
   dibujaMenu();
   esquinaIzquierda();
@@ -85,21 +84,20 @@ void dibujaNuevoLibro () {
   popStyle();
   PagNuevoLibro();
   textFont(getFontAt(2));
-  displayButtonsMenu(); 
+  displayButtonsMenu();
   cblLeido.display(); 
   displayTextFieldLeido();
+  textFont(getFontAt(5));
+  displayTextArea();
   displaySelect1();
-  calendarioInicioFin();  
+  calendarioInicioFin();
   imgButtons[0].display();
-  p.display(); 
- 
+  textFont(getFontAt(2));
+  p.display();
 
-  
-  
-  
 }
 
-
+//boton Comprar
 void dibujaAñadirLibro () {
   pushStyle();
   disableButtons();
@@ -118,11 +116,37 @@ void dibujaAñadirLibro () {
   displayButtonsMenu();
   displayTextFieldComprar();
   displaySelect3();
-  imgButtons[0].display();
-   p.display();
+  imgButtons[1].display();
+  p.display();
   popStyle();
  
 }
+
+void dibujaAñadirALaLista () {
+  pushStyle();
+  disableButtons();
+  disableSelects();
+  enableButtonsMenu();
+  enableSelect3(); 
+  dibujaMenu();
+  textFont(getFontAt(2)); 
+  esquinaIzquierda();
+  fill(getColorAt(1));
+  text("Nuevo libro", 220, 250);
+  fill(255);
+  stroke(getColorAt(4));
+  strokeWeight(2);
+  rect (100, 300, 800, 400);
+  displayButtonsMenu();
+  displayTextFieldLista();
+  displaySelect3();
+  imgButtons[2].display();
+  p.display();
+  popStyle();
+ 
+}
+
+
 
 void dibujarEmpezarLeer () {
   pushStyle();
@@ -132,8 +156,7 @@ void dibujarEmpezarLeer () {
   enableCalendario(); 
   enableButtonCalendario(); 
   enableImageButton();
-  enableButtonsMenu();
-  enableButtonsNuevoLibro(); 
+  enableButtonsMenu(); 
   dibujaMenu();
   esquinaIzquierda();
   textFont(getFontAt(2));
@@ -143,13 +166,11 @@ void dibujarEmpezarLeer () {
   strokeWeight(2);
   fill(255); 
   rect (100, 300, 800, 400);
-  rect(950, 450, 400, 250);
   displayButtonsMenu();
   displayTextFieldLista();
-  displayButtonsNuevoLibro(); 
-  imgButtons[0].display();
+  imgButtons[3].display();
   calendarioInicio(); 
-   p.display();
+  p.display();
   popStyle();
 }
 
@@ -171,7 +192,7 @@ void establecerTops () {
   displayButtonsMenu();
   displayTextFieldTops();
   cTops.display();
-  imgButtons[2].display();
+  imgButtons[4].display();
   p.display();
   popStyle();
 }
@@ -200,7 +221,7 @@ void establecerRetos () {
   cRetos.display(); 
   tif.display();
   displayTextFieldRetos();
-  imgButtons[1].display();
+  imgButtons[5].display();
   p.display();
   popStyle();
 }
