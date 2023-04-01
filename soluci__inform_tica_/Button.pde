@@ -7,7 +7,7 @@ class Button {
  
  // Colores de contorno, relleno, activo y desactivado
  color fillColor1, strokeColor, fillColor2,fillColor3 ; 
- color fillColorOver1, fillColorOver2, fillColorOver3, fillColorDisabled;
+ color fillColorOver1, fillColorOvaer2, fillColorOver3, fillColorDisabled;
  
  String textBoto;  // Texto
  boolean enabled;  // Activado / desactivado 
@@ -95,6 +95,16 @@ class Button {
    fill(0); textAlign(CENTER); textSize(20);
    text(textBoto, this.x + this.w/2, this.y + this.h/2 + 10);
    popStyle();
+ }
+ 
+ void displayWithImg(PImage img){
+   noStroke(); strokeWeight(1);        //Color y ancho del contorno
+   rect(this.x, this.y, this.w, this.h, 10);    // Rectangulo del botón
+   if(mouseOverButton()){
+     tint(100);
+   }
+   img.resize((int)this.w,(int)this.h);
+   image(img, this.x, this.y);
  }
  
  // Indicar si el cursor està encima del botón

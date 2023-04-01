@@ -5,12 +5,14 @@ class Libro {
   String titulo, autor, editorial, genero;
   String ranking; 
   String valoracion; 
+  boolean isSelected = false;
+  ImageButton = b; 
   // margenes entre textos 
   int dist = 130;
   
   // Constructor 
   
-  Libro(String titulo, String autor, String editorial, String genero, String ranking, String valoracion){
+  Libro(String titulo, String autor, String editorial, String genero, String ranking, String valoracion,  ){
   this.titulo = titulo; 
   this.autor = autor; 
   this.editorial = editorial; 
