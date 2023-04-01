@@ -2,7 +2,7 @@
 // Enumeracion de las pantallas de la app
 enum PANTALLA {
   INICIO, BIBLIO, PERFIL, LEIDOS, ESTRETOS, ESTTOPS, NUEVO1, NUEVO2, MILISTA,
-  COMPRAR, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, EMPEZAR
+  COMPRAR, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, EMPEZAR, LIBRO
 };
 
 // pantalla inicial
@@ -14,7 +14,7 @@ TextField TituloLeido, TituloComprar, TituloLista, TituloTops, AutorLeido, Autor
 EditorialLeido, EditorialComprar, EditorialLista, Buscar, Filtrar, Libro, TituloReto, 
 ISBNLeido,ISBNComprar, ISBNLista;
 
-TextArea Valoracion; 
+TextArea Valoracion, LibrosTop; 
 
 Select s1, s2, s3, s4, s5;
 
@@ -52,8 +52,10 @@ String[] stars = {"imgs/ON.png", "imgs/OFF.png"};
 
 // datos del libro
 String [] info1 = {"Un cuento perfecto",
-"Elísabet Benavent", "Suma", "Novela","Paginas restantes", 
-"Dia de inicio: 7/11/22"};
+"Elisabet Benavent", "Planeta", "Novela","Ranking", 
+"Valoracion: jflkajdsklfjlksdjfkljsdlkfjksjfkadjlkfjlkdjflkjdlkfjklsd"};
+
+
 
 
 
@@ -81,8 +83,8 @@ void setGUI() {
 //cards libros 
 
 void initLibro (){
-  l1 = new Libro (info1); 
-  l1.setImage( this.imgs[24]);
+  l1 = new Libro (info1, bUnCuento); 
+  l1.setImage(this.imgs[24]);
 }
   
  
@@ -189,7 +191,7 @@ void disableCalendario(){
 
 void initCounter(){
   cRetos = new Counter(getImgAt(13), getImgAt(14), 600, 550, selectX, selectY); 
-  cTops = new Counter(getImgAt(13), getImgAt(14), 900, 515, selectX, selectY);
+  cTops = new Counter(getImgAt(13), getImgAt(14), 150, 575, selectX, selectY);
 }
 
 void enableCounterRetos(){
@@ -290,10 +292,9 @@ void initTextField() {
   TituloLista = new TextField(120, 330, CampoX, CampoY);
   AutorLista = new TextField(120, 380, CampoX, CampoY);
   EditorialLista = new TextField(120, 430, CampoX, CampoY);
-  TituloTops = new TextField(150, 525, CampoX, CampoY); 
+  TituloTops = new TextField(150, 425, CampoX, CampoY); 
   Buscar = new TextField(width/2-CampoX, 200, CampoX*2, CampoY);
   Filtrar = new TextField(width/2-CampoX+100, 200, CampoX*2, CampoY);
-  Libro = new TextField(width/2-CampoX+100, 525, CampoX, CampoY);
   ISBNLeido = new TextField(120, 480, CampoX, CampoY);
   ISBNComprar = new TextField(120, 480, CampoX, CampoY);
   ISBNLista = new TextField(120, 480, CampoX, CampoY);
@@ -313,7 +314,6 @@ void initTextField() {
   TituloTops.setText("título");
   Buscar.setText("buscar...");
   Filtrar.setText("buscar...");
-  Libro.setText("libros");
   TituloReto.setText("titulo");
   
 }
@@ -343,7 +343,7 @@ void displayTextFieldLista (){
 
 void displayTextFieldTops () {
   TituloTops.display();
-  Libro.display();
+  LibrosTop.display();
 
 }
 
@@ -362,11 +362,13 @@ TituloReto.display();
 //TextArea 
 void initTextArea (){
   Valoracion = new TextArea (950, 450, ValoracionX, ValoracionY, 30, 6);
+  LibrosTop = new TextArea (600, 400, ValoracionX, ValoracionY+50, 40, 10);
 }
 
 void displayTextArea(){
 Valoracion.display(); 
 }
+
 
 // botones
 
@@ -374,10 +376,10 @@ Button [] buttons;
 
 Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1, 
 MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, AtrasR, Guardar, VerTodo, CalendarioI,
-CalendarioF, Aceptar,Leidos, Lista, ComprarB, Actuales;
+CalendarioF, Aceptar,Leidos, Lista, ComprarB, Actuales, bUnCuento;
 
 void initButtons (){ 
-  buttons = new Button [23];
+  buttons = new Button [24];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -401,6 +403,8 @@ void initButtons (){
   buttons [20]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [21]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [22]= new Button ("Calendario", 420, 630, calendarioX, calendarioY);
+  buttons [23]= new Button ("x", 950, 500, libroWidth*1.5, libroHeight*1.5);
+  
 
 
   AtrasP = buttons [0];
@@ -426,6 +430,7 @@ void initButtons (){
   AtrasB = buttons [20];
   AtrasR = buttons [21];
   CalendarioF = buttons [22];
+  bUnCuento = buttons [23];
   
   
 }
@@ -490,9 +495,11 @@ void enableButtonsAtrasRetos() {
 
 void enableButtonVerTodo() {
   VerTodo.setEnabled(true);
- 
 }
 
+void enableButtonsLeidos(){
+  bUnCuento.setEnabled(true);
+}
 
 void displayButtonsIniciales () {
   Biblio.display1();

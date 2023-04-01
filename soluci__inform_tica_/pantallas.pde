@@ -199,9 +199,12 @@ void establecerTops () {
   strokeWeight(2);
   rect (100, 350, 1200, 400);
   displayButtonsMenu();
+  textFont(getFontAt(5));
   displayTextFieldTops();
+  textFont(getFontAt(2));
   cTops.display();
   imgButtons[4].display();
+  textFont(getFontAt(2));
   p.display();
   popStyle();
 }
@@ -376,7 +379,8 @@ void dibujarTops () {
 
 void verLibrosLeidos () {
   pushStyle();
-  enableButtonsAtrasBiblioteca(); 
+  enableButtonsAtrasBiblioteca();
+  enableButtonsLeidos();
   fill(115, 135, 123);
   rect(0, 0, menuWidth, menuHeight);
   fill(0);

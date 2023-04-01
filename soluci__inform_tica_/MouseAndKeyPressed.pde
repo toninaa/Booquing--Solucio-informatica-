@@ -94,6 +94,14 @@ void mousePressed() {
   }else if (imgButtons[4].mouseOverButton()) {
      getFontAt(4);  
     p.setEnabled(true);
+    String valorNumero = String.valueOf(cTops.getValue());//counter
+    String valorNom = TituloTops.getValue();//textField
+    String valorLibros = LibrosTop.getValue(); // textArea
+    // Inserir en la BBDD
+    insertInfoTaulaTop(valorNom, valorNumero,valorLibros);
+    
+  }else if (bUnCuento.mouseOverButton() && bUnCuento.enabled){
+    l1.displayInformacion(); 
   }
  
 
@@ -117,6 +125,7 @@ void mousePressed() {
   
  // activar el cambio de color al estar encima del textArea
  Valoracion.isPressed();
+ LibrosTop.isPressed();
   
 // activar el cambio de color en el boton Check 
   //imgButtons[0].isPressed(); 
@@ -272,6 +281,7 @@ void keyPressed () {
   
   // escuchar las teclas del teclado para el TextArea
   Valoracion.keyPressed(key, (int)keyCode);
+  LibrosTop.keyPressed(key, (int)keyCode);
   // escuchar las teclas del teclado en el TimeField
   tif.keyPressed(key, (int)keyCode);
   // 

@@ -63,7 +63,10 @@ void draw() {
     case ACTIVOS:
     librosActivos();
     break;
+    
+    
   }
+ 
 
   //String infoPantalla= pantalla.ordinal()+")"+pantalla.name();
  // fill(0);

@@ -7,7 +7,7 @@ class Button {
  
  // Colores de contorno, relleno, activo y desactivado
  color fillColor1, strokeColor, fillColor2,fillColor3 ; 
- color fillColorOver1, fillColorOvaer2, fillColorOver3, fillColorDisabled;
+ color fillColorOver1, fillColorOver2, fillColorOver3, fillColorDisabled;
  
  String textBoto;  // Texto
  boolean enabled;  // Activado / desactivado 
