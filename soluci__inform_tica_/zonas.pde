@@ -110,7 +110,6 @@ void calendarioInicioFin () {
   rect(230, 620, 140, 40, 5); 
   fill(133, 77, 39); 
   text(dataCalendariInicio, 300, 600);
-  fill(255, 0, 0);
   text(dataCalendariFin, 300, 650);
   CalendarioI.display1();
   CalendarioF.display1();

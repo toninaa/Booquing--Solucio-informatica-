@@ -88,9 +88,10 @@ class CalendariPlus {
   }
 
   void setSelectedDate(int d, int m, int y) {
-    this.selectedDay = d;
-    this.selectedMonth = m;
     this.selectedYear = y;
+    this.selectedMonth = m;
+    this.selectedDay = d;
+     
   }
   
   
@@ -206,7 +207,7 @@ class CalendariPlus {
       fill(0); 
       textSize(36); 
       textAlign(LEFT);
-      text(months[mes-1]+"/"+any, x, y - 30);
+      text(months[mes-1]+"-"+any, x, y - 30);
       for (DayButton b : buttons) {
         if (b!=null) {
           b.display();
@@ -214,7 +215,7 @@ class CalendariPlus {
       }
 
       if (dateSelected) {
-        String dateText = this.selectedDay+"/"+this.selectedMonth+"/"+this.selectedYear;
+        String dateText = this.selectedYear+"-"+this.selectedMonth+"-"+this.selectedDay;
         fill(0); 
         textSize(24); 
         textAlign(RIGHT);
@@ -241,7 +242,7 @@ class CalendariPlus {
         b.setSelected(!prevState);
         if (b.selected) {
           dateSelected = true;
-          setSelectedDate(b.dia, b.mes, b.any);
+          setSelectedDate(b.any, b.mes, b.dia);
         } else {
           dateSelected = false;
         }

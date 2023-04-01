@@ -65,6 +65,8 @@ void dibujaNuevoLibro () {
   // desabilitar y abilitar los objetos necesarios para esta pantalla
   disableButtons();
   disableCalendario(); 
+  disableImageButton();
+  enableImageButtonLeido();
   enableCalendario(); 
   enableButtonCalendario(); 
   enableButtonsMenu();
@@ -102,6 +104,8 @@ void dibujaAñadirLibro () {
   pushStyle();
   disableButtons();
   disableSelects();
+  disableImageButton();
+  enableImageButtonComprar();
   enableButtonsMenu();
   enableSelect3(); 
   dibujaMenu();
@@ -127,7 +131,9 @@ void dibujaAñadirALaLista () {
   disableButtons();
   disableSelects();
   enableButtonsMenu();
-  enableSelect3(); 
+  enableSelect3();
+  disableImageButton();
+  enableImageButtonLista();
   dibujaMenu();
   textFont(getFontAt(2)); 
   esquinaIzquierda();
@@ -155,8 +161,9 @@ void dibujarEmpezarLeer () {
   disableCalendario(); 
   enableCalendario(); 
   enableButtonCalendario(); 
-  enableImageButton();
-  enableButtonsMenu(); 
+  enableButtonsMenu();
+  disableImageButton();
+  enableImageButtonEmpezar();
   dibujaMenu();
   esquinaIzquierda();
   textFont(getFontAt(2));
@@ -179,7 +186,9 @@ void establecerTops () {
   disableButtons();
   disableCounters(); 
   enableButtonsMenu();
-  enableCounterTops(); 
+  enableCounterTops();
+  disableImageButton();
+  enableImageButtonTop();
   dibujaMenu();
   esquinaIzquierda();
   textFont(getFontAt(2));
@@ -202,7 +211,9 @@ void establecerRetos () {
   disableButtons();
   disableSelects(); 
   disableCounters();
-  disableTimeField(); 
+  disableTimeField();
+  disableImageButton();
+  enableImageButtonRetos();
   enableTimeField(); 
   enableCounterRetos(); 
   enableButtonsMenu();

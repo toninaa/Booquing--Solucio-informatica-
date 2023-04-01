@@ -64,7 +64,7 @@ void insertInfoTaulaTop(String nom, String num){
 // Insertar los dados de la tabla Libro
 void insertInfoTaulaLibro(String isbn, String titulo, String Pag, String Inicio, String Fin, String Ranking,
 String Valoracion, String Ubi, String Edi, String Autor, String Img, String Genero){
-  String q = "INSERT INTO Top (idTop, NumLibros) VALUES ('"+isbn+"''"+titulo+"''"+Pag+"''"+Inicio+"''"+Fin+"'"+Ranking+"''"+Valoracion+"''"+Ubi+"''"+Edi+"''"+Autor+"''"+Img+"''"+Genero+"')";
+  String q = "INSERT INTO Libro (`ISBN`, `Título`, `PagRestantes`, `DiaInicio`, `DiaFin`, `Ranking`, `Valoración`, `Ubicación`, `Editorial_idEditorial`, `Autor_Nombre`,`Imagen_idImagen`, `Genero_idGenero`) VALUES ('"+isbn+"''"+titulo+"''"+Pag+"''"+Inicio+"''"+Fin+"'"+Ranking+"''"+Valoracion+"''"+Ubi+"''"+Edi+"''"+Autor+"''"+Img+"''"+Genero+"')";
   println(q);
   msql.query(q);
 }

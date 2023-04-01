@@ -59,12 +59,12 @@ void mousePressed() {
      String valorISBN = ISBNComprar.getValue();// textField
      String valorGenero   = s3.selectedValue; // select
      String valorRanking = String.valueOf(cblLeido.getNumSelected());//checkBoxStars
-     String valorDiaInicio= "";
-     String valorDiaFin = "";
+     String valorDiaInicio= String.valueOf(dataCalendariInicio);
+     String valorDiaFin = String.valueOf(dataCalendariFin);
      String valorValoracion= Valoracion.getValue(); 
-     String valorPagRestantes= "";
+     String valorPagRestantes= String.valueOf(0) ;
      String valorUbi= "Leido"; 
-     String valorImg= ""; 
+     String valorImg= String.valueOf(11); 
     // Inserir en la BBDD
     insertInfoTaulaLibro(valorTitulo, valorAutor,valorEditorial, valorISBN, valorGenero, valorRanking, valorDiaInicio,
     valorDiaFin,valorPagRestantes, valorUbi, valorImg, valorValoracion );
@@ -184,12 +184,15 @@ if(s2.mouseOverSelect() && s2.enabled){
   }
   
   if(cI.bOK.mouseOverButton() && cI.dateSelected){
+    cF.enabled= false;
     dataCalendariInicio = cI.selectedDay +"/"+ cI.selectedMonth + "/"+ cI.selectedYear;
     cI.visible = false;
+     
   }
    // Si se pulsa el botón, cambia la visibilidad del calendario.
   if(CalendarioF.mouseOverButton()&&CalendarioF.enabled){
     cF.visible = !cF.visible;
+   
   }
   
   if(cF.bNext.mouseOverButton()){
@@ -201,8 +204,10 @@ if(s2.mouseOverSelect() && s2.enabled){
   }
   
   if(cF.bOK.mouseOverButton() && cF.dateSelected){
+    cI.enabled= false; 
     dataCalendariFin = cF.selectedDay +"/"+ cF.selectedMonth + "/"+ cF.selectedYear;
     cF.visible = false;
+    
   }
   // caroussels
   es1.checkButtons();es1.checkCursor();
@@ -258,7 +263,6 @@ void keyPressed () {
   TituloLista.keyPressed(key, (int)keyCode);
   AutorLista.keyPressed(key, (int)keyCode);
   EditorialLista.keyPressed(key, (int)keyCode);
-  Valoracion.keyPressed(key, (int)keyCode);
   TituloTops.keyPressed(key, (int)keyCode);
   Buscar.keyPressed(key, (int)keyCode);
   TituloReto.keyPressed(key, (int)keyCode);

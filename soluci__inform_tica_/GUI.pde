@@ -172,7 +172,7 @@ for(int i =0; i<trofeosEs5.length; i++){
 // calendario 
 void initCalendari (){ 
  cI = new CalendariPlus(50,200,700,550);
- cF= new CalendariPlus(50,200,700,550);
+ cF= new CalendariPlus(50,250,700,550);
 }
 
 void enableCalendario(){
@@ -559,12 +559,12 @@ PImage[] getImagesButton(int n1, int n2){
 
 void initImageButton () {
    imgButtons  = new ImageButton [6]; 
-   imgButtons [0]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
-   imgButtons [1]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
+   imgButtons [0]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);//leido
+   imgButtons [1]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);//Comprado
    imgButtons [2]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
-   imgButtons [3]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
-   imgButtons [4]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);
-   imgButtons [5]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);
+   imgButtons [3]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);//empezar a leer
+   imgButtons [4]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);// tops
+   imgButtons [5]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);//retos
    
 }
 
@@ -577,11 +577,26 @@ void disableImageButton (){
   imgButtons[5].setEnabled(false);
 }
 
-void enableImageButton(){
+void enableImageButtonLeido(){
   imgButtons[0].setEnabled(true);
+}
+
+void enableImageButtonComprar(){
   imgButtons[1].setEnabled(true);
+}
+
+void enableImageButtonLista(){
   imgButtons[2].setEnabled(true);
+}
+
+void enableImageButtonEmpezar(){
   imgButtons[3].setEnabled(true);
+}
+
+void enableImageButtonTop(){
   imgButtons[4].setEnabled(true);
+}
+
+void enableImageButtonRetos(){
   imgButtons[5].setEnabled(true);
 }
