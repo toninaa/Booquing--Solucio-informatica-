@@ -49,7 +49,7 @@ String Valoracion, String Ubi, String Edi, String Autor, String Img, String Gene
 }
 
 // Obten información de la tabla Reto
-String[][] getInfoTaulaUnitat(){
+String[][] getInfoTaulaReto(){
   
   int numRows = getNumRowsTaula("Reto");
   

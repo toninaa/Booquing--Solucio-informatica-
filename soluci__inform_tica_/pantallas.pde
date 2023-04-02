@@ -131,7 +131,7 @@ void dibujaAñadirALaLista () {
   disableButtons();
   disableSelects();
   enableButtonsMenu();
-  enableSelect3();
+  enableSelect6();
   disableImageButton();
   enableImageButtonLista();
   dibujaMenu();
@@ -145,7 +145,7 @@ void dibujaAñadirALaLista () {
   rect (100, 300, 800, 400);
   displayButtonsMenu();
   displayTextFieldLista();
-  displaySelect3();
+  displaySelect6();
   imgButtons[2].display();
   p.display();
   popStyle();

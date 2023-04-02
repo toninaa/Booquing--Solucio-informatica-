@@ -4,7 +4,10 @@ class Select {
    
   float x, y, w, h;          // Posición y dimensiones
   String[] texts;            // Valores posibles
+  
   String selectedValue;      // Valor Seleccionado
+  int selectedIndex;         // Fila seleccionada
+  String selectedId;         // Id Seleccionado
   String text= ""; 
   
   boolean collapsed = true;  // Plegado / Desplegado
@@ -29,19 +32,17 @@ class Select {
   void setEnabled(boolean b){
    this.enabled = b;
  }
- 
-  void setText(String t){
-    this.text = t;   
+  
+    void reset(){
+    this.selectedValue = "";
+  }
+
+    
+  String getSelectedText(){
+    return this.selectedValue;
   }
   
-   String getValue(){
-   return this.text;
- }
- 
- // Lleva tot el text
-   void removeAllText(){
-     this.text = "";
-   }
+   
  
   void display(){
     pushStyle();

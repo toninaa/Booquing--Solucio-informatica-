@@ -53,11 +53,11 @@ void mousePressed() {
      getFontAt(4);  
     p.setEnabled(true);
      // Coger los valores del campo del formulario 
-     String valorTitulo= TituloComprar.getValue();//textField
-     String valorAutor = AutorComprar.getValue();//textField
-     String valorEditorial = EditorialComprar.getValue();//textField 
-     String valorISBN = ISBNComprar.getValue();// textField
-     String valorGenero   = s3.selectedValue; // select
+     String valorTitulo= TituloLeido.getValue();//textField
+     String valorAutor = AutorLeido.getValue();//textField
+     String valorEditorial = EditorialLeido.getValue();//textField 
+     String valorISBN = ISBNLeido.getValue();// textField
+     String valorGenero   = s1.getSelectedText(); // select
      String valorRanking = String.valueOf(cblLeido.getNumSelected());//checkBoxStars
      String valorDiaInicio= String.valueOf(dataCalendariInicio);
      String valorDiaFin = String.valueOf(dataCalendariFin);
@@ -66,16 +66,48 @@ void mousePressed() {
      String valorUbi= "Leido"; 
      String valorImg= String.valueOf(11); 
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorTitulo, valorAutor,valorEditorial, valorISBN, valorGenero, valorRanking, valorDiaInicio,
-    valorDiaFin,valorPagRestantes, valorUbi, valorImg, valorValoracion );
+   insertInfoTaulaLibro(valorISBN, valorTitulo,valorPagRestantes,valorDiaInicio,valorDiaFin, 
+    valorRanking, valorValoracion,valorUbi,valorEditorial,valorAutor,valorImg,valorGenero);
     } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) { 
     p.setEnabled(false);
     } else if (imgButtons[1].mouseOverButton()) {
      getFontAt(4);
     p.setEnabled(true);
+    // Coger los valores del campo del formulario 
+     String valorTitulo= TituloComprar.getValue();//textField
+     String valorAutor = AutorComprar.getValue();//textField
+     String valorEditorial = EditorialComprar.getValue();//textField 
+     String valorISBN = ISBNComprar.getValue();// textField
+     String valorGenero   = s3.getSelectedText(); // select
+     String valorRanking = "";//checkBoxStars
+     String valorDiaInicio= "";
+     String valorDiaFin = "";
+     String valorValoracion= ""; 
+     String valorPagRestantes= "";
+     String valorUbi= "Comprado"; 
+     String valorImg= String.valueOf(12); 
+    // Inserir en la BBDD
+   insertInfoTaulaLibro(valorISBN, valorTitulo,valorPagRestantes,valorDiaInicio,valorDiaFin, 
+    valorRanking, valorValoracion,valorUbi,valorEditorial,valorAutor,valorImg,valorGenero);
     } else if (imgButtons[2].mouseOverButton()) {
      getFontAt(4);  
-    p.setEnabled(true); 
+    p.setEnabled(true);
+    // Coger los valores del campo del formulario 
+     String valorTitulo= TituloLista.getValue();//textField
+     String valorAutor = AutorLista.getValue();//textField
+     String valorEditorial = EditorialLista.getValue();//textField 
+     String valorISBN = ISBNLista.getValue();// textField
+     String valorGenero   = s6.getSelectedText(); // select
+     String valorRanking = "";//checkBoxStars
+     String valorDiaInicio= "";
+     String valorDiaFin = "";
+     String valorValoracion= ""; 
+     String valorPagRestantes= "";
+     String valorUbi= "Lista"; 
+     String valorImg= String.valueOf(13); 
+    // Inserir en la BBDD
+    insertInfoTaulaLibro(valorISBN, valorTitulo,valorPagRestantes,valorDiaInicio,valorDiaFin, 
+    valorRanking, valorValoracion,valorUbi,valorEditorial,valorAutor,valorImg,valorGenero);
   }else if (imgButtons[3].mouseOverButton()) {
      getFontAt(4);  
     p.setEnabled(true); 
@@ -91,6 +123,7 @@ void mousePressed() {
     insertInfoTaulaReto(valorNom, valorNumero,valorTiempo, valorGenero);
      // Resetear campos del formulario
     // resetFormulari();
+     
   }else if (imgButtons[4].mouseOverButton()) {
      getFontAt(4);  
     p.setEnabled(true);
@@ -258,7 +291,7 @@ void resetFormulari(){
   cRetos.resetValue();
   TituloReto.removeAllText();
   //tif.removeAllText(); 
-  s4.removeAllText();
+ 
 }
 
 void keyPressed () {

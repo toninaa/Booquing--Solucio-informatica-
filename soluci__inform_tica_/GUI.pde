@@ -16,7 +16,7 @@ ISBNLeido,ISBNComprar, ISBNLista;
 
 TextArea Valoracion, LibrosTop; 
 
-Select s1, s2, s3, s4, s5;
+Select s1, s2, s3, s4, s5, s6;
 
 Counter cRetos, cTops;
 
@@ -211,19 +211,13 @@ void disableCounters(){
 // selects 
 void initSelect(){
   String[] selectValues = {"Narrativa", "Drama", "Poesia", "Teatro", "Clásicos", "Romance" };
-   String[] selectValoraciones = {"1", "2", "3", "4", "5" };
-  s1 = new Select(selectValues, 550, 350, selectX, selectY);
-  s2 = new Select(selectValues, 1050, 550, selectX, selectY);
-  s3 = new Select(selectValues, 550, 350, selectX, selectY);
-  s4 = new Select(selectValues, 70, 350, selectX, selectY);
-  s5 = new Select(selectValoraciones, 70, 350, selectX, selectY);
-  s1.setText("Generos");
-  s2.setText("Generos");
-  s3.setText("Generos");
-  s4.setText("Generos");
-  s5.setText("valoraciones");
-  
-  
+  String[] selectValoraciones = {"1", "2", "3", "4", "5" };
+  s1 = new Select(selectValues, 550, 350, selectX, selectY);//Leido
+  s2 = new Select(selectValues, 1050, 550, selectX, selectY);//retos
+  s3 = new Select(selectValues, 550, 350, selectX, selectY);//Comprado
+  s4 = new Select(selectValues, 70, 500, selectX, selectY);//Filtrar generos Leidos
+  s5 = new Select(selectValoraciones, 70, 350, selectX, selectY);//Filtrar valoraciones Leidos
+  s6 = new Select(selectValues, 550, 350, selectX, selectY);//Lista 
 }
 
 void enableSelect1(){
@@ -246,6 +240,10 @@ void enableSelect5(){
   s5.setEnabled(true);  
 }
 
+void enableSelect6(){
+  s6.setEnabled(true);  
+}
+
 
 void disableSelects(){
   s1.setEnabled(false);
@@ -253,6 +251,7 @@ void disableSelects(){
   s3.setEnabled(false);
   s4.setEnabled(false);
   s5.setEnabled(false);
+  s6.setEnabled(false);
     
 }
 
@@ -276,6 +275,10 @@ void displaySelect4(){
 
 void displaySelect5(){
   s5.display();
+}
+
+void displaySelect6(){
+  s6.display();
 }
 
 
@@ -568,7 +571,7 @@ void initImageButton () {
    imgButtons  = new ImageButton [6]; 
    imgButtons [0]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);//leido
    imgButtons [1]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);//Comprado
-   imgButtons [2]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);
+   imgButtons [2]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);//lista
    imgButtons [3]= new ImageButton (getImagesButton(11,12), 820, 620, CheckX, CheckY);//empezar a leer
    imgButtons [4]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);// tops
    imgButtons [5]= new ImageButton (getImagesButton(11,12), 1225, 680, CheckX, CheckY);//retos
@@ -594,6 +597,7 @@ void enableImageButtonComprar(){
 
 void enableImageButtonLista(){
   imgButtons[2].setEnabled(true);
+  
 }
 
 void enableImageButtonEmpezar(){
