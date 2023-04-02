@@ -1,144 +1,139 @@
 void mousePressed() {
-  if(pantalla ==PANTALLA.BIBLIO){
-    
-}  
+  if (pantalla ==PANTALLA.BIBLIO) {
+  }
   if (Biblio.mouseOverButton() && Biblio.enabled) {
     pantalla = PANTALLA.BIBLIO;
-    } else if (Perfil.mouseOverButton() && Perfil.enabled) {
+  } else if (Perfil.mouseOverButton() && Perfil.enabled) {
     pantalla = PANTALLA.PERFIL;
-    } else if (Perfil1.mouseOverButton() && Perfil1.enabled) {
+  } else if (Perfil1.mouseOverButton() && Perfil1.enabled) {
     pantalla = PANTALLA.PERFIL;
-    resetFields(); 
-    } else if (Biblio1.mouseOverButton() && Biblio1.enabled) {
-    pantalla = PANTALLA.BIBLIO;
-    } else if (Leido.mouseOverButton() && Leido.enabled) {
-    pantalla = PANTALLA.NUEVO1;
     resetFields();
-    } else if (Empezar.mouseOverButton() && Empezar.enabled) {
+  } else if (Biblio1.mouseOverButton() && Biblio1.enabled) {
+    pantalla = PANTALLA.BIBLIO;
+  } else if (Leido.mouseOverButton() && Leido.enabled) {
+    pantalla = PANTALLA.NUEVOLEIDO;
+    resetFields();
+  } else if (Empezar.mouseOverButton() && Empezar.enabled) {
     pantalla = PANTALLA.EMPEZAR;
     resetFields();
-    } else if (Quiero1.mouseOverButton() && Quiero1.enabled) {
-    pantalla = PANTALLA.NUEVO2;
+  } else if (Quiero1.mouseOverButton() && Quiero1.enabled) {
+    pantalla = PANTALLA.NUEVOLISTA;
     resetFields();
-    } else if (Comprar.mouseOverButton() && Comprar.enabled) {
-    pantalla = PANTALLA.NUEVO2;
+  } else if (Comprar.mouseOverButton() && Comprar.enabled) {
+    pantalla = PANTALLA.NUEVOCOMPRADO;
     resetFields();
-    } else if (Iniciar1.mouseOverButton() && Iniciar1.enabled) {
+  } else if (Iniciar1.mouseOverButton() && Iniciar1.enabled) {
     pantalla = PANTALLA.ESTTOPS;
     resetFields();
-    } else if (Iniciar2.mouseOverButton() && Iniciar2.enabled) {
+  } else if (Iniciar2.mouseOverButton() && Iniciar2.enabled) {
     pantalla = PANTALLA.ESTRETOS;
     resetFields();
-    } else if (Ver1.mouseOverButton() && Ver1.enabled) {
+  } else if (Ver1.mouseOverButton() && Ver1.enabled) {
     pantalla = PANTALLA.TOPS;
-    } else if (Ver2.mouseOverButton() && Ver2.enabled) {
+  } else if (Ver2.mouseOverButton() && Ver2.enabled) {
     pantalla = PANTALLA.RETOS;
-    } else if (AtrasP.mouseOverButton() && AtrasP.enabled) {
+  } else if (AtrasP.mouseOverButton() && AtrasP.enabled) {
     pantalla = PANTALLA.PERFIL;
-    } else if (AtrasB.mouseOverButton() && AtrasB.enabled) {
+  } else if (AtrasB.mouseOverButton() && AtrasB.enabled) {
     pantalla = PANTALLA.BIBLIO;
-    } else if (VerTodo.mouseOverButton() && VerTodo.enabled) {
+  } else if (VerTodo.mouseOverButton() && VerTodo.enabled) {
     pantalla = PANTALLA.RETOSCON;
-    } else if (Leidos.mouseOverButton() && Leidos.enabled) {
+  } else if (Leidos.mouseOverButton() && Leidos.enabled) {
     pantalla = PANTALLA.LEIDOS;
-    } else if (Lista.mouseOverButton() && Lista.enabled) {
+  } else if (Lista.mouseOverButton() && Lista.enabled) {
     pantalla = PANTALLA.MILISTA;
-    } else if (ComprarB.mouseOverButton() && ComprarB.enabled) {
+  } else if (ComprarB.mouseOverButton() && ComprarB.enabled) {
     pantalla = PANTALLA.COMPRAR;
-    } else if (Actuales.mouseOverButton() && Actuales.enabled) {
+  } else if (Actuales.mouseOverButton() && Actuales.enabled) {
     pantalla = PANTALLA.ACTIVOS;
-    } else if (AtrasR.mouseOverButton() && AtrasR.enabled) {
+  } else if (AtrasR.mouseOverButton() && AtrasR.enabled) {
     pantalla = PANTALLA.RETOS;
-    } else if (imgButtons[0].mouseOverButton()) {
-     getFontAt(4);  
+  } else if (imgButtons[0].mouseOverButton()) {
+    getFontAt(4);
     p.setEnabled(true);
-     // Coger los valores del campo del formulario 
-     String valorTitulo= TituloLeido.getValue();//textField
-     String valorAutor = AutorLeido.getValue();//textField
-     String valorEditorial = EditorialLeido.getValue();//textField 
-     String valorISBN = ISBNLeido.getValue();// textField
-     String valorGenero   = s1.getSelectedText(); // select
-     String valorRanking = String.valueOf(cblLeido.getNumSelected());//checkBoxStars
-     String valorDiaInicio= String.valueOf(dataCalendariInicio);
-     String valorDiaFin = String.valueOf(dataCalendariFin);
-     String valorValoracion= Valoracion.getValue(); 
-     String valorPagRestantes= String.valueOf(0) ;
-     String valorUbi= "Leido"; 
-     String valorImg= String.valueOf(11); 
+    // Coger los valores del campo del formulario
+    String valorTitulo= TituloLeido.getValue();//textField
+    String valorAutor = AutorLeido.getValue();//textField
+    String valorEditorial = EditorialLeido.getValue();//textField
+    String valorISBN = ISBNLeido.getValue();// textField
+    String valorGenero   = s1.getSelectedText(); // select
+    String valorRanking = String.valueOf(cblLeido.getNumSelected());//checkBoxStars
+    String valorDiaInicio= String.valueOf(dataCalendariInicio);
+    String valorDiaFin = String.valueOf(dataCalendariFin);
+    String valorValoracion= Valoracion.getValue();
+    String valorPagRestantes= String.valueOf(0) ;
+    String valorUbi= "Leido";
+    String valorImg= String.valueOf(11);
     // Inserir en la BBDD
-   insertInfoTaulaLibro(valorISBN, valorTitulo,valorPagRestantes,valorDiaInicio,valorDiaFin, 
-    valorRanking, valorValoracion,valorUbi,valorEditorial,valorAutor,valorImg,valorGenero);
-    } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) { 
+    insertInfoTaulaLibro(valorISBN, valorTitulo, valorPagRestantes, valorDiaInicio, valorDiaFin,
+      valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
+  } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) {
     p.setEnabled(false);
-    } else if (imgButtons[1].mouseOverButton()) {
-     getFontAt(4);
+  } else if (imgButtons[1].mouseOverButton()) {
+    getFontAt(4);
     p.setEnabled(true);
-    // Coger los valores del campo del formulario 
-     String valorTitulo= TituloComprar.getValue();//textField
-     String valorAutor = AutorComprar.getValue();//textField
-     String valorEditorial = EditorialComprar.getValue();//textField 
-     String valorISBN = ISBNComprar.getValue();// textField
-     String valorGenero   = s3.getSelectedText(); // select
-     String valorRanking = "";//checkBoxStars
-     String valorDiaInicio= "";
-     String valorDiaFin = "";
-     String valorValoracion= ""; 
-     String valorPagRestantes= "";
-     String valorUbi= "Comprado"; 
-     String valorImg= String.valueOf(12); 
+    // Coger los valores del campo del formulario
+    String valorTitulo= TituloComprar.getValue();//textField
+    String valorAutor = AutorComprar.getValue();//textField
+    String valorEditorial = EditorialComprar.getValue();//textField
+    String valorISBN = ISBNComprar.getValue();// textField
+    String valorGenero   = s3.getSelectedText(); // select
+    String valorRanking = "";//checkBoxStars
+    String valorDiaInicio= "";
+    String valorDiaFin = "";
+    String valorValoracion= "";
+    String valorPagRestantes= "";
+    String valorUbi= "Comprado";
+    String valorImg= String.valueOf(12);
     // Inserir en la BBDD
-   insertInfoTaulaLibro(valorISBN, valorTitulo,valorPagRestantes,valorDiaInicio,valorDiaFin, 
-    valorRanking, valorValoracion,valorUbi,valorEditorial,valorAutor,valorImg,valorGenero);
-    } else if (imgButtons[2].mouseOverButton()) {
-     getFontAt(4);  
+    insertInfoTaulaLibro(valorISBN, valorTitulo, valorPagRestantes, valorDiaInicio, valorDiaFin,
+      valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
+  } else if (imgButtons[2].mouseOverButton()) {
+    getFontAt(4);
     p.setEnabled(true);
-    // Coger los valores del campo del formulario 
-     String valorTitulo= TituloLista.getValue();//textField
-     String valorAutor = AutorLista.getValue();//textField
-     String valorEditorial = EditorialLista.getValue();//textField 
-     String valorISBN = ISBNLista.getValue();// textField
-     String valorGenero   = s6.getSelectedText(); // select
-     String valorRanking = "";//checkBoxStars
-     String valorDiaInicio= "";
-     String valorDiaFin = "";
-     String valorValoracion= ""; 
-     String valorPagRestantes= "";
-     String valorUbi= "Lista"; 
-     String valorImg= String.valueOf(13); 
+    // Coger los valores del campo del formulario
+    String valorTitulo= TituloLista.getValue();//textField
+    String valorAutor = AutorLista.getValue();//textField
+    String valorEditorial = EditorialLista.getValue();//textField
+    String valorISBN = ISBNLista.getValue();// textField
+    String valorGenero   = s6.getSelectedText(); // select
+    String valorRanking = "";//checkBoxStars
+    String valorDiaInicio= "";
+    String valorDiaFin = "";
+    String valorValoracion= "";
+    String valorPagRestantes= "";
+    String valorUbi= "Lista";
+    String valorImg= String.valueOf(13);
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo,valorPagRestantes,valorDiaInicio,valorDiaFin, 
-    valorRanking, valorValoracion,valorUbi,valorEditorial,valorAutor,valorImg,valorGenero);
-  }else if (imgButtons[3].mouseOverButton()) {
-     getFontAt(4);  
-    p.setEnabled(true); 
+    insertInfoTaulaLibro(valorISBN, valorTitulo, valorPagRestantes, valorDiaInicio, valorDiaFin,
+      valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
+  } else if (imgButtons[3].mouseOverButton()) {
+    getFontAt(4);
+    p.setEnabled(true);
   } else if (imgButtons[5].mouseOverButton()) {
-     getFontAt(4);  
+    getFontAt(4);
     p.setEnabled(true);
-     // Coger los valores del campo del formulario 
-     String valorTiempo= tif.getValue();//textTimeField
-     String valorGenero   = s2.selectedValue; // select
-     String valorNumero = String.valueOf(cRetos.getValue());//counter
-     String valorNom = TituloReto.getValue();//textField   
+    // Coger los valores del campo del formulario
+    String valorTiempo= tif.getValue();//textTimeField
+    String valorGenero   = s2.selectedValue; // select
+    String valorNumero = String.valueOf(cRetos.getValue());//counter
+    String valorNom = TituloReto.getValue();//textField
     // Inserir en la BBDD
-    insertInfoTaulaReto(valorNom, valorNumero,valorTiempo, valorGenero);
-     // Resetear campos del formulario
-    // resetFormulari();
-     
-  }else if (imgButtons[4].mouseOverButton()) {
-     getFontAt(4);  
+    insertInfoTaulaReto(valorNom, valorNumero, valorTiempo, valorGenero);
+  } else if (imgButtons[4].mouseOverButton()) {
+    getFontAt(4);
     p.setEnabled(true);
     String valorNumero = String.valueOf(cTops.getValue());//counter
     String valorNom = TituloTops.getValue();//textField
     String valorLibros = LibrosTop.getValue(); // textArea
     // Inserir en la BBDD
-    insertInfoTaulaTop(valorNom, valorNumero,valorLibros);
-    
-  }else if (bUnCuento.mouseOverButton() && bUnCuento.enabled){
-    l1.displayInformacion(); 
+    insertInfoTaulaTop(valorNom, valorNumero, valorLibros);
+  } else if (bUnCuento.mouseOverButton() && bUnCuento.enabled) {
+    l1.displayInformacion();
+    pantalla = PANTALLA.LIBRO;
   }
- 
 
-// activar el cambio de color al estar encima del textField 
+  // activar el cambio de color al estar encima del textField
   TituloLeido.isPressed();
   AutorLeido.isPressed();
   EditorialLeido.isPressed();
@@ -155,119 +150,116 @@ void mousePressed() {
   Buscar.isPressed();
   Filtrar.isPressed();
   TituloReto.isPressed();
-  
- // activar el cambio de color al estar encima del textArea
- Valoracion.isPressed();
- LibrosTop.isPressed();
-  
-// activar el cambio de color en el boton Check 
-  //imgButtons[0].isPressed(); 
-  
-//CheckBoxStarList
-cblLeido.checkMouse();
 
- 
-// actualizar el valor de los counters al pulsar + 0 -
-   cRetos.update();
-   cTops.update(); 
+  // activar el cambio de color al estar encima del textArea
+  Valoracion.isPressed();
+  LibrosTop.isPressed();
 
-// escuchar los selects 
-  if(s1.mouseOverSelect() && s1.enabled){
-    if(!s1.collapsed){
+
+  //CheckBoxStarList
+  cblLeido.checkMouse();
+
+
+  // actualizar el valor de los counters al pulsar + 0 -
+  cRetos.update();
+  cTops.update();
+
+  // escuchar los selects
+  if (s1.mouseOverSelect() && s1.enabled) {
+    if (!s1.collapsed) {
       s1.update();      // Actualitzar valor
     }
     s1.toggle();        // Plegar o desplegar
   }
 
-if(s2.mouseOverSelect() && s2.enabled){
-    if(!s2.collapsed){
+  if (s2.mouseOverSelect() && s2.enabled) {
+    if (!s2.collapsed) {
       s2.update();      // Actualitzar valor
     }
     s2.toggle();        // Plegar o desplegar
   }
-  
-  if(s3.mouseOverSelect() && s3.enabled){
-    if(!s3.collapsed){
+
+  if (s3.mouseOverSelect() && s3.enabled) {
+    if (!s3.collapsed) {
       s3.update();      // Actualitzar valor
     }
     s3.toggle();        // Plegar o desplegar
   }
-  
-  if(s4.mouseOverSelect() && s4.enabled){
-    if(!s4.collapsed){
+
+  if (s4.mouseOverSelect() && s4.enabled) {
+    if (!s4.collapsed) {
       s4.update();      // Actualitzar valor
     }
     s4.toggle();        // Plegar o desplegar
   }
-  
-   if(s5.mouseOverSelect() && s5.enabled){
-    if(!s5.collapsed){
+
+  if (s5.mouseOverSelect() && s5.enabled) {
+    if (!s5.collapsed) {
       s5.update();      // Actualitzar valor
     }
     s5.toggle();        // Plegar o desplegar
   }
-  
-// CALENDARIO
-    // Comprobar si clicamos sobre el botón del Calendario
+
+  // CALENDARIO
+  // Comprobar si clicamos sobre el botón del Calendario
   cI.checkButtons();
   cF.checkButtons();
-  
+
   // Si se pulsa el botón, cambia la visibilidad del calendario.
-  if(CalendarioI.mouseOverButton()&&CalendarioI.enabled){
+  if (CalendarioI.mouseOverButton()&&CalendarioI.enabled) {
     cI.visible = !cI.visible;
   }
-  
-  if(cI.bNext.mouseOverButton()){
+
+  if (cI.bNext.mouseOverButton()) {
     cI.nextMonth();
   }
-  
-  if(cI.bPrev.mouseOverButton()){
+
+  if (cI.bPrev.mouseOverButton()) {
     cI.prevMonth();
   }
-  
-  if(cI.bOK.mouseOverButton() && cI.dateSelected){
+
+  if (cI.bOK.mouseOverButton() && cI.dateSelected) {
     cF.enabled= false;
     dataCalendariInicio = cI.selectedDay +"/"+ cI.selectedMonth + "/"+ cI.selectedYear;
     cI.visible = false;
-     
   }
-   // Si se pulsa el botón, cambia la visibilidad del calendario.
-  if(CalendarioF.mouseOverButton()&&CalendarioF.enabled){
+  // Si se pulsa el botón, cambia la visibilidad del calendario.
+  if (CalendarioF.mouseOverButton()&&CalendarioF.enabled) {
     cF.visible = !cF.visible;
-   
   }
-  
-  if(cF.bNext.mouseOverButton()){
+
+  if (cF.bNext.mouseOverButton()) {
     cF.nextMonth();
   }
-  
-  if(cF.bPrev.mouseOverButton()){
+
+  if (cF.bPrev.mouseOverButton()) {
     cF.prevMonth();
   }
-  
-  if(cF.bOK.mouseOverButton() && cF.dateSelected){
-    cI.enabled= false; 
+
+  if (cF.bOK.mouseOverButton() && cF.dateSelected) {
+    cI.enabled= false;
     dataCalendariFin = cF.selectedDay +"/"+ cF.selectedMonth + "/"+ cF.selectedYear;
     cF.visible = false;
-    
   }
   // caroussels
-  es1.checkButtons();es1.checkCursor();
-  es2.checkButtons();es2.checkCursor();
-  es3.checkButtons();es3.checkCursor();
-  es4.checkButtons();es4.checkCursor();
-  es5.checkButtons();es5.checkCursor();
-  
+  es1.checkButtons();
+  es1.checkCursor();
+  es2.checkButtons();
+  es2.checkCursor();
+  es3.checkButtons();
+  es3.checkCursor();
+  es4.checkButtons();
+  es4.checkCursor();
+  es5.checkButtons();
+  es5.checkCursor();
+
   // timeField
-   tif.isPressed();
-   
-   cblLeido.checkMouse();
-   
- 
+  tif.isPressed();
+  cblLeido.checkMouse();
 }
 
 // funcion para resetar los TextFields y el textArea
-void resetFields(){
+void resetFields() {
   TituloLeido.setText("título");
   AutorLeido.setText("autor");
   EditorialLeido.setText("editorial");
@@ -280,18 +272,17 @@ void resetFields(){
   ISBNLeido.setText("ISBN");
   ISBNComprar.setText("ISBN");
   ISBNLista.setText("ISBN");
-  TituloTops.setText("título"); 
-  Buscar.setText("buscar"); 
+  TituloTops.setText("título");
+  Buscar.setText("buscar");
   Filtrar.setText("filtrar");
   TituloReto.setText("titulo");
 }
 
 // Reset del Formulari
-void resetFormulari(){
+void resetFormulari() {
   cRetos.resetValue();
   TituloReto.removeAllText();
-  //tif.removeAllText(); 
- 
+  //tif.removeAllText();
 }
 
 void keyPressed () {
@@ -311,17 +302,16 @@ void keyPressed () {
   ISBNLeido.keyPressed(key, (int)keyCode);
   ISBNComprar.keyPressed(key, (int)keyCode);
   ISBNLista.keyPressed(key, (int)keyCode);
-  
+
   // escuchar las teclas del teclado para el TextArea
   Valoracion.keyPressed(key, (int)keyCode);
   LibrosTop.keyPressed(key, (int)keyCode);
   // escuchar las teclas del teclado en el TimeField
   tif.keyPressed(key, (int)keyCode);
-  // 
-  if (keyCode==LEFT){
+  //
+  if (keyCode==LEFT) {
     es1.prev();
-  }
-  else if(keyCode==RIGHT){
+  } else if (keyCode==RIGHT) {
     es1.next();
   }
 }

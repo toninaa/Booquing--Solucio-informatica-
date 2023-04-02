@@ -10,9 +10,9 @@ class CheckBoxStarList {
   // Constructor
   CheckBoxStarList(int nun, String[] imgs, int x, int y, int w, int h) {
 
-    this.x = x; 
+    this.x = x;
     this.y = y;
-    this.w = w; 
+    this.w = w;
     this.h = h;
 
     this.cbs = new CheckBoxStar[nun];
@@ -52,9 +52,9 @@ class CheckBoxStarList {
       }
     }
   }
-  
+
   // Setter del número de estrellas activadas
-  void setCheckBoxStars(int n){
+  void setCheckBoxStars(int n) {
     for (int i=0; i<n; i++) {
       cbs[i].checked = true;
     }

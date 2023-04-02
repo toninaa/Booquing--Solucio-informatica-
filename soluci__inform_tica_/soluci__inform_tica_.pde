@@ -27,15 +27,18 @@ void draw() {
   case PERFIL:
     dibujaPerfil();
     break;
-  case NUEVO1:
+  case NUEVOLEIDO:
     dibujaNuevoLibro();
     break;
   case EMPEZAR:
     dibujarEmpezarLeer();
     break;
-  case NUEVO2:
+  case NUEVOCOMPRADO:
     dibujaAñadirLibro();
     break;
+  case NUEVOLISTA:
+  dibujaAñadirALaLista();
+  break; 
   case ESTRETOS:
     establecerRetos ();
     break;
@@ -60,15 +63,16 @@ void draw() {
   case RETOSCON:
     dibujarRetosConseguidos();
     break;
-    case ACTIVOS:
+  case ACTIVOS:
     librosActivos();
     break;
-    
-    
+  case LIBRO:
+    informacionLibros();
+    break;
   }
- 
 
-  //String infoPantalla= pantalla.ordinal()+")"+pantalla.name();
- // fill(0);
- // text(infoPantalla, width/2, height/2);
+
+  String infoPantalla= pantalla.ordinal()+")"+pantalla.name();
+  fill(0);
+  text(infoPantalla, width/2, height/2);
 }
