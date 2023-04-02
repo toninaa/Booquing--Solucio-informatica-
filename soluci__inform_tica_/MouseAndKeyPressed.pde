@@ -48,7 +48,7 @@ void mousePressed() {
     pantalla = PANTALLA.ACTIVOS;
   } else if (AtrasR.mouseOverButton() && AtrasR.enabled) {
     pantalla = PANTALLA.RETOS;
-  } else if (imgButtons[0].mouseOverButton()) {
+  } else if (imgButtons[0].mouseOverButton()&& imgButtons[0].enabled) {
     getFontAt(4);
     p.setEnabled(true);
     // Coger los valores del campo del formulario
@@ -69,7 +69,7 @@ void mousePressed() {
       valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
   } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) {
     p.setEnabled(false);
-  } else if (imgButtons[1].mouseOverButton()) {
+  } else if (imgButtons[1].mouseOverButton()&& imgButtons[1].enabled) {
     getFontAt(4);
     p.setEnabled(true);
     // Coger los valores del campo del formulario
@@ -88,7 +88,7 @@ void mousePressed() {
     // Inserir en la BBDD
     insertInfoTaulaLibro(valorISBN, valorTitulo, valorPagRestantes, valorDiaInicio, valorDiaFin,
       valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
-  } else if (imgButtons[2].mouseOverButton()) {
+  } else if (imgButtons[2].mouseOverButton () && imgButtons[2].enabled) {
     getFontAt(4);
     p.setEnabled(true);
     // Coger los valores del campo del formulario
@@ -107,10 +107,10 @@ void mousePressed() {
     // Inserir en la BBDD
     insertInfoTaulaLibro(valorISBN, valorTitulo, valorPagRestantes, valorDiaInicio, valorDiaFin,
       valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
-  } else if (imgButtons[3].mouseOverButton()) {
+  } else if (imgButtons[3].mouseOverButton() && imgButtons[3].enabled) {
     getFontAt(4);
     p.setEnabled(true);
-  } else if (imgButtons[5].mouseOverButton()) {
+  } else if (imgButtons[5].mouseOverButton()&& imgButtons[5].enabled) {
     getFontAt(4);
     p.setEnabled(true);
     // Coger los valores del campo del formulario
@@ -120,7 +120,7 @@ void mousePressed() {
     String valorNom = TituloReto.getValue();//textField
     // Inserir en la BBDD
     insertInfoTaulaReto(valorNom, valorNumero, valorTiempo, valorGenero);
-  } else if (imgButtons[4].mouseOverButton()) {
+  } else if (imgButtons[4].mouseOverButton()&& imgButtons[4].enabled) {
     getFontAt(4);
     p.setEnabled(true);
     String valorNumero = String.valueOf(cTops.getValue());//counter

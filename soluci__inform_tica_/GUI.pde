@@ -581,7 +581,6 @@ void enableImageButtonComprar() {
 }
 
 void enableImageButtonLista() {
-  imgButtons[1].setEnabled(false);
   imgButtons[2].setEnabled(true);
 }
 
