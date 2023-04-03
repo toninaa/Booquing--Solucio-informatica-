@@ -63,7 +63,7 @@ void mousePressed() {
     String valorValoracion= Valoracion.getValue();
     String valorPagRestantes= String.valueOf(0) ;
     String valorUbi= "Leido";
-    String valorImg= String.valueOf(11);
+    String valorImg = String.valueOf(16);
     // Inserir en la BBDD
     insertInfoTaulaLibro(valorISBN, valorTitulo, valorPagRestantes, valorDiaInicio, valorDiaFin,
       valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
@@ -74,20 +74,14 @@ void mousePressed() {
     p.setEnabled(true);
     // Coger los valores del campo del formulario
     String valorTitulo= TituloComprar.getValue();//textField
-    String valorAutor = AutorComprar.getValue();//textField
-    String valorEditorial = EditorialComprar.getValue();//textField
-    String valorISBN = ISBNComprar.getValue();// textField
-    String valorGenero   = s3.getSelectedText(); // select
-    String valorRanking = "";//checkBoxStars
-    String valorDiaInicio= "";
-    String valorDiaFin = "";
-    String valorValoracion= "";
-    String valorPagRestantes= "";
-    String valorUbi= "Comprado";
-    String valorImg= String.valueOf(12);
+    String valorAutor = String.valueOf(AutorComprar.getValue());//textField
+    String valorEditorial = String.valueOf(EditorialComprar.getValue());//textField
+    String valorISBN = String.valueOf(ISBNComprar.getValue());// textField
+    String valorGenero   = String.valueOf(s3.getSelectedText()); // select
+    String valorUbi= String.valueOf("Comprado");
+    String valorImg = String.valueOf(16);
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo, valorPagRestantes, valorDiaInicio, valorDiaFin,
-      valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
+    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
   } else if (imgButtons[2].mouseOverButton () && imgButtons[2].enabled) {
     getFontAt(4);
     p.setEnabled(true);
@@ -97,20 +91,14 @@ void mousePressed() {
     String valorEditorial = EditorialLista.getValue();//textField
     String valorISBN = ISBNLista.getValue();// textField
     String valorGenero   = s6.getSelectedText(); // select
-    String valorRanking = "";//checkBoxStars
-    String valorDiaInicio= "";
-    String valorDiaFin = "";
-    String valorValoracion= "";
-    String valorPagRestantes= "";
     String valorUbi= "Lista";
-    String valorImg= String.valueOf(13);
+    String valorImg = String.valueOf(16);
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo, valorPagRestantes, valorDiaInicio, valorDiaFin,
-      valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
+    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
   } else if (imgButtons[3].mouseOverButton() && imgButtons[3].enabled) {
     getFontAt(4);
     p.setEnabled(true);
-  } else if (imgButtons[5].mouseOverButton()&& imgButtons[5].enabled) {
+  } else if (imgButtons[5].mouseOverButton()  && imgButtons[5].enabled) {
     getFontAt(4);
     p.setEnabled(true);
     // Coger los valores del campo del formulario
@@ -120,7 +108,7 @@ void mousePressed() {
     String valorNom = TituloReto.getValue();//textField
     // Inserir en la BBDD
     insertInfoTaulaReto(valorNom, valorNumero, valorTiempo, valorGenero);
-  } else if (imgButtons[4].mouseOverButton()&& imgButtons[4].enabled) {
+  } else if (imgButtons[4].mouseOverButton() && imgButtons[4].enabled) {
     getFontAt(4);
     p.setEnabled(true);
     String valorNumero = String.valueOf(cTops.getValue());//counter
@@ -130,7 +118,7 @@ void mousePressed() {
     insertInfoTaulaTop(valorNom, valorNumero, valorLibros);
   } else if (bUnCuento.mouseOverButton() && bUnCuento.enabled) {
     l1.displayInformacion();
-    pantalla = PANTALLA.LIBRO;
+    //pantalla = PANTALLA.LIBRO;
   }
 
   // activar el cambio de color al estar encima del textField
@@ -198,6 +186,12 @@ void mousePressed() {
       s5.update();      // Actualitzar valor
     }
     s5.toggle();        // Plegar o desplegar
+  }
+   if (s6.mouseOverSelect() && s6.enabled) {
+    if (!s6.collapsed) {
+      s6.update();      // Actualitzar valor
+    }
+    s6.toggle();        // Plegar o desplegar
   }
 
   // CALENDARIO

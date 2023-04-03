@@ -15,7 +15,6 @@ void draw() {
 
   background(255);
 
-
   // Dibuja la pantalla correspondiente
   switch(pantalla) {
   case INICIO:
@@ -66,13 +65,11 @@ void draw() {
   case ACTIVOS:
     librosActivos();
     break;
-  case LIBRO:
-    informacionLibros();
-    break;
   }
 
 
-  String infoPantalla= pantalla.ordinal()+")"+pantalla.name();
+ /* String infoPantalla= pantalla.ordinal()+")"+pantalla.name();
   fill(0);
   text(infoPantalla, width/2, height/2);
+  */
 }
