@@ -9,8 +9,9 @@ void setup() {
   setGUI();
   connexioBBDD();
   
-  String[] libros = getInfoTaulaTop("Top 10 mejores novelas");
-  printArray(libros);
+  String libros = getInfoTaulaTop("Top 10 mejores novelas");
+  print(libros);
+  
 }
 
 
@@ -69,6 +70,8 @@ void draw() {
     librosActivos();
     break;
   }
+  
+  
 
 
  /* String infoPantalla= pantalla.ordinal()+")"+pantalla.name();

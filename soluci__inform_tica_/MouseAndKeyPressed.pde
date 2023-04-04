@@ -30,8 +30,8 @@ void mousePressed() {
     resetFields();
   } else if (Ver1.mouseOverButton() && Ver1.enabled) {
     pantalla = PANTALLA.TOPS;
-    int idTop = getIdTaulaTop(TituloTops.getValue());
-     //String[][]info = getInfoTaulaPreguntaUnitat(idTop);
+    int idUnitat = getIdTaulaTop(TituloTops.getValue());
+    String libros = getInfoTaulaTop(Libro.getValue());  
   } else if (Ver2.mouseOverButton() && Ver2.enabled) {
     pantalla = PANTALLA.RETOS;
   } else if (AtrasP.mouseOverButton() && AtrasP.enabled) {
@@ -121,6 +121,14 @@ void mousePressed() {
   } else if (bUnCuento.mouseOverButton() && bUnCuento.enabled) {
     l1.displayInformacion();
     //pantalla = PANTALLA.LIBRO;
+  }else if (ImagenComprado.mouseOverButton() && ImagenComprado.enabled) {
+    selectInput("Selecciona una imatge ...", "fileSelected");
+  }
+  else if (ImagenLista.mouseOverButton() && ImagenLista.enabled) {
+    selectInput("Selecciona una imatge ...", "fileSelected");
+  }
+  else if (ImagenEmpezar.mouseOverButton() && ImagenEmpezar.enabled) {
+    selectInput("Selecciona una imatge ...", "fileSelected");
   }
 
   // activar el cambio de color al estar encima del textField

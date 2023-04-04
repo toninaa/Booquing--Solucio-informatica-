@@ -104,6 +104,7 @@ void dibujaAñadirLibro () {
   disableSelects();
   disableImageButton();
   enableImageButtonComprar();
+  enableButtonsComprar();
   enableButtonsMenu();
   enableSelect3();
   dibujaMenu();
@@ -118,8 +119,22 @@ void dibujaAñadirLibro () {
   displayButtonsMenu();
   displayTextFieldComprar();
   displaySelect3();
+  displayButtonsComprar();
   imgButtons[1].display();
   p.display();
+  
+if(img!=null){
+    imageMode(CENTER);
+    image(img, 1170, 500, 300,350);
+    textSize(34); textAlign(RIGHT);
+    text(titulo, 750, 750);
+  }
+  else{
+    fill(255); rectMode(CENTER);
+    rect(1170, 500, 300,350);
+    textSize(34); textAlign(RIGHT);
+    text("Sense imatge", 750, 750);
+  }
   popStyle();
 }
 
@@ -129,6 +144,7 @@ void dibujaAñadirALaLista () {
   disableSelects();
   enableButtonsMenu();
   enableSelect6();
+  enableButtonsLista();
   disableImageButton();
   enableImageButtonLista();
   dibujaMenu();
@@ -143,8 +159,22 @@ void dibujaAñadirALaLista () {
   displayButtonsMenu();
   displayTextFieldLista();
   displaySelect6();
+  displayButtonsLista();
   imgButtons[2].display();
   p.display();
+  
+  if(img!=null){
+    imageMode(CENTER);
+    image(img, 1170, 500, 300,350);
+    textSize(34); textAlign(RIGHT);
+    text(titulo, 750, 750);
+  }
+  else{
+    fill(255); rectMode(CENTER);
+    rect(1170, 500, 300,350);
+    textSize(34); textAlign(RIGHT);
+    text("Sense imatge", 750, 750);
+  }
   popStyle();
 }
 
@@ -154,6 +184,7 @@ void dibujarEmpezarLeer () {
   disableImageButton();
   disableCalendario();
   enableCalendario();
+  enableButtonsEmpezar();
   enableButtonCalendario();
   enableButtonsMenu();
   disableImageButton();
@@ -169,9 +200,24 @@ void dibujarEmpezarLeer () {
   rect (100, 300, 800, 400);
   displayButtonsMenu();
   displayTextFieldLista();
+  displayButtonsEmpezar();
   imgButtons[3].display();
   calendarioInicio();
   p.display();
+  
+ if(img!=null){
+    imageMode(CENTER);
+    image(img, 1170, 500, 300,350);
+    textSize(34); textAlign(RIGHT);
+    text(titulo, 750, 750);
+  }
+  else{
+    fill(255); rectMode(CENTER);
+    rect(1170, 500, 300,350);
+    textSize(34); textAlign(RIGHT);
+    text("Sense imatge", 750, 750);
+  }
+  
   popStyle();
 }
 

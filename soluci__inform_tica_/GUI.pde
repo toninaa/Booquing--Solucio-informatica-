@@ -376,10 +376,10 @@ Button [] buttons;
 
 Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1,
   MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, AtrasR, Guardar, VerTodo, CalendarioI,
-  CalendarioF, Aceptar, Leidos, Lista, ComprarB, Actuales, bUnCuento;
+  CalendarioF, Aceptar, Leidos, Lista, ComprarB, Actuales, bUnCuento, ImagenComprado, ImagenLista, ImagenEmpezar;
 
 void initButtons () {
-  buttons = new Button [24];
+  buttons = new Button [27];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -404,6 +404,10 @@ void initButtons () {
   buttons [21]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [22]= new Button ("Calendario", 420, 630, calendarioX, calendarioY);
   buttons [23]= new Button ("x", 950, 500, libroWidth*1.5, libroHeight*1.5);
+  buttons [24]= new Button ("Imagen", 1100, 700, LeidoX, LeidoY);
+  buttons [25]= new Button ("Imagen", 1100, 700, LeidoX, LeidoY);
+  buttons [26]= new Button ("Imagen", 1100, 700, LeidoX, LeidoY);
+  
 
 
 
@@ -431,6 +435,9 @@ void initButtons () {
   AtrasR = buttons [21];
   CalendarioF = buttons [22];
   bUnCuento = buttons [23];
+  ImagenComprado = buttons [24];
+  ImagenLista = buttons [25];
+  ImagenEmpezar = buttons [26];
 }
 
 
@@ -494,6 +501,31 @@ void enableButtonVerTodo() {
 void enableButtonsLeidos() {
   bUnCuento.setEnabled(true);
 }
+
+void enableButtonsComprar(){
+ImagenComprado.setEnabled(true);
+}
+
+void enableButtonsEmpezar(){
+ImagenEmpezar.setEnabled(true);
+}
+
+void enableButtonsLista(){
+ImagenLista.setEnabled(true);
+}
+
+void displayButtonsComprar () {
+  ImagenComprado.display1();
+}
+
+void displayButtonsLista () {
+  ImagenLista.display1();
+}
+
+void displayButtonsEmpezar () {
+  ImagenEmpezar.display1();
+}
+
 
 void displayButtonsIniciales () {
   Biblio.display1();

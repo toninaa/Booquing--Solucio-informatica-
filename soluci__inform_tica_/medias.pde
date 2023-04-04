@@ -5,6 +5,8 @@ String URL_IMGS = "imgs/";
 String URL_STARS = "stars/";
 
 // Array de imagenes (JPG, PNG, GIF)
+String titulo = "";
+PImage img;
 PImage[] imgs;
 PImage[] imgPortada;
 PImage[] imgTrofeos;
