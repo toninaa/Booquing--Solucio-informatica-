@@ -8,6 +8,9 @@ void setup() {
   setMedias();
   setGUI();
   connexioBBDD();
+  
+  String[] libros = getInfoTaulaTop("Top 10 mejores novelas");
+  printArray(libros);
 }
 
 

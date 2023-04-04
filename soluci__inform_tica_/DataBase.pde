@@ -40,7 +40,7 @@ void insertInfoTaulaTop(String nom, String num, String libros) {
 
 // Insertar los dados de la tabla Libro
 void insertInfoTaulaLibro(String isbn, String titulo, String Pag, String Inicio, String Fin, String Ranking,
-  String Valoracion, String Ubi, String Edi, String Autor,  String Img, String Genero) {
+  String Valoracion, String Ubi, String Edi, String Autor, String Img, String Genero) {
   String q = "INSERT INTO Libro (`ISBN`, `Título`, `PagRestantes`, `DiaInicio`, `DiaFin`, `Ranking`, `Valoración`, `Ubicación`, `Editorial_idEditorial`, `Autor_Nombre`, `Imagen_idImagen`, `Genero_idGenero`) VALUES ('"+isbn+"','"+titulo+"','"+Pag+"','"+Inicio+"','"+Fin+"','"+Ranking+"','"+Valoracion+"','"+Ubi+"','"+Edi+"','"+Autor+"', '"+Img+"','"+Genero+"')";
   println(q);
   msql.query(q);
@@ -73,6 +73,8 @@ String[][] getInfoTaulaReto() {
 }
 
 
+
+
 // Obté el número de files de la taula
 int getNumRowsTaula(String nomTaula) {
   msql.query( "SELECT COUNT(*) AS n FROM %s", nomTaula );
@@ -81,19 +83,52 @@ int getNumRowsTaula(String nomTaula) {
   return numRows;
 }
 
+// Obté el número de files de la query
+int getNumRowsQuery(String q) {
+  msql.query( q);
+  msql.next();
+  int numRows = msql.getInt("n");
+  return numRows;
+}
 
+//Devuleve el nombre del top de la tabla  Top
+int getIdTaulaTop(String nom) {
+  String sNom = nom.replace("\'", "\\'");
+  String q = "SELECT nomTop FROM Top WHERE nomTop='"+sNom+"'";
+  msql.query(q);
+  msql.next();
+  return msql.getInt("nomTop");
+}
 
-// Obté array am camp nom de la taula Unitat
-String[] getNomsTaulaUnitat() {
+//Devuelve la informacion de los Tops (libros)
+String[] getInfoTaulaTop(String nombreTop) {
+  String qR = "SELECT COUNT(*) AS n FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Título ASC";
+  msql.query(qR);
+  msql.next();
+  int numRows = msql.getInt("n");
+  String[] libros = new String[numRows];
 
-  int numRows = getNumRowsTaula("unitat");
+  String q = "SELECT l.Título AS titulo FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Título ASC";
+  msql.query(q);
+  int  nr=0;
+  while (msql.next()) {
+    libros[nr] = msql.getString("titulo");
+    nr++;
+  }
+
+  return libros;
+}
+// Obten array con el nombre del top
+String[] getNomsTaulaTop() {
+
+  int numRows = getNumRowsTaula("Top");
 
   String[] data = new String[numRows];
 
   int nr=0;
-  msql.query( "SELECT nom FROM unitat" );
+  msql.query( "SELECT nomTop FROM Top" );
   while (msql.next()) {
-    data[nr] = msql.getString("nom");
+    data[nr] = msql.getString("nomTop");
     nr++;
   }
   return data;
