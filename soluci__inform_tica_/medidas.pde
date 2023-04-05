@@ -98,5 +98,5 @@ float libroH = 700;
 
 // dimensiones de las cards de los Tops
 
-float TopW = 350;
-float TopH = 250;
+int TopW = 350;
+int TopH = 400;

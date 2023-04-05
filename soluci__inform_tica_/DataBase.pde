@@ -100,13 +100,23 @@ int getIdTaulaTop(String nom) {
   return msql.getInt("nomTop");
 }
 
-String getInfoTaulaTop(String nombreTop){
-  String top;
-    String q = "SELECT `Libros` FROM `Top` WHERE `nomTop` = \""+ nombreTop+"\"";
-    msql.query(q);
-    msql.next();
-    top = msql.getString("Libros");
-  return top;
+//Devuelve la informacion de los Tops (libros)
+String[] getInfoTaulaTop(String nombreTop) {
+  String qR = "SELECT COUNT(*) AS n FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Título ASC";
+  msql.query(qR);
+  msql.next();
+  int numRows = msql.getInt("n");
+  String[] libros = new String[numRows];
+
+  String q = "SELECT l.Título AS titulo FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Título ASC";
+  msql.query(q);
+  int  nr=0;
+  while (msql.next()) {
+    libros[nr] = msql.getString("titulo");
+    nr++;
+  }
+
+  return libros;
 }
 
 // Obten array con el nombre del top

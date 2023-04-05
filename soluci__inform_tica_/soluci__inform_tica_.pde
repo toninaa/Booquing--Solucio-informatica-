@@ -2,15 +2,16 @@ void setup() {
   // Dimensiones de la App
   fullScreen();
   textAlign(CENTER);
+  connexioBBDD();
 
   setColors();
   setFonts();
   setMedias();
   setGUI();
-  connexioBBDD();
   
-  String libros = getInfoTaulaTop("Top 10 mejores novelas");
-  print(libros);
+  
+  //String libros = getInfoTaulaTop("Top 10 mejores novelas");
+  //print(libros);
   
 }
 
@@ -62,9 +63,6 @@ void draw() {
     break;
   case COMPRAR:
     verMiLista ();
-    break;
-  case RETOSCON:
-    dibujarRetosConseguidos();
     break;
   case ACTIVOS:
     librosActivos();

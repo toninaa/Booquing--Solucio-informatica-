@@ -30,8 +30,6 @@ void mousePressed() {
     resetFields();
   } else if (Ver1.mouseOverButton() && Ver1.enabled) {
     pantalla = PANTALLA.TOPS;
-    int idUnitat = getIdTaulaTop(TituloTops.getValue());
-    String libros = getInfoTaulaTop(Libro.getValue());  
   } else if (Ver2.mouseOverButton() && Ver2.enabled) {
     pantalla = PANTALLA.RETOS;
   } else if (AtrasP.mouseOverButton() && AtrasP.enabled) {

@@ -36,6 +36,8 @@ PagRestantes Pg1, Pg2, Pg3, Pg4, Pg5, Pg6, Pg7;
 
 Libro l1;
 
+Top top1;
+
 // Strings de algunos componentes
 
 // texto del calendario
@@ -76,6 +78,7 @@ void setGUI() {
   initPagRestantes();
   initLibro();
   initTextArea();
+  initTop();
 }
 
 //COMPONENTES
@@ -87,7 +90,11 @@ void initLibro () {
   l1.setImage(this.imgs[24]);
 }
 
-
+void initTop(){
+  String titulo = "Top 10 mejores novelas";
+  String[] infoTop =  getInfoTaulaTop(titulo);
+  top1 = new Top(titulo, infoTop);
+}
 
 //PagRestantes
 
