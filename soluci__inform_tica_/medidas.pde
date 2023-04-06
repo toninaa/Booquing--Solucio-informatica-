@@ -100,3 +100,7 @@ float libroH = 700;
 
 int TopW = 350;
 int TopH = 400;
+
+//dimensiones de las cards de los retos
+int retoW= 350; 
+int retoH= 230;

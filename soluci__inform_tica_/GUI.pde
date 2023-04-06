@@ -38,6 +38,8 @@ Libro l1;
 
 Top top1;
 
+Reto reto1; 
+
 // Strings de algunos componentes
 
 // texto del calendario
@@ -79,6 +81,7 @@ void setGUI() {
   initLibro();
   initTextArea();
   initTop();
+  initReto();
 }
 
 //COMPONENTES
@@ -94,6 +97,12 @@ void initTop(){
   String titulo = "Top 10 mejores novelas";
   String[] infoTop =  getInfoTaulaTop(titulo);
   top1 = new Top(titulo, infoTop);
+}
+
+void initReto(){
+String titulo= "1 libro en 1 dia";
+reto1 = new Reto(titulo);
+reto1.setImage(this.imgs[1]);
 }
 
 //PagRestantes

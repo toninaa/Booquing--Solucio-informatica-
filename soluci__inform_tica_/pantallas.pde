@@ -290,6 +290,7 @@ void dibujarRetos () {
   fill(0);
   text("RETOS", 250, 60);
   displayButtonsAtrasPerfil();
+  reto1.display(100,200,retoW,retoH,5);
   popStyle();
 }
 
@@ -309,8 +310,6 @@ void dibujarTops () {
   stroke(getColorAt(4));
   textAlign(LEFT);
   top1.displayTop(100,250,TopW,TopH);
-
-
   popStyle();
 }
 
