@@ -13,7 +13,7 @@ PImage[] imgTrofeos;
 
 // Establecer las imagenes de la App
 void setMedias() {
-  this.imgs = new PImage[27];
+  this.imgs = new PImage[28];
   this.imgs[0] = loadImage(URL_IMGS+"/logo1.png");
   this.imgs[1] = loadImage(URL_IMGS+"/trofeo0.png");
   this.imgs[2] = loadImage(URL_IMGS+"/estanteria.png");
@@ -41,6 +41,7 @@ void setMedias() {
   this.imgs[24] = loadImage(URL_IMGS+"/portada10.jpg");
   this.imgs[25] = loadImage(URL_IMGS+"/ON.png");
   this.imgs[26] = loadImage(URL_IMGS+"/OFF.png");
+  this.imgs[27]= loadImage(URL_IMGS+"/portada13.png");
 }
 // array para el carrousel de trofeos
 void setTrofeos() {

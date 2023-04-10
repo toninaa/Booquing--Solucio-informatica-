@@ -2,8 +2,8 @@ void setup() {
   // Dimensiones de la App
   fullScreen();
   textAlign(CENTER);
+  
   connexioBBDD();
-
   setColors();
   setFonts();
   setMedias();

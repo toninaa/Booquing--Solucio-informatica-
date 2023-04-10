@@ -1,5 +1,4 @@
 class Libro {
-
   // propiedades
   PImage img;
   String titulo, autor, editorial, genero;
@@ -8,19 +7,7 @@ class Libro {
   Button b;
   boolean isSelected = false;
 
-
   // Constructor
-
-  Libro(String titulo, String autor, String editorial, String genero, String ranking, String valoracion, Button b) {
-    this.titulo = titulo;
-    this.autor = autor;
-    this.editorial = editorial;
-    this.genero = genero;
-    this.ranking = ranking;
-    this.valoracion = valoracion;
-    this.b = b;
-  }
-
   Libro(String [] info, Button b) {
     this.titulo = info[0];
     this.autor = info [1];
@@ -32,13 +19,11 @@ class Libro {
   }
 
   // setters
-
   void setImage(PImage img) {
     this.img = img;
   }
 
   // dibuja Libro
-
   void displayLibro() {
     this.b.displayWithImg(this.img);
   }

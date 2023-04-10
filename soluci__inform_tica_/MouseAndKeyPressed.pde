@@ -63,7 +63,7 @@ void mousePressed() {
     String valorValoracion= Valoracion.getValue();
     String valorPagRestantes= String.valueOf(0) ;
     String valorUbi= "Leido";
-    String valorImg = String.valueOf(16);
+    String valorImg = titulo;
     // Inserir en la BBDD
     insertInfoTaulaLibro(valorISBN, valorTitulo, valorPagRestantes, valorDiaInicio, valorDiaFin,
       valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
@@ -79,7 +79,7 @@ void mousePressed() {
     String valorISBN = String.valueOf(ISBNComprar.getValue());// textField
     String valorGenero   = String.valueOf(s3.getSelectedText()); // select
     String valorUbi= String.valueOf("Comprado");
-    String valorImg = String.valueOf(16);
+    String valorImg = titulo;
     // Inserir en la BBDD
     insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
   } else if (imgButtons[2].mouseOverButton () && imgButtons[2].enabled) {
@@ -92,7 +92,7 @@ void mousePressed() {
     String valorISBN = ISBNLista.getValue();// textField
     String valorGenero   = s6.getSelectedText(); // select
     String valorUbi= "Lista";
-    String valorImg = String.valueOf(16);
+    String valorImg = titulo;
     // Inserir en la BBDD
     insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
   } else if (imgButtons[3].mouseOverButton() && imgButtons[3].enabled) {
@@ -280,12 +280,7 @@ void resetFields() {
   TituloReto.setText("titulo");
 }
 
-// Reset del Formulari
-void resetFormulari() {
-  cRetos.resetValue();
-  TituloReto.removeAllText();
-  //tif.removeAllText();
-}
+
 
 void keyPressed () {
   // escuchar las teclas del teclado en los textFields

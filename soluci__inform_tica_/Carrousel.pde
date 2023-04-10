@@ -31,7 +31,6 @@ class Carrousel {
   }
 
   // Setters
-
   void setImages(String[] noms) {
     this.numTotalImatges = noms.length;
     this.imgs = new PImage[noms.length];
@@ -83,10 +82,10 @@ class Carrousel {
     }
 
     if (bNext!=null) {
-      bNext.display2();
+      bNext.display1();
     }
     if (bPrev!=null) {
-      bPrev.display2();
+      bPrev.display1();
     }
   }
 

@@ -365,9 +365,6 @@ void librosActivos () {
   textFont(getFontAt(2));
   text("LIBROS ACTIVOS", 250, 60);
   displayButtonsAtrasBiblioteca();
-  Pg5.display();
-  Pg6.display();
-  Pg7.display();
   fill(getColorAt(4));
   rect(100, 750, 50, 20, 10);
   rect(600, 750, 100, 20, 10);

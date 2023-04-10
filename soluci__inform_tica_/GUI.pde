@@ -32,8 +32,6 @@ PopUp p;
 
 CheckBoxStarList cblLeido;
 
-PagRestantes Pg1, Pg2, Pg3, Pg4, Pg5, Pg6, Pg7;
-
 Libro l1;
 
 Top top1;
@@ -77,7 +75,6 @@ void setGUI() {
   initTimeField();
   initPopUp();
   initCheckStars();
-  initPagRestantes();
   initLibro();
   initTextArea();
   initTop();
@@ -105,17 +102,6 @@ reto1 = new Reto(titulo);
 reto1.setImage(this.imgs[1]);
 }
 
-//PagRestantes
-
-void initPagRestantes () {
-  Pg1 = new PagRestantes(70, 400, 50, 20, 5);
-  Pg2 = new PagRestantes(400, 400, 50, 20, 5);
-  Pg3 = new PagRestantes(70, 550, 50, 20, 5);
-  Pg4 = new PagRestantes(400, 550, 50, 20, 5);
-  Pg5 = new PagRestantes(100, 750, 50, 20, 5);
-  Pg6 = new PagRestantes(600, 750, 50, 20, 5);
-  Pg7 = new PagRestantes(1100, 750, 50, 20, 5);
-}
 
 // checkboxstarlist
 void initCheckStars () {

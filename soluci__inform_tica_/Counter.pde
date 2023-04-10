@@ -48,9 +48,6 @@ class Counter {
     return this.value;
   }
 
-  void resetValue() {
-    this.value = this.minValue;
-  }
 
   // Dibujar el botó
   void display() {
