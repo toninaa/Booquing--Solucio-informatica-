@@ -165,6 +165,7 @@ void libros () {
   textFont(getFontAt(5));
   textAlign(LEFT);
   fill(getColorAt(1));
+  //afegir select --> l'he de recorrer i a cada volta ha de dibuixar 
   displayImg(28, 500, 300, libroWidth*1.5, libroHeight*1.5);
   text("Bodas de sangre", 630, 330);
   text("Federico Garcia Lorca", 630, 370);
