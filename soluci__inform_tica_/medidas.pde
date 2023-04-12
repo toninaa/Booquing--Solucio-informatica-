@@ -104,3 +104,7 @@ int TopH = 400;
 //dimensiones de las cards de los retos
 int retoW= 350; 
 int retoH= 230;
+
+//dimensiones de los selectedtextField
+float tListW = 300;
+float tListH = 50;

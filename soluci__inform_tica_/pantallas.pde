@@ -69,6 +69,7 @@ void dibujaNuevoLibro () {
   enableCalendario();
   enableButtonCalendario();
   enableButtonsMenu();
+  enableButtonsLeidos();
   enableSelectLeidos();
   // dibujar los objetos
   dibujaMenu();
@@ -92,6 +93,8 @@ void dibujaNuevoLibro () {
   calendarioInicioFin();
   displaySelectLeido();
   imgButtons[0].display();
+  displaySelectTextFieldLeido();
+  displayButtonsLeido();
   textFont(getFontAt(2));
   p.display();
 }

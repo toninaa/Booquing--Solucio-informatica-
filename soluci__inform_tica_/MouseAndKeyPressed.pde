@@ -117,13 +117,14 @@ void mousePressed() {
     pantalla = PANTALLA.LIBRO;
   }else if (ImagenComprado.mouseOverButton() && ImagenComprado.enabled) {
     selectInput("Selecciona una imatge ...", "fileSelected");
-  }
-  else if (ImagenLista.mouseOverButton() && ImagenLista.enabled) {
-    selectInput("Selecciona una imatge ...", "fileSelected");
-  }
-  else if (ImagenEmpezar.mouseOverButton() && ImagenEmpezar.enabled) {
-    selectInput("Selecciona una imatge ...", "fileSelected");
-  }
+  }else if (EligeAutor1Leido.mouseOverButton() && EligeAutor1Leido.enabled) {
+    selectedCountry = tListAutor1Leido.selectedValue + "("+tListAutor1Leido.selectedId+")";
+   }else if (EligeAutor2Leido.mouseOverButton() && EligeAutor2Leido.enabled) {
+    selectedCountry = tListAutor2Leido.selectedValue + "("+tListAutor2Leido.selectedId+")";
+   }else if (EligeEditorialLeido.mouseOverButton() && EligeEditorialLeido.enabled) {
+    selectedCountry = tListEditorialLeido.selectedValue + "("+tListEditorialLeido.selectedId+")";
+   }
+ 
 
   // activar el cambio de color al estar encima del textField
   TituloLeido.isPressed();
@@ -142,6 +143,11 @@ void mousePressed() {
 
   //CheckBoxStarList
   cblLeido.checkMouse();
+  
+  //SelectedTextField
+   tListAutor1Leido.mouseOn();
+   tListAutor2Leido.mouseOn();
+   tListEditorialLeido.mouseOn();
 
 
   // actualizar el valor de los counters al pulsar + 0 -
@@ -168,28 +174,6 @@ void mousePressed() {
       s3.update();      // Actualitzar valor
     }
     s3.toggle();        // Plegar o desplegar
-  }
-
-  if (s5.mouseOverSelect() && s5.enabled) {
-    if (!s5.collapsed) {
-      s5.update();      // Actualitzar valor
-    }
-    s5.toggle();        // Plegar o desplegar
-  }
-
-  
-  if (s7.mouseOverSelect() && s7.enabled) {
-    if (!s7.collapsed) {
-      s7.update();      // Actualitzar valor
-    }
-    s7.toggle();        // Plegar o desplegar
-  }
-  
-  if (s8.mouseOverSelect() && s8.enabled) {
-    if (!s8.collapsed) {
-      s8.update();      // Actualitzar valor
-    }
-    s8.toggle();        // Plegar o desplegar
   }
   
   if (s9.mouseOverSelect() && s9.enabled) {
@@ -322,6 +306,11 @@ void keyPressed () {
   TituloReto.keyPressed(key, (int)keyCode);
   ISBNLeido.keyPressed(key, (int)keyCode);
   ISBNComprar.keyPressed(key, (int)keyCode);
+  
+  //SelectedTextField
+   tListAutor1Leido.keyOn();
+   tListAutor2Leido.keyOn();
+   tListEditorialLeido.keyOn();
 
   // escuchar las teclas del teclado para el TextArea
   Valoracion.keyPressed(key, (int)keyCode);

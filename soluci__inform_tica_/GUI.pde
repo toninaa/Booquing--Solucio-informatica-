@@ -31,6 +31,8 @@ PopUp p;
 
 CheckBoxStarList cblLeido;
 
+SelectTextList tListAutor1Leido, tListAutor2Leido, tListEditorialLeido;
+
 Libro l1;
 
 Top top1;
@@ -56,7 +58,8 @@ String [] info1 = {"Un cuento perfecto",
   "Elisabet Benavent", "Suma", "Novela", "Ranking",
   "Valoracion: Muy buen libro con un final inesperado"};
 
-
+//Strings SelectTextList
+String selectedCountry; 
 
 // funcion para inicializar todos los componentes GUI
 void setGUI() {
@@ -76,9 +79,44 @@ void setGUI() {
   initTextArea();
   initTop();
   initReto();
+  initSelectedTextField();
 }
 
 //COMPONENTES
+
+//SelectedTextField
+
+void initSelectedTextField (){
+  
+  String a = "SELECT COUNT(*) AS total from Autor";
+  msql.query(a);
+  int numRows=0;
+  if (msql.next()) {
+    numRows = Integer.parseInt(msql.getString("total"));
+
+  }
+  String n = "SELECT Nombre from Autor";
+  msql.query(n);
+  String [] selectAutores= new String [numRows];
+  int  r=0;
+  while (msql.next()) {
+    selectAutores[r] = msql.getString("Nombre");
+    r++;
+  }
+
+tListAutor1Leido = new SelectTextList(selectAutores, 400, 230, tListW, tListH);
+tListAutor2Leido = new SelectTextList (selectAutores,730, 230, tListW, tListH);
+tListEditorialLeido= new SelectTextList (selectAutores,1070, 230, tListW, tListH);
+
+
+}
+
+void displaySelectTextFieldLeido (){
+tListAutor1Leido.display();
+tListAutor2Leido.display();
+tListEditorialLeido.display();
+
+}
 
 //cards libros
 
@@ -260,16 +298,13 @@ void initSelect() {
   
   String[] ValuesEstado = {"Leido","No Leido"};
   String[] ValuesAdquisicion = {"Comprado","Prestado"};
-  s1 = new Select(selectValues, 400, 230, selectX, selectY);//Generos Leido
+  s1 = new Select(selectValues, 70, 400, selectX, selectY);//Generos Leido
   s2 = new Select(selectValues, 1050, 550, selectX, selectY);//retos
   s3 = new Select(selectValues, 550, 350, selectX, selectY);//Leido
-  s5 = new Select(selectAutores, 860, 230, selectX, selectY);//Autor 1 Leido
-  s7 = new Select(selectAutores, 1090, 230, selectX, selectY);//Autor 2 Leido
-  s8 = new Select(selectValuesEditorial, 630, 230, selectX, selectY);//Editorial Leido
-  s9 = new Select(ValuesEstado, 70, 350, selectX, selectY);//Estado Leido
-  s10= new Select(ValuesAdquisicion, 300, 400, selectX, selectY);//Adquisicion Leido
-  s11= new Select(selectAutores, 120, 430, selectX, selectY);//Autor 1 Comprado
-  s12= new Select(selectAutores, 120, 530, selectX, selectY);//Autor 2 Comprado
+  s9 = new Select(ValuesEstado, 350,400, selectX, selectY);//Estado Leido
+  s10= new Select(ValuesAdquisicion, 650, 400, selectX, selectY);//Adquisicion Leido
+  s11= new Select(selectAutores, 220, 430, selectX, selectY);//Autor 1 Comprado
+  s12= new Select(selectAutores, 220, 530, selectX, selectY);//Autor 2 Comprado
   s13= new Select(selectValuesEditorial, 20, 200, selectX, selectY);//Editorial Comprado
   s14= new Select(ValuesEstado, 300, 200, selectX, selectY);//Estado Comprado
   s15= new Select(ValuesAdquisicion, 500, 200, selectX, selectY);//Adquisicion Comprado
@@ -278,9 +313,6 @@ void initSelect() {
 
 void enableSelectLeidos() {
   s1.setEnabled(true);
-  s5.setEnabled(true);
-  s7.setEnabled(true);
-  s8.setEnabled(true);
   s9.setEnabled(true);
   s10.setEnabled(true);  
 }
@@ -290,9 +322,6 @@ void enableSelect2() {
 }
 
 
-void enableSelect6() {
-  s6.setEnabled(true);
-}
 
 void enableSelectComprado() {
   s3.setEnabled(true);
@@ -310,10 +339,6 @@ void disableSelects() {
   s1.setEnabled(false);
   s2.setEnabled(false);
   s3.setEnabled(false);
-  s5.setEnabled(false);
-  s6.setEnabled(false);
-  s7.setEnabled(false);
-  s8.setEnabled(false);
   s9.setEnabled(false);
   s10.setEnabled(false);
   s11.setEnabled(false);
@@ -327,9 +352,6 @@ void disableSelects() {
 // dibujar selects
 void displaySelectLeido() {
   s1.display();
-  s5.display();
-  s7.display();
-  s8.display();
   s9.display();
   s10.display(); 
 }
@@ -339,13 +361,6 @@ void displaySelect2() {
 }
 
 
-void displaySelect5() {
-  s5.display();
-}
-
-void displaySelect6() {
-  s6.display();
-}
 
 void displaySelectsComprar() {
   s3.display();
@@ -413,7 +428,7 @@ void displayTextFieldRetos() {
 
 //TextArea
 void initTextArea () {
-  Valoracion = new TextArea (950, 450, ValoracionX, ValoracionY, 30, 6);
+  Valoracion = new TextArea (900, 450, ValoracionX, ValoracionY, 30, 6);
   LibrosTop = new TextArea (600, 400, ValoracionX, ValoracionY+50, 40, 10);
 }
 
@@ -428,10 +443,11 @@ Button [] buttons;
 
 Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1,
   MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, AtrasR, Guardar, VerTodo, CalendarioI,
-  CalendarioF, Aceptar, Leidos, Lista, ComprarB, Actuales, bUnCuento, ImagenComprado, ImagenLista, ImagenEmpezar;
+  CalendarioF, Aceptar, Leidos, Lista, ComprarB, Actuales, bUnCuento, ImagenComprado, EligeAutor1Leido, 
+  EligeAutor2Leido, EligeEditorialLeido;
 
 void initButtons () {
-  buttons = new Button [22];
+  buttons = new Button [23];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -452,8 +468,10 @@ void initButtons () {
   buttons [17]= new Button ("Calendario", 420, 630, calendarioX, calendarioY);
   buttons [18]= new Button ("x", 950, 500, libroWidth*1.5, libroHeight*1.5);
   buttons [19]= new Button ("Imagen", 1100, 700, LeidoX, LeidoY);
-  buttons [20]= new Button ("Imagen", 1100, 700, LeidoX, LeidoY);
-  buttons [21]= new Button ("Imagen", 1100, 700, LeidoX, LeidoY);
+  buttons [20]= new Button ("elige", 470, 300, LeidoX, LeidoY);
+  buttons [21]= new Button ("elige", 800, 300, LeidoX, LeidoY);
+  buttons [22]= new Button ("elige", 1140, 300, LeidoX, LeidoY);
+  
   
 
   AtrasP = buttons [0];
@@ -476,8 +494,10 @@ void initButtons () {
   CalendarioF = buttons [17];
   bUnCuento = buttons [18];
   ImagenComprado = buttons [19];
-  ImagenLista = buttons [20];
-  ImagenEmpezar = buttons [21];
+  EligeAutor1Leido = buttons [20];
+  EligeAutor2Leido = buttons [21];
+  EligeEditorialLeido = buttons [22];
+  
 }
 
 
@@ -536,30 +556,17 @@ void enableButtonVerTodo() {
 
 void enableButtonsLeidos() {
   bUnCuento.setEnabled(true);
+  EligeAutor1Leido.setEnabled(true);
+  EligeAutor2Leido.setEnabled(true);
+  EligeEditorialLeido.setEnabled(true);
 }
 
 void enableButtonsComprar(){
 ImagenComprado.setEnabled(true);
 }
 
-void enableButtonsEmpezar(){
-ImagenEmpezar.setEnabled(true);
-}
-
-void enableButtonsLista(){
-ImagenLista.setEnabled(true);
-}
-
 void displayButtonsComprar () {
   ImagenComprado.display1();
-}
-
-void displayButtonsLista () {
-  ImagenLista.display1();
-}
-
-void displayButtonsEmpezar () {
-  ImagenEmpezar.display1();
 }
 
 
@@ -587,7 +594,11 @@ void displayButtonsPerfil () {
   Ver2.display3();
 }
 
-
+void displayButtonsLeido(){
+EligeAutor1Leido.display1();
+EligeAutor2Leido.display1();
+EligeEditorialLeido.display1();
+}
 
 void displayButtonsAtrasPerfil () {
   AtrasP.display1();
@@ -618,13 +629,11 @@ PImage[] getImagesButton(int n1, int n2) {
 }
 
 void initImageButton () {
-  imgButtons  = new ImageButton [6];
-  imgButtons [0]= new ImageButton (getImagesButton(11, 12), 820, 620, CheckX, CheckY);//leido
+  imgButtons  = new ImageButton [4];
+  imgButtons [0]= new ImageButton (getImagesButton(11, 12),  1325, 730, CheckX, CheckY);//leido
   imgButtons [1]= new ImageButton (getImagesButton(11, 12), 820, 620, CheckX, CheckY);//Comprado
-  imgButtons [2]= new ImageButton (getImagesButton(11, 12), 820, 620, CheckX, CheckY);//lista
-  imgButtons [3]= new ImageButton (getImagesButton(11, 12), 820, 620, CheckX, CheckY);//empezar a leer
-  imgButtons [4]= new ImageButton (getImagesButton(11, 12), 1225, 680, CheckX, CheckY);// tops
-  imgButtons [5]= new ImageButton (getImagesButton(11, 12), 1225, 680, CheckX, CheckY);//retos
+  imgButtons [2]= new ImageButton (getImagesButton(11, 12), 1225, 680, CheckX, CheckY);// tops
+  imgButtons [3]= new ImageButton (getImagesButton(11, 12), 1225, 680, CheckX, CheckY);//retos
 }
 
 void disableImageButton () {
@@ -632,8 +641,6 @@ void disableImageButton () {
   imgButtons[1].setEnabled(false);
   imgButtons[2].setEnabled(false);
   imgButtons[3].setEnabled(false);
-  imgButtons[4].setEnabled(false);
-  imgButtons[5].setEnabled(false);
 }
 
 void enableImageButtonLeido() {
@@ -644,18 +651,10 @@ void enableImageButtonComprar() {
   imgButtons[1].setEnabled(true);
 }
 
-void enableImageButtonLista() {
+void enableImageButtonTop() { // ns si esta be
   imgButtons[2].setEnabled(true);
 }
 
-void enableImageButtonEmpezar() {
-  imgButtons[3].setEnabled(true);
-}
-
-void enableImageButtonTop() {
-  imgButtons[4].setEnabled(true);
-}
-
 void enableImageButtonRetos() {
-  imgButtons[5].setEnabled(true);
+  imgButtons[3].setEnabled(true);
 }
