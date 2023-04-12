@@ -76,15 +76,18 @@ void mousePressed() {
     p.setEnabled(true);
     // Coger los valores del campo del formulario
     String valorTitulo= TituloComprar.getValue();//textField
-    String valorAutor = String.valueOf(AutorComprar.getValue());//textField
-    String valorEditorial = String.valueOf(EditorialComprar.getValue());//textField
+    String autor1 = s11.getSelectedText();//select
+    String autor2 = s12.getSelectedText();//select
+    String valorEditorial = s13.getSelectedText();//select
     String valorISBN = String.valueOf(ISBNComprar.getValue());// textField
-    String valorGenero   = String.valueOf(s13.getSelectedText()); // select
-    String valorUbi= String.valueOf("Comprado");
+    String valorGenero   = s13.getSelectedText(); // select
+    String valorUbi= s14.getSelectedText();// select
     String valorImg = titulo;
-    String valorAd= ""; 
+    String valorAd= s15.getSelectedText(); //select
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero,valorAd );
+    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorImg, valorGenero,valorAd );
+    insertInfoTaulaLibro_has_Autor (valorISBN, autor1);
+    insertInfoTaulaLibro_has_Autor(valorISBN, autor2);
   } else if (imgButtons[2].mouseOverButton () && imgButtons[2].enabled) {
     getFontAt(4);
     p.setEnabled(true);
@@ -98,7 +101,7 @@ void mousePressed() {
     String valorImg = titulo;
     String valorAd= ""; 
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero, valorAd);
+    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorImg, valorGenero, valorAd);
   } else if (imgButtons[3].mouseOverButton() && imgButtons[3].enabled) {
     getFontAt(4);
     p.setEnabled(true);
