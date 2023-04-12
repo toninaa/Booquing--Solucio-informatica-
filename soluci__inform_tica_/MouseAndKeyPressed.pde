@@ -190,12 +190,33 @@ void mousePressed() {
     }
     s4.toggle();        // Plegar o desplegar
   }
+  
+  if (s5.mouseOverSelect() && s5.enabled) {
+    if (!s5.collapsed) {
+      s5.update();      // Actualitzar valor
+    }
+    s5.toggle();        // Plegar o desplegar
+  }
 
    if (s6.mouseOverSelect() && s6.enabled) {
     if (!s6.collapsed) {
       s6.update();      // Actualitzar valor
     }
     s6.toggle();        // Plegar o desplegar
+  }
+  
+  if (s7.mouseOverSelect() && s7.enabled) {
+    if (!s7.collapsed) {
+      s7.update();      // Actualitzar valor
+    }
+    s7.toggle();        // Plegar o desplegar
+  }
+  
+  if (s8.mouseOverSelect() && s8.enabled) {
+    if (!s8.collapsed) {
+      s8.update();      // Actualitzar valor
+    }
+    s8.toggle();        // Plegar o desplegar
   }
 
   // CALENDARIO
@@ -259,8 +280,6 @@ void mousePressed() {
 // funcion para resetar los TextFields y el textArea
 void resetFields() {
   TituloLeido.setText("Titulo");
-  AutorLeido.setText("autor");
-  EditorialLeido.setText("editorial");
   TituloComprar.setText("Titulo");
   AutorComprar.setText("autor");
   EditorialComprar.setText("editorial");

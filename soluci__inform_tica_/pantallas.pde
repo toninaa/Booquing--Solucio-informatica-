@@ -90,8 +90,11 @@ void dibujaNuevoLibro () {
   displayTextFieldLeido();
   textFont(getFontAt(5));
   displayTextArea();
-  displaySelect1();
   calendarioInicioFin();
+  displaySelect1();
+  displaySelect5();
+  displaySelect7();
+  displaySelect8();
   imgButtons[0].display();
   textFont(getFontAt(2));
   p.display();

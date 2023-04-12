@@ -15,7 +15,7 @@ TextField TituloLeido, TituloComprar, TituloLista, TituloTops, AutorLeido, Autor
 
 TextArea Valoracion, LibrosTop;
 
-Select s1, s2, s3, s4, s5, s6;
+Select s1, s2, s3, s4, s5, s6, s7, s8;
 
 Counter cRetos, cTops;
 
@@ -210,15 +210,15 @@ void disableCounters() {
 
 // selects
 void initSelect() {
-  String q = "SELECT count(*) as total from Genero";
+  String q = "SELECT COUNT(*) AS total from Genero";
   msql.query(q);
   int total=0;
   if (msql.next()) {
     total = Integer.parseInt(msql.getString("total"));
 
   }
-  String q = "SELECT idGenero from Genero";
-  msql.query(q);
+  String g = "SELECT idGenero from Genero";
+  msql.query(g);
   String [] selectValues= new String [total];
   int  nr=0;
   while (msql.next()) {
@@ -226,43 +226,46 @@ void initSelect() {
     nr++;
   }
   
-  String q = "SELECT count(*) as total from Genero";
-  msql.query(q);
-  int total=0;
+  String a = "SELECT COUNT(*) AS total from Autor";
+  msql.query(a);
+  int numRows=0;
   if (msql.next()) {
-    total = Integer.parseInt(msql.getString("total"));
+    numRows = Integer.parseInt(msql.getString("total"));
 
   }
-  String q = "SELECT idGenero from Genero";
-  msql.query(q);
-  String [] selectValues= new String [total];
-  int  nr=0;
+  String n = "SELECT Nombre from Autor";
+  msql.query(n);
+  String [] selectAutores= new String [numRows];
+  int  r=0;
   while (msql.next()) {
-    selectValues[nr] = msql.getString("idGenero");
-    nr++;
+    selectAutores[r] = msql.getString("Nombre");
+    r++;
   }
   
-  String q = "SELECT count(*) as total from Genero";
-  msql.query(q);
-  int total=0;
+  String e = "SELECT COUNT(*) AS total from Editorial";
+  msql.query(e);
+  int numFiles=0;
   if (msql.next()) {
-    total = Integer.parseInt(msql.getString("total"));
+    numFiles = Integer.parseInt(msql.getString("total"));
 
   }
-  String q = "SELECT idGenero from Genero";
-  msql.query(q);
-  String [] selectValues= new String [total];
-  int  nr=0;
+  String s = "SELECT idEditorial from Editorial";
+  msql.query(s);
+  String [] selectValuesEditorial= new String [numFiles];
+  int  t=0;
   while (msql.next()) {
-    selectValues[nr] = msql.getString("idGenero");
-    nr++;
+    selectValuesEditorial[t] = msql.getString("idEditorial");
+    t++;
   }
   
   s1 = new Select(selectValues, 550, 350, selectX, selectY);//Leido
   s2 = new Select(selectValues, 1050, 550, selectX, selectY);//retos
   s3 = new Select(selectValues, 550, 350, selectX, selectY);//Comprado
   s4 = new Select(selectValues, 70, 500, selectX, selectY);//Filtrar generos Leidos
+  s5 = new Select(selectAutores, 70, 500, selectX, selectY);//Autor 1 Leido
   s6 = new Select(selectValues, 550, 350, selectX, selectY);//Lista
+  s7 = new Select(selectAutores, 10, 300, selectX, selectY);//Autor 2 Leido
+  s8= new Select(selectValuesEditorial, 20, 200, selectX, selectY);//Editorial Leido
 }
 
 void enableSelect1() {
@@ -281,18 +284,31 @@ void enableSelect4() {
   s4.setEnabled(true);
 }
 
+void enableSelect5() {
+  s5.setEnabled(true);
+}
 
 void enableSelect6() {
   s6.setEnabled(true);
 }
 
+void enableSelect7() {
+  s7.setEnabled(true);
+}
+
+void enableSelect8() {
+  s8.setEnabled(true);
+}
 
 void disableSelects() {
   s1.setEnabled(false);
   s2.setEnabled(false);
   s3.setEnabled(false);
   s4.setEnabled(false);
+  s5.setEnabled(false);
   s6.setEnabled(false);
+  s7.setEnabled(false);
+  s8.setEnabled(false);
 }
 
 
@@ -313,18 +329,27 @@ void displaySelect4() {
   s4.display();
 }
 
+void displaySelect5() {
+  s5.display();
+}
+
 void displaySelect6() {
   s6.display();
 }
 
+void displaySelect7() {
+  s7.display();
+}
+
+void displaySelect8() {
+  s8.display();
+}
 
 
 
 // TextField
 void initTextField() {
   TituloLeido = new TextField(120, 330, CampoX, CampoY);
-  AutorLeido = new TextField(120, 380, CampoX, CampoY);
-  EditorialLeido = new TextField(120, 430, CampoX, CampoY);
   TituloComprar = new TextField(120, 330, CampoX, CampoY);
   AutorComprar = new TextField(120, 380, CampoX, CampoY);
   EditorialComprar = new TextField(120, 430, CampoX, CampoY);
@@ -339,8 +364,6 @@ void initTextField() {
   ISBNLista = new TextField(120, 480, CampoX, CampoY);
   TituloReto=  new TextField(120, 425, CampoX, CampoY);
   TituloLeido.setText("Titulo");
-  AutorLeido.setText("autor");
-  EditorialLeido.setText("editorial");
   TituloComprar.setText("Titulo");
   AutorComprar.setText("autor");
   EditorialComprar.setText("editorial");
@@ -358,8 +381,6 @@ void initTextField() {
 
 void displayTextFieldLeido () {
   TituloLeido.display();
-  AutorLeido.display();
-  EditorialLeido.display();
   ISBNLeido.display();
   Valoracion.display();
 }
