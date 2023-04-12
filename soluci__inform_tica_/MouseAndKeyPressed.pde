@@ -13,12 +13,6 @@ void mousePressed() {
   } else if (Leido.mouseOverButton() && Leido.enabled) {
     pantalla = PANTALLA.NUEVOLEIDO;
     resetFields();
-  } else if (Empezar.mouseOverButton() && Empezar.enabled) {
-    pantalla = PANTALLA.EMPEZAR;
-    resetFields();
-  } else if (Quiero1.mouseOverButton() && Quiero1.enabled) {
-    pantalla = PANTALLA.NUEVOLISTA;
-    resetFields();
   } else if (Comprar.mouseOverButton() && Comprar.enabled) {
     pantalla = PANTALLA.NUEVOCOMPRADO;
     resetFields();
@@ -40,12 +34,8 @@ void mousePressed() {
     pantalla = PANTALLA.RETOSCON;
   } else if (Leidos.mouseOverButton() && Leidos.enabled) {
     pantalla = PANTALLA.LEIDOS;
-  } else if (Lista.mouseOverButton() && Lista.enabled) {
-    pantalla = PANTALLA.MILISTA;
   } else if (ComprarB.mouseOverButton() && ComprarB.enabled) {
     pantalla = PANTALLA.COMPRAR;
-  } else if (Actuales.mouseOverButton() && Actuales.enabled) {
-    pantalla = PANTALLA.ACTIVOS;
   } else if (AtrasR.mouseOverButton() && AtrasR.enabled) {
     pantalla = PANTALLA.RETOS;
   } else if (imgButtons[0].mouseOverButton()&& imgButtons[0].enabled) {
@@ -138,12 +128,8 @@ void mousePressed() {
   // activar el cambio de color al estar encima del textField
   TituloLeido.isPressed();
   TituloComprar.isPressed();
-  TituloLista.isPressed();
-  AutorLista.isPressed();
-  EditorialLista.isPressed();
   ISBNLeido.isPressed();
   ISBNComprar.isPressed();
-  ISBNLista.isPressed();
   TituloTops.isPressed();
   Buscar.isPressed();
   Filtrar.isPressed();
@@ -184,13 +170,6 @@ void mousePressed() {
     s3.toggle();        // Plegar o desplegar
   }
 
-  if (s4.mouseOverSelect() && s4.enabled) {
-    if (!s4.collapsed) {
-      s4.update();      // Actualitzar valor
-    }
-    s4.toggle();        // Plegar o desplegar
-  }
-  
   if (s5.mouseOverSelect() && s5.enabled) {
     if (!s5.collapsed) {
       s5.update();      // Actualitzar valor
@@ -198,12 +177,6 @@ void mousePressed() {
     s5.toggle();        // Plegar o desplegar
   }
 
-   if (s6.mouseOverSelect() && s6.enabled) {
-    if (!s6.collapsed) {
-      s6.update();      // Actualitzar valor
-    }
-    s6.toggle();        // Plegar o desplegar
-  }
   
   if (s7.mouseOverSelect() && s7.enabled) {
     if (!s7.collapsed) {
@@ -330,12 +303,8 @@ void mousePressed() {
 void resetFields() {
   TituloLeido.setText("Titulo");
   TituloComprar.setText("Titulo");
-  TituloLista.setText("Titulo");
-  AutorLista.setText("autor");
-  EditorialLista.setText("editorial");
   ISBNLeido.setText("ISBN");
   ISBNComprar.setText("ISBN");
-  ISBNLista.setText("ISBN");
   TituloTops.setText("Titulo");
   Buscar.setText("buscar");
   Filtrar.setText("filtrar");
@@ -348,15 +317,11 @@ void keyPressed () {
   // escuchar las teclas del teclado en los textFields
   TituloLeido.keyPressed(key, (int)keyCode);
   TituloComprar.keyPressed(key, (int)keyCode);
-  TituloLista.keyPressed(key, (int)keyCode);
-  AutorLista.keyPressed(key, (int)keyCode);
-  EditorialLista.keyPressed(key, (int)keyCode);
   TituloTops.keyPressed(key, (int)keyCode);
   Buscar.keyPressed(key, (int)keyCode);
   TituloReto.keyPressed(key, (int)keyCode);
   ISBNLeido.keyPressed(key, (int)keyCode);
   ISBNComprar.keyPressed(key, (int)keyCode);
-  ISBNLista.keyPressed(key, (int)keyCode);
 
   // escuchar las teclas del teclado para el TextArea
   Valoracion.keyPressed(key, (int)keyCode);

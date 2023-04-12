@@ -31,15 +31,9 @@ void draw() {
   case NUEVOLEIDO:
     dibujaNuevoLibro();
     break;
-  case EMPEZAR:
-    dibujarEmpezarLeer();
-    break;
   case NUEVOCOMPRADO:
     dibujaAñadirLibro();
     break;
-  case NUEVOLISTA:
-  dibujaAñadirALaLista();
-  break; 
   case ESTRETOS:
     establecerRetos ();
     break;
@@ -55,14 +49,8 @@ void draw() {
   case LEIDOS:
     verLibrosLeidos ();
     break;
-  case MILISTA:
-    verLibrosPendientes ();
-    break;
   case COMPRAR:
     verMiLista ();
-    break;
-  case ACTIVOS:
-    librosActivos();
     break;
   case LIBRO:
     l1.displayInformacion();

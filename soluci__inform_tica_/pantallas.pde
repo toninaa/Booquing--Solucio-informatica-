@@ -72,7 +72,6 @@ void dibujaNuevoLibro () {
   enableSelectLeidos();
   // dibujar los objetos
   dibujaMenu();
-  esquinaIzquierda();
   fill(getColorAt(1));
   textFont(getFontAt(2));
   dibujaMenu();
@@ -81,7 +80,7 @@ void dibujaNuevoLibro () {
   fill(255);
   stroke(getColorAt(4));
   strokeWeight(2);
-  rect (100, 300, 800, 400);
+  rect (50,200, 1350, 600);
   popStyle();
   PagNuevoLibro();
   textFont(getFontAt(2));
@@ -138,88 +137,6 @@ if(img!=null){
   popStyle();
 }
 
-void dibujaAñadirALaLista () {
-  pushStyle();
-  disableButtons();
-  disableSelects();
-  enableButtonsMenu();
-  enableSelect6();
-  enableButtonsLista();
-  disableImageButton();
-  enableImageButtonLista();
-  dibujaMenu();
-  textFont(getFontAt(2));
-  esquinaIzquierda();
-  fill(getColorAt(1));
-  text("Nuevo libro", 220, 250);
-  fill(255);
-  stroke(getColorAt(4));
-  strokeWeight(2);
-  rect (100, 300, 800, 400);
-  displayButtonsMenu();
-  displayTextFieldLista();
-  displaySelect6();
-  displayButtonsLista();
-  imgButtons[2].display();
-  p.display();
-  
-  if(img!=null){
-    imageMode(CENTER);
-    image(img, 1170, 500, 300,350);
-    textSize(34); textAlign(RIGHT);
-    text(titulo, 750, 750);
-  }
-  else{
-    fill(255); rectMode(CENTER);
-    rect(1170, 500, 300,350);
-    textSize(34); textAlign(RIGHT);
-    text("Sense imatge", 750, 750);
-  }
-  popStyle();
-}
-
-void dibujarEmpezarLeer () {
-  pushStyle();
-  disableButtons();
-  disableImageButton();
-  disableCalendario();
-  enableCalendario();
-  enableButtonsEmpezar();
-  enableButtonCalendario();
-  enableButtonsMenu();
-  disableImageButton();
-  enableImageButtonEmpezar();
-  dibujaMenu();
-  esquinaIzquierda();
-  textFont(getFontAt(2));
-  fill(getColorAt(1));
-  text("Empezar libro", 230, 250);
-  stroke(getColorAt(4));
-  strokeWeight(2);
-  fill(255);
-  rect (100, 300, 800, 400);
-  displayButtonsMenu();
-  displayTextFieldLista();
-  displayButtonsEmpezar();
-  imgButtons[3].display();
-  calendarioInicio();
-  p.display();
-  
- if(img!=null){
-    imageMode(CENTER);
-    image(img, 1170, 500, 300,350);
-    textSize(34); textAlign(RIGHT);
-    text(titulo, 750, 750);
-  }
-  else{
-    fill(255); rectMode(CENTER);
-    rect(1170, 500, 300,350);
-    textSize(34); textAlign(RIGHT);
-    text("Sense imatge", 750, 750);
-  }
-  
-  popStyle();
-}
 
 void establecerTops () {
   pushStyle();
@@ -328,19 +245,6 @@ void verLibrosLeidos () {
   popStyle();
 }
 
-void verLibrosPendientes () {
-  pushStyle();
-  enableButtonsAtrasBiblioteca();
-  fill(115, 135, 123);
-  rect(0, 0, menuWidth, menuHeight);
-  fill(0);
-  textFont(getFontAt(2));
-  text("MI LISTA", 250, 60);
-  filtrosComprarYlista();
-  displayButtonsAtrasBiblioteca();
-  libros();
-  popStyle();
-}
 
 void verMiLista () {
   pushStyle();
@@ -356,27 +260,6 @@ void verMiLista () {
   popStyle();
 }
 
-void librosActivos () {
-  pushStyle();
-  enableButtonsAtrasBiblioteca();
-  fill(115, 135, 123);
-  rect(0, 0, menuWidth, menuHeight);
-  fill(0);
-  textFont(getFontAt(2));
-  text("LIBROS ACTIVOS", 250, 60);
-  displayButtonsAtrasBiblioteca();
-  fill(getColorAt(4));
-  rect(100, 750, 50, 20, 10);
-  rect(600, 750, 100, 20, 10);
-  rect(1100, 750, 150, 20, 10);
-  imageMode(CENTER);
-  displayImg(16, 230, 450, 300, 500);
-  displayImg(18, 730, 450, 300, 500);
-  displayImg(20, 1230, 450, 300, 500);
-
-
-  popStyle();
-}
 
 void informacionLibros() {
   background (255);
