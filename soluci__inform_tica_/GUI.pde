@@ -15,7 +15,7 @@ TextField TituloLeido, TituloComprar, TituloLista, TituloTops, AutorLeido, Autor
 
 TextArea Valoracion, LibrosTop;
 
-Select s1, s2, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15;
+Select s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15;
 
 Counter cRetos, cTops;
 
@@ -262,6 +262,7 @@ void initSelect() {
   String[] ValuesAdquisicion = {"Comprado","Prestado"};
   s1 = new Select(selectValues, 550, 350, selectX, selectY);//Leido
   s2 = new Select(selectValues, 1050, 550, selectX, selectY);//retos
+  s3 = new Select(selectValues, 550, 350, selectX, selectY);//Leido
   s4 = new Select(selectValues, 70, 500, selectX, selectY);//Filtrar generos Leidos
   s5 = new Select(selectAutores, 70, 500, selectX, selectY);//Autor 1 Leido
   s6 = new Select(selectValues, 550, 350, selectX, selectY);//Lista
@@ -301,6 +302,7 @@ void enableSelect6() {
 }
 
 void enableSelectComprado() {
+  s3.setEnabled(true);
   s11.setEnabled(true);
   s12.setEnabled(true);
   s13.setEnabled(true);
@@ -314,6 +316,7 @@ void enableSelectComprado() {
 void disableSelects() {
   s1.setEnabled(false);
   s2.setEnabled(false);
+  s3.setEnabled(false);
   s4.setEnabled(false);
   s5.setEnabled(false);
   s6.setEnabled(false);
@@ -353,6 +356,7 @@ void displaySelect6() {
 }
 
 void displaySelectsComprar() {
+  s3.display();
   s11.display();
   s12.display();
   s13.display();

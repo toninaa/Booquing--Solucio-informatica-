@@ -80,12 +80,12 @@ void mousePressed() {
     String autor2 = s12.getSelectedText();//select
     String valorEditorial = s13.getSelectedText();//select
     String valorISBN = String.valueOf(ISBNComprar.getValue());// textField
-    String valorGenero   = s13.getSelectedText(); // select
+    String valorGenero   = s3.getSelectedText(); // select
     String valorUbi= s14.getSelectedText();// select
     String valorImg = titulo;
     String valorAd= s15.getSelectedText(); //select
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorImg, valorGenero,valorAd );
+    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorImg, valorGenero, valorAd );
     insertInfoTaulaLibro_has_Autor (valorISBN, autor1);
     insertInfoTaulaLibro_has_Autor(valorISBN, autor2);
   } else if (imgButtons[2].mouseOverButton () && imgButtons[2].enabled) {
@@ -176,7 +176,13 @@ void mousePressed() {
     }
     s2.toggle();        // Plegar o desplegar
   }
-
+  
+  if (s3.mouseOverSelect() && s3.enabled) {
+    if (!s3.collapsed) {
+      s3.update();      // Actualitzar valor
+    }
+    s3.toggle();        // Plegar o desplegar
+  }
 
   if (s4.mouseOverSelect() && s4.enabled) {
     if (!s4.collapsed) {
