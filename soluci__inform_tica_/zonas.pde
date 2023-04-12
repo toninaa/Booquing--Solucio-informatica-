@@ -160,8 +160,6 @@ void filtrar () {
 void filtrosLeidos () {
   pushStyle();
   filtrar();
-  enableSelect5();
-  displaySelect5();
   fill(133, 77, 39);
   textFont(getFontAt(4));
   textAlign(LEFT);
@@ -183,9 +181,9 @@ void libros () {
   textFont(getFontAt(5));
   textAlign(LEFT);
   fill(getColorAt(1));
-  displayImg(15, 500, 300, libroWidth*1.5, libroHeight*1.5);
-  text("El Quijote", 630, 330);
-  text("Cervantes", 630, 370);
+  displayImg(28, 500, 300, libroWidth*1.5, libroHeight*1.5);
+  text("Bodas de sangre", 630, 330);
+  text("Federico Garcia Lorca", 630, 370);
   //displayImg(25, 630, 400, 200, 50);
   displayImg(17, 500, 500, libroWidth*1.5, libroHeight*1.5);
   text("La Celestina", 630, 530);

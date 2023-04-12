@@ -64,9 +64,10 @@ void mousePressed() {
     String valorPagRestantes= String.valueOf(0) ;
     String valorUbi= "Leido";
     String valorImg = titulo;
+    String valorAd= ""; 
     // Inserir en la BBDD
     insertInfoTaulaLibro(valorISBN, valorTitulo, valorPagRestantes, valorDiaInicio, valorDiaFin,
-      valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
+      valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero, valorAd);
   } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) {
     p.setEnabled(false);
   } else if (imgButtons[1].mouseOverButton()&& imgButtons[1].enabled) {
@@ -80,8 +81,9 @@ void mousePressed() {
     String valorGenero   = String.valueOf(s3.getSelectedText()); // select
     String valorUbi= String.valueOf("Comprado");
     String valorImg = titulo;
+    String valorAd= ""; 
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
+    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero,valorAd );
   } else if (imgButtons[2].mouseOverButton () && imgButtons[2].enabled) {
     getFontAt(4);
     p.setEnabled(true);
@@ -93,8 +95,9 @@ void mousePressed() {
     String valorGenero   = s6.getSelectedText(); // select
     String valorUbi= "Lista";
     String valorImg = titulo;
+    String valorAd= ""; 
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero);
+    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero, valorAd);
   } else if (imgButtons[3].mouseOverButton() && imgButtons[3].enabled) {
     getFontAt(4);
     p.setEnabled(true);
@@ -117,8 +120,7 @@ void mousePressed() {
     // Inserir en la BBDD
     insertInfoTaulaTop(valorNom, valorNumero, valorLibros);
   } else if (bUnCuento.mouseOverButton() && bUnCuento.enabled) {
-    l1.displayInformacion();
-    //pantalla = PANTALLA.LIBRO;
+    pantalla = PANTALLA.LIBRO;
   }else if (ImagenComprado.mouseOverButton() && ImagenComprado.enabled) {
     selectInput("Selecciona una imatge ...", "fileSelected");
   }
@@ -189,12 +191,6 @@ void mousePressed() {
     s4.toggle();        // Plegar o desplegar
   }
 
-  if (s5.mouseOverSelect() && s5.enabled) {
-    if (!s5.collapsed) {
-      s5.update();      // Actualitzar valor
-    }
-    s5.toggle();        // Plegar o desplegar
-  }
    if (s6.mouseOverSelect() && s6.enabled) {
     if (!s6.collapsed) {
       s6.update();      // Actualitzar valor
@@ -262,19 +258,19 @@ void mousePressed() {
 
 // funcion para resetar los TextFields y el textArea
 void resetFields() {
-  TituloLeido.setText("título");
+  TituloLeido.setText("Titulo");
   AutorLeido.setText("autor");
   EditorialLeido.setText("editorial");
-  TituloComprar.setText("título");
+  TituloComprar.setText("Titulo");
   AutorComprar.setText("autor");
   EditorialComprar.setText("editorial");
-  TituloLista.setText("título");
+  TituloLista.setText("Titulo");
   AutorLista.setText("autor");
   EditorialLista.setText("editorial");
   ISBNLeido.setText("ISBN");
   ISBNComprar.setText("ISBN");
   ISBNLista.setText("ISBN");
-  TituloTops.setText("título");
+  TituloTops.setText("Titulo");
   Buscar.setText("buscar");
   Filtrar.setText("filtrar");
   TituloReto.setText("titulo");

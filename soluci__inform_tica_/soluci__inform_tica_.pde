@@ -9,10 +9,7 @@ void setup() {
   setMedias();
   setGUI();
   
-  
-  //String libros = getInfoTaulaTop("Top 10 mejores novelas");
-  //print(libros);
-  
+ 
 }
 
 
@@ -66,6 +63,9 @@ void draw() {
     break;
   case ACTIVOS:
     librosActivos();
+    break;
+  case LIBRO:
+    l1.displayInformacion();
     break;
   }
   

@@ -40,19 +40,19 @@ void insertInfoTaulaTop(String nom, String num, String libros) {
 
 // Insertar los dados de la tabla Libro
 void insertInfoTaulaLibro(String isbn, String titulo, String Pag, String Inicio, String Fin, String Ranking,
-  String Valoracion, String Ubi, String Edi, String Autor, String Img, String Genero) {
-  String q = "INSERT INTO Libro (`ISBN`, `Título`, `PagRestantes`, `DiaInicio`, `DiaFin`, `Ranking`, `Valoración`,"+
-  "`Ubicación`, `Editorial_idEditorial`, `Autor_Nombre`, `Imagen_Imagen`, `Genero_idGenero`) VALUES"+
+  String Valoracion, String Ubi, String Edi, String Autor, String Img, String Genero, String Ad) {
+  String q = "INSERT INTO Libro (`ISBN`, `Titulo`, `DiaInicio`, `DiaFin`, `Ranking`, `Valoracion`,"+
+  "`Estado`, `Editorial_idEditorial`, `Autor_Nombre`, `Imagen_Imagen`, `Genero_idGenero`, 'Adquisicion') VALUES"+
   "('"+isbn+"','"+titulo+"','"+Pag+"','"+Inicio+"','"+Fin+"','"+Ranking+"','"+Valoracion+"',"+
-  "'"+Ubi+"','"+Edi+"','"+Autor+"', '"+Img+"','"+Genero+"')";
+  "'"+Ubi+"','"+Edi+"','"+Autor+"', '"+Img+"','"+Genero+"','"+Ad+"')";
   println(q);
   msql.query(q);
 }
 
 // Insertar los dados de la tabla Libro /fechas NULL)
-void insertInfoTaulaLibro(String isbn, String titulo, String Ubi, String Edi, String Autor, String Img, String Genero) {
-  String q = "INSERT INTO Libro (`ISBN`, `Título`, `Ubicación`, `Editorial_idEditorial`, `Autor_Nombre`, `Imagen_Imagen`,"+
-  "`Genero_idGenero`) VALUES ('"+isbn+"','"+titulo+"','"+Ubi+"','"+Edi+"','"+Autor+"','"+Img+"','"+Genero+"')";
+void insertInfoTaulaLibro(String isbn, String titulo, String Ubi, String Edi, String Autor, String Img, String Genero, String Ad) {
+  String q = "INSERT INTO Libro (`ISBN`, `Titulo`, `Estado`, `Editorial_idEditorial`, `Autor_Nombre`, `Imagen_Imagen`,"+
+  "`Genero_idGenero`, 'Adquisicion') VALUES ('"+isbn+"','"+titulo+"','"+Ubi+"','"+Edi+"','"+Autor+"','"+Img+"','"+Genero+"','"+Ad+"')";
   println(q);
   msql.query(q);
 }
@@ -106,13 +106,13 @@ int getIdTaulaTop(String nom) {
 
 //Devuelve la informacion de los Tops (libros)
 String[] getInfoTaulaTop(String nombreTop) {
-  String qR = "SELECT COUNT(*) AS n FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Título ASC";
+  String qR = "SELECT COUNT(*) AS n FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Titulo ASC";
   msql.query(qR);
   msql.next();
   int numRows = msql.getInt("n");
   String[] libros = new String[numRows];
 
-  String q = "SELECT l.Título AS titulo FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Título ASC";
+  String q = "SELECT l.Titulo AS titulo FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Titulo ASC";
   msql.query(q);
   int  nr=0;
   while (msql.next()) {

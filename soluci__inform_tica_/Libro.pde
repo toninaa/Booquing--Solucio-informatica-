@@ -66,8 +66,6 @@ class Libro {
 
     text(ranking, width/2-130, 460, 350, 200);
 
-
-
     popStyle();
   }
 }

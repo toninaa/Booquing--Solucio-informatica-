@@ -2,8 +2,7 @@
 // Enumeracion de las pantallas de la app
 enum PANTALLA {
   INICIO, BIBLIO, PERFIL, LEIDOS, ESTRETOS, ESTTOPS, NUEVOLEIDO, NUEVOCOMPRADO, NUEVOLISTA, MILISTA,
-    COMPRAR, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, EMPEZAR, LIBRO
-};
+    COMPRAR, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, EMPEZAR, LIBRO};
 
 // pantalla inicial
 PANTALLA pantalla = PANTALLA.INICIO;
@@ -54,10 +53,8 @@ String[] stars = {"imgs/ON.png", "imgs/OFF.png"};
 
 // datos del libro
 String [] info1 = {"Un cuento perfecto",
-  "Elisabet Benavent", "Planeta", "Novela", "Ranking",
-  "Valoracion: jflkajdsklfjlksdjfkljsdlkfjksjfkadjlkfjlkdjflkjdlkfjklsd"};
-
-
+  "Elisabet Benavent", "Suma", "Novela", "Ranking",
+  "Valoracion: Muy buen libro con un final inesperado"};
 
 
 
@@ -139,7 +136,7 @@ void disableTimeField() {
 
 // carrousel
 void initCarrouselBiblio () {
-  String[] titulosEs1 = new String[9];
+  String[] titulosEs1 = new String[10];
 
   for (int i =0; i<titulosEs1.length; i++) {
     titulosEs1[i] = URL_IMGS+"/portada0"+i+".jpg";
@@ -147,7 +144,7 @@ void initCarrouselBiblio () {
   es1 = new Carrousel(libroWidth+40, height/3-150, libroWidth+400-libroWidth+40, libroHeight, 4);
   es1.setImages(titulosEs1);
   es1.setButtons();
-
+  
   es2 = new Carrousel(libroWidth+40, height/2, libroWidth+400-libroWidth+40, libroHeight, 4);
   es2.setImages(titulosEs1);
   es2.setButtons();
@@ -213,13 +210,58 @@ void disableCounters() {
 
 // selects
 void initSelect() {
-  String[] selectValues = {"Narrativa", "Drama", "Poesia", "Teatro", "Clásicos", "Romance" };
-  String[] selectValoraciones = {"1", "2", "3", "4", "5" };
+  String q = "SELECT count(*) as total from Genero";
+  msql.query(q);
+  int total=0;
+  if (msql.next()) {
+    total = Integer.parseInt(msql.getString("total"));
+
+  }
+  String q = "SELECT idGenero from Genero";
+  msql.query(q);
+  String [] selectValues= new String [total];
+  int  nr=0;
+  while (msql.next()) {
+    selectValues[nr] = msql.getString("idGenero");
+    nr++;
+  }
+  
+  String q = "SELECT count(*) as total from Genero";
+  msql.query(q);
+  int total=0;
+  if (msql.next()) {
+    total = Integer.parseInt(msql.getString("total"));
+
+  }
+  String q = "SELECT idGenero from Genero";
+  msql.query(q);
+  String [] selectValues= new String [total];
+  int  nr=0;
+  while (msql.next()) {
+    selectValues[nr] = msql.getString("idGenero");
+    nr++;
+  }
+  
+  String q = "SELECT count(*) as total from Genero";
+  msql.query(q);
+  int total=0;
+  if (msql.next()) {
+    total = Integer.parseInt(msql.getString("total"));
+
+  }
+  String q = "SELECT idGenero from Genero";
+  msql.query(q);
+  String [] selectValues= new String [total];
+  int  nr=0;
+  while (msql.next()) {
+    selectValues[nr] = msql.getString("idGenero");
+    nr++;
+  }
+  
   s1 = new Select(selectValues, 550, 350, selectX, selectY);//Leido
   s2 = new Select(selectValues, 1050, 550, selectX, selectY);//retos
   s3 = new Select(selectValues, 550, 350, selectX, selectY);//Comprado
   s4 = new Select(selectValues, 70, 500, selectX, selectY);//Filtrar generos Leidos
-  s5 = new Select(selectValoraciones, 70, 350, selectX, selectY);//Filtrar valoraciones Leidos
   s6 = new Select(selectValues, 550, 350, selectX, selectY);//Lista
 }
 
@@ -239,9 +281,6 @@ void enableSelect4() {
   s4.setEnabled(true);
 }
 
-void enableSelect5() {
-  s5.setEnabled(true);
-}
 
 void enableSelect6() {
   s6.setEnabled(true);
@@ -253,7 +292,6 @@ void disableSelects() {
   s2.setEnabled(false);
   s3.setEnabled(false);
   s4.setEnabled(false);
-  s5.setEnabled(false);
   s6.setEnabled(false);
 }
 
@@ -273,10 +311,6 @@ void displaySelect3() {
 
 void displaySelect4() {
   s4.display();
-}
-
-void displaySelect5() {
-  s5.display();
 }
 
 void displaySelect6() {
@@ -304,19 +338,19 @@ void initTextField() {
   ISBNComprar = new TextField(120, 480, CampoX, CampoY);
   ISBNLista = new TextField(120, 480, CampoX, CampoY);
   TituloReto=  new TextField(120, 425, CampoX, CampoY);
-  TituloLeido.setText("título");
+  TituloLeido.setText("Titulo");
   AutorLeido.setText("autor");
   EditorialLeido.setText("editorial");
-  TituloComprar.setText("título");
+  TituloComprar.setText("Titulo");
   AutorComprar.setText("autor");
   EditorialComprar.setText("editorial");
-  TituloLista.setText("título");
+  TituloLista.setText("Titulo");
   AutorLista.setText("autor");
   EditorialLista.setText("editorial");
   ISBNLeido.setText("ISBN");
   ISBNComprar.setText("ISBN");
   ISBNLista.setText("ISBN");
-  TituloTops.setText("título");
+  TituloTops.setText("Titulo");
   Buscar.setText("buscar...");
   Filtrar.setText("buscar...");
   TituloReto.setText("titulo");
@@ -410,8 +444,6 @@ void initButtons () {
   buttons [25]= new Button ("Imagen", 1100, 700, LeidoX, LeidoY);
   buttons [26]= new Button ("Imagen", 1100, 700, LeidoX, LeidoY);
   
-
-
 
   AtrasP = buttons [0];
   Biblio =buttons [1];

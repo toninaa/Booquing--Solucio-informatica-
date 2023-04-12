@@ -13,7 +13,7 @@ PImage[] imgTrofeos;
 
 // Establecer las imagenes de la App
 void setMedias() {
-  this.imgs = new PImage[28];
+  this.imgs = new PImage[29];
   this.imgs[0] = loadImage(URL_IMGS+"/logo1.png");
   this.imgs[1] = loadImage(URL_IMGS+"/trofeo0.png");
   this.imgs[2] = loadImage(URL_IMGS+"/estanteria.png");
@@ -38,10 +38,12 @@ void setMedias() {
   this.imgs[21] = loadImage(URL_IMGS+"/portada06.jpg");
   this.imgs[22] = loadImage(URL_IMGS+"/portada07.jpg");
   this.imgs[23] = loadImage(URL_IMGS+"/portada08.jpg");
-  this.imgs[24] = loadImage(URL_IMGS+"/portada10.jpg");
+  this.imgs[24] = loadImage(URL_IMGS+"/portada010.jpg");
   this.imgs[25] = loadImage(URL_IMGS+"/ON.png");
   this.imgs[26] = loadImage(URL_IMGS+"/OFF.png");
-  this.imgs[27]= loadImage(URL_IMGS+"/portada13.png");
+  this.imgs[27]= loadImage(URL_IMGS+"/portada13.jpg");
+  this.imgs[28]= loadImage(URL_IMGS+"/portada011.jpg");
+
 }
 // array para el carrousel de trofeos
 void setTrofeos() {
@@ -65,8 +67,11 @@ void setImages() {
   this.imgPortada[5] = loadImage(URL_IMGS+"/portada05.jpg");
   this.imgPortada[6] = loadImage(URL_IMGS+"/portada06.jpg");
   this.imgPortada[7] = loadImage(URL_IMGS+"/portada07.jpg");
-  this.imgPortada[8] = loadImage(URL_IMGS+"/portada08.jpg");
+  this.imgPortada[8] = loadImage(URL_IMGS+"/portada010.jpg");
+  
 }
+
+
 
 // Getter del número de imagenes
 int getNumImatges() {

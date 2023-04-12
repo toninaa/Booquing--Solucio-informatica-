@@ -62,7 +62,7 @@ class PopUp {
 
       line(x-275, y + 2*b-120, x+w-275, y + 2*b-120);
 
-      // Título
+      // Titulo
       fill(0);
       textSize(35);
       textAlign(CENTER);
