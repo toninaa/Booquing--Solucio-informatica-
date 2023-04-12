@@ -141,25 +141,10 @@ void displayPopUp () {
   }
 }
 
-void filtrar () {
-  pushStyle();
-  disableSelects();
-  enableSelect4();
-  fill(133, 77, 39);
-  textFont(getFontAt(2));
-  text("Filtrar", 100, 200);
-  stroke(231, 227, 147);
-  strokeWeight(2);
-  fill(255);
-  rect(50, 250, FiltrarW, FiltrarH);
-  displayTextFieldFiltrar();
-  displaySelect4();
-  popStyle();
-}
+
 
 void filtrosLeidos () {
   pushStyle();
-  filtrar();
   fill(133, 77, 39);
   textFont(getFontAt(4));
   textAlign(LEFT);
@@ -170,7 +155,6 @@ void filtrosLeidos () {
 
 void filtrosComprarYlista () {
   pushStyle();
-  filtrar();
   fill(133, 77, 39);
   textFont(getFontAt(4));
   textAlign(LEFT);

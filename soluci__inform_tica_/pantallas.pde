@@ -69,7 +69,7 @@ void dibujaNuevoLibro () {
   enableCalendario();
   enableButtonCalendario();
   enableButtonsMenu();
-  enableSelect1();
+  enableSelectLeidos();
   // dibujar los objetos
   dibujaMenu();
   esquinaIzquierda();
@@ -91,10 +91,7 @@ void dibujaNuevoLibro () {
   textFont(getFontAt(5));
   displayTextArea();
   calendarioInicioFin();
-  displaySelect1();
-  displaySelect5();
-  displaySelect7();
-  displaySelect8();
+  displaySelectLeido();
   imgButtons[0].display();
   textFont(getFontAt(2));
   p.display();
@@ -109,7 +106,7 @@ void dibujaAñadirLibro () {
   enableImageButtonComprar();
   enableButtonsComprar();
   enableButtonsMenu();
-  enableSelect3();
+  enableSelectComprado();
   dibujaMenu();
   textFont(getFontAt(2));
   esquinaIzquierda();
@@ -121,7 +118,7 @@ void dibujaAñadirLibro () {
   rect (100, 300, 800, 400);
   displayButtonsMenu();
   displayTextFieldComprar();
-  displaySelect3();
+  displaySelectsComprar();
   displayButtonsComprar();
   imgButtons[1].display();
   p.display();

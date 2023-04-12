@@ -39,12 +39,12 @@ void insertInfoTaulaTop(String nom, String num, String libros) {
 }
 
 // Insertar los dados de la tabla Libro
-void insertInfoTaulaLibro(String isbn, String titulo, String Pag, String Inicio, String Fin, String Ranking,
-  String Valoracion, String Ubi, String Edi, String Autor, String Img, String Genero, String Ad) {
+void insertInfoTaulaLibro(String isbn, String titulo, String Inicio, String Fin, String Ranking,
+  String Valoracion, String Ubi, String Edi,  String Img, String Genero, String Ad) {
   String q = "INSERT INTO Libro (`ISBN`, `Titulo`, `DiaInicio`, `DiaFin`, `Ranking`, `Valoracion`,"+
   "`Estado`, `Editorial_idEditorial`, `Autor_Nombre`, `Imagen_Imagen`, `Genero_idGenero`, 'Adquisicion') VALUES"+
-  "('"+isbn+"','"+titulo+"','"+Pag+"','"+Inicio+"','"+Fin+"','"+Ranking+"','"+Valoracion+"',"+
-  "'"+Ubi+"','"+Edi+"','"+Autor+"', '"+Img+"','"+Genero+"','"+Ad+"')";
+  "('"+isbn+"','"+titulo+"','"+Inicio+"','"+Fin+"','"+Ranking+"','"+Valoracion+"',"+
+  "'"+Ubi+"','"+Edi+"','"+Img+"','"+Genero+"','"+Ad+"')";
   println(q);
   msql.query(q);
 }
@@ -53,6 +53,14 @@ void insertInfoTaulaLibro(String isbn, String titulo, String Pag, String Inicio,
 void insertInfoTaulaLibro(String isbn, String titulo, String Ubi, String Edi, String Autor, String Img, String Genero, String Ad) {
   String q = "INSERT INTO Libro (`ISBN`, `Titulo`, `Estado`, `Editorial_idEditorial`, `Autor_Nombre`, `Imagen_Imagen`,"+
   "`Genero_idGenero`, 'Adquisicion') VALUES ('"+isbn+"','"+titulo+"','"+Ubi+"','"+Edi+"','"+Autor+"','"+Img+"','"+Genero+"','"+Ad+"')";
+  println(q);
+  msql.query(q);
+}
+
+// Insertar los dados de la tabla Libro
+void insertInfoTaulaLibro_has_Autor(String isbn, String autor) {
+  String q = "INSERT INTO Libro_has_Autor (`Libro_ISBN`,'Autor_Nombre') VALUES"+
+  "('"+isbn+"','"+autor+"')";
   println(q);
   msql.query(q);
 }

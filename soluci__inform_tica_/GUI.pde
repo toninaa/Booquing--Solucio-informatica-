@@ -15,7 +15,7 @@ TextField TituloLeido, TituloComprar, TituloLista, TituloTops, AutorLeido, Autor
 
 TextArea Valoracion, LibrosTop;
 
-Select s1, s2, s3, s4, s5, s6, s7, s8;
+Select s1, s2, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15;
 
 Counter cRetos, cTops;
 
@@ -258,31 +258,39 @@ void initSelect() {
     t++;
   }
   
+  String[] ValuesEstado = {"Leido","No Leido"};
+  String[] ValuesAdquisicion = {"Comprado","Prestado"};
   s1 = new Select(selectValues, 550, 350, selectX, selectY);//Leido
   s2 = new Select(selectValues, 1050, 550, selectX, selectY);//retos
-  s3 = new Select(selectValues, 550, 350, selectX, selectY);//Comprado
   s4 = new Select(selectValues, 70, 500, selectX, selectY);//Filtrar generos Leidos
   s5 = new Select(selectAutores, 70, 500, selectX, selectY);//Autor 1 Leido
   s6 = new Select(selectValues, 550, 350, selectX, selectY);//Lista
   s7 = new Select(selectAutores, 10, 300, selectX, selectY);//Autor 2 Leido
   s8= new Select(selectValuesEditorial, 20, 200, selectX, selectY);//Editorial Leido
+  s9 = new Select(ValuesEstado, 160, 200, selectX, selectY);//Estado Leido
+  s10= new Select(ValuesAdquisicion, 300, 200, selectX, selectY);//Adquisicion Leido
+  s11= new Select(selectAutores, 120, 430, selectX, selectY);//Autor 1 Comprado
+  s12= new Select(selectAutores, 120, 530, selectX, selectY);//Autor 2 Comprado
+  s13= new Select(selectValuesEditorial, 20, 200, selectX, selectY);//Editorial Comprado
+  s14= new Select(ValuesEstado, 300, 200, selectX, selectY);//Estado Comprado
+  s15= new Select(ValuesAdquisicion, 500, 200, selectX, selectY);//Adquisicion Comprado
 }
 
-void enableSelect1() {
+
+void enableSelectLeidos() {
   s1.setEnabled(true);
+  s4.setEnabled(true);
+  s7.setEnabled(true);
+  s8.setEnabled(true);
+  s9.setEnabled(true);
+  s10.setEnabled(true);  
 }
 
 void enableSelect2() {
   s2.setEnabled(true);
 }
 
-void enableSelect3() {
-  s3.setEnabled(true);
-}
 
-void enableSelect4() {
-  s4.setEnabled(true);
-}
 
 void enableSelect5() {
   s5.setEnabled(true);
@@ -292,42 +300,49 @@ void enableSelect6() {
   s6.setEnabled(true);
 }
 
-void enableSelect7() {
-  s7.setEnabled(true);
+void enableSelectComprado() {
+  s11.setEnabled(true);
+  s12.setEnabled(true);
+  s13.setEnabled(true);
+  s14.setEnabled(true);
+  s15.setEnabled(true);
+  
 }
 
-void enableSelect8() {
-  s8.setEnabled(true);
-}
+
 
 void disableSelects() {
   s1.setEnabled(false);
   s2.setEnabled(false);
-  s3.setEnabled(false);
   s4.setEnabled(false);
   s5.setEnabled(false);
   s6.setEnabled(false);
   s7.setEnabled(false);
   s8.setEnabled(false);
+  s9.setEnabled(false);
+  s10.setEnabled(false);
+  s11.setEnabled(false);
+  s12.setEnabled(false);
+  s13.setEnabled(false);
+  s14.setEnabled(false);
+  s15.setEnabled(false);
 }
 
 
 // dibujar selects
-void displaySelect1() {
+void displaySelectLeido() {
   s1.display();
+  s4.display();
+  s7.display();
+  s8.display();
+  s9.display();
+  s10.display(); 
 }
 
 void displaySelect2() {
   s2.display();
 }
 
-void displaySelect3() {
-  s3.display();
-}
-
-void displaySelect4() {
-  s4.display();
-}
 
 void displaySelect5() {
   s5.display();
@@ -337,13 +352,18 @@ void displaySelect6() {
   s6.display();
 }
 
-void displaySelect7() {
-  s7.display();
+void displaySelectsComprar() {
+  s11.display();
+  s12.display();
+  s13.display();
+  s14.display();
+  s15.display();
 }
 
-void displaySelect8() {
-  s8.display();
-}
+
+
+
+
 
 
 
@@ -351,8 +371,6 @@ void displaySelect8() {
 void initTextField() {
   TituloLeido = new TextField(120, 330, CampoX, CampoY);
   TituloComprar = new TextField(120, 330, CampoX, CampoY);
-  AutorComprar = new TextField(120, 380, CampoX, CampoY);
-  EditorialComprar = new TextField(120, 430, CampoX, CampoY);
   TituloLista = new TextField(120, 330, CampoX, CampoY);
   AutorLista = new TextField(120, 380, CampoX, CampoY);
   EditorialLista = new TextField(120, 430, CampoX, CampoY);
@@ -365,8 +383,6 @@ void initTextField() {
   TituloReto=  new TextField(120, 425, CampoX, CampoY);
   TituloLeido.setText("Titulo");
   TituloComprar.setText("Titulo");
-  AutorComprar.setText("autor");
-  EditorialComprar.setText("editorial");
   TituloLista.setText("Titulo");
   AutorLista.setText("autor");
   EditorialLista.setText("editorial");
@@ -387,8 +403,6 @@ void displayTextFieldLeido () {
 
 void displayTextFieldComprar () {
   TituloComprar.display();
-  AutorComprar.display();
-  EditorialComprar.display();
   ISBNComprar.display();
 }
 

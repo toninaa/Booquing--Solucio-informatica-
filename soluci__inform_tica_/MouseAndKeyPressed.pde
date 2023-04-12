@@ -53,21 +53,22 @@ void mousePressed() {
     p.setEnabled(true);
     // Coger los valores del campo del formulario
     String valorTitulo= TituloLeido.getValue();//textField
-    String valorAutor = AutorLeido.getValue();//textField
-    String valorEditorial = EditorialLeido.getValue();//textField
+    String autor1 = s5.getSelectedText(); 
+    String autor2 = s7.getSelectedText(); 
+    String valorEditorial = s8.getSelectedText();
     String valorISBN = ISBNLeido.getValue();// textField
     String valorGenero   = s1.getSelectedText(); // select
     String valorRanking = String.valueOf(cblLeido.getNumSelected());//checkBoxStars
     String valorDiaInicio= String.valueOf(dataCalendariInicio);
     String valorDiaFin = String.valueOf(dataCalendariFin);
     String valorValoracion= Valoracion.getValue();
-    String valorPagRestantes= String.valueOf(0) ;
-    String valorUbi= "Leido";
+    String valorUbi= s9.getSelectedText();
     String valorImg = titulo;
-    String valorAd= ""; 
+    String valorAd= s10.getSelectedText(); 
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo, valorPagRestantes, valorDiaInicio, valorDiaFin,
-      valorRanking, valorValoracion, valorUbi, valorEditorial, valorAutor, valorImg, valorGenero, valorAd);
+    insertInfoTaulaLibro(valorISBN, valorTitulo, valorDiaInicio, valorDiaFin, valorRanking, valorValoracion, valorUbi, valorEditorial, valorImg, valorGenero, valorAd);
+    insertInfoTaulaLibro_has_Autor (valorISBN, autor1);
+    insertInfoTaulaLibro_has_Autor(valorISBN, autor2);
   } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) {
     p.setEnabled(false);
   } else if (imgButtons[1].mouseOverButton()&& imgButtons[1].enabled) {
@@ -78,7 +79,7 @@ void mousePressed() {
     String valorAutor = String.valueOf(AutorComprar.getValue());//textField
     String valorEditorial = String.valueOf(EditorialComprar.getValue());//textField
     String valorISBN = String.valueOf(ISBNComprar.getValue());// textField
-    String valorGenero   = String.valueOf(s3.getSelectedText()); // select
+    String valorGenero   = String.valueOf(s13.getSelectedText()); // select
     String valorUbi= String.valueOf("Comprado");
     String valorImg = titulo;
     String valorAd= ""; 
@@ -133,11 +134,7 @@ void mousePressed() {
 
   // activar el cambio de color al estar encima del textField
   TituloLeido.isPressed();
-  AutorLeido.isPressed();
-  EditorialLeido.isPressed();
   TituloComprar.isPressed();
-  AutorComprar.isPressed();
-  EditorialComprar.isPressed();
   TituloLista.isPressed();
   AutorLista.isPressed();
   EditorialLista.isPressed();
@@ -177,12 +174,6 @@ void mousePressed() {
     s2.toggle();        // Plegar o desplegar
   }
 
-  if (s3.mouseOverSelect() && s3.enabled) {
-    if (!s3.collapsed) {
-      s3.update();      // Actualitzar valor
-    }
-    s3.toggle();        // Plegar o desplegar
-  }
 
   if (s4.mouseOverSelect() && s4.enabled) {
     if (!s4.collapsed) {
@@ -217,6 +208,55 @@ void mousePressed() {
       s8.update();      // Actualitzar valor
     }
     s8.toggle();        // Plegar o desplegar
+  }
+  
+  if (s9.mouseOverSelect() && s9.enabled) {
+    if (!s9.collapsed) {
+      s9.update();      // Actualitzar valor
+    }
+    s9.toggle();        // Plegar o desplegar
+  }
+  
+  if (s10.mouseOverSelect() && s10.enabled) {
+    if (!s10.collapsed) {
+      s10.update();      // Actualitzar valor
+    }
+    s10.toggle();        // Plegar o desplegar
+  }
+  
+  if (s11.mouseOverSelect() && s11.enabled) {
+    if (!s11.collapsed) {
+      s11.update();      // Actualitzar valor
+    }
+    s11.toggle();        // Plegar o desplegar
+  }
+  
+  if (s12.mouseOverSelect() && s12.enabled) {
+    if (!s12.collapsed) {
+      s12.update();      // Actualitzar valor
+    }
+    s12.toggle();        // Plegar o desplegar
+  }
+  
+  if (s13.mouseOverSelect() && s13.enabled) {
+    if (!s13.collapsed) {
+      s13.update();      // Actualitzar valor
+    }
+    s13.toggle();        // Plegar o desplegar
+  }
+  
+  if (s14.mouseOverSelect() && s14.enabled) {
+    if (!s14.collapsed) {
+      s14.update();      // Actualitzar valor
+    }
+    s14.toggle();        // Plegar o desplegar
+  }
+  
+  if (s15.mouseOverSelect() && s15.enabled) {
+    if (!s15.collapsed) {
+      s15.update();      // Actualitzar valor
+    }
+    s15.toggle();        // Plegar o desplegar
   }
 
   // CALENDARIO
@@ -281,8 +321,6 @@ void mousePressed() {
 void resetFields() {
   TituloLeido.setText("Titulo");
   TituloComprar.setText("Titulo");
-  AutorComprar.setText("autor");
-  EditorialComprar.setText("editorial");
   TituloLista.setText("Titulo");
   AutorLista.setText("autor");
   EditorialLista.setText("editorial");
@@ -300,11 +338,7 @@ void resetFields() {
 void keyPressed () {
   // escuchar las teclas del teclado en los textFields
   TituloLeido.keyPressed(key, (int)keyCode);
-  AutorLeido.keyPressed(key, (int)keyCode);
-  EditorialLeido.keyPressed(key, (int)keyCode);
   TituloComprar.keyPressed(key, (int)keyCode);
-  AutorComprar.keyPressed(key, (int)keyCode);
-  EditorialComprar.keyPressed(key, (int)keyCode);
   TituloLista.keyPressed(key, (int)keyCode);
   AutorLista.keyPressed(key, (int)keyCode);
   EditorialLista.keyPressed(key, (int)keyCode);
