@@ -118,22 +118,7 @@ void calendarioInicioFin () {
   popStyle();
 }
 
-void calendarioInicio () {
-  pushStyle();
-  fill(0);
-  textFont(getFontAt(4));
-  text("Inicio:", 170, 600);
-  fill(255);
-  stroke(231, 227, 147);
-  rect(230, 570, 140, 40, 5);
-  fill(133, 77, 39);
-  text(dataCalendariInicio, 300, 600);
-  CalendarioI.display1();
-  CalendarioF.display1();
-  cI.display();
-  cF.display();
-  popStyle();
-}
+
 
 void displayPopUp () {
   if (imgButtons[0].mouseOverButton()) {
@@ -143,24 +128,9 @@ void displayPopUp () {
 
 
 
-void filtrosLeidos () {
-  pushStyle();
-  fill(133, 77, 39);
-  textFont(getFontAt(4));
-  textAlign(LEFT);
-  text("Valoraciones", 70, 320);
-  text("Genero", 70, 470);
-  popStyle();
-}
 
-void filtrosComprarYlista () {
-  pushStyle();
-  fill(133, 77, 39);
-  textFont(getFontAt(4));
-  textAlign(LEFT);
-  text("Genero", 70, 320);
-  popStyle();
-}
+
+
 void libros () {
   textFont(getFontAt(5));
   textAlign(LEFT);

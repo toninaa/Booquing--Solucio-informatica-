@@ -46,7 +46,7 @@ class Option {
    rect(this.x, this.y, this.w, this.h);    // Rectangulo de l'option
    
    // Texto (color, alineación y medida)
-   fill(133, 77, 39); textAlign(CENTER); textSize(24);
+   fill(133, 77, 39); textAlign(CENTER); textSize(24); getFontAt(4);
    text(textBoto, this.x + this.w/2, this.y + this.h/2 + 10);
    popStyle();
  }

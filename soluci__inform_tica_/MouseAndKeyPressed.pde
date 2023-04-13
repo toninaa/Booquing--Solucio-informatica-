@@ -43,20 +43,16 @@ void mousePressed() {
     p.setEnabled(true);
     // Coger los valores del campo del formulario
     String valorTitulo= TituloLeido.getValue();//textField
-    String autor1 = s5.getSelectedText(); 
-    String autor2 = s7.getSelectedText(); 
-    String valorEditorial = s8.getSelectedText();
+    String autor1 = tListAutor1Leido.selectedValue; 
+    String autor2 = tListAutor2Leido.selectedValue; 
+    String valorEditorial = tListEditorialLeido.selectedValue;
     String valorISBN = ISBNLeido.getValue();// textField
     String valorGenero   = s1.getSelectedText(); // select
-    String valorRanking = String.valueOf(cblLeido.getNumSelected());//checkBoxStars
-    String valorDiaInicio= String.valueOf(dataCalendariInicio);
-    String valorDiaFin = String.valueOf(dataCalendariFin);
-    String valorValoracion= Valoracion.getValue();
     String valorUbi= s9.getSelectedText();
     String valorImg = titulo;
     String valorAd= s10.getSelectedText(); 
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo, valorDiaInicio, valorDiaFin, valorRanking, valorValoracion, valorUbi, valorEditorial, valorImg, valorGenero, valorAd);
+    insertInfoTaulaLibro(valorISBN, valorTitulo,valorUbi, valorEditorial, valorImg, valorGenero, valorAd);
     insertInfoTaulaLibro_has_Autor (valorISBN, autor1);
     insertInfoTaulaLibro_has_Autor(valorISBN, autor2);
   } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) {
@@ -65,57 +61,38 @@ void mousePressed() {
     getFontAt(4);
     p.setEnabled(true);
     // Coger los valores del campo del formulario
-    String valorTitulo= TituloComprar.getValue();//textField
-    String autor1 = s11.getSelectedText();//select
-    String autor2 = s12.getSelectedText();//select
-    String valorEditorial = s13.getSelectedText();//select
     String valorISBN = String.valueOf(ISBNComprar.getValue());// textField
-    String valorGenero   = s3.getSelectedText(); // select
     String valorUbi= s14.getSelectedText();// select
-    String valorImg = titulo;
+    String valorRanking = String.valueOf(cblLeido.getNumSelected());//checkBoxStars
+    String valorDiaInicio= String.valueOf(dataCalendariInicio);
+    String valorDiaFin = String.valueOf(dataCalendariFin);
+    String valorValoracion= Valoracion.getValue();
     String valorAd= s15.getSelectedText(); //select
-    // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorImg, valorGenero, valorAd );
-    insertInfoTaulaLibro_has_Autor (valorISBN, autor1);
-    insertInfoTaulaLibro_has_Autor(valorISBN, autor2);
+    // Modificar en la BBDD
+    updateInfoLibro(valorDiaInicio,valorDiaFin,valorRanking, valorValoracion,valorUbi,valorAd,valorISBN);
+    
   } else if (imgButtons[2].mouseOverButton () && imgButtons[2].enabled) {
     getFontAt(4);
     p.setEnabled(true);
-    // Coger los valores del campo del formulario
-    String valorTitulo= TituloLista.getValue();//textField
-    String valorAutor = AutorLista.getValue();//textField
-    String valorEditorial = EditorialLista.getValue();//textField
-    String valorISBN = ISBNLista.getValue();// textField
-    String valorGenero   = s6.getSelectedText(); // select
-    String valorUbi= "Lista";
-    String valorImg = titulo;
-    String valorAd= ""; 
+     String valorNumero = String.valueOf(cTops.getValue());//counter
+    String valorNom = TituloTops.getValue();//textField
+    String valorLibros = LibrosTop.getValue(); // textArea
     // Inserir en la BBDD
-    insertInfoTaulaLibro(valorISBN, valorTitulo, valorUbi, valorEditorial, valorImg, valorGenero, valorAd);
+    insertInfoTaulaTop(valorNom, valorNumero, valorLibros);
   } else if (imgButtons[3].mouseOverButton() && imgButtons[3].enabled) {
     getFontAt(4);
     p.setEnabled(true);
-  } else if (imgButtons[5].mouseOverButton()  && imgButtons[5].enabled) {
-    getFontAt(4);
-    p.setEnabled(true);
-    // Coger los valores del campo del formulario
+      // Coger los valores del campo del formulario
     String valorTiempo= tif.getValue();//textTimeField
     String valorGenero   = s2.selectedValue; // select
     String valorNumero = String.valueOf(cRetos.getValue());//counter
     String valorNom = TituloReto.getValue();//textField
     // Inserir en la BBDD
     insertInfoTaulaReto(valorNom, valorNumero, valorTiempo, valorGenero);
-  } else if (imgButtons[4].mouseOverButton() && imgButtons[4].enabled) {
-    getFontAt(4);
-    p.setEnabled(true);
-    String valorNumero = String.valueOf(cTops.getValue());//counter
-    String valorNom = TituloTops.getValue();//textField
-    String valorLibros = LibrosTop.getValue(); // textArea
-    // Inserir en la BBDD
-    insertInfoTaulaTop(valorNom, valorNumero, valorLibros);
   } else if (bUnCuento.mouseOverButton() && bUnCuento.enabled) {
     pantalla = PANTALLA.LIBRO;
   }else if (ImagenComprado.mouseOverButton() && ImagenComprado.enabled) {
+    fill(255);
     selectInput("Selecciona una imatge ...", "fileSelected");
   }else if (EligeAutor1Leido.mouseOverButton() && EligeAutor1Leido.enabled) {
     selectedCountry = tListAutor1Leido.selectedValue + "("+tListAutor1Leido.selectedId+")";
@@ -189,27 +166,7 @@ void mousePressed() {
     }
     s10.toggle();        // Plegar o desplegar
   }
-  
-  if (s11.mouseOverSelect() && s11.enabled) {
-    if (!s11.collapsed) {
-      s11.update();      // Actualitzar valor
-    }
-    s11.toggle();        // Plegar o desplegar
-  }
-  
-  if (s12.mouseOverSelect() && s12.enabled) {
-    if (!s12.collapsed) {
-      s12.update();      // Actualitzar valor
-    }
-    s12.toggle();        // Plegar o desplegar
-  }
-  
-  if (s13.mouseOverSelect() && s13.enabled) {
-    if (!s13.collapsed) {
-      s13.update();      // Actualitzar valor
-    }
-    s13.toggle();        // Plegar o desplegar
-  }
+ 
   
   if (s14.mouseOverSelect() && s14.enabled) {
     if (!s14.collapsed) {

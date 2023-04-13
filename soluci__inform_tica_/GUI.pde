@@ -15,7 +15,7 @@ TextField TituloLeido, TituloComprar, TituloLista, TituloTops, AutorLeido, Autor
 
 TextArea Valoracion, LibrosTop;
 
-Select s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13, s14, s15;
+Select s1, s2, s3, s9, s10, s14, s15;
 
 Counter cRetos, cTops;
 
@@ -103,10 +103,26 @@ void initSelectedTextField (){
     selectAutores[r] = msql.getString("Nombre");
     r++;
   }
+  
+  String e = "SELECT COUNT(*) AS total from Editorial";
+  msql.query(e);
+  int numFiles=0;
+  if (msql.next()) {
+    numFiles = Integer.parseInt(msql.getString("total"));
 
-tListAutor1Leido = new SelectTextList(selectAutores, 400, 230, tListW, tListH);
-tListAutor2Leido = new SelectTextList (selectAutores,730, 230, tListW, tListH);
-tListEditorialLeido= new SelectTextList (selectAutores,1070, 230, tListW, tListH);
+  }
+  String s = "SELECT idEditorial from Editorial";
+  msql.query(s);
+  String [] selectValuesEditorial= new String [numFiles];
+  int  t=0;
+  while (msql.next()) {
+    selectValuesEditorial[t] = msql.getString("idEditorial");
+    t++;
+  }
+
+tListAutor1Leido = new SelectTextList(selectAutores, 70, 380, tListW, tListH);
+tListAutor2Leido = new SelectTextList (selectAutores,400, 380, tListW, tListH);
+tListEditorialLeido= new SelectTextList (selectValuesEditorial,1070, 300, tListW, tListH);
 
 
 }
@@ -264,48 +280,13 @@ void initSelect() {
     nr++;
   }
   
-  String a = "SELECT COUNT(*) AS total from Autor";
-  msql.query(a);
-  int numRows=0;
-  if (msql.next()) {
-    numRows = Integer.parseInt(msql.getString("total"));
-
-  }
-  String n = "SELECT Nombre from Autor";
-  msql.query(n);
-  String [] selectAutores= new String [numRows];
-  int  r=0;
-  while (msql.next()) {
-    selectAutores[r] = msql.getString("Nombre");
-    r++;
-  }
-  
-  String e = "SELECT COUNT(*) AS total from Editorial";
-  msql.query(e);
-  int numFiles=0;
-  if (msql.next()) {
-    numFiles = Integer.parseInt(msql.getString("total"));
-
-  }
-  String s = "SELECT idEditorial from Editorial";
-  msql.query(s);
-  String [] selectValuesEditorial= new String [numFiles];
-  int  t=0;
-  while (msql.next()) {
-    selectValuesEditorial[t] = msql.getString("idEditorial");
-    t++;
-  }
-  
   String[] ValuesEstado = {"Leido","No Leido"};
   String[] ValuesAdquisicion = {"Comprado","Prestado"};
-  s1 = new Select(selectValues, 70, 400, selectX, selectY);//Generos Leido
+  s1 = new Select(selectValues, 800, 230, selectX, selectY);//Generos ALTA LIBRO
   s2 = new Select(selectValues, 1050, 550, selectX, selectY);//retos
   s3 = new Select(selectValues, 550, 350, selectX, selectY);//Leido
-  s9 = new Select(ValuesEstado, 350,400, selectX, selectY);//Estado Leido
-  s10= new Select(ValuesAdquisicion, 650, 400, selectX, selectY);//Adquisicion Leido
-  s11= new Select(selectAutores, 220, 430, selectX, selectY);//Autor 1 Comprado
-  s12= new Select(selectAutores, 220, 530, selectX, selectY);//Autor 2 Comprado
-  s13= new Select(selectValuesEditorial, 20, 200, selectX, selectY);//Editorial Comprado
+  s9 = new Select(ValuesEstado, 70,630, selectX, selectY);//Estado alta libro
+  s10= new Select(ValuesAdquisicion, 400, 630, selectX, selectY);//Adquisicion alta libro
   s14= new Select(ValuesEstado, 300, 200, selectX, selectY);//Estado Comprado
   s15= new Select(ValuesAdquisicion, 500, 200, selectX, selectY);//Adquisicion Comprado
 }
@@ -325,9 +306,6 @@ void enableSelect2() {
 
 void enableSelectComprado() {
   s3.setEnabled(true);
-  s11.setEnabled(true);
-  s12.setEnabled(true);
-  s13.setEnabled(true);
   s14.setEnabled(true);
   s15.setEnabled(true);
   
@@ -341,9 +319,6 @@ void disableSelects() {
   s3.setEnabled(false);
   s9.setEnabled(false);
   s10.setEnabled(false);
-  s11.setEnabled(false);
-  s12.setEnabled(false);
-  s13.setEnabled(false);
   s14.setEnabled(false);
   s15.setEnabled(false);
 }
@@ -364,9 +339,6 @@ void displaySelect2() {
 
 void displaySelectsComprar() {
   s3.display();
-  s11.display();
-  s12.display();
-  s13.display();
   s14.display();
   s15.display();
 }
@@ -381,7 +353,7 @@ void initTextField() {
   TituloTops = new TextField(150, 425, CampoX, CampoY);
   Buscar = new TextField(width/2-CampoX, 200, CampoX*2, CampoY);
   Filtrar = new TextField(width/2-CampoX+100, 200, CampoX*2, CampoY);
-  ISBNLeido = new TextField(70, 280, CampoX, CampoY);
+  ISBNLeido = new TextField(400, 230, CampoX, CampoY);
   ISBNComprar = new TextField(120, 480, CampoX, CampoY);
   TituloReto=  new TextField(120, 425, CampoX, CampoY);
   TituloLeido.setText("Titulo");
@@ -400,7 +372,6 @@ void initTextField() {
 void displayTextFieldLeido () {
   TituloLeido.display();
   ISBNLeido.display();
-  Valoracion.display();
 }
 
 void displayTextFieldComprar () {
@@ -467,10 +438,10 @@ void initButtons () {
   buttons [16]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [17]= new Button ("Calendario", 420, 630, calendarioX, calendarioY);
   buttons [18]= new Button ("x", 950, 500, libroWidth*1.5, libroHeight*1.5);
-  buttons [19]= new Button ("Imagen", 1100, 700, LeidoX, LeidoY);
-  buttons [20]= new Button ("elige", 470, 300, LeidoX, LeidoY);
-  buttons [21]= new Button ("elige", 800, 300, LeidoX, LeidoY);
-  buttons [22]= new Button ("elige", 1140, 300, LeidoX, LeidoY);
+  buttons [19]= new Button ("Imagen",800, 700, LeidoX, LeidoY);
+  buttons [20]= new Button ("Autor 1", 70+tListW/2-80, 300, LeidoX, LeidoY);
+  buttons [21]= new Button ("Autor 2", 400+tListW/2-80, 300, LeidoX, LeidoY);
+  buttons [22]= new Button ("Editorial", 1140, 230, LeidoX, LeidoY);
   
   
 
@@ -555,7 +526,7 @@ void enableButtonVerTodo() {
 }
 
 void enableButtonsLeidos() {
-  bUnCuento.setEnabled(true);
+  ImagenComprado.setEnabled(true);
   EligeAutor1Leido.setEnabled(true);
   EligeAutor2Leido.setEnabled(true);
   EligeEditorialLeido.setEnabled(true);
@@ -595,6 +566,7 @@ void displayButtonsPerfil () {
 }
 
 void displayButtonsLeido(){
+ImagenComprado.display1();
 EligeAutor1Leido.display1();
 EligeAutor2Leido.display1();
 EligeEditorialLeido.display1();
@@ -630,8 +602,8 @@ PImage[] getImagesButton(int n1, int n2) {
 
 void initImageButton () {
   imgButtons  = new ImageButton [4];
-  imgButtons [0]= new ImageButton (getImagesButton(11, 12),  1325, 730, CheckX, CheckY);//leido
-  imgButtons [1]= new ImageButton (getImagesButton(11, 12), 820, 620, CheckX, CheckY);//Comprado
+  imgButtons [0]= new ImageButton (getImagesButton(11, 12),  1325, 730, CheckX, CheckY);//ALTA LIBRO
+  imgButtons [1]= new ImageButton (getImagesButton(11, 12), 820, 620, CheckX, CheckY);//MODIFICAR
   imgButtons [2]= new ImageButton (getImagesButton(11, 12), 1225, 680, CheckX, CheckY);// tops
   imgButtons [3]= new ImageButton (getImagesButton(11, 12), 1225, 680, CheckX, CheckY);//retos
 }

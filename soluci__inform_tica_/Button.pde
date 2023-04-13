@@ -53,6 +53,7 @@ class Button {
     fill(0);
     textAlign(CENTER);
     textSize(20);
+    getFontAt(4);
     text(textBoto, this.x + this.w/2, this.y + this.h/2 + 10);
     popStyle();
   }

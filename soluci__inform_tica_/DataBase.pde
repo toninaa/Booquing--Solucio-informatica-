@@ -38,21 +38,18 @@ void insertInfoTaulaTop(String nom, String num, String libros) {
   msql.query(q);
 }
 
+
+
 // Insertar los dados de la tabla Libro
-void insertInfoTaulaLibro(String isbn, String titulo, String Inicio, String Fin, String Ranking,
-  String Valoracion, String Ubi, String Edi,  String Img, String Genero, String Ad) {
-  String q = "INSERT INTO Libro (`ISBN`, `Titulo`, `DiaInicio`, `DiaFin`, `Ranking`, `Valoracion`,"+
-  "`Estado`, `Editorial_idEditorial`, `Imagen_idImagen`, `Genero_idGenero`, `Adquisicion`) VALUES"+
-  "('"+isbn+"','"+titulo+"','"+Inicio+"','"+Fin+"','"+Ranking+"','"+Valoracion+"',"+
-  "'"+Ubi+"','"+Edi+"','"+Img+"','"+Genero+"','"+Ad+"')";
+void insertInfoTaulaLibro(String isbn, String titulo, String Ubi, String Edi, String Img, String Genero, String Ad) {
+  String q = "INSERT INTO Libro (`ISBN`, `Titulo`, `Estado`, `Editorial_idEditorial`, `Imagen_idImagen`,"+
+  "`Genero_idGenero`, `Adquisicion`) VALUES ('"+isbn+"','"+titulo+"','"+Ubi+"','"+Edi+"','"+Img+"','"+Genero+"','"+Ad+"')";
   println(q);
   msql.query(q);
 }
 
-// Insertar los dados de la tabla Libro /fechas NULL)
-void insertInfoTaulaLibro(String isbn, String titulo, String Ubi, String Edi, String Img, String Genero, String Ad) {
-  String q = "INSERT INTO Libro (`ISBN`, `Titulo`, `Estado`, `Editorial_idEditorial`, `Imagen_idImagen`,"+
-  "`Genero_idGenero`, `Adquisicion`) VALUES ('"+isbn+"','"+titulo+"','"+Ubi+"','"+Edi+"','"+Img+"','"+Genero+"','"+Ad+"')";
+void updateInfoLibro ( String DiaInicio, String DiaFin, String Ranking, String Val, String Estado, String Ad, String ISBN){
+  String q = "UPDATE `Libro` SET `DiaInicio` = '"+DiaInicio+"', `DiaFin` = '"+DiaFin+"', `Ranking` = '"+Ranking+"', `Valoracion` = '"+Val+"', `Estado` = '"+Estado+"', `Adquisicion` = '"+Ad+"' WHERE `Libro`.`ISBN` = '"+ISBN+"'";
   println(q);
   msql.query(q);
 }

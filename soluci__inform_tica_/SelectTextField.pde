@@ -109,7 +109,6 @@ class SelectTextList {
     }
   }
 
-
   void mouseOn() {
     // Pitjam damunt el textList
     this.textField.isPressed();

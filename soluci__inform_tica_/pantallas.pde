@@ -59,49 +59,60 @@ void dibujaPerfil () {
 }
 
 // amb es boto leido
-void dibujaNuevoLibro () {
+void dibujaAltaLibro () {
   pushStyle();
   // desabilitar y abilitar los objetos necesarios para esta pantalla
   disableButtons();
-  disableCalendario();
   disableImageButton();
   enableImageButtonLeido();
-  enableCalendario();
-  enableButtonCalendario();
   enableButtonsMenu();
   enableButtonsLeidos();
   enableSelectLeidos();
   // dibujar los objetos
   dibujaMenu();
   fill(getColorAt(1));
-  textFont(getFontAt(2));
+  textFont(getFontAt(0));
   dibujaMenu();
-  text("Nuevo libro", 200, 250);
-  text("Valoración", 1060, 400);
+  text("Nuevo libro", 850, 120);
   fill(255);
   stroke(getColorAt(4));
   strokeWeight(2);
   rect (50,200, 1350, 600);
   popStyle();
+  pushStyle();
   PagNuevoLibro();
   textFont(getFontAt(2));
   displayButtonsMenu();
-  cblLeido.display();
+  //cblLeido.display();
   displayTextFieldLeido();
   textFont(getFontAt(5));
-  displayTextArea();
-  calendarioInicioFin();
   displaySelectLeido();
   imgButtons[0].display();
   displaySelectTextFieldLeido();
+  getFontAt(3); fill(getColorAt(2));
   displayButtonsLeido();
   textFont(getFontAt(2));
   p.display();
+  
+  if(img!=null){
+    imageMode(CENTER);
+    image(img, 1150, 600, 300,350);
+    textSize(34); textAlign(RIGHT);
+    text(titulo, 750, 750);
+  }
+  else{
+    fill(255); rectMode(CENTER);  stroke(getColorAt(4));
+    rect(1150, 600, 300,350);
+    textSize(34); textAlign(RIGHT);
+  }
+  
+  popStyle();
 }
 
-//boton Comprar
+//boton modificar
 void dibujaAñadirLibro () {
   pushStyle();
+  //desabilitar y abilitar los objetos necesarios para esta pantalla
   disableButtons();
   disableSelects();
   disableImageButton();
@@ -109,6 +120,8 @@ void dibujaAñadirLibro () {
   enableButtonsComprar();
   enableButtonsMenu();
   enableSelectComprado();
+  
+  //dibujar base de la pantalla
   dibujaMenu();
   textFont(getFontAt(2));
   esquinaIzquierda();
@@ -118,26 +131,16 @@ void dibujaAñadirLibro () {
   stroke(getColorAt(4));
   strokeWeight(2);
   rect (100, 300, 800, 400);
+  //dibujar objetos
   displayButtonsMenu();
   displayTextFieldComprar();
   displaySelectsComprar();
   displayButtonsComprar();
+  calendarioInicioFin();
   imgButtons[1].display();
   p.display();
   
-if(img!=null){
-    imageMode(CENTER);
-    image(img, 1170, 500, 300,350);
-    textSize(34); textAlign(RIGHT);
-    text(titulo, 750, 750);
-  }
-  else{
-    fill(255); rectMode(CENTER);
-    rect(1170, 500, 300,350);
-    textSize(34); textAlign(RIGHT);
-    text("Sense imatge", 750, 750);
-  }
-  popStyle();
+
 }
 
 
@@ -242,7 +245,6 @@ void verLibrosLeidos () {
   fill(0);
   textFont(getFontAt(2));
   text("LEIDOS", 250, 60);
-  filtrosLeidos();
   displayButtonsAtrasBiblioteca();
   libros();
   popStyle();
@@ -257,7 +259,6 @@ void verMiLista () {
   fill(0);
   textFont(getFontAt(2));
   text("COMPRAR", 250, 60);
-  filtrosComprarYlista();
   displayButtonsAtrasBiblioteca();
   libros();
   popStyle();

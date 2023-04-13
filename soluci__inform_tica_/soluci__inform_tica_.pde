@@ -29,7 +29,7 @@ void draw() {
     dibujaPerfil();
     break;
   case NUEVOLEIDO:
-    dibujaNuevoLibro();
+    dibujaAltaLibro();
     break;
   case NUEVOCOMPRADO:
     dibujaAñadirLibro();
