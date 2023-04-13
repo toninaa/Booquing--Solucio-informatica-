@@ -118,6 +118,7 @@ void mousePressed() {
   Buscar.isPressed();
   Filtrar.isPressed();
   TituloReto.isPressed();
+  ISBNborrar.isPressed();
 
   // activar el cambio de color al estar encima del textArea
   Valoracion.isPressed();
@@ -246,6 +247,7 @@ void resetFields() {
   Buscar.setText("buscar");
   Filtrar.setText("filtrar");
   TituloReto.setText("titulo");
+  ISBNborrar.setText("ISBN");
 }
 
 
@@ -258,6 +260,7 @@ void keyPressed () {
   TituloReto.keyPressed(key, (int)keyCode);
   ISBNlibro.keyPressed(key, (int)keyCode);
   ISBNmodificar.keyPressed(key, (int)keyCode);
+  ISBNborrar.keyPressed(key,(int)keyCode);
   
   //SelectedTextField
    tListAutor1Leido.keyOn();

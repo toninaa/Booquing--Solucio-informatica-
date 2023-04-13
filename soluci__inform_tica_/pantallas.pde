@@ -179,6 +179,7 @@ void establecerTops () {
   textFont(getFontAt(5));
   displayTextFieldTops();
   textFont(getFontAt(2));
+  imageMode(CORNER);
   cTops.display();
   imgButtons[2].display();
   textFont(getFontAt(2));
@@ -214,7 +215,8 @@ void establecerRetos () {
   strokeWeight(2);
   rect (100, 350, 1200, 400);
   displayButtonsMenu();
-  displaySelect2();
+  displaySelect2(); 
+  imageMode(CORNER);
   cRetos.display();
   tif.display();
   displayTextFieldRetos();
@@ -268,10 +270,15 @@ void borrarLibro () {
   fill(255);
   stroke(getColorAt(4));
   strokeWeight(2);
-  rect(width/2, height/2, 500, 500);
+  rect(width/2, height/2+100, 500, 500);
+  fill(getColorAt(1));
+  textFont(getFontAt(2));
+  text("Borrar Libro", width/2, height/2-200);
   //objetos
   textFont(getFontAt(2));
   displayButtonsMenu();
+  textFont(getFontAt(4));
+  ISBNborrar.display();
   popStyle();
 }
 

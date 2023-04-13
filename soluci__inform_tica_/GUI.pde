@@ -10,7 +10,7 @@ PANTALLA pantalla = PANTALLA.INICIO;
 // creación de los diferentes compenentes
 
 TextField TituloLibro, TituloTops, Buscar, Filtrar, Libro, TituloReto,
-          ISBNlibro, ISBNmodificar;
+          ISBNlibro, ISBNmodificar, ISBNborrar;
 
 TextArea Valoracion, LibrosTop;
 
@@ -364,6 +364,7 @@ void initTextField() {
   Filtrar = new TextField(width/2-CampoX+100, 200, CampoX*2, CampoY);
   ISBNlibro = new TextField(400, 230, CampoX, CampoY);
   ISBNmodificar = new TextField(70, 230, CampoX, CampoY);
+  ISBNborrar= new TextField (730,350,CampoX, CampoY);
   TituloReto=  new TextField(120, 425, CampoX, CampoY);
   TituloLibro.setText("Titulo");
   ISBNlibro.setText("ISBN");
@@ -372,6 +373,7 @@ void initTextField() {
   Buscar.setText("buscar...");
   Filtrar.setText("buscar...");
   TituloReto.setText("titulo");
+  ISBNborrar.setText("ISBN");
 }
 
 void displayTextFieldLeido () {
@@ -451,7 +453,6 @@ void initButtons () {
   buttons [25]= new Button ("Borrar", 500, 250, LeidoX, LeidoY);
   
   
-
   AtrasP = buttons [0];
   Biblio =buttons [1];
   Perfil =buttons [2];
