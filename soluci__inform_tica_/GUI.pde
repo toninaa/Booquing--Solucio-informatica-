@@ -223,12 +223,20 @@ void initCarrouselBiblio () {
   for (int i =0; i<titulosEs1.length; i++) {
     titulosEs1[i] = URL_IMGS+"/portada0"+i+".jpg";
   }
-  es1 = new Carrousel(libroWidth+40, 230, libroWidth+400-libroWidth+40, libroHeight, 4);
-  es1.setImages(titulosEs1);
+  
+  String[] titulosEs2 = new String[10];
+
+  for (int i =0; i<titulosEs2.length; i++) {
+    titulosEs2[i] = URL_IMGS+"/portada1"+i+".jpg";
+  }
+  
+  
+  es1 = new Carrousel(80, 200, libroWidth+400-libroWidth+150, libroHeight+100, 4);
+  es1.setImages(titulosEs2);
   es1.setButtons();
   
-  es2 = new Carrousel(10.6*libroWidth+40, 430, libroWidth+400-libroWidth+40, libroHeight, 4);
-  es2.setImages(titulosEs1);
+  es2 = new Carrousel(810, 400, libroWidth+400-libroWidth+150, libroHeight+100, 4);
+  es2.setPortadas(titulosEs1);
   es2.setButtons();
   
 }
@@ -321,12 +329,9 @@ void enableSelect2() {
   s2.setEnabled(true);
 }
 
-
-
 void enableSelectComprado() {
   s14.setEnabled(true);
-  s15.setEnabled(true);
-  
+  s15.setEnabled(true); 
 }
 
 void disableSelects() {
@@ -364,7 +369,7 @@ void initTextField() {
   Filtrar = new TextField(width/2-CampoX+100, 200, CampoX*2, CampoY);
   ISBNlibro = new TextField(400, 230, CampoX, CampoY);
   ISBNmodificar = new TextField(70, 230, CampoX, CampoY);
-  ISBNborrar= new TextField (730,350,CampoX, CampoY);
+  ISBNborrar= new TextField (560,350,CampoX, CampoY);
   TituloReto=  new TextField(120, 425, CampoX, CampoY);
   TituloLibro.setText("Titulo");
   ISBNlibro.setText("ISBN");
@@ -421,10 +426,10 @@ Button [] buttons;
 Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1,
   MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, AtrasR, Guardar, VerTodo, CalendarioI,
   CalendarioF, Aceptar, Leidos, Lista, ComprarB, Actuales, bUnCuento, ImagenComprado, EligeAutor1Leido, 
-  EligeAutor2Leido, EligeEditorialLeido, BuscarTops, BuscarRetos, Borrar;
+  EligeAutor2Leido, EligeEditorialLeido, BuscarTops, BuscarRetos, Borrar, BorrarP;
 
 void initButtons () {
-  buttons = new Button [26];
+  buttons = new Button [27];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -438,8 +443,8 @@ void initButtons () {
   buttons [10]= new Button ("Modificar", 300, 250, LeidoX, LeidoY);
   buttons [11]= new Button ("Ver Todo", 930, 750, LeidoX, LeidoY);
   buttons [12]= new Button ("Calendario", 1120, 460, calendarioX, calendarioY);
-  buttons [13]= new Button ("Leidos", 450, height/3+140, LeidoX, LeidoY);
-  buttons [14]= new Button ("No Leidos", 850, height/3+340, LeidoX, LeidoY);
+  buttons [13]= new Button ("Leidos", 450, height/3+200, LeidoX, LeidoY);
+  buttons [14]= new Button ("No Leidos", 850, 700, LeidoX, LeidoY);
   buttons [15]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [16]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [17]= new Button ("Calendario", 1120, 550, calendarioX, calendarioY);
@@ -451,8 +456,9 @@ void initButtons () {
   buttons [23]= new Button ("Buscar", 1000, 200, LeidoX, LeidoY);//tops
   buttons [24]= new Button ("Buscar", 1000, 200, LeidoX, LeidoY);//retos
   buttons [25]= new Button ("Borrar", 500, 250, LeidoX, LeidoY);
+  buttons [26]= new Button ("Borrar", 790, 730, LeidoX, LeidoY);//dentro de la pantalla
   
-  
+   
   AtrasP = buttons [0];
   Biblio =buttons [1];
   Perfil =buttons [2];
@@ -479,6 +485,7 @@ void initButtons () {
   BuscarTops = buttons [23];
   BuscarRetos = buttons [24];
   Borrar = buttons [25];
+  BorrarP = buttons [26];
 }
 
 

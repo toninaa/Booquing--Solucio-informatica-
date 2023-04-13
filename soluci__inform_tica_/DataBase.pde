@@ -133,3 +133,29 @@ String[] getInfoTaulaTop(String nombreTop) {
 
   return libros;
 }
+
+//DELETES
+
+void deleteReto_has_Libro (String ISBN){
+String q ="DELETE FROM Reto_has_Libro WHERE Libro_ISBN = '"+ISBN+"'";
+println(q);
+msql.query(q);
+}
+
+void deleteTop_has_Libro (String ISBN){
+String q ="DELETE FROM Libro_has_Top WHERE Libro_ISBN = '"+ISBN+"'";
+println(q);
+msql.query(q);
+}
+
+void deleteLibro_has_Autor (String ISBN){
+String q ="DELETE FROM Libro_has_Autor WHERE Libro_ISBN = '"+ISBN+"'";
+println(q);
+msql.query(q);
+}
+
+void deleteLibro (String ISBN){
+String q ="DELETE FROM Libro WHERE ISBN = '"+ISBN+"'";
+println(q);
+msql.query(q);
+}

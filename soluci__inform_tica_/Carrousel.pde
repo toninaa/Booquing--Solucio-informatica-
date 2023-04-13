@@ -38,6 +38,14 @@ class Carrousel {
       imgs[i] = loadImage(noms[i]);
     }
   }
+  
+  void setPortadas(String[] noms) {
+    this.numTotalImatges = noms.length;
+    this.imgs = new PImage[noms.length];
+    for (int i=0; i<imgs.length; i++) {
+      imgs[i] = loadImage(noms[i]);
+    }
+  }
 
   void setTrofeos(String [] Trofeos) {
     this.numTotalImatges= trofeos.length;

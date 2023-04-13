@@ -108,6 +108,12 @@ void mousePressed() {
     selectedValor =  ""+tListRetos.selectedId+"";
    }else if (Borrar.mouseOverButton() && Borrar.enabled) {
      pantalla = PANTALLA.BORRARLIBRO;
+     String valor = ISBNborrar.getValue();
+     
+     deleteReto_has_Libro(valor);
+     deleteTop_has_Libro(valor);
+     deleteLibro_has_Autor(valor);
+     deleteLibro(valor);
    }
  
   // activar el cambio de color al estar encima del textField

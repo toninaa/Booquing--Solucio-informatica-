@@ -24,14 +24,14 @@ void dibujaEstante1 () {
   imageMode(CENTER);
   textFont(getFontAt(4));
   fill(0);
-  displayImg(2, 350, 400, estanteWidth, estanteHeight);
+  displayImg(2, 380, 450, estanteWidth+100, estanteHeight);
   popStyle();
 }
 
 void dibujaEstante2 () {
   pushStyle ();
   imageMode(CENTER);
-  displayImg(2, width-320, 600, estanteWidth, estanteHeight);
+  displayImg(2, width-340, 650, estanteWidth+100, estanteHeight);
   textFont(getFontAt(2));
   fill(255);
   popStyle();

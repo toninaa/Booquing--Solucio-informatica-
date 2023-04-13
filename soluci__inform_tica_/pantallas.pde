@@ -258,10 +258,14 @@ void dibujarTops () {
 
 void borrarLibro () {
   pushStyle();
+  pushMatrix();
   //desabilitar y abilitar los objetos necesarios para esta pantalla
   disableButtons();
   enableButtonsMenu();
+  BorrarP.setEnabled(true);
+  
   //pantalla base
+  pushStyle();
   imageMode(CENTER);
   textAlign(CENTER);
   dibujaMenu();
@@ -274,11 +278,14 @@ void borrarLibro () {
   fill(getColorAt(1));
   textFont(getFontAt(2));
   text("Borrar Libro", width/2, height/2-200);
+  popStyle();
   //objetos
   textFont(getFontAt(2));
   displayButtonsMenu();
   textFont(getFontAt(4));
   ISBNborrar.display();
+  BorrarP.display1();
+  popMatrix();
   popStyle();
 }
 
