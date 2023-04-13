@@ -285,6 +285,7 @@ void borrarLibro () {
   textFont(getFontAt(4));
   ISBNborrar.display();
   BorrarP.display1();
+  b.display();
   popMatrix();
   popStyle();
 }

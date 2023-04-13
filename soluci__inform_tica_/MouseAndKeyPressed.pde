@@ -57,6 +57,7 @@ void mousePressed() {
     insertInfoTaulaLibro_has_Autor(valorISBN, autor2);
   } else if (p.Aceptar.mouseOverButton() && p.Aceptar.enabled) {
     p.setEnabled(false);
+    b.setEnabled(false);
   } else if (imgButtons[1].mouseOverButton()&& imgButtons[1].enabled) {
     getFontAt(4);
     p.setEnabled(true);
@@ -106,14 +107,19 @@ void mousePressed() {
     topX.displayTop(width/2,height/2,TopW,TopH);     
    }else if (BuscarRetos.mouseOverButton() && BuscarRetos.enabled) {
     selectedValor =  ""+tListRetos.selectedId+"";
-   }else if (Borrar.mouseOverButton() && Borrar.enabled) {
+   }else if (Borrar.mouseOverButton() && Borrar.enabled) { 
      pantalla = PANTALLA.BORRARLIBRO;
-     String valor = ISBNborrar.getValue();
-     
+   }else if (BorrarP.mouseOverButton() && BorrarP.enabled) { 
+     String valor = ISBNborrar.text;
+     println(valor);
      deleteReto_has_Libro(valor);
      deleteTop_has_Libro(valor);
      deleteLibro_has_Autor(valor);
      deleteLibro(valor);
+     
+    getFontAt(4);
+    b.setEnabled(true);
+   
    }
  
   // activar el cambio de color al estar encima del textField

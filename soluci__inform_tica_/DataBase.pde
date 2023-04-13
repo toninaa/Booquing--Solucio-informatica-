@@ -137,7 +137,7 @@ String[] getInfoTaulaTop(String nombreTop) {
 //DELETES
 
 void deleteReto_has_Libro (String ISBN){
-String q ="DELETE FROM Reto_has_Libro WHERE Libro_ISBN = '"+ISBN+"'";
+String q ="DELETE FROM Reto_has_Libro WHERE Libro_ISBN ='"+ISBN+"'";
 println(q);
 msql.query(q);
 }

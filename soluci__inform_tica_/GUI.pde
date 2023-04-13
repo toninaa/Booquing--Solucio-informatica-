@@ -26,7 +26,7 @@ TextField tf;
 
 TimeField tif;
 
-PopUp p;
+PopUp p, b;
 
 CheckBoxStarList cblModificar;
 
@@ -48,6 +48,10 @@ String dataCalendariFin="";
 // Textos del PopUp
 String title = "Guardado";
 String message = "Tu libro se ha guardado con èxito";
+
+String titol ="Borrado";
+String missatge = "Tu libro se ha borrado con èxito";
+
 
 // Imatges de les opcions del checkboxstarlist
 String[] stars = {"imgs/ON.png", "imgs/OFF.png"};
@@ -149,14 +153,12 @@ void initSelectedTextField (){
     selectValuesReto[w] = msql.getString("idReto");
     w++;
   }
-  
- 
-  
+    
 tListAutor1Leido = new SelectTextList(selectAutores, 70, 380, tListW, tListH);
 tListAutor2Leido = new SelectTextList (selectAutores,400, 380, tListW, tListH);
 tListEditorialLeido= new SelectTextList (selectValuesEditorial,1070, 300, tListW, tListH);
 tListTops = new SelectTextList (selectValuesTop, 300, 200, 2*tListW, tListH);
-tListRetos = new SelectTextList (selectValuesReto, 300, 200, 2*tListW, tListH); 
+tListRetos = new SelectTextList (selectValuesReto, 300, 200, 2*tListW, tListH);
 
 
 }
@@ -191,14 +193,17 @@ void initCheckStars () {
 // PopUP
 void initPopUp () {
   p = new PopUp(title, message, width/2, height/2, popW, popH);
+  b = new PopUp(titol, missatge, width/2, height/2, popW, popH);
 }
 
 void enablePopUp() {
   p.setEnabled(true);
+  b.setEnabled(true);
 }
 
 void disablePopUp() {
   p.setEnabled(false);
+  b.setEnabled(false);
 }
 
 // TimeField
@@ -378,7 +383,6 @@ void initTextField() {
   Buscar.setText("buscar...");
   Filtrar.setText("buscar...");
   TituloReto.setText("titulo");
-  ISBNborrar.setText("ISBN");
 }
 
 void displayTextFieldLeido () {
