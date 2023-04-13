@@ -9,7 +9,6 @@ void setup() {
   setMedias();
   setGUI();
   
- 
 }
 
 
@@ -54,6 +53,9 @@ void draw() {
     break;
   case LIBRO:
     l1.displayInformacion();
+    break;
+  case BORRARLIBRO:
+    borrarLibro();
     break;
   }
   

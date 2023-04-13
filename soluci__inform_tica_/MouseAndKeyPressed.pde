@@ -102,12 +102,14 @@ void mousePressed() {
     selectedValor = tListEditorialLeido.selectedValue + "("+tListEditorialLeido.selectedId+")";
    }else if (BuscarTops.mouseOverButton() && BuscarTops.enabled) {
     selectedValor =  ""+tListTops.selectedId+"";
-    topX = new Top(selectedValor,getInfoTaulaTop(selectedValor));
-    topX.displayTop(width/2,height/2,TopW,TopH);
-    
+    topX = new Top(selectedValor, getInfoTaulaTop(selectedValor));
+    topX.displayTop(width/2,height/2,TopW,TopH);     
+   }else if (BuscarRetos.mouseOverButton() && BuscarRetos.enabled) {
+    selectedValor =  ""+tListRetos.selectedId+"";
+   }else if (Borrar.mouseOverButton() && Borrar.enabled) {
+     pantalla = PANTALLA.BORRARLIBRO;
    }
  
-
   // activar el cambio de color al estar encima del textField
   TituloLibro.isPressed();
   ISBNlibro.isPressed();
@@ -130,6 +132,7 @@ void mousePressed() {
    tListAutor2Leido.mouseOn();
    tListEditorialLeido.mouseOn();
    tListTops.mouseOn();
+   tListRetos.mouseOn();
 
 
   // actualizar el valor de los counters al pulsar + 0 -
@@ -227,10 +230,6 @@ void mousePressed() {
   es1.checkCursor();
   es2.checkButtons();
   es2.checkCursor();
-  es3.checkButtons();
-  es3.checkCursor();
-  es4.checkButtons();
-  es4.checkCursor();
   es5.checkButtons();
   es5.checkCursor();
 
@@ -265,6 +264,7 @@ void keyPressed () {
    tListAutor2Leido.keyOn();
    tListEditorialLeido.keyOn();
    tListTops.keyOn();
+   tListRetos.keyOn();
 
   // escuchar las teclas del teclado para el TextArea
   Valoracion.keyPressed(key, (int)keyCode);

@@ -20,47 +20,28 @@ void dibujaMenu () {
 }
 
 void dibujaEstante1 () {
-
   pushStyle ();
   imageMode(CENTER);
   textFont(getFontAt(4));
   fill(0);
-  text("LEIDOS", 100, 600);
-  displayImg(2, 350, height/3, estanteWidth, estanteHeight);
+  displayImg(2, 350, 400, estanteWidth, estanteHeight);
   popStyle();
 }
 
 void dibujaEstante2 () {
-
   pushStyle ();
   imageMode(CENTER);
-  displayImg(2, width-320, height/2, estanteWidth, estanteHeight);
+  displayImg(2, width-320, 600, estanteWidth, estanteHeight);
   textFont(getFontAt(2));
   fill(255);
   popStyle();
 }
+
 
 void dibujaEstante3 () {
   pushStyle ();
   imageMode(CENTER);
   displayImg(2, 350, 2*height/3, estanteWidth, estanteHeight);
-  textFont(getFontAt(2));
-  fill(255);
-  popStyle();
-}
-void dibujaEstante4 () {
-  pushStyle ();
-  imageMode(CENTER);
-  displayImg(2, width-320, 2*height/3+estanteHeight, estanteWidth, estanteHeight);
-  textFont(getFontAt(2));
-  fill(255);
-  popStyle();
-}
-
-void dibujaEstante5 () {
-  pushStyle ();
-  imageMode(CENTER);
-  displayImg(2, 350, 2*height/3+100, estanteWidth, estanteHeight);
   textFont(getFontAt(2));
   popStyle();
 }

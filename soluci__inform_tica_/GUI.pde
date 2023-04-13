@@ -2,7 +2,7 @@
 // Enumeracion de las pantallas de la app
 enum PANTALLA {
   INICIO, BIBLIO, PERFIL, LEIDOS, ESTRETOS, ESTTOPS, NUEVOLEIDO, NUEVOCOMPRADO,
-    COMPRAR, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, LIBRO};
+    COMPRAR, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, LIBRO, BORRARLIBRO};
 
 // pantalla inicial
 PANTALLA pantalla = PANTALLA.INICIO;
@@ -20,7 +20,7 @@ Counter cRetos, cTops;
 
 CalendariPlus cI, cF;
 
-Carrousel es1, es2, es3, es4, es5;
+Carrousel es1, es2, es5;
 
 TextField tf;
 
@@ -30,7 +30,7 @@ PopUp p;
 
 CheckBoxStarList cblModificar;
 
-SelectTextList tListAutor1Leido, tListAutor2Leido, tListEditorialLeido, tListTops;
+SelectTextList tListAutor1Leido, tListAutor2Leido, tListEditorialLeido, tListTops, tListRetos;
 
 Libro l1;
 
@@ -134,12 +134,29 @@ void initSelectedTextField (){
     i++;
   }
   
+   String R = "SELECT COUNT(*) AS total from Reto ";
+  msql.query(R);
+  int Rows=0;
+  if (msql.next()) {
+    Rows = Integer.parseInt(msql.getString("total"));
+
+  }
+  String o = "SELECT idReto from Reto";
+  msql.query(o);
+  String [] selectValuesReto= new String [Rows];
+  int  w=0;
+  while (msql.next()) {
+    selectValuesReto[w] = msql.getString("idReto");
+    w++;
+  }
+  
  
   
 tListAutor1Leido = new SelectTextList(selectAutores, 70, 380, tListW, tListH);
 tListAutor2Leido = new SelectTextList (selectAutores,400, 380, tListW, tListH);
 tListEditorialLeido= new SelectTextList (selectValuesEditorial,1070, 300, tListW, tListH);
 tListTops = new SelectTextList (selectValuesTop, 300, 200, 2*tListW, tListH);
+tListRetos = new SelectTextList (selectValuesReto, 300, 200, 2*tListW, tListH); 
 
 
 }
@@ -206,21 +223,14 @@ void initCarrouselBiblio () {
   for (int i =0; i<titulosEs1.length; i++) {
     titulosEs1[i] = URL_IMGS+"/portada0"+i+".jpg";
   }
-  es1 = new Carrousel(libroWidth+40, height/3-150, libroWidth+400-libroWidth+40, libroHeight, 4);
+  es1 = new Carrousel(libroWidth+40, 230, libroWidth+400-libroWidth+40, libroHeight, 4);
   es1.setImages(titulosEs1);
   es1.setButtons();
   
-  es2 = new Carrousel(libroWidth+40, height/2, libroWidth+400-libroWidth+40, libroHeight, 4);
+  es2 = new Carrousel(10.6*libroWidth+40, 430, libroWidth+400-libroWidth+40, libroHeight, 4);
   es2.setImages(titulosEs1);
   es2.setButtons();
-
-  es3 = new Carrousel(10.6*libroWidth+40, height/3, libroWidth+400-libroWidth+40, libroHeight, 4);
-  es3.setImages(titulosEs1);
-  es3.setButtons();
-
-  es4 = new Carrousel(10.6*libroWidth+40, 2*height/3+20, libroWidth+400-libroWidth+40, libroHeight, 4);
-  es4.setImages(titulosEs1);
-  es4.setButtons();
+  
 }
 
 void initCarrouselPerfil() {
@@ -230,7 +240,7 @@ void initCarrouselPerfil() {
     trofeosEs5[i] = URL_IMGS+"/trofeo"+i+".png";
   }
 
-  es5 = new Carrousel(libroWidth+40, 490, trofeoX+400-trofeoX+40, trofeoY, 3);
+  es5 = new Carrousel(libroWidth+40, 390, trofeoX+400-trofeoX+40, trofeoY, 3);
   es5.setImages(trofeosEs5);
   es5.setButtons();
 }
@@ -409,10 +419,10 @@ Button [] buttons;
 Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1,
   MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, AtrasR, Guardar, VerTodo, CalendarioI,
   CalendarioF, Aceptar, Leidos, Lista, ComprarB, Actuales, bUnCuento, ImagenComprado, EligeAutor1Leido, 
-  EligeAutor2Leido, EligeEditorialLeido, BuscarTops;
+  EligeAutor2Leido, EligeEditorialLeido, BuscarTops, BuscarRetos, Borrar;
 
 void initButtons () {
-  buttons = new Button [24];
+  buttons = new Button [26];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -426,8 +436,8 @@ void initButtons () {
   buttons [10]= new Button ("Modificar", 300, 250, LeidoX, LeidoY);
   buttons [11]= new Button ("Ver Todo", 930, 750, LeidoX, LeidoY);
   buttons [12]= new Button ("Calendario", 1120, 460, calendarioX, calendarioY);
-  buttons [13]= new Button ("Leidos", 450, height/3+40, LeidoX, LeidoY);
-  buttons [14]= new Button ("Comprar", 450, height/3+340, LeidoX, LeidoY);
+  buttons [13]= new Button ("Leidos", 450, height/3+140, LeidoX, LeidoY);
+  buttons [14]= new Button ("No Leidos", 850, height/3+340, LeidoX, LeidoY);
   buttons [15]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [16]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [17]= new Button ("Calendario", 1120, 550, calendarioX, calendarioY);
@@ -436,7 +446,9 @@ void initButtons () {
   buttons [20]= new Button ("Autor 1", 70+tListW/2-80, 300, LeidoX, LeidoY);
   buttons [21]= new Button ("Autor 2", 400+tListW/2-80, 300, LeidoX, LeidoY);
   buttons [22]= new Button ("Editorial", 1140, 230, LeidoX, LeidoY);
-  buttons [23]= new Button ("Buscar", 1000, 200, LeidoX, LeidoY);
+  buttons [23]= new Button ("Buscar", 1000, 200, LeidoX, LeidoY);//tops
+  buttons [24]= new Button ("Buscar", 1000, 200, LeidoX, LeidoY);//retos
+  buttons [25]= new Button ("Borrar", 500, 250, LeidoX, LeidoY);
   
   
 
@@ -464,6 +476,8 @@ void initButtons () {
   EligeAutor2Leido = buttons [21];
   EligeEditorialLeido = buttons [22];
   BuscarTops = buttons [23];
+  BuscarRetos = buttons [24];
+  Borrar = buttons [25];
 }
 
 
@@ -489,6 +503,7 @@ void enableButtonsBiblioteca() {
 }
 
 void enableButtonsPerfil() {
+  Borrar.setEnabled(true);
   Leido.setEnabled(true);
   Comprar.setEnabled(true);
   Ver1.setEnabled(true);
@@ -513,6 +528,7 @@ void enableButtonsAtrasBiblioteca() {
 }
 
 void enableButtonsAtrasRetos() {
+  BuscarRetos.setEnabled(true);
   AtrasR.setEnabled(true);
 }
 
@@ -548,6 +564,7 @@ void displayButtonsBiblioteca() {
 }
 
 void displayButtonsPerfil () {
+  Borrar.display3();
   Leido.display3();
   Comprar.display3();
   Iniciar1.display3();

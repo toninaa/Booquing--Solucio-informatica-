@@ -62,7 +62,13 @@ void insertInfoTaulaLibro_has_Autor(String isbn, String autor) {
   msql.query(q);
 }
 
-//Obtener informacion de un Top 
+void getInfoLibro_has_Top (String nomTop){
+String q = "SELECT Libro_ISBN from Libro_has_Top WHERE Top_nomTop= '"+nomTop+"'";
+println(q);
+msql.query(q);
+}
+
+
 
 
 // Obten información de la tabla Reto
@@ -126,24 +132,4 @@ String[] getInfoTaulaTop(String nombreTop) {
   }
 
   return libros;
-}
-
- void selectNombreTops (){
-  String q = "";
-  }
-
-// Obten array con el nombre del top
-String[] getNomsTaulaTop() {
-
-  int numRows = getNumRowsTaula("Top");
-
-  String[] data = new String[numRows];
-
-  int nr=0;
-  msql.query( "SELECT nomTop FROM Top" );
-  while (msql.next()) {
-    data[nr] = msql.getString("nomTop");
-    nr++;
-  }
-  return data;
 }

@@ -1,7 +1,6 @@
 // funciones de dibujo de las pantallas
 
 void dibujaPantallaInicio() {
-
   pushStyle();
   imageMode(CENTER);
   // desabilitar y abilitar los objetos necesarios para esta pantalla
@@ -29,12 +28,8 @@ void dibujaBiblioteca () {
   displayButtonsMenu();
   es1.display();
   es2.display();
-  es3.display();
-  es4.display();
   dibujaEstante1 ();
   dibujaEstante2 ();
-  dibujaEstante3 ();
-  dibujaEstante4 ();
   displayButtonsBiblioteca();
   popStyle();
 }
@@ -46,11 +41,13 @@ void dibujaPerfil () {
   textFont(getFontAt(2));
   enableButtonsMenu();
   enableButtonsPerfil();
+  //dibuja pantalla base
+  imageMode(CENTER);
   dibujaMenu();
+  dibujaLogo();
   fill(getColorAt(2));
   noStroke();
-  dibujaEstante5 ();
-  esquinaIzquierda();
+  dibujaEstante3 ();
   dibujaTextoPerfil();
   displayButtonsMenu();
   displayButtonsPerfil();
@@ -69,15 +66,18 @@ void dibujaAltaLibro () {
   enableButtonsLeidos();
   enableSelectLeidos();
   // dibujar los objetos
+  imageMode(CENTER);
+  textAlign(CENTER);
   dibujaMenu();
+  dibujaLogo();
   fill(getColorAt(1));
-  textFont(getFontAt(0));
+  textFont(getFontAt(2));
   dibujaMenu();
-  text("Nuevo libro", 850, 120);
+  text("Nuevo libro", 200, 180);
   fill(255);
   stroke(getColorAt(4));
   strokeWeight(2);
-  rect (50,200, 1350, 600);
+  rect (50, 200, 1350, 600);
   popStyle();
   pushStyle();
   PagNuevoLibro();
@@ -88,23 +88,27 @@ void dibujaAltaLibro () {
   displaySelectLeido();
   imgButtons[0].display();
   displaySelectTextFieldLeido();
-  getFontAt(3); fill(getColorAt(2));
+  getFontAt(3);
+  fill(getColorAt(2));
   displayButtonsLeido();
   textFont(getFontAt(2));
   p.display();
-  
-  if(img!=null){
+
+  if (img!=null) {
     imageMode(CENTER);
-    image(img, 1150, 600, 300,350);
-    textSize(34); textAlign(RIGHT);
+    image(img, 1150, 600, 300, 350);
+    textSize(34);
+    textAlign(RIGHT);
     text(titulo, 750, 750);
+  } else {
+    fill(255);
+    rectMode(CENTER);
+    stroke(getColorAt(4));
+    rect(1150, 600, 300, 350);
+    textSize(34);
+    textAlign(RIGHT);
   }
-  else{
-    fill(255); rectMode(CENTER);  stroke(getColorAt(4));
-    rect(1150, 600, 300,350);
-    textSize(34); textAlign(RIGHT);
-  }
-  
+
   popStyle();
 }
 
@@ -120,13 +124,16 @@ void dibujaAñadirLibro () {
   enableSelectComprado();
   enableButtonCalendario();
   enableCalendario();
-  
+
   //dibujar base de la pantalla
+  imageMode(CENTER);
+  textAlign(CENTER);
   dibujaMenu();
+  dibujaLogo();
   fill(255);
   stroke(getColorAt(4));
   strokeWeight(2);
-  rect (50,200, 1350, 600);
+  rect (50, 200, 1350, 600);
   textFont(getFontAt(2));
   fill(getColorAt(1));
   text("Modificar Libro", 200, 180);
@@ -134,7 +141,7 @@ void dibujaAñadirLibro () {
   textFont(getFontAt(4));
   text("Estado:", 570, 265);
   text("Adquisicion:", 990, 265);
-  
+
   //dibujar objetos
   displayButtonsMenu();
   displayTextFieldComprar();
@@ -144,8 +151,6 @@ void dibujaAñadirLibro () {
   displayTextArea();
   imgButtons[1].display();
   p.display();
-  
-
 }
 
 void establecerTops () {
@@ -158,7 +163,10 @@ void establecerTops () {
   disableImageButton();
   enableImageButtonTop();
   //base de la pnatalla
+  imageMode(CENTER);
+  textAlign(CENTER);
   dibujaMenu();
+  dibujaLogo();
   textFont(getFontAt(2));
   fill(getColorAt(1));
   text("Establecer Top's", 260, 290);
@@ -192,7 +200,12 @@ void establecerRetos () {
   enableButtonsMenu();
   enableSelect2();
   //base de la pantalla
+  pushStyle();
+  imageMode(CENTER);
+  textAlign(CENTER);
   dibujaMenu();
+  dibujaLogo();
+  popStyle();
   textFont(getFontAt(2));
   fill(getColorAt(1));
   text("Establecer Retos", 260, 290);
@@ -205,7 +218,7 @@ void establecerRetos () {
   cRetos.display();
   tif.display();
   displayTextFieldRetos();
-  imgButtons[5].display();
+  imgButtons[3].display();
   p.display();
   popStyle();
 }
@@ -215,17 +228,16 @@ void dibujarRetos () {
   disableButtons();
   enableButtonsAtrasPerfil();
   enableButtonVerTodo();
+  BuscarRetos.setEnabled(true);
   dibujaMenu();
   textFont(getFontAt(2));
   fill(0);
   text("RETOS", 250, 60);
   displayButtonsAtrasPerfil();
-  reto1.display(100,200,retoW,retoH,5);
+  BuscarRetos.display1();
+  tListRetos.display();
   popStyle();
 }
-
-
-
 
 void dibujarTops () {
   pushStyle();
@@ -239,7 +251,27 @@ void dibujarTops () {
   displayButtonsAtrasPerfil();
   tListTops.display();
   BuscarTops.display1();
+  popStyle();
+}
 
+void borrarLibro () {
+  pushStyle();
+  //desabilitar y abilitar los objetos necesarios para esta pantalla
+  disableButtons();
+  enableButtonsMenu();
+  //pantalla base
+  imageMode(CENTER);
+  textAlign(CENTER);
+  dibujaMenu();
+  dibujaLogo();
+  rectMode(CENTER);
+  fill(255);
+  stroke(getColorAt(4));
+  strokeWeight(2);
+  rect(width/2, height/2, 500, 500);
+  //objetos
+  textFont(getFontAt(2));
+  displayButtonsMenu();
   popStyle();
 }
 
