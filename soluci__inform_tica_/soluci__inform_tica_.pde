@@ -9,6 +9,8 @@ void setup() {
   setMedias();
   setGUI();
   
+  printArray(getInfoTaulaTop("Top 10 mejores novelas"));
+  
 }
 
 

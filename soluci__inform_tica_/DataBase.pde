@@ -117,22 +117,29 @@ int getIdTaulaTop(String nom) {
 
 //Devuelve la informacion de los Tops (libros)
 String[] getInfoTaulaTop(String nombreTop) {
-  String qR = "SELECT COUNT(*) AS n FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Titulo ASC";
-  msql.query(qR);
-  msql.next();
-  int numRows = msql.getInt("n");
-  String[] libros = new String[numRows];
+  String[] libros = null;
+ 
+  if (msql != null) {
+    String qR = "SELECT COUNT(*) AS n FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"'";
+    msql.query(qR);
+    println(qR);
+    msql.next();
+    int numRows = msql.getInt("n");
+    libros = new String[numRows];
+    println(numRows);
 
-  String q = "SELECT l.Titulo AS titulo FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Titulo ASC";
-  msql.query(q);
-  int  nr=0;
-  while (msql.next()) {
-    libros[nr] = msql.getString("titulo");
-    nr++;
+    String q = "SELECT l.Titulo AS titulo FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"'";
+    msql.query(q);
+    println(q);
+    int  nr=0;
+    msql.next(); 
+      libros[1] = msql.getString("titulo"); 
   }
-
+  printArray(libros);
   return libros;
+ 
 }
+
 
 //DELETES
 

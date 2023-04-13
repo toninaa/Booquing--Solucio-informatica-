@@ -70,8 +70,7 @@ void mousePressed() {
     String valorValoracion= Valoracion.getValue();
     String valorAd= s15.getSelectedText(); //select
     // Modificar en la BBDD
-    updateInfoLibro(valorDiaInicio,valorDiaFin,valorRanking, valorValoracion,valorUbi,valorAd,valorISBN);
-    
+    updateInfoLibro(valorDiaInicio,valorDiaFin,valorRanking, valorValoracion,valorUbi,valorAd,valorISBN);  
   } else if (imgButtons[2].mouseOverButton () && imgButtons[2].enabled) {
     getFontAt(4);
     p.setEnabled(true);
@@ -103,7 +102,8 @@ void mousePressed() {
     selectedValor = tListEditorialLeido.selectedValue + "("+tListEditorialLeido.selectedId+")";
    }else if (BuscarTops.mouseOverButton() && BuscarTops.enabled) {
     selectedValor =  ""+tListTops.selectedId+"";
-    topX = new Top(selectedValor, getInfoTaulaTop(selectedValor));
+    println(selectedValor);
+    topX = new Top(selectedValor, getInfoTaulaTop(tListTops.selectedId));
     topX.displayTop(width/2,height/2,TopW,TopH);     
    }else if (BuscarRetos.mouseOverButton() && BuscarRetos.enabled) {
     selectedValor =  ""+tListRetos.selectedId+"";
