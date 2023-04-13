@@ -9,9 +9,8 @@ PANTALLA pantalla = PANTALLA.INICIO;
 
 // creación de los diferentes compenentes
 
-TextField TituloLeido, TituloComprar, TituloLista, TituloTops, AutorLeido, AutorComprar, AutorLista,
-  EditorialLeido, EditorialComprar, EditorialLista, Buscar, Filtrar, Libro, TituloReto,
-  ISBNLeido, ISBNComprar, ISBNLista;
+TextField TituloLibro, TituloTops, Buscar, Filtrar, Libro, TituloReto,
+          ISBNlibro, ISBNmodificar;
 
 TextArea Valoracion, LibrosTop;
 
@@ -29,13 +28,13 @@ TimeField tif;
 
 PopUp p;
 
-CheckBoxStarList cblLeido;
+CheckBoxStarList cblModificar;
 
-SelectTextList tListAutor1Leido, tListAutor2Leido, tListEditorialLeido;
+SelectTextList tListAutor1Leido, tListAutor2Leido, tListEditorialLeido, tListTops;
 
 Libro l1;
 
-Top top1;
+Top topX;
 
 Reto reto1; 
 
@@ -59,7 +58,7 @@ String [] info1 = {"Un cuento perfecto",
   "Valoracion: Muy buen libro con un final inesperado"};
 
 //Strings SelectTextList
-String selectedCountry; 
+String selectedValor; 
 
 // funcion para inicializar todos los componentes GUI
 void setGUI() {
@@ -77,7 +76,6 @@ void setGUI() {
   initCheckStars();
   initLibro();
   initTextArea();
-  initTop();
   initReto();
   initSelectedTextField();
 }
@@ -119,10 +117,29 @@ void initSelectedTextField (){
     selectValuesEditorial[t] = msql.getString("idEditorial");
     t++;
   }
+  
+  String T = "SELECT COUNT(*) AS total from Top ";
+  msql.query(T);
+  int Files=0;
+  if (msql.next()) {
+    Files = Integer.parseInt(msql.getString("total"));
 
+  }
+  String p = "SELECT nomTop from Top";
+  msql.query(p);
+  String [] selectValuesTop= new String [Files];
+  int  i=0;
+  while (msql.next()) {
+    selectValuesTop[i] = msql.getString("nomTop");
+    i++;
+  }
+  
+ 
+  
 tListAutor1Leido = new SelectTextList(selectAutores, 70, 380, tListW, tListH);
 tListAutor2Leido = new SelectTextList (selectAutores,400, 380, tListW, tListH);
 tListEditorialLeido= new SelectTextList (selectValuesEditorial,1070, 300, tListW, tListH);
+tListTops = new SelectTextList (selectValuesTop, 300, 200, 2*tListW, tListH);
 
 
 }
@@ -131,21 +148,15 @@ void displaySelectTextFieldLeido (){
 tListAutor1Leido.display();
 tListAutor2Leido.display();
 tListEditorialLeido.display();
-
 }
 
-//cards libros
 
+//cards libros
 void initLibro () {
   l1 = new Libro (info1, bUnCuento);
   l1.setImage(this.imgs[24]);
 }
 
-void initTop(){
-  String titulo = "Top 10 mejores novelas";
-  String[] infoTop =  getInfoTaulaTop(titulo);
-  top1 = new Top(titulo, infoTop);
-}
 
 void initReto(){
 String titulo= "1 libro en 1 dia";
@@ -156,8 +167,8 @@ reto1.setImage(this.imgs[1]);
 
 // checkboxstarlist
 void initCheckStars () {
-  cblLeido = new CheckBoxStarList(5, stars, 500, height/2, 45, 45);
-  cblLeido.setCheckBoxStars(1);
+  cblModificar = new CheckBoxStarList(5, stars, 70, 330, 45, 45);
+  cblModificar.setCheckBoxStars(1);
 }
 
 // PopUP
@@ -227,8 +238,8 @@ void initCarrouselPerfil() {
 
 // calendario
 void initCalendari () {
-  cI = new CalendariPlus(50, 200, 700, 550);
-  cF= new CalendariPlus(50, 250, 700, 550);
+  cI = new CalendariPlus(600, 200, 700, 550);
+  cF= new CalendariPlus(600, 250, 700, 550);
 }
 
 void enableCalendario() {
@@ -284,13 +295,11 @@ void initSelect() {
   String[] ValuesAdquisicion = {"Comprado","Prestado"};
   s1 = new Select(selectValues, 800, 230, selectX, selectY);//Generos ALTA LIBRO
   s2 = new Select(selectValues, 1050, 550, selectX, selectY);//retos
-  s3 = new Select(selectValues, 550, 350, selectX, selectY);//Leido
   s9 = new Select(ValuesEstado, 70,630, selectX, selectY);//Estado alta libro
   s10= new Select(ValuesAdquisicion, 400, 630, selectX, selectY);//Adquisicion alta libro
-  s14= new Select(ValuesEstado, 300, 200, selectX, selectY);//Estado Comprado
-  s15= new Select(ValuesAdquisicion, 500, 200, selectX, selectY);//Adquisicion Comprado
+  s14= new Select(ValuesEstado, 640, 230, selectX, selectY);//Estado Comprado
+  s15= new Select(ValuesAdquisicion, 1100, 230, selectX, selectY);//Adquisicion Comprado
 }
-
 
 void enableSelectLeidos() {
   s1.setEnabled(true);
@@ -305,24 +314,19 @@ void enableSelect2() {
 
 
 void enableSelectComprado() {
-  s3.setEnabled(true);
   s14.setEnabled(true);
   s15.setEnabled(true);
   
 }
 
-
-
 void disableSelects() {
   s1.setEnabled(false);
   s2.setEnabled(false);
-  s3.setEnabled(false);
   s9.setEnabled(false);
   s10.setEnabled(false);
   s14.setEnabled(false);
   s15.setEnabled(false);
 }
-
 
 // dibujar selects
 void displaySelectLeido() {
@@ -338,31 +342,22 @@ void displaySelect2() {
 
 
 void displaySelectsComprar() {
-  s3.display();
   s14.display();
   s15.display();
 }
 
 // TextField
 void initTextField() {
-  TituloLeido = new TextField(70, 230, CampoX, CampoY);
-  TituloComprar = new TextField(120, 330, CampoX, CampoY);
-  TituloLista = new TextField(120, 330, CampoX, CampoY);
-  AutorLista = new TextField(120, 380, CampoX, CampoY);
-  EditorialLista = new TextField(120, 430, CampoX, CampoY);
+  TituloLibro = new TextField(70, 230, CampoX, CampoY);
   TituloTops = new TextField(150, 425, CampoX, CampoY);
   Buscar = new TextField(width/2-CampoX, 200, CampoX*2, CampoY);
   Filtrar = new TextField(width/2-CampoX+100, 200, CampoX*2, CampoY);
-  ISBNLeido = new TextField(400, 230, CampoX, CampoY);
-  ISBNComprar = new TextField(120, 480, CampoX, CampoY);
+  ISBNlibro = new TextField(400, 230, CampoX, CampoY);
+  ISBNmodificar = new TextField(70, 230, CampoX, CampoY);
   TituloReto=  new TextField(120, 425, CampoX, CampoY);
-  TituloLeido.setText("Titulo");
-  TituloComprar.setText("Titulo");
-  TituloLista.setText("Titulo");
-  AutorLista.setText("autor");
-  EditorialLista.setText("editorial");
-  ISBNLeido.setText("ISBN");
-  ISBNComprar.setText("ISBN");
+  TituloLibro.setText("Titulo");
+  ISBNlibro.setText("ISBN");
+  ISBNmodificar.setText("ISBN");
   TituloTops.setText("Titulo");
   Buscar.setText("buscar...");
   Filtrar.setText("buscar...");
@@ -370,13 +365,12 @@ void initTextField() {
 }
 
 void displayTextFieldLeido () {
-  TituloLeido.display();
-  ISBNLeido.display();
+  TituloLibro.display();
+  ISBNlibro.display();
 }
 
 void displayTextFieldComprar () {
-  TituloComprar.display();
-  ISBNComprar.display();
+  ISBNmodificar.display();
 }
 
 
@@ -399,7 +393,7 @@ void displayTextFieldRetos() {
 
 //TextArea
 void initTextArea () {
-  Valoracion = new TextArea (900, 450, ValoracionX, ValoracionY, 30, 6);
+  Valoracion = new TextArea (70, 500, ValoracionX, ValoracionY, 30, 6);
   LibrosTop = new TextArea (600, 400, ValoracionX, ValoracionY+50, 40, 10);
 }
 
@@ -415,10 +409,10 @@ Button [] buttons;
 Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1,
   MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, AtrasR, Guardar, VerTodo, CalendarioI,
   CalendarioF, Aceptar, Leidos, Lista, ComprarB, Actuales, bUnCuento, ImagenComprado, EligeAutor1Leido, 
-  EligeAutor2Leido, EligeEditorialLeido;
+  EligeAutor2Leido, EligeEditorialLeido, BuscarTops;
 
 void initButtons () {
-  buttons = new Button [23];
+  buttons = new Button [24];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -431,17 +425,18 @@ void initButtons () {
   buttons [9]= new Button ("Alta Libro", 100, 250, LeidoX, LeidoY);
   buttons [10]= new Button ("Modificar", 300, 250, LeidoX, LeidoY);
   buttons [11]= new Button ("Ver Todo", 930, 750, LeidoX, LeidoY);
-  buttons [12]= new Button ("Calendario", 420, 560, calendarioX, calendarioY);
+  buttons [12]= new Button ("Calendario", 1120, 460, calendarioX, calendarioY);
   buttons [13]= new Button ("Leidos", 450, height/3+40, LeidoX, LeidoY);
   buttons [14]= new Button ("Comprar", 450, height/3+340, LeidoX, LeidoY);
   buttons [15]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [16]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
-  buttons [17]= new Button ("Calendario", 420, 630, calendarioX, calendarioY);
+  buttons [17]= new Button ("Calendario", 1120, 550, calendarioX, calendarioY);
   buttons [18]= new Button ("x", 950, 500, libroWidth*1.5, libroHeight*1.5);
   buttons [19]= new Button ("Imagen",800, 700, LeidoX, LeidoY);
   buttons [20]= new Button ("Autor 1", 70+tListW/2-80, 300, LeidoX, LeidoY);
   buttons [21]= new Button ("Autor 2", 400+tListW/2-80, 300, LeidoX, LeidoY);
   buttons [22]= new Button ("Editorial", 1140, 230, LeidoX, LeidoY);
+  buttons [23]= new Button ("Buscar", 1000, 200, LeidoX, LeidoY);
   
   
 
@@ -468,7 +463,7 @@ void initButtons () {
   EligeAutor1Leido = buttons [20];
   EligeAutor2Leido = buttons [21];
   EligeEditorialLeido = buttons [22];
-  
+  BuscarTops = buttons [23];
 }
 
 
@@ -521,6 +516,10 @@ void enableButtonsAtrasRetos() {
   AtrasR.setEnabled(true);
 }
 
+void enableButtonTop (){
+BuscarTops.setEnabled(true);
+}
+
 void enableButtonVerTodo() {
   VerTodo.setEnabled(true);
 }
@@ -530,14 +529,6 @@ void enableButtonsLeidos() {
   EligeAutor1Leido.setEnabled(true);
   EligeAutor2Leido.setEnabled(true);
   EligeEditorialLeido.setEnabled(true);
-}
-
-void enableButtonsComprar(){
-ImagenComprado.setEnabled(true);
-}
-
-void displayButtonsComprar () {
-  ImagenComprado.display1();
 }
 
 
@@ -602,8 +593,8 @@ PImage[] getImagesButton(int n1, int n2) {
 
 void initImageButton () {
   imgButtons  = new ImageButton [4];
-  imgButtons [0]= new ImageButton (getImagesButton(11, 12),  1325, 730, CheckX, CheckY);//ALTA LIBRO
-  imgButtons [1]= new ImageButton (getImagesButton(11, 12), 820, 620, CheckX, CheckY);//MODIFICAR
+  imgButtons [0]= new ImageButton (getImagesButton(11, 12), 1325, 730, CheckX, CheckY);//ALTA LIBRO
+  imgButtons [1]= new ImageButton (getImagesButton(11, 12), 1325, 730 , CheckX, CheckY);//MODIFICAR
   imgButtons [2]= new ImageButton (getImagesButton(11, 12), 1225, 680, CheckX, CheckY);// tops
   imgButtons [3]= new ImageButton (getImagesButton(11, 12), 1225, 680, CheckX, CheckY);//retos
 }

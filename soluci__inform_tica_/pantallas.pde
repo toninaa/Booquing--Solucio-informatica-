@@ -83,7 +83,6 @@ void dibujaAltaLibro () {
   PagNuevoLibro();
   textFont(getFontAt(2));
   displayButtonsMenu();
-  //cblLeido.display();
   displayTextFieldLeido();
   textFont(getFontAt(5));
   displaySelectLeido();
@@ -117,43 +116,49 @@ void dibujaAñadirLibro () {
   disableSelects();
   disableImageButton();
   enableImageButtonComprar();
-  enableButtonsComprar();
   enableButtonsMenu();
   enableSelectComprado();
+  enableButtonCalendario();
+  enableCalendario();
   
   //dibujar base de la pantalla
   dibujaMenu();
-  textFont(getFontAt(2));
-  esquinaIzquierda();
-  fill(getColorAt(1));
-  text("Nuevo libro", 220, 250);
   fill(255);
   stroke(getColorAt(4));
   strokeWeight(2);
-  rect (100, 300, 800, 400);
+  rect (50,200, 1350, 600);
+  textFont(getFontAt(2));
+  fill(getColorAt(1));
+  text("Modificar Libro", 200, 180);
+  text("Valoracion", 200, 470);
+  textFont(getFontAt(4));
+  text("Estado:", 570, 265);
+  text("Adquisicion:", 990, 265);
+  
   //dibujar objetos
   displayButtonsMenu();
   displayTextFieldComprar();
   displaySelectsComprar();
-  displayButtonsComprar();
   calendarioInicioFin();
+  cblModificar.display();
+  displayTextArea();
   imgButtons[1].display();
   p.display();
   
 
 }
 
-
 void establecerTops () {
   pushStyle();
+  //desabilitar y abilitar los objetos necesarios para esta pantalla
   disableButtons();
   disableCounters();
   enableButtonsMenu();
   enableCounterTops();
   disableImageButton();
   enableImageButtonTop();
+  //base de la pnatalla
   dibujaMenu();
-  esquinaIzquierda();
   textFont(getFontAt(2));
   fill(getColorAt(1));
   text("Establecer Top's", 260, 290);
@@ -161,12 +166,13 @@ void establecerTops () {
   stroke(getColorAt(4));
   strokeWeight(2);
   rect (100, 350, 1200, 400);
+  //objetos
   displayButtonsMenu();
   textFont(getFontAt(5));
   displayTextFieldTops();
   textFont(getFontAt(2));
   cTops.display();
-  imgButtons[4].display();
+  imgButtons[2].display();
   textFont(getFontAt(2));
   p.display();
   popStyle();
@@ -174,6 +180,7 @@ void establecerTops () {
 
 void establecerRetos () {
   pushStyle();
+  //desabilitar y abilitar los objetos necesarios para esta pantalla
   disableButtons();
   disableSelects();
   disableCounters();
@@ -184,8 +191,8 @@ void establecerRetos () {
   enableCounterRetos();
   enableButtonsMenu();
   enableSelect2();
+  //base de la pantalla
   dibujaMenu();
-  esquinaIzquierda();
   textFont(getFontAt(2));
   fill(getColorAt(1));
   text("Establecer Retos", 260, 290);
@@ -223,16 +230,16 @@ void dibujarRetos () {
 void dibujarTops () {
   pushStyle();
   disableButtons();
+  enableButtonTop();
   enableButtonsAtrasPerfil();
   dibujaMenu();
   textFont(getFontAt(2));
   fill(0);
   text("TOP'S", 250, 60);
   displayButtonsAtrasPerfil();
-  fill(255);
-  stroke(getColorAt(4));
-  textAlign(LEFT);
-  top1.displayTop(100,250,TopW,TopH);
+  tListTops.display();
+  BuscarTops.display1();
+
   popStyle();
 }
 

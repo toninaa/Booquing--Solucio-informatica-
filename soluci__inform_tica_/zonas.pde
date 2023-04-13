@@ -101,16 +101,16 @@ void PagNuevoLibro () {
 void calendarioInicioFin () {
   pushStyle();
   fill(0);
-  textFont(getFontAt(4));
-  text("Inicio:", 170, 600);
-  text("Fin:", 170, 650);
+  textFont(getFontAt(4)); fill(getColorAt(1));
+  text("Inicio:",890, 500);
+  text("Fin:", 900, 580);
   fill(255);
   stroke(231, 227, 147);
-  rect(230, 570, 140, 40, 5);
-  rect(230, 620, 140, 40, 5);
+  rect(950, 470, 140, 40, 5);
+  rect(950, 550, 140, 40, 5);
   fill(133, 77, 39);
-  text(dataCalendariInicio, 300, 600);
-  text(dataCalendariFin, 300, 650);
+  text(dataCalendariInicio,1020, 500);
+  text(dataCalendariFin, 1020, 580);
   CalendarioI.display1();
   CalendarioF.display1();
   cI.display();

@@ -42,11 +42,11 @@ void mousePressed() {
     getFontAt(4);
     p.setEnabled(true);
     // Coger los valores del campo del formulario
-    String valorTitulo= TituloLeido.getValue();//textField
+    String valorTitulo= TituloLibro.getValue();//textField
     String autor1 = tListAutor1Leido.selectedValue; 
     String autor2 = tListAutor2Leido.selectedValue; 
     String valorEditorial = tListEditorialLeido.selectedValue;
-    String valorISBN = ISBNLeido.getValue();// textField
+    String valorISBN = ISBNlibro.getValue();// textField
     String valorGenero   = s1.getSelectedText(); // select
     String valorUbi= s9.getSelectedText();
     String valorImg = titulo;
@@ -61,9 +61,9 @@ void mousePressed() {
     getFontAt(4);
     p.setEnabled(true);
     // Coger los valores del campo del formulario
-    String valorISBN = String.valueOf(ISBNComprar.getValue());// textField
+    String valorISBN = String.valueOf(ISBNmodificar.getValue());// textField
     String valorUbi= s14.getSelectedText();// select
-    String valorRanking = String.valueOf(cblLeido.getNumSelected());//checkBoxStars
+    String valorRanking = String.valueOf(cblModificar.getNumSelected());//checkBoxStars
     String valorDiaInicio= String.valueOf(dataCalendariInicio);
     String valorDiaFin = String.valueOf(dataCalendariFin);
     String valorValoracion= Valoracion.getValue();
@@ -95,19 +95,23 @@ void mousePressed() {
     fill(255);
     selectInput("Selecciona una imatge ...", "fileSelected");
   }else if (EligeAutor1Leido.mouseOverButton() && EligeAutor1Leido.enabled) {
-    selectedCountry = tListAutor1Leido.selectedValue + "("+tListAutor1Leido.selectedId+")";
+    selectedValor = tListAutor1Leido.selectedValue + "("+tListAutor1Leido.selectedId+")";
    }else if (EligeAutor2Leido.mouseOverButton() && EligeAutor2Leido.enabled) {
-    selectedCountry = tListAutor2Leido.selectedValue + "("+tListAutor2Leido.selectedId+")";
+    selectedValor = tListAutor2Leido.selectedValue + "("+tListAutor2Leido.selectedId+")";
    }else if (EligeEditorialLeido.mouseOverButton() && EligeEditorialLeido.enabled) {
-    selectedCountry = tListEditorialLeido.selectedValue + "("+tListEditorialLeido.selectedId+")";
+    selectedValor = tListEditorialLeido.selectedValue + "("+tListEditorialLeido.selectedId+")";
+   }else if (BuscarTops.mouseOverButton() && BuscarTops.enabled) {
+    selectedValor =  ""+tListTops.selectedId+"";
+    topX = new Top(selectedValor,getInfoTaulaTop(selectedValor));
+    topX.displayTop(width/2,height/2,TopW,TopH);
+    
    }
  
 
   // activar el cambio de color al estar encima del textField
-  TituloLeido.isPressed();
-  TituloComprar.isPressed();
-  ISBNLeido.isPressed();
-  ISBNComprar.isPressed();
+  TituloLibro.isPressed();
+  ISBNlibro.isPressed();
+  ISBNmodificar.isPressed();
   TituloTops.isPressed();
   Buscar.isPressed();
   Filtrar.isPressed();
@@ -119,12 +123,13 @@ void mousePressed() {
 
 
   //CheckBoxStarList
-  cblLeido.checkMouse();
+  cblModificar.checkMouse();
   
   //SelectedTextField
    tListAutor1Leido.mouseOn();
    tListAutor2Leido.mouseOn();
    tListEditorialLeido.mouseOn();
+   tListTops.mouseOn();
 
 
   // actualizar el valor de los counters al pulsar + 0 -
@@ -145,13 +150,7 @@ void mousePressed() {
     }
     s2.toggle();        // Plegar o desplegar
   }
-  
-  if (s3.mouseOverSelect() && s3.enabled) {
-    if (!s3.collapsed) {
-      s3.update();      // Actualitzar valor
-    }
-    s3.toggle();        // Plegar o desplegar
-  }
+ 
   
   if (s9.mouseOverSelect() && s9.enabled) {
     if (!s9.collapsed) {
@@ -237,15 +236,13 @@ void mousePressed() {
 
   // timeField
   tif.isPressed();
-  cblLeido.checkMouse();
+  cblModificar.checkMouse();
 }
 
 // funcion para resetar los TextFields y el textArea
 void resetFields() {
-  TituloLeido.setText("Titulo");
-  TituloComprar.setText("Titulo");
-  ISBNLeido.setText("ISBN");
-  ISBNComprar.setText("ISBN");
+  TituloLibro.setText("Titulo");
+  ISBNlibro.setText("ISBN");
   TituloTops.setText("Titulo");
   Buscar.setText("buscar");
   Filtrar.setText("filtrar");
@@ -256,18 +253,18 @@ void resetFields() {
 
 void keyPressed () {
   // escuchar las teclas del teclado en los textFields
-  TituloLeido.keyPressed(key, (int)keyCode);
-  TituloComprar.keyPressed(key, (int)keyCode);
+  TituloLibro.keyPressed(key, (int)keyCode);
   TituloTops.keyPressed(key, (int)keyCode);
   Buscar.keyPressed(key, (int)keyCode);
   TituloReto.keyPressed(key, (int)keyCode);
-  ISBNLeido.keyPressed(key, (int)keyCode);
-  ISBNComprar.keyPressed(key, (int)keyCode);
+  ISBNlibro.keyPressed(key, (int)keyCode);
+  ISBNmodificar.keyPressed(key, (int)keyCode);
   
   //SelectedTextField
    tListAutor1Leido.keyOn();
    tListAutor2Leido.keyOn();
    tListEditorialLeido.keyOn();
+   tListTops.keyOn();
 
   // escuchar las teclas del teclado para el TextArea
   Valoracion.keyPressed(key, (int)keyCode);

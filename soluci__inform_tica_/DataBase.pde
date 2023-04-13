@@ -62,6 +62,9 @@ void insertInfoTaulaLibro_has_Autor(String isbn, String autor) {
   msql.query(q);
 }
 
+//Obtener informacion de un Top 
+
+
 // Obten información de la tabla Reto
 String[][] getInfoTaulaReto() {
 
@@ -80,9 +83,6 @@ String[][] getInfoTaulaReto() {
   }
   return data;
 }
-
-
-
 
 // Obté el número de files de la taula
 int getNumRowsTaula(String nomTaula) {
@@ -127,6 +127,10 @@ String[] getInfoTaulaTop(String nombreTop) {
 
   return libros;
 }
+
+ void selectNombreTops (){
+  String q = "";
+  }
 
 // Obten array con el nombre del top
 String[] getNomsTaulaTop() {
