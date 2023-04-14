@@ -13,7 +13,7 @@ PImage[] imgTrofeos;
 
 // Establecer las imagenes de la App
 void setMedias() {
-  this.imgs = new PImage[35];
+  this.imgs = new PImage[34];
   this.imgs[0] = loadImage(URL_IMGS+"/logo1.png");
   this.imgs[1] = loadImage(URL_IMGS+"/trofeo0.png");
   this.imgs[2] = loadImage(URL_IMGS+"/estanteria.png");
@@ -48,7 +48,7 @@ void setMedias() {
   this.imgs[31]= loadImage(URL_IMGS+"/portada15.jpg");
   this.imgs[32]= loadImage(URL_IMGS+"/portada16.jpg");
   this.imgs[33]= loadImage(URL_IMGS+"/portada17.jpg");
-  this.imgs[34]= loadImage(URL_IMGS+"/portada18.jpg");
+  
 
 }
 // array para el carrousel de trofeos
@@ -79,7 +79,7 @@ void setImages() {
 
 //array para el carrousel de libros leidos
 void setPortadas() {
-  this.imgPortada = new PImage[9];
+  this.imgPortada = new PImage[8];
   this.imgPortada[0] = loadImage(URL_IMGS+"/portada10.jpg");
   this.imgPortada[1] = loadImage(URL_IMGS+"/portada11.jpg");
   this.imgPortada[2] = loadImage(URL_IMGS+"/portada12.jpg");
@@ -88,8 +88,7 @@ void setPortadas() {
   this.imgPortada[5] = loadImage(URL_IMGS+"/portada15.jpg");
   this.imgPortada[6] = loadImage(URL_IMGS+"/portada16.jpg");
   this.imgPortada[7] = loadImage(URL_IMGS+"/portada17.jpg");
-  this.imgPortada[8] = loadImage(URL_IMGS+"/portada18.jpg");
-  
+ 
 }
 
 

@@ -34,8 +34,10 @@ void mousePressed() {
     pantalla = PANTALLA.RETOSCON;
   } else if (Leidos.mouseOverButton() && Leidos.enabled) {
     pantalla = PANTALLA.LEIDOS;
+    printArray(getInfoLibrosBiblioteca("No Leido"));
   } else if (ComprarB.mouseOverButton() && ComprarB.enabled) {
     pantalla = PANTALLA.COMPRAR;
+    getInfoLibrosBiblioteca("Leido");
   } else if (AtrasR.mouseOverButton() && AtrasR.enabled) {
     pantalla = PANTALLA.RETOS;
   } else if (imgButtons[0].mouseOverButton()&& imgButtons[0].enabled) {
@@ -107,6 +109,9 @@ void mousePressed() {
     topX.displayTop(width/2,height/2,TopW,TopH);     
    }else if (BuscarRetos.mouseOverButton() && BuscarRetos.enabled) {
     selectedValor =  ""+tListRetos.selectedId+"";
+    retoX= new Reto (selectedValor);
+    retoX.setImage(this.imgs[1]);
+    retoX.display(width/2, height/2, retoW, retoH, 5);
    }else if (Borrar.mouseOverButton() && Borrar.enabled) { 
      pantalla = PANTALLA.BORRARLIBRO;
    }else if (BorrarP.mouseOverButton() && BorrarP.enabled) { 

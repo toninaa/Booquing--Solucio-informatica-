@@ -68,7 +68,22 @@ println(q);
 msql.query(q);
 }
 
+String [][] getInfoLibrosBiblioteca (){
+  
+int numRows = getNumRowsTaula("Libro");
 
+String [][] data= new String [numRows][3];
+
+ int nr=0;
+  msql.query( "SELECT `ISBN`,`Titulo`,`Imagen_idImagen` FROM `Libro` WHERE `Estado`='"+estado+"'" );
+  while (msql.next()) {
+    data[nr][0] = String.valueOf(msql.getInt("ISBN"));
+    data[nr][1] = msql.getString("Titulo");
+    data[nr][2] = msql.getString("Imagen_idImagen");
+    nr++;
+  }
+  return data;
+}
 
 
 // Obten información de la tabla Reto

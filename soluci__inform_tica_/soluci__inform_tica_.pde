@@ -7,15 +7,11 @@ void setup() {
   setColors();
   setFonts();
   setMedias();
-  setGUI();
-  
-  printArray(getInfoTaulaTop("Top 10 mejores novelas"));
-  
+  setGUI();  
 }
 
-
 void draw() {
-
+  
   background(255);
 
   // Dibuja la pantalla correspondiente

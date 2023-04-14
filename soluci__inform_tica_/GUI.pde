@@ -36,7 +36,7 @@ Libro l1;
 
 Top topX;
 
-Reto reto1; 
+Reto reto1, retoX; 
 
 // Strings de algunos componentes
 
