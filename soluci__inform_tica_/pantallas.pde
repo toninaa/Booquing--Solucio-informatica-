@@ -238,6 +238,9 @@ void dibujarRetos () {
   displayButtonsAtrasPerfil();
   BuscarRetos.display1();
   tListRetos.display();
+   if(retoX!=null){
+    retoX.display(500, 400, retoW, retoH, 5);
+  }
   popStyle();
 }
 
@@ -253,6 +256,9 @@ void dibujarTops () {
   displayButtonsAtrasPerfil();
   tListTops.display();
   BuscarTops.display1();
+   if (topX!=null) {
+    topX.displayTop(550, height/2-100, TopW, TopH);
+  }
   popStyle();
 }
 
@@ -304,6 +310,9 @@ void verLibrosLeidos () {
   displayButtonsAtrasBiblioteca();
   tListLeidos.display();
   BuscarLeidos.display1();
+   if(lX!=null){
+    lX.displayInformacion();
+  }
   popStyle();
 }
 
@@ -321,6 +330,9 @@ void verLibrosNoLeidos () {
   displayButtonsAtrasBiblioteca();
   tListNoLeidos.display();
   BuscarNoLeidos.display1();
+  if(lX!=null){
+    lX.displayInformacion();
+  }
   popStyle();
 }
 

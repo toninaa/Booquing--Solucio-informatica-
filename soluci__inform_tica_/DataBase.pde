@@ -156,6 +156,7 @@ String[] getInfoTaulaTop(String nombreTop) {
     
 }
 
+//devuelve toda la informacion de la tabla Libro
 String[] getInfoLlibre(String titulo) {
   
     String[] libro = new String[12];
@@ -180,6 +181,14 @@ String[] getInfoLlibre(String titulo) {
  
     return libro;
     
+}
+
+//devuelve la imagen de la tabla libro
+int getImgLibro(String titulo) {
+  String q = "SELECT Imagen_idImagen FROM Libro WHERE Titulo='"+titulo+"'";
+  msql.query(q);
+  msql.next();
+  return msql.getInt("titulo");
 }
 
 //DELETES

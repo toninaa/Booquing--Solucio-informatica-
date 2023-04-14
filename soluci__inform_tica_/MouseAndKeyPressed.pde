@@ -34,7 +34,6 @@ void mousePressed() {
     pantalla = PANTALLA.RETOSCON;
   } else if (Leidos.mouseOverButton() && Leidos.enabled) {
     pantalla = PANTALLA.LEIDOS;
-    printArray(getInfoLibrosBiblioteca("No Leido"));
   } else if (ComprarB.mouseOverButton() && ComprarB.enabled) {
     pantalla = PANTALLA.COMPRAR;
     getInfoLibrosBiblioteca("Leido");
@@ -104,13 +103,11 @@ void mousePressed() {
     selectedValor =  ""+tListTops.selectedId+"";
     println(selectedValor);
     topX = new Top(selectedValor, getInfoTaulaTop(tListTops.selectedId));
-    topX.setEnabled(true);
-    topX.displayTop(width/2,height/2,TopW,TopH);     
+    topX.setEnabled(true);    
    }else if (BuscarRetos.mouseOverButton() && BuscarRetos.enabled) {
     selectedValor =  tListRetos.selectedId;
     retoX= new Reto (selectedValor);
     retoX.setImage(this.imgs[1]);
-    retoX.display(width/2, height/2, retoW, retoH, 5);
    }else if (Borrar.mouseOverButton() && Borrar.enabled) { 
      pantalla = PANTALLA.BORRARLIBRO;
    }else if (BorrarP.mouseOverButton() && BorrarP.enabled) { 
@@ -120,18 +117,19 @@ void mousePressed() {
      deleteTop_has_Libro(valor);
      deleteLibro_has_Autor(valor);
      deleteLibro(valor);
-     
-    getFontAt(4);
-    b.setEnabled(true);
+     // para el display del POP UP
+     getFontAt(4);
+     b.setEnabled(true);
    
-   }else if (BuscarLeidos.mouseOverButton() && BuscarLeidos.enabled) {
+   }else if (BuscarLeidos.mouseOverButton() && BuscarLeidos.enabled ) {
      selectedValor =  ""+tListLeidos.selectedId+"";
      lX= new Libro (getInfoLlibre(selectedValor));
-     lX.displayInformacion();
      //println(lX.Img);
      //lX.setImage(lX.img);
    }else if (BuscarNoLeidos.mouseOverButton() && BuscarNoLeidos.enabled) {
     selectedValor =  ""+tListNoLeidos.selectedId+"";
+     lX= new Libro (getInfoLlibre(selectedValor));
+    
    }
  
   // activar el cambio de color al estar encima del textField

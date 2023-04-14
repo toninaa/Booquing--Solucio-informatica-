@@ -37,7 +37,7 @@ class Reto{
  
  //titulo 
  fill(getColorAt(1)); textSize(25); textFont(getFontAt(5)); textAlign(CENTER);
- text(titulo, x/2+retoW/2+130, y/2+(retoH/2)+5*b);
+ text(titulo, 800, 450);
  popStyle();
  }
  

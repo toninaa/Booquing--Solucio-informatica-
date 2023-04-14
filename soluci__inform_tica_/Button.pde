@@ -30,7 +30,6 @@ class Button {
   }
 
   // Setters
-
   void setEnabled(boolean b) {
     this.enabled = b;
   }

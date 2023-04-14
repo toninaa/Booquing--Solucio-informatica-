@@ -2,7 +2,7 @@ class Libro {
   // propiedades
   PImage img;
   String titulo, autor, editorial, genero, isbn, diaInici, diaFi, estado, Img, ad, ranking, valoracion;
-  boolean isSelected = false;
+  boolean isSelected, enabled = false;
 
   // Constructor
   Libro(String [] info) {
@@ -15,6 +15,7 @@ class Libro {
     this.estado = info [6];
     this.editorial = info[7];
     this.Img = info [8];
+    this.img = loadImage("imgs/"+this.Img);
     this.genero = info[9];
     this.ad = info[10]; 
     this.autor = info [11];  
@@ -24,42 +25,62 @@ class Libro {
   void setImage(PImage img) {
     this.img = img;
   }
+  
+  void setEnabled(boolean b) {
+    this.enabled = b;
+  }
 
 //display informacion libro  
   void displayInformacion() {
     pushStyle();
 
     // imagen desciptiva
-  //  float imgW = libroWidth;
-  //  float imgH = libroHeight;
-    //image(img, 50, 300, imgW, imgH);
+    float imgW = libroWidth*3;
+    float imgH = libroHeight*3;
+   if (this.img!=null) {
+      image(this.img, 200, 300, imgW, imgH);
+    }
+    else {
+      rect(50, 50, imgW, imgH);
+    }
 
 
     // titol
     fill(115, 135, 123);
     textAlign(LEFT);
-    textFont(getFontAt(1));
-    text(titulo, 200, 300);
+    textFont(getFontAt(4));
+    text("Titulo:  "+titulo, 600, 350);
 
     // autor
     fill(133, 77, 39);
     textSize(25);
     textAlign(LEFT);
     textFont(getFontAt(4));
-    text(autor, 200, 400);
+    text("Autor: "+autor, 600, 400);
 
     // editorial
-    text(editorial, 200, 500);
+    text("Editorial: "+editorial, 600, 450);
 
     // genero
-    text(genero, 200, 600);
+    text("Genero: "+genero, 600, 500);
     
     // valoracion
-    //text(valoracion, 500, 300, 350, 200);
+    text("Valoracion: "+valoracion, 1100, 350);
 
     // ranquing
-    text(ranking, 500, 400, 350, 200);
-
+    text("Ranking: "+ranking+" estrellas",600, 550);
+    
+    //Dia inicio
+    text("Dia Inicio: "+diaInici,600, 600);
+    //Dia Fin
+    text("Dia Fin: "+diaFi, 600, 650);
+    
+    //ISBN
+    text("ISBN: "+isbn, 200, 700);
+    
+    //Adquisicion
+    text("Adquisicion: "+ad, 600, 700);
+    
     popStyle();
   }
 }
