@@ -1,21 +1,23 @@
 class Libro {
   // propiedades
   PImage img;
-  String titulo, autor, editorial, genero;
-  String ranking;
-  String valoracion;
-  Button b;
+  String titulo, autor, editorial, genero, isbn, diaInici, diaFi, estado, Img, ad, ranking, valoracion;
   boolean isSelected = false;
 
   // Constructor
-  Libro(String [] info, Button b) {
-    this.titulo = info[0];
-    this.autor = info [1];
-    this.editorial = info[2];
-    this.genero = info[3];
+  Libro(String [] info) {
+    this.isbn = info[0];
+    this.titulo = info[1];
+    this.diaInici = info [2];
+    this.diaFi = info [3];
     this.ranking = info[4];
     this.valoracion = info[5];
-    this.b = b;
+    this.estado = info [6];
+    this.editorial = info[7];
+    this.Img = info [8];
+    this.genero = info[9];
+    this.ad = info[10]; 
+    this.autor = info [11];  
   }
 
   // setters
@@ -23,48 +25,40 @@ class Libro {
     this.img = img;
   }
 
-  // dibuja Libro
-  void displayLibro() {
-    this.b.displayWithImg(this.img);
-  }
+//display informacion libro  
   void displayInformacion() {
     pushStyle();
 
     // imagen desciptiva
-    float imgW = 500;
-    float imgH = 700;
-    image(img, 50, 100, imgW, imgH);
+  //  float imgW = libroWidth;
+  //  float imgH = libroHeight;
+    //image(img, 50, 300, imgW, imgH);
 
 
     // titol
     fill(115, 135, 123);
-    textSize(35);
     textAlign(LEFT);
-    textFont(getFontAt(0));
-    text(titulo, width/2+50, 100);
+    textFont(getFontAt(1));
+    text(titulo, 200, 300);
 
     // autor
     fill(133, 77, 39);
     textSize(25);
     textAlign(LEFT);
     textFont(getFontAt(4));
-    text(autor, width/2-130, 200);
+    text(autor, 200, 400);
 
     // editorial
-
-    text(editorial, width/2-130, 300);
+    text(editorial, 200, 500);
 
     // genero
-
-    text(genero, width/2-130, 400);
-
+    text(genero, 200, 600);
+    
     // valoracion
-
-    text(valoracion, width/2-130, 600, 350, 200);
+    //text(valoracion, 500, 300, 350, 200);
 
     // ranquing
-
-    text(ranking, width/2-130, 460, 350, 200);
+    text(ranking, 500, 400, 350, 200);
 
     popStyle();
   }

@@ -68,7 +68,13 @@ println(q);
 msql.query(q);
 }
 
-String [][] getInfoLibrosBiblioteca (){
+void getInfoLibro_has_Reto (String nomReto){
+String q = "SELECT Libro_ISBN from Libro_has_Top WHERE Top_nomTop= '"+nomReto+"'";
+println(q);
+msql.query(q);
+}
+
+String [][] getInfoLibrosBiblioteca (String estado){
   
 int numRows = getNumRowsTaula("Libro");
 
@@ -132,29 +138,49 @@ int getIdTaulaTop(String nom) {
 
 //Devuelve la informacion de los Tops (libros)
 String[] getInfoTaulaTop(String nombreTop) {
-  String[] libros = null;
- 
-  if (msql != null) {
-    String qR = "SELECT COUNT(*) AS n FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"'";
-    msql.query(qR);
-    println(qR);
-    msql.next();
-    int numRows = msql.getInt("n");
-    libros = new String[numRows];
-    println(numRows);
+  String qR = "SELECT COUNT(*) AS n FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Titulo ASC";
+  msql.query(qR);
+  msql.next();
+  int numRows = msql.getInt("n");
+  String[] libros = new String[numRows];
 
-    String q = "SELECT l.Titulo AS titulo FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"'";
-    msql.query(q);
-    println(q);
-    int  nr=0;
-    msql.next(); 
-      libros[1] = msql.getString("titulo"); 
+  String q = "SELECT l.Titulo AS titulo FROM Libro l, Top t, Libro_has_Top lt WHERE l.ISBN=lt.Libro_ISBN AND lt.Top_nomTop=t.nomTop AND t.nomTop='"+nombreTop+"' ORDER BY l.Titulo ASC";
+  msql.query(q);
+  int  nr=0;
+  while (msql.next()) {
+    libros[nr] = msql.getString("titulo");
+    nr++;
   }
   printArray(libros);
-  return libros;
- 
+    return libros;
+    
 }
 
+String[] getInfoLlibre(String titulo) {
+  
+    String[] libro = new String[12];
+
+  String q = "select libro.*, group_concat(Libro_has_Autor.autor_nombre) as autor_nombre from libro, Libro_has_Autor where libro.isbn=Libro_has_Autor.libro_isbn AND libro.titulo='"+titulo+"' group by libro.isbn;";
+  msql.query(q);
+  if (msql.next()) {
+    libro[0] = msql.getString("ISBN");
+    libro[1]=msql.getString("Titulo");
+    libro[2]=msql.getString("DiaInicio");
+    libro[3]=msql.getString("DiaFin");
+    libro[4]=msql.getString("Ranking");
+    libro[5]=msql.getString("Valoracion");
+    libro[6]=msql.getString("Estado");
+    libro[7]=msql.getString("Editorial_idEditorial");
+    libro[8]=msql.getString("Imagen_idImagen");
+    libro[9]=msql.getString("Genero_idGenero");
+    libro[10]=msql.getString("Adquisicion");
+    libro[11]=msql.getString("autor_nombre");
+    
+  }
+ 
+    return libro;
+    
+}
 
 //DELETES
 

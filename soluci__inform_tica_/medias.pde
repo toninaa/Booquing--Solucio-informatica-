@@ -49,7 +49,6 @@ void setMedias() {
   this.imgs[32]= loadImage(URL_IMGS+"/portada16.jpg");
   this.imgs[33]= loadImage(URL_IMGS+"/portada17.jpg");
   
-
 }
 // array para el carrousel de trofeos
 void setTrofeos() {

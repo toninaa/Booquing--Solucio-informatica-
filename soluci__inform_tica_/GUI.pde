@@ -2,7 +2,7 @@
 // Enumeracion de las pantallas de la app
 enum PANTALLA {
   INICIO, BIBLIO, PERFIL, LEIDOS, ESTRETOS, ESTTOPS, NUEVOLEIDO, NUEVOCOMPRADO,
-    COMPRAR, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, LIBRO, BORRARLIBRO};
+    COMPRAR, INFO, TOPS, RETOS, ACTIVOS, RETOSCON, INFOACTIVO, BORRARLIBRO};
 
 // pantalla inicial
 PANTALLA pantalla = PANTALLA.INICIO;
@@ -30,9 +30,10 @@ PopUp p, b;
 
 CheckBoxStarList cblModificar;
 
-SelectTextList tListAutor1Leido, tListAutor2Leido, tListEditorialLeido, tListTops, tListRetos;
+SelectTextList tListAutor1Leido, tListAutor2Leido, tListEditorialLeido, tListTops,
+tListRetos, tListLeidos, tListNoLeidos;
 
-Libro l1;
+Libro lX;
 
 Top topX;
 
@@ -78,7 +79,6 @@ void setGUI() {
   initTimeField();
   initPopUp();
   initCheckStars();
-  initLibro();
   initTextArea();
   initReto();
   initSelectedTextField();
@@ -138,7 +138,7 @@ void initSelectedTextField (){
     i++;
   }
   
-   String R = "SELECT COUNT(*) AS total from Reto ";
+  String R = "SELECT COUNT(*) AS total from Reto ";
   msql.query(R);
   int Rows=0;
   if (msql.next()) {
@@ -153,12 +153,41 @@ void initSelectedTextField (){
     selectValuesReto[w] = msql.getString("idReto");
     w++;
   }
+  
+//seleccionar autores de los libros leidos
+   String A = "SELECT COUNT(*) AS total from Libro ";
+  msql.query(A);
+  int Linies=0;
+  if (msql.next()) {
+    Linies = Integer.parseInt(msql.getString("total"));
+
+  }
+  String l = "SELECT `Titulo` FROM `Libro` WHERE `Estado`='Leido'";
+  msql.query(l);
+  String [] selectValuesLeidos= new String [Linies];
+  int  y=0;
+  while (msql.next()) {
+    selectValuesLeidos[y] = msql.getString("Titulo");
+    y++;
+  }
+//seleccionar autores de los libros no leidos  
+ 
+  String N = "SELECT `Titulo` FROM `Libro` WHERE `Estado`='No Leido'";
+  msql.query(N);
+  String [] selectValuesNoLeidos= new String [Linies];
+  int  d=0;
+  while (msql.next()) {
+    selectValuesNoLeidos[d] = msql.getString("Titulo");
+    d++;
+  }
     
 tListAutor1Leido = new SelectTextList(selectAutores, 70, 380, tListW, tListH);
 tListAutor2Leido = new SelectTextList (selectAutores,400, 380, tListW, tListH);
 tListEditorialLeido= new SelectTextList (selectValuesEditorial,1070, 300, tListW, tListH);
 tListTops = new SelectTextList (selectValuesTop, 300, 200, 2*tListW, tListH);
 tListRetos = new SelectTextList (selectValuesReto, 300, 200, 2*tListW, tListH);
+tListLeidos= new SelectTextList (selectValuesLeidos, 300, 200, 2*tListW, tListH);
+tListNoLeidos= new SelectTextList (selectValuesNoLeidos, 300, 200, 2*tListW, tListH);
 
 
 }
@@ -170,11 +199,7 @@ tListEditorialLeido.display();
 }
 
 
-//cards libros
-void initLibro () {
-  l1 = new Libro (info1, bUnCuento);
-  l1.setImage(this.imgs[24]);
-}
+
 
 
 void initReto(){
@@ -427,13 +452,14 @@ void displayTextArea() {
 
 Button [] buttons;
 
-Button Biblio, Biblio1, Perfil1, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1,
+Button Biblio, Biblio1, PerfilX, Perfil, Leido, Comprar, Quiero1, Quiero2, Pendientes, Pendientes1, MiLista1,
   MiLista, Empezar, Iniciar1, Iniciar2, Ver1, Ver2, AtrasP, AtrasB, AtrasR, Guardar, VerTodo, CalendarioI,
   CalendarioF, Aceptar, Leidos, Lista, ComprarB, Actuales, bUnCuento, ImagenComprado, EligeAutor1Leido, 
-  EligeAutor2Leido, EligeEditorialLeido, BuscarTops, BuscarRetos, Borrar, BorrarP;
+  EligeAutor2Leido, EligeEditorialLeido, BuscarTops, BuscarRetos, BuscarLeidos, BuscarNoLeidos,
+  Borrar, BorrarP;
 
 void initButtons () {
-  buttons = new Button [27];
+  buttons = new Button [29];
   buttons [0]= new Button ("Atrás", width-200, 50, LeidoX, LeidoY);
   buttons [1]= new Button ("BIBLIOTECA", width/3+225, height/2+100, bInX, bInY);
   buttons [2]= new Button ("Perfil", width/3, height/2+100, bInX, bInY);
@@ -461,13 +487,15 @@ void initButtons () {
   buttons [24]= new Button ("Buscar", 1000, 200, LeidoX, LeidoY);//retos
   buttons [25]= new Button ("Borrar", 500, 250, LeidoX, LeidoY);
   buttons [26]= new Button ("Borrar", 790, 730, LeidoX, LeidoY);//dentro de la pantalla
+  buttons [27]= new Button ("Buscar", 1000, 200, LeidoX, LeidoY);//leidos
+  buttons [28]= new Button ("Buscar", 1000, 200, LeidoX, LeidoY);//no leidos
   
    
   AtrasP = buttons [0];
   Biblio =buttons [1];
   Perfil =buttons [2];
   Biblio1 =buttons [3];
-  Perfil1 =buttons [4];
+  PerfilX =buttons [4];
   Iniciar1 =buttons [5];
   Ver1 = buttons [6];
   Iniciar2 =buttons [7];
@@ -490,6 +518,8 @@ void initButtons () {
   BuscarRetos = buttons [24];
   Borrar = buttons [25];
   BorrarP = buttons [26];
+  BuscarLeidos = buttons [27];
+  BuscarNoLeidos = buttons [28];
 }
 
 
@@ -506,7 +536,7 @@ void enableButtonsIniciales () {
 
 void enableButtonsMenu () {
   Biblio1.setEnabled(true);
-  Perfil1.setEnabled(true);
+  PerfilX.setEnabled(true);
 }
 
 void enableButtonsBiblioteca() {
@@ -567,7 +597,7 @@ void displayButtonsIniciales () {
 
 void displayButtonsMenu() {
   Biblio1.display1();
-  Perfil1.display1();
+  PerfilX.display1();
 }
 
 void displayButtonsBiblioteca() {

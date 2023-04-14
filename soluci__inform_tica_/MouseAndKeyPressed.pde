@@ -5,7 +5,7 @@ void mousePressed() {
     pantalla = PANTALLA.BIBLIO;
   } else if (Perfil.mouseOverButton() && Perfil.enabled) {
     pantalla = PANTALLA.PERFIL;
-  } else if (Perfil1.mouseOverButton() && Perfil1.enabled) {
+  } else if (PerfilX.mouseOverButton() && PerfilX.enabled) {
     pantalla = PANTALLA.PERFIL;
     resetFields();
   } else if (Biblio1.mouseOverButton() && Biblio1.enabled) {
@@ -91,8 +91,6 @@ void mousePressed() {
     String valorNom = TituloReto.getValue();//textField
     // Inserir en la BBDD
     insertInfoTaulaReto(valorNom, valorNumero, valorTiempo, valorGenero);
-  } else if (bUnCuento.mouseOverButton() && bUnCuento.enabled) {
-    pantalla = PANTALLA.LIBRO;
   }else if (ImagenComprado.mouseOverButton() && ImagenComprado.enabled) {
     fill(255);
     selectInput("Selecciona una imatge ...", "fileSelected");
@@ -106,9 +104,10 @@ void mousePressed() {
     selectedValor =  ""+tListTops.selectedId+"";
     println(selectedValor);
     topX = new Top(selectedValor, getInfoTaulaTop(tListTops.selectedId));
+    topX.setEnabled(true);
     topX.displayTop(width/2,height/2,TopW,TopH);     
    }else if (BuscarRetos.mouseOverButton() && BuscarRetos.enabled) {
-    selectedValor =  ""+tListRetos.selectedId+"";
+    selectedValor =  tListRetos.selectedId;
     retoX= new Reto (selectedValor);
     retoX.setImage(this.imgs[1]);
     retoX.display(width/2, height/2, retoW, retoH, 5);
@@ -125,6 +124,14 @@ void mousePressed() {
     getFontAt(4);
     b.setEnabled(true);
    
+   }else if (BuscarLeidos.mouseOverButton() && BuscarLeidos.enabled) {
+     selectedValor =  ""+tListLeidos.selectedId+"";
+     lX= new Libro (getInfoLlibre(selectedValor));
+     lX.displayInformacion();
+     //println(lX.Img);
+     //lX.setImage(lX.img);
+   }else if (BuscarNoLeidos.mouseOverButton() && BuscarNoLeidos.enabled) {
+    selectedValor =  ""+tListNoLeidos.selectedId+"";
    }
  
   // activar el cambio de color al estar encima del textField
@@ -151,6 +158,8 @@ void mousePressed() {
    tListEditorialLeido.mouseOn();
    tListTops.mouseOn();
    tListRetos.mouseOn();
+   tListNoLeidos.mouseOn();
+   tListLeidos.mouseOn();
 
 
   // actualizar el valor de los counters al pulsar + 0 -
@@ -285,6 +294,8 @@ void keyPressed () {
    tListEditorialLeido.keyOn();
    tListTops.keyOn();
    tListRetos.keyOn();
+   tListNoLeidos.keyOn();
+   tListLeidos.keyOn();
 
   // escuchar las teclas del teclado para el TextArea
   Valoracion.keyPressed(key, (int)keyCode);

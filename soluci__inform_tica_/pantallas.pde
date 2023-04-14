@@ -292,6 +292,8 @@ void borrarLibro () {
 
 void verLibrosLeidos () {
   pushStyle();
+  disableButtons();
+  BuscarLeidos.setEnabled(true);
   enableButtonsAtrasBiblioteca();
   enableButtonsLeidos();
   fill(115, 135, 123);
@@ -300,21 +302,25 @@ void verLibrosLeidos () {
   textFont(getFontAt(2));
   text("LEIDOS", 250, 60);
   displayButtonsAtrasBiblioteca();
-  libros();
+  tListLeidos.display();
+  BuscarLeidos.display1();
   popStyle();
 }
 
 
-void verMiLista () {
+void verLibrosNoLeidos () {
   pushStyle();
+  disableButtons();
+  BuscarNoLeidos.setEnabled(true);
   enableButtonsAtrasBiblioteca();
   fill(115, 135, 123);
   rect(0, 0, menuWidth, menuHeight);
   fill(0);
   textFont(getFontAt(2));
-  text("COMPRAR", 250, 60);
+  text("NO LEIDOS", 250, 60);
   displayButtonsAtrasBiblioteca();
-  libros();
+  tListNoLeidos.display();
+  BuscarNoLeidos.display1();
   popStyle();
 }
 

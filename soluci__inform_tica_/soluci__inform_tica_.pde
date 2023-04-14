@@ -47,10 +47,7 @@ void draw() {
     verLibrosLeidos ();
     break;
   case COMPRAR:
-    verMiLista ();
-    break;
-  case LIBRO:
-    l1.displayInformacion();
+    verLibrosNoLeidos ();
     break;
   case BORRARLIBRO:
     borrarLibro();

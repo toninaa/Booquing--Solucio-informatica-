@@ -3,6 +3,7 @@ class Top {
   // properties
   String titulo;
   String[] libros;
+  boolean enabled; 
 
   // Constructor
   Top(String titulo, String[] libros) {
@@ -12,6 +13,10 @@ class Top {
     } else {
       this.libros = libros;
     }
+  }
+  
+  void setEnabled(boolean b) {
+    this.enabled = b;
   }
 
   void displayTop(int x, int y, int w, int h) {
@@ -33,7 +38,9 @@ class Top {
     textSize(25);
     textFont(getFontAt(5));
     textAlign(LEFT);
+    println("tamany" + libros.length);
     for (int i = 0; i < libros.length; i++) {
+      println("llibre" + libros[i]);
       text(libros[i], x + 20, y + 75 + i * 25);
     }
 
